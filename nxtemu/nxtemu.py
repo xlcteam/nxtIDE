@@ -56,7 +56,8 @@ class Robot(NXTBrick):
         self.dragged = False 
         self.dragoffset = [] 
         #self.image = pygame.image.load("./robot.jpg").convert()
-        self.image = pygame.image.load("./robot.png").convert_alpha()  # imgs.robot.convert()
+        path = os.path.dirname(os.path.abspath(sys.argv[0]))
+        self.image = pygame.image.load(path + "/robot.png").convert_alpha()  # imgs.robot.convert()
         #self.image = pygame.image.load("black_and_blacker.png").convert_alpha()
 
         self.lock = Lock()

@@ -148,7 +148,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         # run an exe application if on Windows, otherwise py script
         extension = 'exe' if wx.Platform == '__WXMSW__' else 'py'
         nxtemu = "%s/nxtemu.%s" % (self.parent.cfg["nxtemu"], extension)
-
+        
         self.emuproc = subprocess.Popen([nxtemu, 
                                          self.filename.replace('.py', '')],
                                          stdin = subprocess.PIPE,
