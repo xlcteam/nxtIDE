@@ -117,10 +117,15 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             msg = "NameError: %s on line %d" % nr.args
             self.editor.GotoLine(nr.args[1] - 1)
             self.parent.showMsg(msg)
+            
+            return False
+
         except SyntaxError as se:
             msg = "SyntaxError: on line %d" % se.args[1][1]
             self.editor.GotoLine(se.args[1][1] - 1)
             self.parent.showMsg(msg)
+
+            return False
 
         self.parent.statusbar.SetStatusText("Compiled...OK")
 
@@ -133,9 +138,13 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         f.write(pycheck.loopFix(self.editor.GetText(), "ticker()"))
         f.close()
 
+        return True
+
     def onEmuRun(self, event):
         
-        self.onCompile(event = None)
+        # do not run in emulator if there is a syntax or name error
+        if not self.onCompile(event = None):
+            return
         
         if self.emuproc != None:
             try:

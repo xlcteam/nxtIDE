@@ -113,7 +113,7 @@ chars =[[0x00,0x00,0x00,0x00,0x00],
     ]
 
 
-def dieTest():
+def _dieTest():
     with robot.lock:
         if robot.die:
             robot.die = False
@@ -121,7 +121,7 @@ def dieTest():
 
 
 def PointOut(x, y):
-    dieTest()
+    _dieTest()
     x, y = makeXY(x, y)
     
     #print y
@@ -134,7 +134,7 @@ def PointOut(x, y):
    
 
 
-def printChar(x, y, char):                                            
+def _printChar(x, y, char):                                            
     """ Low level function for printing chars on the Surface"""                 
 
     char = ord(char)                                                        
@@ -164,7 +164,7 @@ LCD_LINE8 =  8
 def TextOut(x, y, text):
     """ High level function for printing text on surface """
     for char in list(text):
-        printChar(x, y, char)
+        _printChar(x, y, char)
         x += 6
 
 def NumOut(x, y, num):
@@ -262,7 +262,7 @@ def ClearScreen():
 def Wait(sec):
     while sec > 1:
         sec -= pygame.time.delay(100)
-        dieTest()
+        _dieTest()
 
 
 OUT_A = 1
@@ -272,14 +272,9 @@ OUT_AB = 3
 OUT_BC = 6
 OUT_ABC = 7
 
-def mod(i, j):
-    if i < 0:
-        return -(i % j)
-    else:
-        return (i % j)
 
 def OnFwd(motor, speed):
-    dieTest()
+    _dieTest()
 
     if speed <= -100:
         speed = -100
@@ -298,7 +293,7 @@ def OnFwd(motor, speed):
             robot.mC = speed
 
 def OnRev(motor, speed):
-    dieTest()
+    _dieTest()
     speed = -speed
     
     if speed <= -100:
@@ -318,7 +313,7 @@ def OnRev(motor, speed):
             robot.mC = speed
 
 def Off(motor):
-    dieTest()
+    _dieTest()
     with robot.lock:
         if motor & OUT_A:
             robot.mA = 0
@@ -336,7 +331,7 @@ def Coast(motor):
     return Off(motor)
 
 def MotorTachoCount(motor):
-    dieTest()
+    _dieTest()
     if motor & OUT_A:
         return robot.rotA
 
@@ -351,11 +346,11 @@ def RotateMotor(motor, speed, angle):
     OnFwd(motor, speed)
     clock = pygame.time.Clock()
     while MotorTachoCount(motor) < angle:
-        dieTest()
+        _dieTest()
         clock.tick(20)
 
 def ResetTachoCount(motor):
-    dieTest()
+    _dieTest()
     with robot.lock:
         if motor & OUT_A:
             robot.rotA = 0
@@ -378,16 +373,16 @@ def Random(a = None):
 __clock__ = pygame.time.Clock()
 def ticker():
     __clock__.tick(20)
-    dieTest()
+    _dieTest()
     
 
 #   def tracer(frame, a, b):
-#       #dieTest()
+#       #_dieTest()
 #       f = os.path.basename(frame.f_back.f_code.co_filename)
 #       print f
 
 #       if f.startswith('e'):
-#           dieTest()
+#           _dieTest()
 #       return tracer
 
 #   import threading

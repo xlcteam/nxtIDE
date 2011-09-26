@@ -6,4 +6,4 @@ def main():
     OnRev(OUT_B, 100)
     while 1:
         ticker()#lfixed
-        pass    
+        pass 

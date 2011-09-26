@@ -42,6 +42,9 @@ else:
               'size2': 10,
              }
 
+#   for x in dir(api):
+#       print type(getattr(api, x)), x
+
 
 #----------------------------------------------------------------------
 
@@ -198,6 +201,12 @@ class PythonSTC(stc.StyledTextCtrl):
         key = event.GetKeyCode()
  
         if key == 13:
+            
+            # using exe for completion
+            if self.AutoCompActive():
+                self.AutoCompComplete()
+                return
+
             c = self.GetCharAt(self.GetCurrentPos() - 1)
             self.indent = self.getIndent(self.GetCurLine()[0])
             if c == 58:
@@ -263,9 +272,10 @@ class PythonSTC(stc.StyledTextCtrl):
            #    kw.sort()
            #    
            #    self.complete += chr(charBefore)
-
-           #    self.AutoCompShow(0, " ".join(kw))
-           #    self.AutoCompSelect(self.complete)
+           #    if not self.AutoCompActive():
+           #        self.AutoCompShow(0, " ".join(kw))
+           #    else:
+           #        self.AutoCompSelect(self.complete)
            #else:
            #    self.complete = ""
 
