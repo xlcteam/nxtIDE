@@ -73,7 +73,7 @@ class Robot(NXTBrick):
             ((0, 0), (204, 130)))
 
         if wboot:
-            print "booting"
+            #print "booting"
             RoboThread(target=self.boot).start()
         
 
@@ -143,7 +143,7 @@ class Robot(NXTBrick):
         self.angle += angle
         p = (rotA + rotB) / 2 / 1.8
         
-        # print self.angle, self.mA, self.mB, self
+        # #print self.angle, self.mA, self.mB, self
 
         self.rotA += rotA
         self.rotB += rotB
@@ -175,7 +175,7 @@ class Robot(NXTBrick):
             self.scrout()
         
             
-        print "center"
+        #print "center"
 
     def onBack(self):
         
@@ -189,17 +189,17 @@ class Robot(NXTBrick):
         else:
             self.die = True
 
-        print "back"
+        #print "back"
     
     def onLeft(self):
-        print "left"
+        #print "left"
         if self.screen == 2:
             self.prog = (self.prog + 1) % len(self.progs)
 
         self.scrout()
 
     def onRight(self):
-        print "right"
+        #print "right"
         if self.screen == 2:
             self.prog = (self.prog - 1) % len(self.progs)
 
@@ -215,7 +215,7 @@ class Robot(NXTBrick):
 
         self.screen -= 1
         self.scrout()
-        print "cleaner"
+        #print "cleaner"
 
 if __name__ == "__main__":
     
@@ -228,7 +228,7 @@ if __name__ == "__main__":
 
         prog = sys.argv[1]
         robot.progLoad()
-        print robot.progs
+        #print robot.progs
        
         robot.prog = robot.progs.index(prog)
         robot.screen = 3
@@ -260,6 +260,7 @@ if __name__ == "__main__":
                 clicker.process(pygame.mouse.get_pos())
             
             if event.type == QUIT: 
+                robot.die = True
                 running = False
                 sys.exit(0)
 

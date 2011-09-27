@@ -1,7 +1,7 @@
 import pygame, sys, os.path
 from robothread import RoboException
 
-def makeXY(x, y):                                                     
+def _makeXY(x, y):                                                     
     """ Generates real x,y from NXT like x,y """                            
     if x*2+2 <= 200:
         rx = x*2+2
@@ -122,7 +122,7 @@ def _dieTest():
 
 def PointOut(x, y):
     _dieTest()
-    x, y = makeXY(x, y)
+    x, y = _makeXY(x, y)
     
     #print y
     with robot.lock:
@@ -212,7 +212,7 @@ def LineOut(x0, y0, x1, y1):
     
 
 def CircleOut(x, y, radius):
-    #x,y = makeXY(x, y)
+    #x,y = _makeXY(x, y)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+1, 1)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+2, 1)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+3, 1)
