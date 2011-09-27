@@ -110,7 +110,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.parent.hideMsg()
 
         check = pycheck.PyCheck()
-        check.check("api.py")
+        check.check(self.parent.cfg['nxtemu'] + "/api.py")
         try:
             check.check(self.path)
         except NameError as nr:
@@ -122,7 +122,11 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
         except SyntaxError as se:
             msg = "SyntaxError: on line %d" % se.args[1][1]
-            self.editor.GotoLine(se.args[1][1] - 1)
+            
+            pos = self.editor.GetLineEndPosition(se.args[1][1] - 2)
+            pos += se.args[1][2]
+
+            self.editor.GotoPos(pos)
             self.parent.showMsg(msg)
 
             return False
@@ -135,7 +139,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                  (self.parent.cfg["nxtemu"], self.filename), "w")
 
         f.write("from api import *\n")
-        f.write(pycheck.loopFix(self.editor.GetText(), "ticker()"))
+        f.write(pycheck.loopFix(self.editor.GetText(), "_ticker()"))
         f.close()
 
         return True

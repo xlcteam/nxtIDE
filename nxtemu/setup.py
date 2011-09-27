@@ -2,7 +2,7 @@ from distutils.core import setup
 import os
 import py2exe
  
-data_files = ['brick.jpg', 'robot.png']
+data_files = ['brick.jpg', 'robot.png', 'api.py']
 includes = []
 excludes = [] #['_gtkagg', '_tkagg', 'bsddb', 'curses', 'email', 'pywin.debugger',
            # 'pywin.debugger.dbgcon', 'pywin.dialogs', 'tcl',

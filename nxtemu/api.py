@@ -121,6 +121,7 @@ def _dieTest():
 
 
 def PointOut(x, y):
+    """PointOut(x, y)"""
     _dieTest()
     x, y = _makeXY(x, y)
     
@@ -162,23 +163,27 @@ LCD_LINE7 = 16
 LCD_LINE8 =  8
 
 def TextOut(x, y, text):
-    """ High level function for printing text on surface """
+    """TextOut(x, y, text)
+    High level function for printing text on surface """
+
     for char in list(text):
         _printChar(x, y, char)
         x += 6
 
 def NumOut(x, y, num):
-    """ The same as TextOut but for integers """
+    """NumOut(x, y, num)
+    The same as TextOut but for integers """
+
     
     num = str(num)
     TextOut(x, y, num)
     
 
 def LineOut(x0, y0, x1, y1):
-    """ 
+    """LineOut(x0, y0, x1, y1)
+    
     Function for printing line from [x1,y1] to [x2,y2] 
-    It is just a simple implementation of Bresenham's algorithm 
-    """
+    It is just a simple implementation of Bresenham's algorithm"""
 
     steep = abs(y1 - y0) > abs(x1 - x0)
     if steep:
@@ -212,6 +217,7 @@ def LineOut(x0, y0, x1, y1):
     
 
 def CircleOut(x, y, radius):
+    """CircleOut(x, y, radius)"""
     #x,y = _makeXY(x, y)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+1, 1)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+2, 1)
@@ -249,17 +255,23 @@ def CircleOut(x, y, radius):
 
 # TODO
 def RectOut(x, y, width, height):
+    """RectOut(x, y, width, height)"""
+
     LineOut(x, y, x + width, y )
     LineOut(x, y - height, x + width, y - height)
     LineOut(x + width, y, x + width, y - height )
 
 
 def ClearScreen():
+    """ClearScreen()"""
+
     with robot.lock:
         pygame.draw.rect(robot.lcd, pygame.Color(0x43, 0x6c, 0x30), 
             ((0, 0), (204, 130)))
 
 def Wait(sec):
+    """Wait(sec)"""
+
     while sec > 1:
         sec -= pygame.time.delay(100)
         _dieTest()
@@ -270,10 +282,13 @@ OUT_B = 2
 OUT_C = 4
 OUT_AB = 3
 OUT_BC = 6
+OUT_AC = 5
 OUT_ABC = 7
 
 
 def OnFwd(motor, speed):
+    """OnFwd(motor, speed)"""
+
     _dieTest()
 
     if speed <= -100:
@@ -293,6 +308,8 @@ def OnFwd(motor, speed):
             robot.mC = speed
 
 def OnRev(motor, speed):
+    """OnRev(motor, speed)"""
+
     _dieTest()
     speed = -speed
     
@@ -313,6 +330,8 @@ def OnRev(motor, speed):
             robot.mC = speed
 
 def Off(motor):
+    """Off(motor)"""
+
     _dieTest()
     with robot.lock:
         if motor & OUT_A:
@@ -325,12 +344,18 @@ def Off(motor):
             robot.mC = 0
 
 def Float(motor):
+    """Float(motor)"""
+
     return Off(motor)
 
 def Coast(motor):
+    """Coast(motor)"""
+
     return Off(motor)
 
 def MotorTachoCount(motor):
+    """MotorTachoCount(motor)"""
+
     _dieTest()
     if motor & OUT_A:
         return robot.rotA
@@ -343,6 +368,8 @@ def MotorTachoCount(motor):
 
 
 def RotateMotor(motor, speed, angle):
+    """RotateMotor(motor, speed, angle)"""
+
     OnFwd(motor, speed)
     clock = pygame.time.Clock()
     while MotorTachoCount(motor) < angle:
@@ -350,6 +377,8 @@ def RotateMotor(motor, speed, angle):
         clock.tick(20)
 
 def ResetTachoCount(motor):
+    """ResetTachoCount(motor)"""
+
     _dieTest()
     with robot.lock:
         if motor & OUT_A:
@@ -362,16 +391,18 @@ def ResetTachoCount(motor):
             robot.rotC = 0
 
 
-def Random(a = None):
+def Random(n = None):
+    """Random(n = 0)"""
+
     import random
-    if a is None:
+    if n is None:
         return random.randint(-32767, 32767)
     else:
-        return random.randint(0, a-1)
+        return random.randint(0, n-1)
     
 
 __clock__ = pygame.time.Clock()
-def ticker():
+def _ticker():
     __clock__.tick(20)
     _dieTest()
     

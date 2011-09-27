@@ -2,7 +2,7 @@ from distutils.core import setup
 import py2exe, yaml
 from glob import *
  
-data_files = ['config.yml', 'api.py']
+data_files = ['config.yml']
 data_files += glob('dlls/*.dll')
 
 includes = []
