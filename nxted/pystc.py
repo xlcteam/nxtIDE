@@ -79,12 +79,13 @@ class PythonSTC(stc.StyledTextCtrl):
         self.SetEdgeColumn(78)
 
         # Setup a margin to hold fold markers
-        #self.SetFoldFlags(16)  ###  WHAT IS THIS VALUE?  WHAT ARE THE OTHER FLAGS?  DOES IT MATTER?
+        self.SetFoldFlags(16)  ###  WHAT IS THIS VALUE?  WHAT ARE THE OTHER FLAGS?  DOES IT MATTER?
         self.SetMarginType(2, stc.STC_MARGIN_SYMBOL)
         self.SetMarginMask(2, stc.STC_MASK_FOLDERS)
         self.SetMarginSensitive(2, True)
         self.SetMarginWidth(2, 12)
 
+        # Tabbing settings
         self.SetIndent(4)
         self.SetUseTabs(0)
         self.SetTabWidth(4)
@@ -202,7 +203,7 @@ class PythonSTC(stc.StyledTextCtrl):
  
         if key == 13:
             
-            # using exe for completion
+            # using enter for completion
             if self.AutoCompActive():
                 self.AutoCompComplete()
                 return
@@ -233,6 +234,8 @@ class PythonSTC(stc.StyledTextCtrl):
                 #st = " ".join(lst)
                 #print len(st)
                 #self.AutoCompShow(0, st)
+                
+                id = self.getIdentifier()
 
                 kw = keyword.kwlist[:]
                 kw.append("zzzzzz?2")
@@ -241,7 +244,7 @@ class PythonSTC(stc.StyledTextCtrl):
                 kw.append("zzaaaaa?2")
                 kw.append("zzbaaaa?2")
                 kw.append("this_is_a_longer_value")
-                #kw.append("this_is_a_much_much_much_much_much_much_much_longer_value")
+                kw.append("this_is_a_much_much_much_much_much_much_much_longer_value")
 
                 kw.sort()  # Python sorts are case sensitive
                 self.AutoCompSetIgnoreCase(False)  # so this needs to match
@@ -251,7 +254,7 @@ class PythonSTC(stc.StyledTextCtrl):
                     if kw[i] in keyword.kwlist:
                         kw[i] = kw[i] + "?1"
 
-                self.AutoCompShow(0, " ".join(kw))
+                self.AutoCompShow(len(id), " ".join(kw))
         else:
             event.Skip()
 
@@ -396,7 +399,25 @@ class PythonSTC(stc.StyledTextCtrl):
         return line
     
     def getIndent(self, string):
+        """Returns string used as indentation in given string"""
+
         return re.match('([ \t]*).*', string).groups()[0]
+    
+    def getIdentifier(self):
+        """Returns text marked as IDENTIFIER. Starts at current position""" 
+
+        out = ""
+        pos = self.GetCurrentPos() - 1
+
+        while self.GetStyleAt(pos) == stc.STC_P_IDENTIFIER:
+            out = chr(self.GetCharAt(pos)) + out
+            pos -= 1
+
+        return out
+            
+
+        
+        
 
 #----------------------------------------------------------------------
 testCode = """
