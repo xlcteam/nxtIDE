@@ -1,11 +1,12 @@
 
 import  keyword
-import yaml
 
 import  wx
 import  wx.stc  as  stc
 
 import re
+
+import helper
 
 #----------------------------------------------------------------------
 
@@ -195,12 +196,28 @@ class PythonSTC(stc.StyledTextCtrl):
         self.AutoCompSetDropRestOfWord(True)
         self.AutoCompSetFillUps("\t")
         self.AutoCompSetCancelAtStart(True)
+        
+        self.api = helper.getAPI()
+
 
     def OnKeyPressed(self, event):
-        if self.CallTipActive():
-            self.CallTipCancel()
         key = event.GetKeyCode()
- 
+        
+        pos = self.GetCurrentPos()
+        
+
+        # Showing CallTip
+        if key == ord('('):
+            style = self.GetStyleAt(pos - 1)
+            if style == stc.STC_P_IDENTIFIER:
+                id = self.getIdentifier(pos - 1)
+                self.CallTipShow(pos - len(id), self.api[id])
+                                 
+                                 
+        # Hiding CallTip
+        if key == ord(')'):
+            self.CallTipCancel()
+
         if key == 13:
             
             # using enter for completion
@@ -237,7 +254,7 @@ class PythonSTC(stc.StyledTextCtrl):
                 
                 id = self.getIdentifier()
 
-                kw = keyword.kwlist[:]
+                kw = keyword.kwlist[:] + self.api.keys()
                 kw.append("zzzzzz?2")
                 kw.append("aaaaa?2")
                 kw.append("__init__?3")
@@ -403,11 +420,12 @@ class PythonSTC(stc.StyledTextCtrl):
 
         return re.match('([ \t]*).*', string).groups()[0]
     
-    def getIdentifier(self):
+    def getIdentifier(self, pos = None):
         """Returns text marked as IDENTIFIER. Starts at current position""" 
 
         out = ""
-        pos = self.GetCurrentPos() - 1
+        if pos is None:
+            pos = self.GetCurrentPos() - 1 
 
         while self.GetStyleAt(pos) == stc.STC_P_IDENTIFIER:
             out = chr(self.GetCharAt(pos)) + out
