@@ -22,8 +22,12 @@ screen = pygame.display.get_surface()
 
 background = pygame.Surface(screen.get_size()) 
 background = background.convert() 
+
+
 pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (640, 480)))
 pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (634, 474)))
+
+# background.blit(pygame.image.load("./line.jpg"), (3, 3))
 
 pygame.display.set_caption("nxtemu")
 # background.blit(pygame.image.load("brick.jpg").convert(), (640, 0))

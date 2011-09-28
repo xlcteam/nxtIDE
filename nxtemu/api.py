@@ -1,7 +1,7 @@
 import pygame, sys, os.path
 from robothread import RoboException
 
-def _makeXY(x, y):                                                     
+def makeXY(x, y):                                                     
     """ Generates real x,y from NXT like x,y """                            
     if x*2+2 <= 200:
         rx = x*2+2
@@ -113,7 +113,7 @@ chars =[[0x00,0x00,0x00,0x00,0x00],
     ]
 
 
-def _dieTest():
+def dieTest():
     with robot.lock:
         if robot.die:
             robot.die = False
@@ -122,8 +122,8 @@ def _dieTest():
 
 def PointOut(x, y):
     """PointOut(x, y)"""
-    _dieTest()
-    x, y = _makeXY(x, y)
+    dieTest()
+    x, y = makeXY(x, y)
     
     #print y
     with robot.lock:
@@ -135,7 +135,7 @@ def PointOut(x, y):
    
 
 
-def _printChar(x, y, char):                                            
+def printChar(x, y, char):                                            
     """ Low level function for printing chars on the Surface"""                 
 
     char = ord(char)                                                        
@@ -167,7 +167,7 @@ def TextOut(x, y, text):
     High level function for printing text on surface """
 
     for char in list(text):
-        _printChar(x, y, char)
+        printChar(x, y, char)
         x += 6
 
 def NumOut(x, y, num):
@@ -218,7 +218,7 @@ def LineOut(x0, y0, x1, y1):
 
 def CircleOut(x, y, radius):
     """CircleOut(x, y, radius)"""
-    #x,y = _makeXY(x, y)
+    #x,y = makeXY(x, y)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+1, 1)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+2, 1)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+3, 1)
@@ -274,7 +274,7 @@ def Wait(sec):
 
     while sec > 1:
         sec -= pygame.time.delay(100)
-        _dieTest()
+        dieTest()
 
 
 OUT_A = 1
@@ -289,7 +289,7 @@ OUT_ABC = 7
 def OnFwd(motor, speed):
     """OnFwd(motor, speed)"""
 
-    _dieTest()
+    dieTest()
 
     if speed <= -100:
         speed = -100
@@ -310,7 +310,7 @@ def OnFwd(motor, speed):
 def OnRev(motor, speed):
     """OnRev(motor, speed)"""
 
-    _dieTest()
+    dieTest()
     speed = -speed
     
     if speed <= -100:
@@ -332,7 +332,7 @@ def OnRev(motor, speed):
 def Off(motor):
     """Off(motor)"""
 
-    _dieTest()
+    dieTest()
     with robot.lock:
         if motor & OUT_A:
             robot.mA = 0
@@ -356,7 +356,7 @@ def Coast(motor):
 def MotorTachoCount(motor):
     """MotorTachoCount(motor)"""
 
-    _dieTest()
+    dieTest()
     if motor & OUT_A:
         return robot.rotA
 
@@ -373,13 +373,13 @@ def RotateMotor(motor, speed, angle):
     OnFwd(motor, speed)
     clock = pygame.time.Clock()
     while MotorTachoCount(motor) < angle:
-        _dieTest()
+        dieTest()
         clock.tick(20)
 
 def ResetTachoCount(motor):
     """ResetTachoCount(motor)"""
 
-    _dieTest()
+    dieTest()
     with robot.lock:
         if motor & OUT_A:
             robot.rotA = 0
@@ -402,18 +402,18 @@ def Random(n = None):
     
 
 __clock__ = pygame.time.Clock()
-def _ticker():
+def ticker():
+    dieTest()
     __clock__.tick(20)
-    _dieTest()
     
 
 #   def tracer(frame, a, b):
-#       #_dieTest()
+#       #dieTest()
 #       f = os.path.basename(frame.f_back.f_code.co_filename)
 #       print f
 
 #       if f.startswith('e'):
-#           _dieTest()
+#           dieTest()
 #       return tracer
 
 #   import threading
