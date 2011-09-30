@@ -136,6 +136,7 @@ class PythonSTC(stc.StyledTextCtrl):
         self.Bind(stc.EVT_STC_UPDATEUI, self.OnUpdateUI)
         self.Bind(stc.EVT_STC_MARGINCLICK, self.OnMarginClick)
         self.Bind(wx.EVT_KEY_DOWN, self.OnKeyPressed)
+        self.Bind(wx.EVT_CHAR, self.OnChar)
 
 
 
@@ -199,26 +200,34 @@ class PythonSTC(stc.StyledTextCtrl):
         
         self.api = helper.getAPI()
 
+    
+    def OnChar(self, event):
+        key = event.GetKeyCode()
+        
+        pos = self.GetCurrentPos()
+        
+        # Showing CallTip
+        if key == ord('('):
+            style = self.GetStyleAt(pos - 1)
+            if style == stc.STC_P_IDENTIFIER:
+                id = self.getIdentifier(pos - 1)
+                if id in self.api:
+                    self.CallTipShow(pos - len(id), self.api[id])
+                                 
+                                 
+        # Hiding CallTip
+        if key == ord(')'):
+            self.CallTipCancel()
+        
+        event.Skip()
 
     def OnKeyPressed(self, event):
         key = event.GetKeyCode()
         
         pos = self.GetCurrentPos()
         
-
-        # Showing CallTip
-        if key == ord('('):
-            style = self.GetStyleAt(pos - 1)
-            if style == stc.STC_P_IDENTIFIER:
-                id = self.getIdentifier(pos - 1)
-                self.CallTipShow(pos - len(id), self.api[id])
-                                 
-                                 
-        # Hiding CallTip
-        if key == ord(')'):
-            self.CallTipCancel()
-
-        if key == 13:
+        
+        if key == wx.WXK_RETURN:
             
             # using enter for completion
             if self.AutoCompActive():
