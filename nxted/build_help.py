@@ -1,5 +1,6 @@
+#!/usr/bin/env python
 
-import sys
+import sys, yaml
 sys.path.append('../nxtemu/')
 
 
@@ -21,4 +22,7 @@ def getAPI():
 
 if __name__ == "__main__":
     api = getAPI()
-    print api['Random']
+
+    f = open('help.yml', 'w')
+    f.write(yaml.dump(api, default_flow_style=False))
+    f.close()

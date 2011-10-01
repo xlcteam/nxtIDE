@@ -1,5 +1,18 @@
-
-TextOut: [TextOut(int x, int y, string text),
-            a teraz]
-
-
+CircleOut: CircleOut(x, y, radius)
+ClearScreen: ClearScreen()
+Coast: Coast(motor)
+Float: Float(motor)
+LineOut: "LineOut(x0, y0, x1, y1)\n    \n    Function for printing line from [x1,y1]\
+  \ to [x2,y2] \n    It is just a simple implementation of Bresenham's algorithm"
+MotorTachoCount: MotorTachoCount(motor)
+NumOut: "NumOut(x, y, num)\n    The same as TextOut but for integers "
+'Off': Off(motor)
+OnFwd: OnFwd(motor, speed)
+OnRev: OnRev(motor, speed)
+PointOut: PointOut(x, y)
+Random: Random(n = 0)
+RectOut: RectOut(x, y, width, height)
+ResetTachoCount: ResetTachoCount(motor)
+RotateMotor: RotateMotor(motor, speed, angle)
+TextOut: "TextOut(x, y, text)\n    High level function for printing text on surface "
+Wait: Wait(sec)
