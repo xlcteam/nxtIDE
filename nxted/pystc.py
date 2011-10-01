@@ -6,7 +6,7 @@ import  wx.stc  as  stc
 
 import re
 
-import yaml, os.path
+import yaml, os.path, sys
 
 #----------------------------------------------------------------------
 
@@ -197,10 +197,10 @@ class PythonSTC(stc.StyledTextCtrl):
         self.AutoCompSetDropRestOfWord(True)
         self.AutoCompSetFillUps("\t")
         self.AutoCompSetCancelAtStart(True)
-        
-        
-        file = os.path.abspath('.') + '/help.yml'
-        self.api = yaml.load(open(file))
+
+
+        root = os.path.split(os.path.abspath(__file__))[0] 
+        self.api = yaml.load(open(root + '/help.yml'))
 
     
     def OnChar(self, event):
@@ -266,21 +266,16 @@ class PythonSTC(stc.StyledTextCtrl):
                 id = self.getIdentifier()
 
                 kw = keyword.kwlist[:] + self.api.keys()
-                kw.append("zzzzzz?2")
-                kw.append("aaaaa?2")
-                kw.append("__init__?3")
-                kw.append("zzaaaaa?2")
-                kw.append("zzbaaaa?2")
+                #kw.append("zzzzzz?2")
+               #kw.append("aaaaa?2")
+               #kw.append("__init__?3")
+               #kw.append("zzaaaaa?2")
+               #kw.append("zzbaaaa?2")
                 kw.append("this_is_a_longer_value")
                 kw.append("this_is_a_much_much_much_much_much_much_much_longer_value")
 
                 kw.sort()  # Python sorts are case sensitive
                 self.AutoCompSetIgnoreCase(False)  # so this needs to match
-
-                # Images are specified with a appended "?type"
-                for i in range(len(kw)):
-                    if kw[i] in keyword.kwlist:
-                        kw[i] = kw[i] + "?1"
 
                 self.AutoCompShow(len(id), " ".join(kw))
         else:
