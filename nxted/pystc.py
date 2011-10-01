@@ -6,7 +6,7 @@ import  wx.stc  as  stc
 
 import re
 
-import helper
+import yaml, os.path
 
 #----------------------------------------------------------------------
 
@@ -198,7 +198,9 @@ class PythonSTC(stc.StyledTextCtrl):
         self.AutoCompSetFillUps("\t")
         self.AutoCompSetCancelAtStart(True)
         
-        self.api = helper.getAPI()
+        
+        file = os.path.abspath('.') + '/help.yml'
+        self.api = yaml.load(open(file))
 
     
     def OnChar(self, event):
