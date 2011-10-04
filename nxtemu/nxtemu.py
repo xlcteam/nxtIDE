@@ -15,7 +15,16 @@ from clicker import Clicker
 pygame.init() 
 
 w = 640 
-h = 480 
+h = 480
+
+yspeed = 0
+xspeed = 0
+maxspeed = 4
+minspeed = -4
+stop = 0
+accel = 0.1
+yup = True
+xleft = True
 
 window = pygame.display.set_mode((w+378,h)) 
 screen = pygame.display.get_surface() 
@@ -40,7 +49,9 @@ class Robot(NXTBrick):
         self.x = w/2 
         self.y = h/2 
         self.angle = 0
-
+        
+        
+        
         self.mA = 0
         self.mB = 0
         self.mC = 0
@@ -284,19 +295,87 @@ if __name__ == "__main__":
         keystate = pygame.key.get_pressed()
         mod = pygame.key.get_mods()
 
+        # move robot by keys
         if keystate[K_LEFT] and mod & KMOD_SHIFT:
             robot.angle -= 1
         elif keystate[K_RIGHT] and mod & KMOD_SHIFT:
             robot.angle += 1
 
         elif keystate[K_LEFT]:
-            robot.x -= 1
+            xleft = True
+            if xspeed < maxspeed:
+                xspeed += accel
+                robot.x -= xspeed
+            if xspeed >= maxspeed:
+                xspeed = maxspeed
+                robot.x -= xspeed
         elif keystate[K_RIGHT]:
-            robot.x += 1
+            xleft = False
+            if xspeed < maxspeed:
+                xspeed += accel
+                robot.x += xspeed
+            if xspeed >= maxspeed:
+                xspeed = maxspeed
+                robot.x += xspeed
         elif keystate[K_UP]:
             robot.y -= 1
         elif keystate[K_DOWN]:
             robot.y += 1
+
+        if keystate[K_UP]:
+            yup = True
+            if yspeed < maxspeed:
+                yspeed += accel
+                robot.y -= yspeed
+            if yspeed >= maxspeed:
+                yspeed = maxspeed
+                robot.y -= yspeed
+
+        elif keystate[K_DOWN]:
+            yup = False
+            if yspeed < maxspeed:
+                yspeed += accel
+                robot.y += yspeed
+            if yspeed >= maxspeed:
+                yspeed = maxspeed
+                robot.y += yspeed
+
+
+
+        
+        # if keys aren't push
+        if (not(keystate[K_LEFT]) and not(keystate[K_RIGHT])):
+            if xspeed < stop:
+                xspeed += accel
+                if xleft:
+                    robot.x -= xspeed
+                else:
+                    robot.x += xspeed
+            if xspeed > stop:
+                xspeed -= accel
+                if xleft:
+                    robot.x -= xspeed
+                else:
+                    robot.x += xspeed
+            if round(xspeed, 5) == stop:
+                xspeed = stop
+
+        if (not(keystate[K_UP]) and not(keystate[K_DOWN])):
+            if yspeed < stop:
+                yspeed += accel
+                if yup:
+                    robot.y -= yspeed
+                else:
+                    robot.y += yspeed
+            if yspeed > stop:
+                yspeed -= accel
+                if yup:
+                    robot.y -= yspeed
+                else:
+                    robot.y += yspeed
+            if round(yspeed, 5) == stop:
+                yspeed = stop
+
 
         if robot.dragged: 
             robot.draw() 
