@@ -132,7 +132,16 @@ def PointOut(x, y):
         robot.lcd.set_at((x + 1, y + 1), (0, 0, 0))
         robot.lcd.set_at((x, y + 1), (0, 0, 0))
 
-   
+def clearPoint(x, y):
+    dieTest()
+    x, y = makeXY(x, y)
+
+    with robot.lock:
+        robot.lcd.set_at((x, y), (0x43, 0x6c, 0x30))
+        robot.lcd.set_at((x + 1, y), (0x43, 0x6c, 0x30))
+        robot.lcd.set_at((x + 1, y + 1), (0x43, 0x6c, 0x30))
+        robot.lcd.set_at((x, y + 1), (0x43, 0x6c, 0x30))
+
 
 
 def printChar(x, y, char):                                            
@@ -149,7 +158,9 @@ def printChar(x, y, char):
     for line in data:                                                       
         for z in range(0,8):                                                
             if line << z & 0b10000000:                                      
-                PointOut(x,y- (8 - z))                                       
+                PointOut(x,y-(8-z))                                       
+            else:
+                clearPoint(x, y-(8-z))
         x += 1   
 
 
@@ -272,6 +283,20 @@ def ClearScreen():
     with robot.lock:
         pygame.draw.rect(robot.lcd, pygame.Color(0x43, 0x6c, 0x30), 
             ((0, 0), (204, 130)))
+
+def ClearLine(line):
+    """ClearLine(line)
+    
+    Clears one line on the screen."""
+    
+    #x, y = makeXY(0, line)
+    #x1, y1 = makeXY(100, line-8)
+
+    #with robot.lock:
+    #    pygame.draw.rect(robot.lcd, pygame.Color(0x43, 0x6c, 0x30),
+    #        ((x, y), (x1, y1)))
+    TextOut(0, line, 16*" ")
+
 
 def Wait(sec):
     """Wait(sec)"""

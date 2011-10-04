@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 import pygame, random, math, time, sys, os
 from pygame.locals import * 
 from robothread import *
@@ -180,7 +179,10 @@ class Robot(NXTBrick):
                 self.proc = RoboThread(target=module.main,
                                        cleaner=self.cleaner)        
                 ClearScreen()
+                self.scr_runner = RoboThread(target=robot.running)
+
                 self.proc.start()                                                       
+                self.scr_runner.start()
         else:
             self.scrout()
         
@@ -198,6 +200,7 @@ class Robot(NXTBrick):
             self.scrout()
         else:
             self.die = True
+            self.scr_running = False
 
         #print "back"
     

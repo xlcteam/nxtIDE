@@ -211,7 +211,7 @@ class NXTBrick:
     def progLoad(self):
 
         prgdir = self.root + os.sep + '__progs__' + os.sep
-        print prgdir
+        #print prgdir
         self.progs = glob(prgdir + 'e*.py')
 
         for x in range(len(self.progs)):
@@ -219,6 +219,7 @@ class NXTBrick:
                         .replace('.py', '')
     
     def running(self):
+        self.scr_running = True
         self.header()
         
         self.imgOut(42, 4, self.imgs['run'])
@@ -226,13 +227,19 @@ class NXTBrick:
         s = ""
         clock = pygame.time.Clock()
         
-        with robot.lock:
-            while self.scr_running:
-                s += "."
-                t = (3-len(s))*" "
-                self.textCenterOut(LCD_LINE5, "Running " + s + t)
+        while self.scr_running:
+            s += "."
+            t = (3-len(s))*" "
+            # ClearLine(LCD_LINE5)
+            TextOut(20, LCD_LINE5, "Running " + s + t)
 
-                if len(s) > 3: s = ""
+            #print "'"+s+t+"'"
+
+            if len(s) >= 3: 
+                s = ""
+
+
+            clock.tick(2)
 
         
 
