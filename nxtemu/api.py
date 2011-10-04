@@ -263,7 +263,11 @@ def RectOut(x, y, width, height):
 
 
 def ClearScreen():
-    """ClearScreen()"""
+    """ClearScreen()
+    
+    Clears the screen.
+    """
+
 
     with robot.lock:
         pygame.draw.rect(robot.lcd, pygame.Color(0x43, 0x6c, 0x30), 
@@ -400,6 +404,11 @@ def Random(n = None):
     else:
         return random.randint(0, n-1)
     
+
+S1 = 0
+S2 = 1
+S3 = 2
+S4 = 3
 
 __clock__ = pygame.time.Clock()
 def ticker():
