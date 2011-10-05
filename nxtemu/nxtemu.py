@@ -175,9 +175,13 @@ class Robot(NXTBrick):
         # print background.get_at((int(self.x), int(self.y)))
 
     def onCenter(self):
+        # Turning off
+        if self.screen == -1 and self.btn_x == 0:
+            sys.exit(0)
+
         if self.screen < 4:
             self.screen += 1
-        
+
         # taking care of empty __progs__ directory
         if self.screen == 2 and len(self.progs) == 0:
             self.screen -= 1
@@ -205,8 +209,11 @@ class Robot(NXTBrick):
     def onBack(self):
         
         # exiting
-        if self.screen == 0:
-            sys.exit(0)
+       #if self.screen == 0:
+       #    sys.exit(0)
+        
+        if self.screen == -1:
+            self.screen += 2
 
         if self.proc == None:
             self.screen -= 1
@@ -221,6 +228,9 @@ class Robot(NXTBrick):
         #print "left"
         if self.screen == 2:
             self.prog = (self.prog + 1) % len(self.progs)
+        
+        if self.screen == -1:
+            self.btn_x = 0 
 
         self.scrout()
 
@@ -228,6 +238,10 @@ class Robot(NXTBrick):
         #print "right"
         if self.screen == 2:
             self.prog = (self.prog - 1) % len(self.progs)
+
+        if self.screen == -1:
+            self.btn_x = 1 
+
 
         self.scrout()
 
