@@ -345,6 +345,6 @@ class Editor(wx.aui.AuiMDIParentFrame):
  
             
 if __name__ == "__main__":
-    app = wx.App()
+    app = wx.App(redirect=1, filename='nxted.exe.log')
     Editor(None)
     app.MainLoop()
