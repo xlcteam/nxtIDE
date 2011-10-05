@@ -232,9 +232,10 @@ class Robot(NXTBrick):
 
 if __name__ == "__main__":
     app = gui.App() 
-    e = gui.Button("Save")   
+    settings = gui.Image("settings.png")
+   # settings.connect
     c = gui.Container(align=-1,valign=-1)                                          
-    c.add(e, 895, 6)   
+    c.add(settings, 970, 400)   
     app.init(c, screen)    
 
     running = True 
