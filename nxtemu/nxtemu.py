@@ -41,6 +41,8 @@ background.blit(imgs.brick.convert(), (640, 0))
 pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
 pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
 
+# background.blit(pygame.image.load("settings.png").convert_alpha(), (970, 400))
+
 #background.blit(pygame.image.load("./line.jpg"), (3, 3))
 
 

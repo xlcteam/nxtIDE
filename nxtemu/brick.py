@@ -210,7 +210,7 @@ class NXTBrick:
     def screen_1(self):
         self.header()
 
-        self.textCenterOut(LCD_LINE4, "Wanna exit?")
+        self.textCenterOut(LCD_LINE4, "Turn off?")
         
         if self.btn_x == 0:
             self.imgOut(40, 4, self.imgs['ok'])

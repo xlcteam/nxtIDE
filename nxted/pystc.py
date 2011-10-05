@@ -198,7 +198,7 @@ class PythonSTC(stc.StyledTextCtrl):
         self.AutoCompSetFillUps("\t")
         self.AutoCompSetCancelAtStart(True)
 
-        root = os.path.dirname(sys.path[0])
+        root = os.path.dirname(sys.path[0] + os.sep)
         self.api = yaml.load(open(root + '/help.yml'))
 
     
