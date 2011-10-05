@@ -291,7 +291,7 @@ def ClearScreen():
     
     Clears the screen.
     """
-
+    screenTest()
 
     with robot.lock:
         pygame.draw.rect(robot.lcd, pygame.Color(0x43, 0x6c, 0x30), 
