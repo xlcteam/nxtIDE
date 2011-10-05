@@ -144,6 +144,7 @@ class NXTBrick:
     prog = 0
     progs = []
     scr_running = False
+    scr_killed = False
     def __init__(self):
         pass
     
@@ -220,10 +221,10 @@ class NXTBrick:
     
     def running(self):
         self.scr_running = True
-        self.header()
+        #self.header()
         
-        self.imgOut(42, 4, self.imgs['run'])
-        
+        #self.imgOut(42, 4, self.imgs['run'])
+        pygame.time.delay(200)
         s = ""
         clock = pygame.time.Clock()
         
@@ -238,10 +239,7 @@ class NXTBrick:
             if len(s) >= 3: 
                 s = ""
 
-
-            clock.tick(2)
-
-        
+            clock.tick(3)
 
     def boot(self):
         Wait(200)

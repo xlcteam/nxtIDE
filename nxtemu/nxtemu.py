@@ -189,11 +189,13 @@ class Robot(NXTBrick):
                                                                                          
                 self.proc = RoboThread(target=module.main,
                                        cleaner=self.cleaner)        
+                self.proc.setName("brick")
+
                 ClearScreen()
                 self.scr_runner = RoboThread(target=robot.running)
 
-                self.proc.start()                                                       
                 self.scr_runner.start()
+                self.proc.start()                                                       
         else:
             self.scrout()
         
@@ -231,6 +233,9 @@ class Robot(NXTBrick):
 
     def cleaner(self):
         ClearScreen()
+
+        self.scr_running = False
+
         Off(OUT_ABC)
         ResetTachoCount(OUT_ABC)
 

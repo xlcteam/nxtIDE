@@ -1,4 +1,4 @@
-import pygame, sys, os.path
+import pygame, sys, os.path, threading
 from robothread import RoboException
 
 def makeXY(x, y):                                                     
@@ -120,8 +120,21 @@ def dieTest():
             raise RoboException
 
 
+def screenTest():
+    with robot.lock:
+        if threading.current_thread().name == "brick":
+            if robot.scr_running:
+                robot.scr_running = False
+                robot.scr_killed = True
+                pygame.time.delay(200)
+                
+            robot.scr_running = False
+
+
+
 def PointOut(x, y):
     """PointOut(x, y)"""
+    screenTest()
     dieTest()
     x, y = makeXY(x, y)
     
