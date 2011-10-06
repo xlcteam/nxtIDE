@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 import pygame, random, math, time, sys, os
 from pygame.locals import * 
 from robothread import *
@@ -16,7 +15,16 @@ from clicker import Clicker
 pygame.init() 
 
 w = 640 
-h = 480 
+h = 480
+
+yspeed = 0
+xspeed = 0
+maxspeed = 4
+minspeed = -4
+stop = 0
+accel = 0.1
+yup = True
+xleft = True
 
 WALL_HEIGHT = 3
 
@@ -28,13 +36,14 @@ background = background.convert()
 background.fill((255, 255, 255))
 
 pygame.display.set_caption("nxtemu")
-background.blit(pygame.image.load("brick.jpg").convert(), (640, 0))
+background.blit(pygame.image.load("./icons/brick.jpg").convert(), (640, 0))
 #background.blit(imgs.brick.convert(), (640, 0))
 
 pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
 pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
 
-background.blit(pygame.image.load("./line.jpg"), (3, 3))
+# background.blit(pygame.image.load("settings.png").convert_alpha(), (970, 400))
+#background.blit(pygame.image.load("./line.jpg"), (3, 3))
 
 
 clock = pygame.time.Clock() 
@@ -48,7 +57,9 @@ class Robot(NXTBrick):
         self.x = w/2 
         self.y = h/2 
         self.angle = 0
-
+        
+        
+        
         self.mA = 0
         self.mB = 0
         self.mC = 0
@@ -168,9 +179,13 @@ class Robot(NXTBrick):
         # print background.get_at((int(self.x), int(self.y)))
 
     def onCenter(self):
+        # Turning off
+        if self.screen == -1 and self.btn_x == 0:
+            sys.exit(0)
+
         if self.screen < 4:
             self.screen += 1
-        
+
         # taking care of empty __progs__ directory
         if self.screen == 2 and len(self.progs) == 0:
             self.screen -= 1
@@ -182,7 +197,12 @@ class Robot(NXTBrick):
                                                                                          
                 self.proc = RoboThread(target=module.main,
                                        cleaner=self.cleaner)        
+                self.proc.setName("brick")
+
                 ClearScreen()
+                self.scr_runner = RoboThread(target=robot.running)
+
+                self.scr_runner.start()
                 self.proc.start()                                                       
         else:
             self.scrout()
@@ -193,14 +213,18 @@ class Robot(NXTBrick):
     def onBack(self):
         
         # exiting
-        if self.screen == 0:
-            sys.exit(0)
+       #if self.screen == 0:
+       #    sys.exit(0)
+        
+        if self.screen == -1:
+            self.screen += 2
 
         if self.proc == None:
             self.screen -= 1
             self.scrout()
         else:
             self.die = True
+            self.scr_running = False
 
         #print "back"
     
@@ -208,6 +232,9 @@ class Robot(NXTBrick):
         #print "left"
         if self.screen == 2:
             self.prog = (self.prog + 1) % len(self.progs)
+        
+        if self.screen == -1:
+            self.btn_x = 0 
 
         self.scrout()
 
@@ -216,10 +243,17 @@ class Robot(NXTBrick):
         if self.screen == 2:
             self.prog = (self.prog - 1) % len(self.progs)
 
+        if self.screen == -1:
+            self.btn_x = 1 
+
+
         self.scrout()
 
     def cleaner(self):
         ClearScreen()
+
+        self.scr_running = False
+
         Off(OUT_ABC)
         ResetTachoCount(OUT_ABC)
 
@@ -306,19 +340,87 @@ if __name__ == "__main__":
         keystate = pygame.key.get_pressed()
         mod = pygame.key.get_mods()
 
+        # move robot by keys
         if keystate[K_LEFT] and mod & KMOD_SHIFT:
             robot.angle -= 1
         elif keystate[K_RIGHT] and mod & KMOD_SHIFT:
             robot.angle += 1
 
         elif keystate[K_LEFT]:
-            robot.x -= 1
+            xleft = True
+            if xspeed < maxspeed:
+                xspeed += accel
+                robot.x -= xspeed
+            if xspeed >= maxspeed:
+                xspeed = maxspeed
+                robot.x -= xspeed
         elif keystate[K_RIGHT]:
-            robot.x += 1
+            xleft = False
+            if xspeed < maxspeed:
+                xspeed += accel
+                robot.x += xspeed
+            if xspeed >= maxspeed:
+                xspeed = maxspeed
+                robot.x += xspeed
         elif keystate[K_UP]:
             robot.y -= 1
         elif keystate[K_DOWN]:
             robot.y += 1
+
+        if keystate[K_UP]:
+            yup = True
+            if yspeed < maxspeed:
+                yspeed += accel
+                robot.y -= yspeed
+            if yspeed >= maxspeed:
+                yspeed = maxspeed
+                robot.y -= yspeed
+
+        elif keystate[K_DOWN]:
+            yup = False
+            if yspeed < maxspeed:
+                yspeed += accel
+                robot.y += yspeed
+            if yspeed >= maxspeed:
+                yspeed = maxspeed
+                robot.y += yspeed
+
+
+
+        
+        # if keys aren't push
+        if (not(keystate[K_LEFT]) and not(keystate[K_RIGHT])):
+            if xspeed < stop:
+                xspeed += accel
+                if xleft:
+                    robot.x -= xspeed
+                else:
+                    robot.x += xspeed
+            if xspeed > stop:
+                xspeed -= accel
+                if xleft:
+                    robot.x -= xspeed
+                else:
+                    robot.x += xspeed
+            if round(xspeed, 5) == stop:
+                xspeed = stop
+
+        if (not(keystate[K_UP]) and not(keystate[K_DOWN])):
+            if yspeed < stop:
+                yspeed += accel
+                if yup:
+                    robot.y -= yspeed
+                else:
+                    robot.y += yspeed
+            if yspeed > stop:
+                yspeed -= accel
+                if yup:
+                    robot.y -= yspeed
+                else:
+                    robot.y += yspeed
+            if round(yspeed, 5) == stop:
+                yspeed = stop
+
 
         if robot.dragged: 
             robot.draw() 

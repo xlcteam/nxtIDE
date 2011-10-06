@@ -9,7 +9,9 @@ from pystc import PythonSTC
 import pycheck
 import subprocess
 from threading import Thread
+import sys
 import yaml
+import tempfile
 
 
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
@@ -172,11 +174,36 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
 
     def onDownloadRun(self, event):
-        print "dr"
+        self.onCompile(event=None)
+        from pynxc import download
+
+        path = self.parent.dir + os.sep + self.filename
+
+        f = open(path, "w")
+        f.write(self.editor.GetText())
+        f.close()
+        
+        out = download(path, run=True)
+
+        if out != ('', ''):
+            self.parent.showMsg(''.join(out))
 
     def onDownload(self, event):
-        print "d"
+        self.onCompile(event=None)
+        from pynxc import download
 
+        path = self.parent.dir + os.sep + self.filename
+
+        f = open(path, "w")
+        f.write(self.editor.GetText())
+        f.close()
+
+        out = download(path, run=False)
+
+        if out != ('', ''):
+            self.parent.showMsg(''.join(out))
+            
+        
     def clearStatusbar(self):
         self.parent.statusbar.SetStatusText("", 0)
 
@@ -261,8 +288,8 @@ class Editor(wx.aui.AuiMDIParentFrame):
         
         # import config from yaml file
         self.cfg = yaml.load(open("config.yml").read())
-
-
+        
+        self.dir = tempfile.mkdtemp()
     
     def showMsg(self, msg = None):
         if msg != None:
@@ -336,6 +363,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
         
 
     def OnDoClose(self, evt):
+        os.removedirs(self.dir)
         self.Close()
 
     def onPreferences(self, evt):
@@ -345,6 +373,10 @@ class Editor(wx.aui.AuiMDIParentFrame):
  
             
 if __name__ == "__main__":
-    app = wx.App()
+    if hasattr(sys, 'frozen'):
+        app = wx.App(redirect=1, filename='nxted.exe.log')
+    else:
+        app = wx.App()
+
     Editor(None)
     app.MainLoop()

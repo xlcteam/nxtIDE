@@ -6,7 +6,7 @@ import  wx.stc  as  stc
 
 import re
 
-import helper
+import yaml, os.path, sys
 
 #----------------------------------------------------------------------
 
@@ -136,6 +136,7 @@ class PythonSTC(stc.StyledTextCtrl):
         self.Bind(stc.EVT_STC_UPDATEUI, self.OnUpdateUI)
         self.Bind(stc.EVT_STC_MARGINCLICK, self.OnMarginClick)
         self.Bind(wx.EVT_KEY_DOWN, self.OnKeyPressed)
+        self.Bind(wx.EVT_CHAR, self.OnChar)
 
 
 
@@ -196,29 +197,40 @@ class PythonSTC(stc.StyledTextCtrl):
         self.AutoCompSetDropRestOfWord(True)
         self.AutoCompSetFillUps("\t")
         self.AutoCompSetCancelAtStart(True)
-        
-        self.api = helper.getAPI()
 
+        root = os.path.dirname(sys.path[0] + os.sep) \
+                        .replace("library.zip", "")
+
+        self.api = yaml.load(open(root + os.sep + 'help.yml'))
+
+    
+    def OnChar(self, event):
+        key = event.GetKeyCode()
+        
+        pos = self.GetCurrentPos()
+        
+        # Showing CallTip
+        if key == ord('('):
+            style = self.GetStyleAt(pos - 1)
+            if style == stc.STC_P_IDENTIFIER:
+                id = self.getIdentifier(pos - 1)
+                if id in self.api:
+                    self.CallTipShow(pos - len(id), self.api[id])
+                                 
+                                 
+        # Hiding CallTip
+        if key == ord(')'):
+            self.CallTipCancel()
+        
+        event.Skip()
 
     def OnKeyPressed(self, event):
         key = event.GetKeyCode()
         
         pos = self.GetCurrentPos()
         
-
-        # Showing CallTip
-        if key == ord('('):
-            style = self.GetStyleAt(pos - 1)
-            if style == stc.STC_P_IDENTIFIER:
-                id = self.getIdentifier(pos - 1)
-                self.CallTipShow(pos - len(id), self.api[id])
-                                 
-                                 
-        # Hiding CallTip
-        if key == ord(')'):
-            self.CallTipCancel()
-
-        if key == 13:
+        
+        if key == wx.WXK_RETURN:
             
             # using enter for completion
             if self.AutoCompActive():
@@ -255,21 +267,16 @@ class PythonSTC(stc.StyledTextCtrl):
                 id = self.getIdentifier()
 
                 kw = keyword.kwlist[:] + self.api.keys()
-                kw.append("zzzzzz?2")
-                kw.append("aaaaa?2")
-                kw.append("__init__?3")
-                kw.append("zzaaaaa?2")
-                kw.append("zzbaaaa?2")
+                #kw.append("zzzzzz?2")
+               #kw.append("aaaaa?2")
+               #kw.append("__init__?3")
+               #kw.append("zzaaaaa?2")
+               #kw.append("zzbaaaa?2")
                 kw.append("this_is_a_longer_value")
                 kw.append("this_is_a_much_much_much_much_much_much_much_longer_value")
 
                 kw.sort()  # Python sorts are case sensitive
                 self.AutoCompSetIgnoreCase(False)  # so this needs to match
-
-                # Images are specified with a appended "?type"
-                for i in range(len(kw)):
-                    if kw[i] in keyword.kwlist:
-                        kw[i] = kw[i] + "?1"
 
                 self.AutoCompShow(len(id), " ".join(kw))
         else:

@@ -102,13 +102,14 @@ class NXTBrick:
                 [20, 16], [20, 0], [21, 16], [21, 15], [21, 14], [21, 13],
                 [21, 12], [21, 11], [21, 10], [21, 9], [21, 8], [21, 7],
                 [21, 6], [21, 5], [21, 4], [21, 3], [21, 2], [21, 1],],
-        'ok': [[0, 12],[0, 13],[1, 10],[1, 11],[1, 14],[2, 9],[2, 14],
-               [3, 9],[3, 15],[4, 10],[4, 15],[5, 10],[5, 16],[6, 11],
-               [6, 16],[7, 11],[7, 17],[8, 11],[8, 17],[9, 9],[9, 10],
-               [9, 15],[9, 16],[10, 7],[10, 8],[10, 13],[10, 14],[11, 5],
-               [11, 6],[11, 11],[11, 12],[12, 3],[12, 4],[12, 9],[12, 10],
-               [13, 1],[13, 2],[13, 7],[13, 8],[14, 0],[14, 5],[14, 6],
-               [15, 0],[15, 3],[15, 4],[16, 1],[16, 2],],
+        'ok': [[0, 5], [0, 4], [1, 7], [1, 6], [1, 3], [2, 8],
+                [2, 3], [3, 8], [3, 2], [4, 7], [4, 2], [5, 7],
+                [5, 1], [6, 6], [6, 1], [7, 6], [7, 0], [8, 6],
+                [8, 0], [9, 8], [9, 7], [9, 2], [9, 1], [10, 10],
+                [10, 9], [10, 4], [10, 3], [11, 12], [11, 11], [11, 6],
+                [11, 5], [12, 14], [12, 13], [12, 8], [12, 7], [13, 16],
+                [13, 15], [13, 10], [13, 9], [14, 17], [14, 12], [14, 11],
+                [15, 17], [15, 14], [15, 13], [16, 16], [16, 15],],
         'cross': [[0, 2],[0, 14],[1, 1],[1, 3],[1, 13],[1, 15],[2, 0],
                   [2, 4],[2, 12],[2, 16],[3, 1],[3, 5],[3, 11],[3, 15],
                   [4, 2],[4, 6],[4, 10],[4, 14],[5, 3],[5, 7],[5, 9],[5, 13],
@@ -144,6 +145,8 @@ class NXTBrick:
     prog = 0
     progs = []
     scr_running = False
+    scr_killed = False
+    btn_x = 0
     def __init__(self):
         pass
     
@@ -203,15 +206,30 @@ class NXTBrick:
 
         self.imgOut(42, 4, self.imgs['run'])
 
+    
+    def screen_1(self):
+        self.header()
+
+        self.textCenterOut(LCD_LINE4, "Turn off?")
+        
+        if self.btn_x == 0:
+            self.imgOut(40, 4, self.imgs['ok'])
+            self.imgOut(60, 4, self.imgs['cross'])
+        else:
+            self.imgOut(20, 4, self.imgs['ok'])
+            self.imgOut(40, 4, self.imgs['cross'])
+            
+        
 
     def scrout(self):
         ClearScreen()
-        getattr(self, 'screen%d' % self.screen)()
+        screen = 'screen%d' % self.screen
+        getattr(self, screen.replace('-', '_'))()
     
     def progLoad(self):
 
         prgdir = self.root + os.sep + '__progs__' + os.sep
-        print prgdir
+        #print prgdir
         self.progs = glob(prgdir + 'e*.py')
 
         for x in range(len(self.progs)):
@@ -219,22 +237,28 @@ class NXTBrick:
                         .replace('.py', '')
     
     def running(self):
-        self.header()
+        self.scr_running = True
+        #self.header()
         
-        self.imgOut(42, 4, self.imgs['run'])
-        
+        #self.imgOut(42, 4, self.imgs['run'])
+        pygame.time.delay(200)
         s = ""
         clock = pygame.time.Clock()
         
-        with robot.lock:
-            while self.scr_running:
-                s += "."
-                t = (3-len(s))*" "
-                self.textCenterOut(LCD_LINE5, "Running " + s + t)
+        while self.scr_running:
+            self.header()
 
-                if len(s) > 3: s = ""
+            s += "."
+            t = (3-len(s))*" "
+            # ClearLine(LCD_LINE5)
+            TextOut(20, LCD_LINE5, "Running " + s + t)
 
-        
+            #print "'"+s+t+"'"
+
+            if len(s) >= 3: 
+                s = ""
+
+            clock.tick(3)
 
     def boot(self):
         Wait(200)
