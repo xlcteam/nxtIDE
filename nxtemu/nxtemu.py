@@ -28,13 +28,13 @@ background = background.convert()
 background.fill((255, 255, 255))
 
 pygame.display.set_caption("nxtemu")
-background.blit(pygame.image.load("brick.jpg").convert(), (640, 0))
+background.blit(pygame.image.load("./icons/brick.jpg").convert(), (640, 0))
 #background.blit(imgs.brick.convert(), (640, 0))
 
 pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
 pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
 
-background.blit(pygame.image.load("./line.jpg"), (3, 3))
+#background.blit(pygame.image.load("./line.jpg"), (3, 3))
 
 
 clock = pygame.time.Clock() 
