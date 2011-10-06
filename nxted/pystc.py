@@ -198,8 +198,10 @@ class PythonSTC(stc.StyledTextCtrl):
         self.AutoCompSetFillUps("\t")
         self.AutoCompSetCancelAtStart(True)
 
-        root = os.path.dirname(sys.path[0] + os.sep)
-        self.api = yaml.load(open(root + '/help.yml'))
+        root = os.path.dirname(sys.path[0] + os.sep) \
+                        .replace("library.zip", "")
+
+        self.api = yaml.load(open(root + os.sep + 'help.yml'))
 
     
     def OnChar(self, event):

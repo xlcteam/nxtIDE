@@ -18,12 +18,11 @@ from definitions import *
 
 #pynxc_root=os.getcwd()
 
-pynxc_root = os.path.dirname(os.path.abspath(__file__))
+pynxc_root = os.path.dirname(os.path.abspath(__file__)) \
+                .replace("library.zip", "")
    
 def python_to_nxc(pyfile,nxcfile=None,debug=False):
 
-    print pynxc_root
-    
     filename = pyfile
     
     f = open(filename, 'U')

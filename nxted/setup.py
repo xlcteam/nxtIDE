@@ -4,6 +4,8 @@ from glob import *
  
 data_files = ['config.yml', 'help.yml']
 data_files += glob('dlls/*.dll')
+data_files.append(('pynxc/nxc/win32', ['pynxc/nxc/win32/nbc.exe']))
+data_files.append(('pynxc', ['pynxc/MyDefs.h']))
 
 includes = []
 excludes = [] #['_gtkagg', '_tkagg', 'bsddb', 'curses', 'email', 'pywin.debugger',
