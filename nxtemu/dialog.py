@@ -15,7 +15,7 @@ class SettingsDialog(gui.Dialog):
         table.tr()
         table.td(gui.Label("Slot"), align=1)
         table.td(gui.Label("Sensor"), align=1)
-        table.td(gui.Label("Input"), align=1)
+        table.td(gui.Label("Port"), align=1)
 
 
 
