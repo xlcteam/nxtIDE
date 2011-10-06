@@ -4,6 +4,7 @@ import pygame, random, math, time, sys, os
 from pygame.locals import * 
 from robothread import *
 
+from pgu import gui 
 
 import imgs
 
@@ -35,14 +36,13 @@ background = background.convert()
 background.fill((255, 255, 255))
 
 pygame.display.set_caption("nxtemu")
-# background.blit(pygame.image.load("brick.jpg").convert(), (640, 0))
-background.blit(imgs.brick.convert(), (640, 0))
+background.blit(pygame.image.load("./icons/brick.jpg").convert(), (640, 0))
+#background.blit(imgs.brick.convert(), (640, 0))
 
 pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
 pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
 
 # background.blit(pygame.image.load("settings.png").convert_alpha(), (970, 400))
-
 #background.blit(pygame.image.load("./line.jpg"), (3, 3))
 
 
@@ -131,6 +131,8 @@ class Robot(NXTBrick):
                 (self.x - 30, self.y - 30))
 
         screen.blit(self.lcd, ((640 + (378/2 - 100)-2, 90), (204, 130)))
+
+        app.paint()
         pygame.display.flip() 
     
     def stayIn(self):
@@ -263,7 +265,13 @@ class Robot(NXTBrick):
         #print "cleaner"
 
 if __name__ == "__main__":
-    
+    app = gui.App() 
+    settings = gui.Image("settings.png")
+   # settings.connect
+    c = gui.Container(align=-1,valign=-1)                                          
+    c.add(settings, 970, 400)   
+    app.init(c, screen)    
+
     running = True 
 
     if len(sys.argv) > 1:
@@ -324,6 +332,8 @@ if __name__ == "__main__":
                     robot.angle += 1
                 elif event.button == 5:
                     robot.angle -= 1
+
+            app.event(event)
             
 
         pygame.event.pump()
@@ -417,4 +427,5 @@ if __name__ == "__main__":
             robot.drag() 
         else:
             robot.tick()
+
         clock.tick(40) # Frame rate  
