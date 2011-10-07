@@ -13,11 +13,21 @@ class SettingsDialog(gui.Dialog):
 
         table = gui.Table()
         table.tr()
-        table.td(gui.Label("Slot"), align=1)
-        table.td(gui.Label("Sensor"), align=1)
-        table.td(gui.Label("Port"), align=1)
+        table.td(gui.Label("Slot"), align=-1)
+        table.td(gui.Label("Sensor"), align=-1)
+        table.td(gui.Label("Port"), align=-1)
 
-
+        sensors = gui.Table()
+        sensors.tr()
+        sensors.td(gui.Image('icons/light.png'))
+        sensors.tr()
+        sensors.td(gui.Image('icons/sonic.png'))
+        sensors.tr()
+        sensors.td(gui.Image('icons/touch.png'))
+        
+        table.tr()
+        table.td(gui.Label("Slot's might be here"))
+        table.td(sensors)
 
         gui.Dialog.__init__(self, title, table)
 
