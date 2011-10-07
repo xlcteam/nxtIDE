@@ -13,24 +13,44 @@ class SettingsDialog(gui.Dialog):
 
         table = gui.Table()
         table.tr()
-        table.td(gui.Label("Slot"), align=-1)
-        table.td(gui.Label("Sensor"), align=-1)
-        table.td(gui.Label("Port"), align=-1)
-
+        table.td(gui.Label("Slot"))
+        table.td(gui.Label("Sensor"))
+        table.td(gui.Label("Port"))
+        
+        
+        self.sensors_group = gui.Group(value='')
         sensors = gui.Table()
         sensors.tr()
-        sensors.td(gui.Image('icons/light.png'))
-        sensors.tr()
-        sensors.td(gui.Image('icons/sonic.png'))
-        sensors.tr()
-        sensors.td(gui.Image('icons/touch.png'))
+        sensors.td(gui.Tool(self.sensors_group, 
+                        gui.Image('icons/light.png'), value='light'))
+        sensors.td(gui.Tool(self.sensors_group, 
+                        gui.Image('icons/sonic.png'), value='sonic'))
+        sensors.td(gui.Tool(self.sensors_group, 
+                        gui.Image('icons/touch.png'), value='touch'))
         
+        self.sensors_group.connect(gui.CHANGE, self.change)
+        
+        ports = gui.Select()
+        ports.add('Port 1', 1)
+        ports.add('Port 2', 2)
+        ports.add('Port 3', 3)
+        ports.add('Port 4', 4)
+
+
+
+        table.tr()
+        table.td(gui.Spacer(width=160,height=8))
+        table.td(gui.Spacer(width=220,height=8))
+        table.td(gui.Spacer(width=200,height=8))
         table.tr()
         table.td(gui.Label("Slot's might be here"))
         table.td(sensors)
+        table.td(ports)
 
         gui.Dialog.__init__(self, title, table)
-
+    
+    def change(self, **params):
+        print self.sensors_group.value
 
 if __name__ == '__main__':                                                     
     app = gui.Desktop()                                                        
