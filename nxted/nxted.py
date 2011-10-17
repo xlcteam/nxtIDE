@@ -9,7 +9,9 @@ from pystc import PythonSTC
 import pycheck
 import subprocess
 from threading import Thread
+import sys
 import yaml
+import tempfile
 
 
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
@@ -110,17 +112,26 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.parent.hideMsg()
 
         check = pycheck.PyCheck()
-        check.check("api.py")
+        check.check(self.parent.cfg['nxtemu'] + "/api.py")
         try:
             check.check(self.path)
         except NameError as nr:
             msg = "NameError: %s on line %d" % nr.args
             self.editor.GotoLine(nr.args[1] - 1)
             self.parent.showMsg(msg)
+            
+            return False
+
         except SyntaxError as se:
             msg = "SyntaxError: on line %d" % se.args[1][1]
-            self.editor.GotoLine(se.args[1][1] - 1)
+            
+            pos = self.editor.GetLineEndPosition(se.args[1][1] - 2)
+            pos += se.args[1][2]
+
+            self.editor.GotoPos(pos)
             self.parent.showMsg(msg)
+
+            return False
 
         self.parent.statusbar.SetStatusText("Compiled...OK")
 
@@ -133,9 +144,13 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         f.write(pycheck.loopFix(self.editor.GetText(), "ticker()"))
         f.close()
 
+        return True
+
     def onEmuRun(self, event):
         
-        self.onCompile(event = None)
+        # do not run in emulator if there is a syntax or name error
+        if not self.onCompile(event = None):
+            return
         
         if self.emuproc != None:
             try:
@@ -159,11 +174,36 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
 
     def onDownloadRun(self, event):
-        print "dr"
+        self.onCompile(event=None)
+        from pynxc import download
+
+        path = self.parent.dir + os.sep + self.filename
+
+        f = open(path, "w")
+        f.write(self.editor.GetText())
+        f.close()
+        
+        out = download(path, run=True)
+
+        if out != ('', ''):
+            self.parent.showMsg(''.join(out))
 
     def onDownload(self, event):
-        print "d"
+        self.onCompile(event=None)
+        from pynxc import download
 
+        path = self.parent.dir + os.sep + self.filename
+
+        f = open(path, "w")
+        f.write(self.editor.GetText())
+        f.close()
+
+        out = download(path, run=False)
+
+        if out != ('', ''):
+            self.parent.showMsg(''.join(out))
+            
+        
     def clearStatusbar(self):
         self.parent.statusbar.SetStatusText("", 0)
 
@@ -248,8 +288,8 @@ class Editor(wx.aui.AuiMDIParentFrame):
         
         # import config from yaml file
         self.cfg = yaml.load(open("config.yml").read())
-
-
+        
+        self.dir = tempfile.mkdtemp()
     
     def showMsg(self, msg = None):
         if msg != None:
@@ -323,6 +363,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
         
 
     def OnDoClose(self, evt):
+        os.removedirs(self.dir)
         self.Close()
 
     def onPreferences(self, evt):
@@ -332,6 +373,10 @@ class Editor(wx.aui.AuiMDIParentFrame):
  
             
 if __name__ == "__main__":
-    app = wx.App()
+    if hasattr(sys, 'frozen'):
+        app = wx.App(redirect=1, filename='nxted.exe.log')
+    else:
+        app = wx.App()
+
     Editor(None)
     app.MainLoop()

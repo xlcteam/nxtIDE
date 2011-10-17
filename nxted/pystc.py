@@ -1,11 +1,12 @@
 
 import  keyword
-import yaml
 
 import  wx
 import  wx.stc  as  stc
 
 import re
+
+import yaml, os.path, sys
 
 #----------------------------------------------------------------------
 
@@ -42,6 +43,9 @@ else:
               'size2': 10,
              }
 
+#   for x in dir(api):
+#       print type(getattr(api, x)), x
+
 
 #----------------------------------------------------------------------
 
@@ -76,12 +80,13 @@ class PythonSTC(stc.StyledTextCtrl):
         self.SetEdgeColumn(78)
 
         # Setup a margin to hold fold markers
-        #self.SetFoldFlags(16)  ###  WHAT IS THIS VALUE?  WHAT ARE THE OTHER FLAGS?  DOES IT MATTER?
+        self.SetFoldFlags(16)  ###  WHAT IS THIS VALUE?  WHAT ARE THE OTHER FLAGS?  DOES IT MATTER?
         self.SetMarginType(2, stc.STC_MARGIN_SYMBOL)
         self.SetMarginMask(2, stc.STC_MASK_FOLDERS)
         self.SetMarginSensitive(2, True)
         self.SetMarginWidth(2, 12)
 
+        # Tabbing settings
         self.SetIndent(4)
         self.SetUseTabs(0)
         self.SetTabWidth(4)
@@ -131,6 +136,7 @@ class PythonSTC(stc.StyledTextCtrl):
         self.Bind(stc.EVT_STC_UPDATEUI, self.OnUpdateUI)
         self.Bind(stc.EVT_STC_MARGINCLICK, self.OnMarginClick)
         self.Bind(wx.EVT_KEY_DOWN, self.OnKeyPressed)
+        self.Bind(wx.EVT_CHAR, self.OnChar)
 
 
 
@@ -192,12 +198,45 @@ class PythonSTC(stc.StyledTextCtrl):
         self.AutoCompSetFillUps("\t")
         self.AutoCompSetCancelAtStart(True)
 
-    def OnKeyPressed(self, event):
-        if self.CallTipActive():
-            self.CallTipCancel()
+        root = os.path.dirname(sys.path[0] + os.sep) \
+                        .replace("library.zip", "")
+
+        self.api = yaml.load(open(root + os.sep + 'help.yml'))
+
+    
+    def OnChar(self, event):
         key = event.GetKeyCode()
- 
-        if key == 13:
+        
+        pos = self.GetCurrentPos()
+        
+        # Showing CallTip
+        if key == ord('('):
+            style = self.GetStyleAt(pos - 1)
+            if style == stc.STC_P_IDENTIFIER:
+                id = self.getIdentifier(pos - 1)
+                if id in self.api:
+                    self.CallTipShow(pos - len(id), self.api[id])
+                                 
+                                 
+        # Hiding CallTip
+        if key == ord(')'):
+            self.CallTipCancel()
+        
+        event.Skip()
+
+    def OnKeyPressed(self, event):
+        key = event.GetKeyCode()
+        
+        pos = self.GetCurrentPos()
+        
+        
+        if key == wx.WXK_RETURN:
+            
+            # using enter for completion
+            if self.AutoCompActive():
+                self.AutoCompComplete()
+                return
+
             c = self.GetCharAt(self.GetCurrentPos() - 1)
             self.indent = self.getIndent(self.GetCurLine()[0])
             if c == 58:
@@ -224,25 +263,22 @@ class PythonSTC(stc.StyledTextCtrl):
                 #st = " ".join(lst)
                 #print len(st)
                 #self.AutoCompShow(0, st)
+                
+                id = self.getIdentifier()
 
-                kw = keyword.kwlist[:]
-                kw.append("zzzzzz?2")
-                kw.append("aaaaa?2")
-                kw.append("__init__?3")
-                kw.append("zzaaaaa?2")
-                kw.append("zzbaaaa?2")
+                kw = keyword.kwlist[:] + self.api.keys()
+                #kw.append("zzzzzz?2")
+               #kw.append("aaaaa?2")
+               #kw.append("__init__?3")
+               #kw.append("zzaaaaa?2")
+               #kw.append("zzbaaaa?2")
                 kw.append("this_is_a_longer_value")
-                #kw.append("this_is_a_much_much_much_much_much_much_much_longer_value")
+                kw.append("this_is_a_much_much_much_much_much_much_much_longer_value")
 
                 kw.sort()  # Python sorts are case sensitive
                 self.AutoCompSetIgnoreCase(False)  # so this needs to match
 
-                # Images are specified with a appended "?type"
-                for i in range(len(kw)):
-                    if kw[i] in keyword.kwlist:
-                        kw[i] = kw[i] + "?1"
-
-                self.AutoCompShow(0, " ".join(kw))
+                self.AutoCompShow(len(id), " ".join(kw))
         else:
             event.Skip()
 
@@ -263,9 +299,10 @@ class PythonSTC(stc.StyledTextCtrl):
            #    kw.sort()
            #    
            #    self.complete += chr(charBefore)
-
-           #    self.AutoCompShow(0, " ".join(kw))
-           #    self.AutoCompSelect(self.complete)
+           #    if not self.AutoCompActive():
+           #        self.AutoCompShow(0, " ".join(kw))
+           #    else:
+           #        self.AutoCompSelect(self.complete)
            #else:
            #    self.complete = ""
 
@@ -386,7 +423,26 @@ class PythonSTC(stc.StyledTextCtrl):
         return line
     
     def getIndent(self, string):
+        """Returns string used as indentation in given string"""
+
         return re.match('([ \t]*).*', string).groups()[0]
+    
+    def getIdentifier(self, pos = None):
+        """Returns text marked as IDENTIFIER. Starts at current position""" 
+
+        out = ""
+        if pos is None:
+            pos = self.GetCurrentPos() - 1 
+
+        while self.GetStyleAt(pos) == stc.STC_P_IDENTIFIER:
+            out = chr(self.GetCharAt(pos)) + out
+            pos -= 1
+
+        return out
+            
+
+        
+        
 
 #----------------------------------------------------------------------
 testCode = """

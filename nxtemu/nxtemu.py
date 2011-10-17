@@ -1,5 +1,4 @@
-#!/usr/bin/env python2
-
+#!/usr/bin/env python
 
 import pygame, random, math, time, sys, os
 from pygame.locals import * 
@@ -26,17 +25,26 @@ accel = 0.1
 yup = True
 xleft = True
 
-window = pygame.display.set_mode((w+378,h)) 
+WALL_HEIGHT = 3
+
+window = pygame.display.set_mode((w + WALL_HEIGHT*2 + 378,h + WALL_HEIGHT*2)) 
 screen = pygame.display.get_surface() 
 
 background = pygame.Surface(screen.get_size()) 
 background = background.convert() 
-pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (640, 480)))
-pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (634, 474)))
+background.fill((255, 255, 255))
 
 pygame.display.set_caption("nxtemu")
 # background.blit(pygame.image.load("brick.jpg").convert(), (640, 0))
 background.blit(imgs.brick.convert(), (640, 0))
+
+pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
+pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
+
+# background.blit(pygame.image.load("settings.png").convert_alpha(), (970, 400))
+
+#background.blit(pygame.image.load("./line.jpg"), (3, 3))
+
 
 clock = pygame.time.Clock() 
 
@@ -84,7 +92,7 @@ class Robot(NXTBrick):
             ((0, 0), (204, 130)))
 
         if wboot:
-            print "booting"
+            #print "booting"
             RoboThread(target=self.boot).start()
         
 
@@ -121,6 +129,7 @@ class Robot(NXTBrick):
         screen.blit(background, (0,0)) 
         screen.blit(self.rot_center(self.image, -self.angle), 
                 (self.x - 30, self.y - 30))
+
         screen.blit(self.lcd, ((640 + (378/2 - 100)-2, 90), (204, 130)))
         pygame.display.flip() 
     
@@ -154,7 +163,7 @@ class Robot(NXTBrick):
         self.angle += angle
         p = (rotA + rotB) / 2 / 1.8
         
-        # print self.angle, self.mA, self.mB, self
+        # #print self.angle, self.mA, self.mB, self
 
         self.rotA += rotA
         self.rotB += rotB
@@ -163,12 +172,18 @@ class Robot(NXTBrick):
         self.x += math.sin(math.radians(self.angle)) * p
         self.y += -math.cos(math.radians(self.angle)) * p
         
+
         self.draw()
-    
+        # print background.get_at((int(self.x), int(self.y)))
+
     def onCenter(self):
+        # Turning off
+        if self.screen == -1 and self.btn_x == 0:
+            sys.exit(0)
+
         if self.screen < 4:
             self.screen += 1
-        
+
         # taking care of empty __progs__ directory
         if self.screen == 2 and len(self.progs) == 0:
             self.screen -= 1
@@ -180,44 +195,63 @@ class Robot(NXTBrick):
                                                                                          
                 self.proc = RoboThread(target=module.main,
                                        cleaner=self.cleaner)        
+                self.proc.setName("brick")
+
                 ClearScreen()
+                self.scr_runner = RoboThread(target=robot.running)
+
+                self.scr_runner.start()
                 self.proc.start()                                                       
         else:
             self.scrout()
         
             
-        print "center"
+        #print "center"
 
     def onBack(self):
         
         # exiting
-        if self.screen == 0:
-            sys.exit(0)
+       #if self.screen == 0:
+       #    sys.exit(0)
+        
+        if self.screen == -1:
+            self.screen += 2
 
         if self.proc == None:
             self.screen -= 1
             self.scrout()
         else:
             self.die = True
+            self.scr_running = False
 
-        print "back"
+        #print "back"
     
     def onLeft(self):
-        print "left"
+        #print "left"
         if self.screen == 2:
             self.prog = (self.prog + 1) % len(self.progs)
+        
+        if self.screen == -1:
+            self.btn_x = 0 
 
         self.scrout()
 
     def onRight(self):
-        print "right"
+        #print "right"
         if self.screen == 2:
             self.prog = (self.prog - 1) % len(self.progs)
+
+        if self.screen == -1:
+            self.btn_x = 1 
+
 
         self.scrout()
 
     def cleaner(self):
         ClearScreen()
+
+        self.scr_running = False
+
         Off(OUT_ABC)
         ResetTachoCount(OUT_ABC)
 
@@ -226,7 +260,7 @@ class Robot(NXTBrick):
 
         self.screen -= 1
         self.scrout()
-        print "cleaner"
+        #print "cleaner"
 
 if __name__ == "__main__":
     
@@ -239,7 +273,7 @@ if __name__ == "__main__":
 
         prog = sys.argv[1]
         robot.progLoad()
-        print robot.progs
+        #print robot.progs
        
         robot.prog = robot.progs.index(prog)
         robot.screen = 3
@@ -271,6 +305,7 @@ if __name__ == "__main__":
                 clicker.process(pygame.mouse.get_pos())
             
             if event.type == QUIT: 
+                robot.die = True
                 running = False
                 sys.exit(0)
 
