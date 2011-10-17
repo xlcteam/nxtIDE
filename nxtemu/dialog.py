@@ -59,10 +59,21 @@ class SettingsDialog(gui.Dialog):
     def build_background_select(self):
         background = gui.Table()
         background.td(gui.Label("Room background:"), 
-                      style={'padding_right': 20})
-        self.background_input = gui.Input()
-        background.td(self.background_input)
+                      style={'padding_right': 6})
+        self.background_input = gui.Input(size=16)
+        inp = gui.Button('...')
+
+        g = gui.Group(value='')
+        t = gui.Table()
+        t.tr()
+        t.td(gui.Radio(g, value=''))
+        t.td(gui.Label('None'), align=-1, style={'padding_left': 4})
+        t.tr()
+        t.td(gui.Radio(g, value='custom'))
+        t.td(self.background_input, style={'padding_left': 4})
+        t.td(inp, style={'padding_left': 4})
         
+        background.td(t)
 
         return background
 
@@ -160,8 +171,6 @@ class SettingsDialog(gui.Dialog):
     def slot_change(self, g):
         
         if g.value != '':
-            print self.slots
-            print g.value
             self.slots.remove(g.value)
         else:
             self.slots.append(self.inputs[self.port]['slot'])
