@@ -18,6 +18,10 @@ h = 480
 
 yspeed = 0
 xspeed = 0
+angleMaxSpeed = 4
+angleMinSpeed = -4
+angleSpeed = 0
+angleAccel = 0.5
 maxspeed = 4
 minspeed = -4
 stop = 0
@@ -319,11 +323,28 @@ if __name__ == "__main__":
                 else:
                     pygame.mouse.set_cursor(*pygame.cursors.arrow)
    
-
+                # 4 = max 5 = min
                 if event.button == 4:
-                    robot.angle += 1
+                    if angleSpeed > 0 and angleSpeed < 4:
+                        angleSpeed += angleAccel
+                        robot.angle += angleSpeed
+                    if angleSpeed >= 4:
+                        angleSpeed = 4
+                        robot.angle += angleSpeed
                 elif event.button == 5:
-                    robot.angle -= 1
+                    if angleSpeed < 0 and angleSpeed > -4:
+                        angleSpeed -= angleAccel
+                        robot.angle += angleSpeed
+                    if angleSpeed <= -4:
+                        angleSpeed = -4
+                        robot.angle += angleSpeed
+
+                if (not(event.button) and (angleSpeed > 0) and (angleSpeed <= 4)):
+                    angleSpeed -= angleAccel
+                    robot.angle += angleSpeed
+                if (not(event.button) and (angleSpeed < 0) and (angleSpeed >= -4)):
+                    angleSpeed += angleAccel
+                    robot.angle -= angleSpeed
             
 
         pygame.event.pump()
