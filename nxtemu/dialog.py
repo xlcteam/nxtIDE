@@ -194,7 +194,7 @@ if __name__ == '__main__':
     dialog.connect(gui.CHANGE, ret, dialog)
 
     e = gui.Button("New")                                                      
-    e.connect(gui.CLICK,dialog.open,None)                                      
+    e.connect(gui.CLICK,dialog.open)                                      
     c.tr()                                                                     
     c.td(e)                                                                    
                                                                                

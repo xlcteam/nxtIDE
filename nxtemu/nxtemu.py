@@ -11,6 +11,7 @@ import imgs
 from api import *
 from brick import *
 from clicker import Clicker
+from dialog import SettingsDialog
 
 pygame.init() 
 
@@ -95,6 +96,8 @@ class Robot(NXTBrick):
             #print "booting"
             RoboThread(target=self.boot).start()
         
+
+        self.dialog = SettingsDialog()
 
     
     def getDistanceTo(self, point): 
@@ -264,12 +267,21 @@ class Robot(NXTBrick):
         self.scrout()
         #print "cleaner"
 
+    def onDialog(self):
+        self.dialog.connect(gui.CHANGE, self.dialogReturn, self.dialog)
+        self.dialog.open()
+        self.dialog.rect.x = 120
+
+    def dialogReturn(self, d):
+        print d.inputs
+        d.close()
+
 if __name__ == "__main__":
     app = gui.App() 
     settings = gui.Image("settings.png")
    # settings.connect
-    c = gui.Container(align=-1,valign=-1)                                          
-    c.add(settings, 970, 400)   
+    c = gui.Container(align=-1,valign=-1)
+    c.add(settings, 970, 400)
     app.init(c, screen)    
 
     running = True 
@@ -305,6 +317,7 @@ if __name__ == "__main__":
     clicker.bind(((810, 308), (41, 26)), robot.onBack)
     clicker.bind(((751, 252), (41, 40)), robot.onLeft)
     clicker.bind(((870, 252), (41, 40)), robot.onRight)
+    clicker.bind(((970, 400), (50, 50)), robot.onDialog)
 
     while running: 
         for event in pygame.event.get(): 
