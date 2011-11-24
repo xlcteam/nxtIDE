@@ -179,7 +179,7 @@ class Robot(NXTBrick):
     def onCenter(self):
         # Turning off
         if self.screen == -1 and self.btn_x == 0:
-            sys.exit(0)
+            pygame.quit()
 
         if self.screen < 4:
             self.screen += 1
@@ -307,7 +307,7 @@ if __name__ == "__main__":
             if event.type == QUIT: 
                 robot.die = True
                 running = False
-                sys.exit(0)
+                pygame.quit()
 
             elif event.type == MOUSEBUTTONDOWN and robot.mouseOver(): 
 
