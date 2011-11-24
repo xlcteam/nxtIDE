@@ -273,7 +273,7 @@ class Robot(NXTBrick):
         self.dialog.rect.x = 120
 
     def dialogReturn(self, d):
-        print d.inputs
+        print d.out()
         d.close()
 
 if __name__ == "__main__":

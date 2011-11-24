@@ -51,7 +51,7 @@ class SettingsDialog(gui.Dialog):
             
             self.ports[x]['sensors'] = self.build_sensors()
 
-            self.container.add(self.ports[x]['img'], 30+(60*x), 90)
+            self.container.add(self.ports[x]['img'], 30+(60*x), 24)
 
             self.inputs[x] = {'type': None, 'slot': ''}
 
@@ -62,20 +62,32 @@ class SettingsDialog(gui.Dialog):
                       style={'padding_right': 6})
         self.background_input = gui.Input(size=16)
         inp = gui.Button('...')
+        inp.connect(gui.CLICK, self.file_dialog_open, None)
 
-        g = gui.Group(value='')
+        self.bckg_group = gui.Group(name='background', value='')
         t = gui.Table()
         t.tr()
-        t.td(gui.Radio(g, value=''))
+        t.td(gui.Radio(self.bckg_group, value=''))
         t.td(gui.Label('None'), align=-1, style={'padding_left': 4})
         t.tr()
-        t.td(gui.Radio(g, value='custom'))
+        t.td(gui.Radio(self.bckg_group, value='custom'))
         t.td(self.background_input, style={'padding_left': 4})
         t.td(inp, style={'padding_left': 4})
         
         background.td(t)
 
         return background
+
+    def file_dialog_open(self, arg):
+        d = gui.FileDialog()                                                       
+        d.connect(gui.CHANGE, self.file_dialog_handle, d)                       
+        d.open()   
+    
+    def file_dialog_handle(self, dlg):
+        if dlg.value: 
+            self.background_input.value = dlg.value  
+            self.bckg_group.value = 'custom'
+
 
     def port_select(self, port, prev=None):
         
@@ -156,11 +168,11 @@ class SettingsDialog(gui.Dialog):
     def port_connect_update(self):
         if self.port_connected():
             pygame.draw.rect(self.sensors_img.value, (0, 0, 0), 
-                    (28+(60*self.port), 117, 26, 34))
+                    (28+(60*self.port), 51, 26, 34))
             
         else:
             pygame.draw.rect(self.sensors_img.value, (0xff, 0xff, 0xff), 
-                    (28+(60*self.port), 117, 26, 34))
+                    (28+(60*self.port), 51, 26, 34))
                     
         self.container.repaint()
     
@@ -178,6 +190,10 @@ class SettingsDialog(gui.Dialog):
         self.inputs[self.port]['slot'] = g.value
         self.port_connect_update()
 
+    def out(self):
+        return {'inputs': self.inputs, 
+                'others': self.value.items() + [('bckg', self.background_input.value)]}
+
 
 
 if __name__ == '__main__':                                                     
@@ -188,7 +204,7 @@ if __name__ == '__main__':
     dialog = SettingsDialog()    
 
     def ret(d):
-        print d.inputs
+        print d.out()
         d.close()
 
     dialog.connect(gui.CHANGE, ret, dialog)
