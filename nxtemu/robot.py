@@ -14,6 +14,7 @@ class Robot(NXTBrick):
     proc = None
     die = False
     inputs = {}
+    others = {}
     def __init__(self, wboot = True): 
         __builtins__['robot']= self
 
@@ -120,9 +121,9 @@ class Robot(NXTBrick):
     def tick(self):
         self.stayIn()
         
-        rotA = self.mA / 60.0
-        rotB = self.mB / 60.0
-        rotC = self.mC / 60.0
+        rotA = self.mA / 40.0
+        rotB = self.mB / 40.0
+        rotC = self.mC / 40.0
                
         angle = (rotA - rotB) / 4
 
@@ -234,7 +235,15 @@ class Robot(NXTBrick):
         self.dialog.rect.x = 120
 
     def dialogReturn(self, d):
-        print d.out()
+        out = d.out()
+        
+        robot.inputs = out['inputs']
+        robot.others = out['others']
+        
+        robot.background = out['others'][0][1]
+        robot.back = out['others'][0][1]
+        
+
         d.close()
 
 
