@@ -13,6 +13,7 @@ from dialog import SettingsDialog
 class Robot(NXTBrick): 
     proc = None
     die = False
+    inputs = {}
     def __init__(self, wboot = True): 
         __builtins__['robot']= self
 
@@ -119,9 +120,9 @@ class Robot(NXTBrick):
     def tick(self):
         self.stayIn()
         
-        rotA = self.mA / 20.0
-        rotB = self.mB / 20.0
-        rotC = self.mC / 20.0
+        rotA = self.mA / 60.0
+        rotB = self.mB / 60.0
+        rotC = self.mC / 60.0
                
         angle = (rotA - rotB) / 4
 
