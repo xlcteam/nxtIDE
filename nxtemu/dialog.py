@@ -4,6 +4,12 @@ from pygame.locals import *
 
 from pgu import gui
 
+def p(path):
+    """Nasty monkey patch - shall be removed"""
+    import os
+    from os.path import abspath, dirname
+    return dirname(abspath(__file__)) + os.sep + path
+
 
 class SettingsDialog(gui.Dialog):
     port = None   
@@ -19,7 +25,7 @@ class SettingsDialog(gui.Dialog):
         table = gui.Table()
         table.tr()
         
-        self.sensors_img = gui.Image('icons/sensors.jpg')
+        self.sensors_img = gui.Image(p('icons/sensors.jpg'))
 
         table.td(self.sensors_img, cellspan=3)
 
@@ -46,7 +52,7 @@ class SettingsDialog(gui.Dialog):
     def init_ports(self):
         for x in range(1, 5):
             self.ports[x] = {}
-            self.ports[x]['img'] = gui.Image('icons/port%d.png' % x)
+            self.ports[x]['img'] = gui.Image(p('icons/port%d.png' % x))
             self.ports[x]['img'].connect(gui.CLICK, self.change, x)
             
             self.ports[x]['sensors'] = self.build_sensors()
@@ -92,10 +98,10 @@ class SettingsDialog(gui.Dialog):
     def port_select(self, port, prev=None):
         
         if prev is not None:
-            img = 'icons/port%d.png' % (prev)
+            img = p('icons/port%d.png' % (prev))
             self.ports[prev]['img'].value = pygame.image.load(img).convert()
         
-        img = 'icons/w_port%d.png' % (port)
+        img = p('icons/w_port%d.png' % (port))
         self.ports[port]['img'].value = pygame.image.load(img).convert()
 
     def build_sensors(self):
@@ -103,13 +109,13 @@ class SettingsDialog(gui.Dialog):
         sensors = gui.Table()
         sensors.tr()
         sensors.td(gui.Tool(sensors_group, 
-                        gui.Image('icons/light.png'), value='light'))
+                        gui.Image(p('icons/light.png')), value='light'))
         sensors.tr()
         sensors.td(gui.Tool(sensors_group, 
-                        gui.Image('icons/sonic.png'), value='sonic'))
+                        gui.Image(p('icons/sonic.png')), value='sonic'))
         sensors.tr()
         sensors.td(gui.Tool(sensors_group, 
-                        gui.Image('icons/touch.png'), value='touch'))
+                        gui.Image(p('icons/touch.png')), value='touch'))
         sensors.tr()
         sensors.td(gui.Tool(sensors_group, gui.Label('None'), value=''))
 
@@ -127,10 +133,10 @@ class SettingsDialog(gui.Dialog):
             slots.tr()
             if slot in wslots:
                 slots.td(gui.Tool(slots_group, 
-                                  gui.Image('icons/slot%d.png' % (slot)), 
+                                  gui.Image(p('icons/slot%d.png' % (slot))), 
                                   value=slot))
             else:
-                slots.td(gui.Image('icons/slot%d.png' % (slot)))
+                slots.td(gui.Image(p('icons/slot%d.png' % (slot))))
  
         
         slots.tr()
@@ -152,7 +158,7 @@ class SettingsDialog(gui.Dialog):
         table = gui.Table()
         table.tr()
         table.td(self.ports[port]['sensors'])
-        table.td(gui.Image('icons/arrow.png'))
+        table.td(gui.Image(p('icons/arrow.png')))
 
         slots = self.build_slots()
 
