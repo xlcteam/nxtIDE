@@ -219,4 +219,4 @@ if __name__ == "__main__":
         else:
             robot.tick()
 
-        clock.tick(40) # Frame rate  
+        clock.tick(60) # Frame rate  
