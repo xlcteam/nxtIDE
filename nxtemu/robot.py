@@ -14,7 +14,8 @@ class Robot(NXTBrick):
     proc = None
     die = False
     inputs = {}
-    others = {}
+    background = None
+    bckg = None
     def __init__(self, wboot = True): 
         __builtins__['robot']= self
 
@@ -233,16 +234,40 @@ class Robot(NXTBrick):
         self.dialog.connect(gui.CHANGE, self.dialogReturn, self.dialog)
         self.dialog.open()
         self.dialog.rect.x = 120
+    
+    def imgUpdate(self):
+        image = imgs.robot.convert_alpha()
+        
+        for x in self.inputs:
+            inp = self.inputs[x]
+            if inp['slot'] != '':
+                dx = inp['slot']*7
+                if inp['slot'] == 3:
+                    dx += 1    
+                
+                dw = 1 if inp['slot'] == 2 else 0
+                pygame.draw.rect(image, (0xfa, 0x70, 0x0d), 
+                                 (13+dx, 9, 5+dw, 5))
+                
+
+
+       #pygame.draw.rect(image, (0xfa, 0x70, 0x0d), (20, 9, 5, 5))
+       #pygame.draw.rect(image, (0xfa, 0x70, 0x0d), (27, 9, 6, 5))
+       #pygame.draw.rect(image, (0xfa, 0x70, 0x0d), (35, 9, 5, 5))
+
+        self.image = image
 
     def dialogReturn(self, d):
         out = d.out()
-        
+
         robot.inputs = out['inputs']
-        robot.others = out['others']
         
-        robot.background = out['others'][0][1]
-        robot.back = out['others'][0][1]
+        if out['others'][0][1] == 'custom' and out['others'][1][1] != '':
+            robot.background = out['others'][1][1]
+        else:
+            robot.background = None
         
+        self.imgUpdate()
 
         d.close()
 
