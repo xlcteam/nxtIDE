@@ -325,8 +325,12 @@ if __name__ == "__main__":
 
                 if event.button == 4:
                     robot.angle += 1
+                    robot.angle = round(robot.angle, 0)
+                    print robot.angle
                 elif event.button == 5:
                     robot.angle -= 1
+                    robot.angle = round(robot.angle, 0)
+                    print robot.angle
             
 
         pygame.event.pump()
