@@ -325,10 +325,12 @@ if __name__ == "__main__":
 
                 if event.button == 4:
                     robot.angle += 1
+                    robot.angle = round(robot.angle, 0)
                 elif event.button == 5:
                     robot.angle -= 1
-            
+                    robot.angle = round(robot.angle, 0)
 
+            
         pygame.event.pump()
         keystate = pygame.key.get_pressed()
         mod = pygame.key.get_mods()
