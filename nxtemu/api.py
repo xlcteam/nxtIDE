@@ -433,6 +433,17 @@ def ResetTachoCount(motor):
             robot.rotC = 0
 
 
+IN_1 = 1
+IN_2 = 2
+IN_3 = 3
+IN_4 = 4
+
+def Sensor(sensor):
+    """Sensor(sensor)"""
+    
+    return robot.sensors[sensor].getValue()
+
+
 def Random(n = None):
     """Random(n = 0)"""
 

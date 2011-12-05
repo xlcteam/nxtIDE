@@ -10,12 +10,15 @@ import imgs
 from robothread import *
 from dialog import SettingsDialog
 
+from sensors import *
+
 class Robot(NXTBrick): 
     proc = None
     die = False
     inputs = {}
     background = None
     bckg = None
+    sensors = {}
     def __init__(self, wboot = True): 
         __builtins__['robot']= self
 
@@ -102,20 +105,17 @@ class Robot(NXTBrick):
         pygame.display.flip() 
     
     def stayIn(self):
-        if self.x > 640:
-            if self.dragged:
-                self.x = 640
-            else:
-                self.x = 0
+        if self.x > 623:
+            self.x = 623
 
-        if self.x < 0:
-            self.x = 640
+        if self.x < 23:
+            self.x = 23
 
-        if self.y > 480:
-            self.y = 0
+        if self.y > 463:
+            self.y = 463
 
-        if self.y < 0:
-            self.y = 480
+        if self.y < 23:
+            self.y = 23
 
 
 
@@ -261,6 +261,11 @@ class Robot(NXTBrick):
         out = d.out()
 
         robot.inputs = out['inputs']
+        
+        for i in out['inputs']:
+            inp = out['inputs'][i]
+            
+            self.sensors[i] = sensor_generator(inp['type'], inp['slot'])
         
         if out['others'][0][1] == 'custom' and out['others'][1][1] != '':
             robot.background = out['others'][1][1]
