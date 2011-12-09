@@ -269,8 +269,10 @@ class Robot(NXTBrick):
         
         if out['others'][0][1] == 'custom' and out['others'][1][1] != '':
             robot.background = out['others'][1][1]
+            env.background = pygame.image.load(robot.background)
         else:
             robot.background = None
+            env.background.fill((255, 255, 255))
         
         self.imgUpdate()
 
