@@ -26,10 +26,11 @@ class SettingsDialog(gui.Dialog):
         table.tr()
         
         self.sensors_img = gui.Image(p('icons/sensors.jpg'))
+        
 
         table.td(self.sensors_img, cellspan=3)
 
-        spacer = gui.Spacer(300, 200)
+        spacer = gui.Image(p('icons/choose_port.png'))
         self.box = gui.ScrollArea(spacer)
         table.tr()
         table.td(self.box, style={'border': 1})
