@@ -61,6 +61,10 @@ class Robot(NXTBrick):
             #print "booting"
             RoboThread(target=self.boot).start()
         
+        self.sensors = {1: BaseSensor(1), 
+                        2: BaseSensor(2), 
+                        3: BaseSensor(3),
+                        4: BaseSensor(4)}
 
         self.dialog = SettingsDialog()
 
@@ -81,6 +85,9 @@ class Robot(NXTBrick):
         mpos = pygame.mouse.get_pos() 
         self.x = mpos[0] 
         self.y = mpos[1] 
+        
+
+        pygame.image.save(self.image, "robot_.png")
 
         self.stayIn()
     
@@ -122,9 +129,9 @@ class Robot(NXTBrick):
     def tick(self):
         self.stayIn()
         
-        rotA = self.mA / 40.0
-        rotB = self.mB / 40.0
-        rotC = self.mC / 40.0
+        rotA = self.mA / 30.0
+        rotB = self.mB / 30.0
+        rotC = self.mC / 30.0
                
         angle = (rotA - rotB) / 4
 
@@ -269,10 +276,19 @@ class Robot(NXTBrick):
         
         if out['others'][0][1] == 'custom' and out['others'][1][1] != '':
             robot.background = out['others'][1][1]
-            env.background = pygame.image.load(robot.background)
+            env.init()
+            
+            img = pygame.image.load(robot.background)
+            if img.get_alpha() != None:
+                img = img.convert_alpha()
+            else:
+                img = img.convert()
+
+
+            env.background.blit(img, (3, 3))
         else:
             robot.background = None
-            env.background.fill((255, 255, 255))
+            env.init()
         
         self.imgUpdate()
 

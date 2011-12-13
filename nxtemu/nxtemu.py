@@ -35,16 +35,18 @@ accel = 0.1
 yup = True
 xleft = True
 
-env.background = pygame.Surface(env.screen.get_size()) 
-env.background = env.background.convert() 
-env.background.fill((255, 255, 255))
+env.init()
 
-pygame.display.set_caption("nxtemu")
-#background.blit(pygame.image.load("./icons/brick.jpg").convert(), (640, 0))
-env.background.blit(imgs.brick.convert(), (640, 0))
+#   env.background = pygame.Surface(env.screen.get_size()) 
+#   env.background = env.background.convert() 
+#   env.background.fill((255, 255, 255))
 
-pygame.draw.rect(env.background, pygame.Color("gray"), ((0, 0), (646, 486)))
-pygame.draw.rect(env.background, pygame.Color("white"), ((3, 3), (640, 480)))
+#   pygame.display.set_caption("nxtemu")
+#   #background.blit(pygame.image.load("./icons/brick.jpg").convert(), (640, 0))
+#   env.background.blit(imgs.brick.convert(), (640, 0))
+
+#   pygame.draw.rect(env.background, pygame.Color("gray"), ((0, 0), (646, 486)))
+#   pygame.draw.rect(env.background, pygame.Color("white"), ((3, 3), (640, 480)))
 
 # background.blit(pygame.image.load("settings.png").convert_alpha(), (970, 400))
 #background.blit(pygame.image.load("./line.jpg"), (3, 3))

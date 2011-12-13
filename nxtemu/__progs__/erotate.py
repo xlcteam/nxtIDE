@@ -5,5 +5,6 @@ def main():
     OnFwd(OUT_A, 100)
     OnRev(OUT_B, 100)
     while 1:
+        print Sensor(IN_1)
         ticker()#lfixed
         pass 
