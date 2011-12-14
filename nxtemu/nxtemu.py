@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/enpython
 
 import pygame, random, math, time, sys, os
 from pygame.locals import * 
@@ -223,4 +223,4 @@ if __name__ == "__main__":
         else:
             robot.tick()
 
-        clock.tick(60) # Frame rate  
+        clock.tick(30) # Frame rate  
