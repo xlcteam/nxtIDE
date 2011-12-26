@@ -13,5 +13,5 @@ def main():
             #Wait(80)
         else:
             OnFwd(OUT_AB, 80)
-
+        
         ticker()#lfixed

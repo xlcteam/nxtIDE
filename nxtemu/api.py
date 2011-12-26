@@ -417,6 +417,7 @@ def RotateMotor(motor, speed, angle):
     while MotorTachoCount(motor) < angle:
         dieTest()
         clock.tick(20)
+    Off(motor)
 
 def ResetTachoCount(motor):
     """ResetTachoCount(motor)"""
@@ -442,6 +443,12 @@ def Sensor(sensor):
     """Sensor(sensor)"""
     
     return robot.sensors[sensor].getValue()
+
+def SensorUS(sensor):
+    """SensorUS(sensor)"""
+    
+    return robot.sensors[sensor].getValue()
+
 
 
 def Random(n = None):

@@ -19,6 +19,29 @@ class BaseSensor(object):
 class SensorUS(BaseSensor):
     """Ultrasonic Sensor - measures distance from nearest object."""
     type = 'sonic'
+    pos = {1: [19.697715603592208, 66.03], 
+           2: [-18, 270], 
+           3: [-19.697715603592208, -66.03]}
+    
+
+    def getValue(self):
+        pos = self.pos[self.slot]
+
+        dx = cos(radians(pos[1] + robot.angle)) * pos[0]
+        dy = sin(radians(pos[1] + robot.angle)) * pos[0]
+
+        (x, y) = (robot.x - dx, robot.y - dy)
+        for z in xrange(800):
+            x += cos(radians(robot.angle - 90))
+            y += sin(radians(robot.angle - 90))
+            
+            o = env.background.get_at((int(round(x)), int(round(y))))
+            if o == (190, 190, 190, 255):
+                break
+            #else:
+            #    env.background.set_at((int(round(x)), int(round(y))), (255, 0, 0))
+                
+        return z
 
 
 class SensorLight(BaseSensor):
@@ -49,7 +72,7 @@ class SensorLight(BaseSensor):
 
         rgb = env.background.get_at((x, y))
         #env.background.set_at((x, y), (0, 0, 0xff))
-        print (dx, dy), rgb
+        #print (dx, dy), rgb
         return self.lightness(rgb)
 
 
