@@ -41,7 +41,7 @@ class SensorUS(BaseSensor):
             #else:
             #    env.background.set_at((int(round(x)), int(round(y))), (255, 0, 0))
                 
-        return z
+        return z//2.5
 
 
 class SensorLight(BaseSensor):
