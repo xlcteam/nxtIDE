@@ -236,13 +236,20 @@ class NXTBrick:
     
     def progLoad(self):
 
+        def older_first(x, y):
+            return int(os.path.getmtime(y)) - int(os.path.getmtime(x))
+        
         prgdir = self.root + os.sep + '__progs__' + os.sep
         #print prgdir
         self.progs = glob(prgdir + 'e*.py')
 
+        self.progs = sorted(self.progs, cmp=older_first)
+        
         for x in range(len(self.progs)):
             self.progs[x] = self.progs[x].replace(prgdir + 'e' , '') \
                         .replace('.py', '')
+
+        
     
     def running(self):
         self.scr_running = True
