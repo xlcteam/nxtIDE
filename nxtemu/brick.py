@@ -1,6 +1,6 @@
 from api import *
 from glob import glob
-import os, os.path, sys, time
+import os, os.path, sys
 
 class NXTBrick:
     name = "emulator"
