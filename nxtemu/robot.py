@@ -204,7 +204,7 @@ class Robot(NXTBrick):
     def onLeft(self):
         #print "left"
         if self.screen == 2:
-            self.prog = (self.prog + 1) % len(self.progs)
+            self.prog = (self.prog - 1) % len(self.progs)
         
         if self.screen == -1:
             self.btn_x = 0 
@@ -214,7 +214,7 @@ class Robot(NXTBrick):
     def onRight(self):
         #print "right"
         if self.screen == 2:
-            self.prog = (self.prog - 1) % len(self.progs)
+            self.prog = (self.prog + 1) % len(self.progs)
 
         if self.screen == -1:
             self.btn_x = 1 
