@@ -3,6 +3,7 @@ import os
 import py2exe
  
 data_files = ['api.py']
+data_files.append(('floor/line1.jpg', 'floor/line1.jpg'))
 includes = []
 excludes = [] #['_gtkagg', '_tkagg', 'bsddb', 'curses', 'email', 'pywin.debugger',
            # 'pywin.debugger.dbgcon', 'pywin.dialogs', 'tcl',
