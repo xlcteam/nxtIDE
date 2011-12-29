@@ -8,19 +8,21 @@ from pgu import gui
 import imgs
 
 from os.path import abspath, dirname
-sys.path.append(os.path.dirname(__file__))
+sys.path.append(os.path.dirname(sys.argv[0]))
 
 def p(path):
     """Nasty monkey patch - shall be removed"""
     import os
     from os.path import abspath, dirname
-    return dirname(abspath(__file__)) + os.sep + path
+    return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
+            + path
 
 
 from api import *
 from clicker import Clicker
 
 from robot import Robot
+from robothread import *
 
 import env
 
@@ -56,7 +58,7 @@ clock = pygame.time.Clock()
 
 
 if __name__ == "__main__":
-    env.app = gui.App() 
+    env.app = gui.App(theme=gui.Theme(p("theme/default/"))) 
     settings = gui.Image(p("icons/settings.png"))
    # settings.connect
     c = gui.Container(align=-1,valign=-1)

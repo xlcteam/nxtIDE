@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import pygame
+import pygame, sys
 from pygame.locals import *
 
 from pgu import gui
@@ -8,8 +8,8 @@ def p(path):
     """Nasty monkey patch - shall be removed"""
     import os
     from os.path import abspath, dirname
-    return dirname(abspath(__file__)) + os.sep + path
-
+    return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
+            + path
 
 class SettingsDialog(gui.Dialog):
     port = None   
