@@ -87,7 +87,7 @@ class Robot(NXTBrick):
         self.y = mpos[1] 
         
 
-        pygame.image.save(self.image, "robot_.png")
+        #pygame.image.save(self.image, "robot_.png")
 
         self.stayIn()
     
