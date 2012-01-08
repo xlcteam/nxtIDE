@@ -19,6 +19,30 @@ class Robot(NXTBrick):
     background = None
     bckg = None
     sensors = {}
+    touchPoints = {
+        "topleft": [
+            [29.0, -133.60281897270363],
+            [28.319604517012593, -132.13759477388825],
+            [27.65863337187866, -130.6012946450045],
+        ],
+        "left": [
+            [-29, 42.721999467666336],
+            [-28.319604517012593, 41.389942632819086],
+        ],
+        "topright": [
+            [27.018512172212592, -51.00900595749453],
+            [27.65863337187866, -49.398705354995535],
+            [28.319604517012593, -47.862405226111754],
+        ],
+        "right": [
+            [29.698484809834994, -43.97583689433345],
+            [29, -42.721999467666336],
+            [29, -47.278000532333664],
+            [28.319604517012593, -41.389942632819086],
+            [28.319604517012593, -48.610057367180914],
+        ]
+    }
+
     def __init__(self, wboot = True): 
         __builtins__['robot']= self
 
@@ -110,7 +134,37 @@ class Robot(NXTBrick):
 
         env.app.paint()
         pygame.display.flip() 
-    
+
+    def touchesAt(self, positions):
+        
+        for pos in positions:
+            dx = cos(radians(pos[1] + robot.angle)) * pos[0]
+            dy = sin(radians(pos[1] + robot.angle)) * pos[0]
+            
+            #print 30 + round(dx), 30 + round(dy)
+
+            x = int(self.x + round(dx))
+            y = int(self.y + round(dy))
+
+            #env.background.set_at((x, y), (0, 0, 255, 0))
+
+            try:
+                o = env.background.get_at((x, y))
+            except IndexError:
+                return True
+
+            if o == (190, 190, 190, 255):
+                return True
+
+        return False
+
+    def touches(self):
+        out = {}
+        for p in self.touchPoints:
+            out[p] = self.touchesAt(p)
+
+        return out
+
     def stayIn(self):
         if self.x > 623:
             self.x = 623
@@ -125,21 +179,33 @@ class Robot(NXTBrick):
             self.y = 23
 
 
-
     def tick(self):
-        self.stayIn()
+        # self.stayIn()
+        angle = 0
+        rotA = rotB = 0
         
-        rotA = self.mA / 30.0
-        rotB = self.mB / 30.0
+
+        if not self.touchesAt(self.touchPoints["topleft"]):
+            rotA = self.mA / 30.0
+        else:
+            print "A touched"
+            rotA -= self.mA / 20.0 
+
+        if not self.touchesAt(self.touchPoints["topright"]):
+            rotB = self.mB / 30.0
+        else:
+            print "B touched"
+            rotB -= self.mB / 20.0
+
         rotC = self.mC / 30.0
                
-        angle = (rotA - rotB) / 4
+        angle += (rotA - rotB) / 3
 
         self.angle += angle
         p = (rotA + rotB) / 2 / 1.8
         
         # #print self.angle, self.mA, self.mB, self
-
+        
         self.rotA += rotA
         self.rotB += rotB
         self.rotC += rotC
