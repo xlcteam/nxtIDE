@@ -188,7 +188,13 @@ LCD_LINE8 =  8
 
 def TextOut(x, y, text):
     """TextOut(x, y, text)
-    High level function for printing text on surface """
+    
+    Prints text on the surface.
+    
+    :param (int) x: X-axis of the text
+    :param (int) y: Y-axis or the text
+    :param (str) text: The text to print
+    """
 
     for char in list(text):
         printChar(x, y, char)
@@ -311,11 +317,16 @@ def ClearLine(line):
     TextOut(0, line, 16*" ")
 
 
-def Wait(sec):
-    """Wait(sec)"""
+def Wait(milisec):
+    """Wait(milisec)
+    
+    Waits for given number of miliseconds.
 
-    while sec > 1:
-        sec -= pygame.time.delay(100)
+    :param (int) milisec: number of miliseconds
+    """
+
+    while milisec > 1:
+        milisec -= pygame.time.delay(100)
         dieTest()
 
 
@@ -440,7 +451,12 @@ IN_3 = 3
 IN_4 = 4
 
 def Sensor(sensor):
-    """Sensor(sensor)"""
+    """Sensor(sensor)
+    
+    Reads a value from given sensor.
+    
+    :param (int) sensor: sensor we want to read from
+    """
     
     return robot.sensors[sensor].getValue()
 

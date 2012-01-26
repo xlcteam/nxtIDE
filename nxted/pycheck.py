@@ -14,7 +14,7 @@ class Visitor(ASTVisitor):
         self.v = lambda tree, visitor=self: walk(tree, visitor)
         self.stream = stream
         self.strcode = ""
-        self.debug=debug
+        self.debug = debug
         self.indents = 0
 
         self.ids = {}
@@ -23,6 +23,9 @@ class Visitor(ASTVisitor):
                                 'None']
         self.ids['__fn__'] = []
         self.ids[''] = []
+
+        self.fn_types = {}
+        self.fn_type_regex = re.compile(":param \((.*?)\)")
 
         self.fn = ""
         ASTVisitor.__init__(self)
@@ -69,15 +72,40 @@ class Visitor(ASTVisitor):
         self.v(node.expr)
 
     def visitCallFunc(self, node):
-       #if isinstance(node.node, compiler.ast.Getattr):
-       #    pass
-       #else:
-       #    if not (node.node.name in self.ids['__fn__']):
-       #        print node.node.name
+        if not isinstance(node.node, compiler.ast.Getattr):
+            if not (node.node.name in self.ids['global']):
+                print node.node.name
+                pass
                 
         self.v(node.node)        
 
         for i in range(len(node.args)):
+            #print "\t", node.args[i]
+            #help(node.args[i])
+            #print node.args[i]
+            
+
+            if isinstance(node.args[i], compiler.ast.Const) and \
+                not isinstance(node.node, compiler.ast.Getattr) and \
+                self.fn_types.has_key(node.node.name):
+                if not self.istype(self.fn_types[node.node.name][i],
+                        node.args[i].value):
+                    raise ValueError(self.fn_types[node.node.name][i] + \
+                        " expected - got " + str(node.args[i].value) + \
+                        " in " +  node.node.name)
+
+            #if isinstance(node.args[i], compiler.ast.Name) or 
+
+             #   if self.fn_types.has_key(node.node.value)
+
+           #if not self.fn_types.has_key(node.node.value):
+           #    print "no such %s " % (node.node.name)
+           #    continue
+
+           #if not self.istype(self.fn_types[node.node.name][i], 
+           #                    node.node.value):
+           #    raise ValueError, "asd"
+
             self.v(node.args[i])
 
             
@@ -92,6 +120,10 @@ class Visitor(ASTVisitor):
         
         self.fn = "__fn__"
         self.addId(node.name)
+        #print node.name,
+        if isinstance(node.doc, str):
+            self.fn_types[node.name] = self.parseDoc(node.doc)
+            #print self.fn_types[node.name]
         
         self.fn = node.name
         for x in node.argnames[:]:
@@ -144,6 +176,13 @@ class Visitor(ASTVisitor):
         for name in node.asList()[0]:
             self.addId(name[0])
 
+    def parseDoc(self, s):
+        return self.fn_type_regex.findall(s)
+
+    def istype(self, t, val):
+        r = {'int': int, 'str': str}
+        return isinstance(val, r[t])
+    
 
 
 class PyCheck():
@@ -194,12 +233,13 @@ def realLine(s, l):
         
 
 if __name__ == "__main__":
-   #check = PyCheck()
-   #check.check("api.py")
+    check = PyCheck()
+    check.check("../nxtemu/api.py")
+    check.check("files/check_test.py")
    #check.check("etest.py")
     #print vi.ids
-    string = loopFix(open("etest.py").read(), "tester()") 
-    print string
+    #string = loopFix(open("etest.py").read(), "tester()") 
+    #print string
     print loopFix("""def main():
     while 1:
         TextOut(0, LCD_LINE1, "socialny defekt")
