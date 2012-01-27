@@ -27,6 +27,9 @@ class Visitor(ASTVisitor):
         self.fn_types = {}
         self.fn_type_regex = re.compile(":param \((.*?)\)")
 
+        self.var_types = {}
+        self.var_types['global'] = {}
+
         self.fn = ""
         ASTVisitor.__init__(self)
     
@@ -35,6 +38,17 @@ class Visitor(ASTVisitor):
             self.ids['global'].append(name)
         else:
             self.ids[self.fn].append(name)
+
+    def addVarType(self, name, type):
+        if self.fn == "":
+            self.var_types['global'][name] = type
+        else:
+            if not self.var_types.has_key(self.fn):
+                self.var_types[self.fn] = {}
+            
+            self.var_types[self.fn][name] = type
+
+            
 
     def __str__(self):
         return self.strcode
@@ -63,6 +77,11 @@ class Visitor(ASTVisitor):
         for i in range(len(node.nodes)):
             n = node.nodes[i]
             self.v(n)
+        
+        if isinstance(node.expr, compiler.ast.Const) and \
+            isinstance(node.nodes[0], compiler.ast.AssName):
+
+            self.addVarType(node.nodes[0].name, type(node.expr.value))
 
         self.v(node.expr)
 
@@ -74,7 +93,7 @@ class Visitor(ASTVisitor):
     def visitCallFunc(self, node):
         if not isinstance(node.node, compiler.ast.Getattr):
             if not (node.node.name in self.ids['global']):
-                print node.node.name
+                #print node.node.name
                 pass
                 
         self.v(node.node)        
@@ -82,8 +101,9 @@ class Visitor(ASTVisitor):
         for i in range(len(node.args)):
             #print "\t", node.args[i]
             #help(node.args[i])
-            #print node.args[i]
-            
+
+            if isinstance(node.args[i], compiler.ast.Name):
+                self.visitName(node.args[i])
 
             if isinstance(node.args[i], compiler.ast.Const) and \
                 not isinstance(node.node, compiler.ast.Getattr) and \
@@ -94,18 +114,24 @@ class Visitor(ASTVisitor):
                         " expected - got " + str(node.args[i].value) + \
                         " in " +  node.node.name)
 
-            #if isinstance(node.args[i], compiler.ast.Name) or 
+            if isinstance(node.args[i], compiler.ast.Name) and \
+                not isinstance(node.node, compiler.ast.Getattr) and \
+                self.fn_types.has_key(node.node.name):
+                if self.fn_types[node.node.name] == []:
+                    continue
+                
+                if not self.var_types.has_key(self.fn):
+                    continue
+                if not self.var_types[self.fn].has_key(node.args[i].name):
+                    continue
 
-             #   if self.fn_types.has_key(node.node.value)
-
-           #if not self.fn_types.has_key(node.node.value):
-           #    print "no such %s " % (node.node.name)
-           #    continue
-
-           #if not self.istype(self.fn_types[node.node.name][i], 
-           #                    node.node.value):
-           #    raise ValueError, "asd"
-
+                if not self.istype(self.fn_types[node.node.name][i],
+                       self.var_types[self.fn][node.args[i].name]):
+                    raise ValueError(self.fn_types[node.node.name][i] + \
+                        " expected - got " + \
+                        str(self.var_types[self.fn][node.args[i].name].__name__) + \
+                        " for " +  node.node.name)
+            
             self.v(node.args[i])
 
             
@@ -120,10 +146,9 @@ class Visitor(ASTVisitor):
         
         self.fn = "__fn__"
         self.addId(node.name)
-        #print node.name,
+
         if isinstance(node.doc, str):
             self.fn_types[node.name] = self.parseDoc(node.doc)
-            #print self.fn_types[node.name]
         
         self.fn = node.name
         for x in node.argnames[:]:
@@ -156,7 +181,7 @@ class Visitor(ASTVisitor):
         defined = node.name in self.ids[self.fn] \
             or node.name in self.ids['__fn__'] \
             or node.name in self.ids['global']
-
+        
         if not defined:
             raise NameError("Name '%s' is not defined" % (node.name),
                             self.parent.first_occur(node.name))
