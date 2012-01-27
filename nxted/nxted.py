@@ -133,6 +133,12 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
             return False
 
+        except ValueError as ve:
+            msg = "ValueError: %s" % ve.args
+
+            self.parent.showMsg(msg)
+            return False
+
         self.parent.statusbar.SetStatusText("Compiled...OK")
 
         wx.FutureCall(2000, self.clearStatusbar)

@@ -109,10 +109,15 @@ class Visitor(ASTVisitor):
                 not isinstance(node.node, compiler.ast.Getattr) and \
                 self.fn_types.has_key(node.node.name):
                 if not self.istype(self.fn_types[node.node.name][i],
-                        node.args[i].value):
-                    raise ValueError(self.fn_types[node.node.name][i] + \
-                        " expected - got " + str(node.args[i].value) + \
-                        " in " +  node.node.name)
+                    node.args[i].value):
+
+                    fn_type = self.fn_types[node.node.name][i]
+                    fn_name = node.node.name
+                    var_type = type(node.args[i].value)
+
+                    raise ValueError("%s expects %s not %s" % 
+                                    (fn_name, fn_type, var_type.__name__))
+                   
 
             if isinstance(node.args[i], compiler.ast.Name) and \
                 not isinstance(node.node, compiler.ast.Getattr) and \
@@ -126,11 +131,17 @@ class Visitor(ASTVisitor):
                     continue
 
                 if not self.istype(self.fn_types[node.node.name][i],
-                       self.var_types[self.fn][node.args[i].name]):
-                    raise ValueError(self.fn_types[node.node.name][i] + \
-                        " expected - got " + \
-                        str(self.var_types[self.fn][node.args[i].name].__name__) + \
-                        " for " +  node.node.name)
+                    self.var_types[self.fn][node.args[i].name]):
+
+                    fn_type = self.fn_types[node.node.name][i]
+                    fn_name = node.node.name
+                    var_type = self.var_types[self.fn][node.args[i].name]
+                    var_name = node.args[i].name
+
+                   # self.parent.first_match(fn_name, i, var_name)
+                    
+                    raise ValueError("%s expects %s not %s" % 
+                                    (fn_name, fn_type, var_type.__name__))
             
             self.v(node.args[i])
 
@@ -234,6 +245,16 @@ class PyCheck():
                 return line
 
             line += 1
+    
+    def first_match(self, fn_name, narg, val):
+        regex = '.*?%s\(%s\s*%s\).*?' % \
+                (fn_name, '.*?,'*narg, val)
+
+        a = re.search(regex, self.src)
+        help(a)
+
+        print a.start(), a.span(), a.expand()
+            
 
 __lfix__ = "#lfixed"
 
