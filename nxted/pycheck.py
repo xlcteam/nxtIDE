@@ -108,6 +108,10 @@ class Visitor(ASTVisitor):
             if isinstance(node.args[i], compiler.ast.Const) and \
                 not isinstance(node.node, compiler.ast.Getattr) and \
                 self.fn_types.has_key(node.node.name):
+
+                if self.fn_types[node.node.name] == []:
+                    continue
+ 
                 if not self.istype(self.fn_types[node.node.name][i],
                     node.args[i].value):
 
@@ -122,9 +126,9 @@ class Visitor(ASTVisitor):
             if isinstance(node.args[i], compiler.ast.Name) and \
                 not isinstance(node.node, compiler.ast.Getattr) and \
                 self.fn_types.has_key(node.node.name):
+
                 if self.fn_types[node.node.name] == []:
                     continue
-                
                 if not self.var_types.has_key(self.fn):
                     continue
                 if not self.var_types[self.fn].has_key(node.args[i].name):
@@ -281,7 +285,7 @@ def realLine(s, l):
 if __name__ == "__main__":
     check = PyCheck()
     check.check("../nxtemu/api.py")
-    check.check("files/check_test.py")
+    check.check("files/test1.py")
    #check.check("etest.py")
     #print vi.ids
     #string = loopFix(open("etest.py").read(), "tester()") 
