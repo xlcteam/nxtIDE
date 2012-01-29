@@ -158,9 +158,9 @@ class PythonSTC(stc.StyledTextCtrl):
         # Default 
         self.StyleSetSpec(stc.STC_P_DEFAULT, "fore:#ffffff,bold,face:%(helv)s,size:%(size)d,back:#0D1021" % faces)
         # Comments
-        self.StyleSetSpec(stc.STC_P_COMMENTLINE, "fore:#99968b,italic,face:%(other)s,size:%(size)d,back:#0D1021" % faces)
+        self.StyleSetSpec(stc.STC_P_COMMENTLINE, "fore:#007F00,italic,face:%(other)s,size:%(size)d,back:#0D1021" % faces)
         # Number
-        self.StyleSetSpec(stc.STC_P_NUMBER, "fore:red,size:%(size)d,back:#0D1021" % faces)
+        self.StyleSetSpec(stc.STC_P_NUMBER, "fore:#FF7F00,size:%(size)d,back:#0D1021" % faces)
         # String
         self.StyleSetSpec(stc.STC_P_STRING, "fore:#95e454,face:%(helv)s,size:%(size)d,back:#0D1021" % faces)
         # Single quoted string
@@ -176,16 +176,16 @@ class PythonSTC(stc.StyledTextCtrl):
         # Function or method name definition
         self.StyleSetSpec(stc.STC_P_DEFNAME, "fore:#fa6513,bold,size:%(size)d,back:#0D1021" % faces)
         # Operators
-        self.StyleSetSpec(stc.STC_P_OPERATOR, "fore:#ffffff,size:%(size)d,back:#0D1021" % faces)
+        self.StyleSetSpec(stc.STC_P_OPERATOR, "fore:#ffffff,bold,size:%(size)d,back:#0D1021" % faces)
         # Identifiers 
-        self.StyleSetSpec(stc.STC_P_IDENTIFIER, "fore:#ffffff,face:%(helv)s,size:%(size)d,back:#0D1021" % faces)
+        self.StyleSetSpec(stc.STC_P_IDENTIFIER, "fore:#007F7F,face:%(helv)s,size:%(size)d,back:#0D1021" % faces)
         # Comment-blocks
-        self.StyleSetSpec(stc.STC_P_COMMENTBLOCK, "fore:#aeaeae,size:%(size)d,back:#0D1021" % faces)
+        self.StyleSetSpec(stc.STC_P_COMMENTBLOCK, "fore:#007F00,size:%(size)d,back:#0D1021" % faces)
         # End of line where string is not closed
         self.StyleSetSpec(stc.STC_P_STRINGEOL, "fore:#ffffff,face:%(mono)s,back:#E0C0E0,eol,size:%(size)d" % faces)
 
         self.SetCaretForeground("white")
-        self.SetSelBackground(True, "#000")
+        self.SetSelBackground(True, "#FFFFFF")
         
         self.SetMarginType(1, stc.STC_MARGIN_NUMBER)
         self.SetMarginWidth(1, 25)   
