@@ -134,9 +134,13 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             return False
 
         except ValueError as ve:
-            msg = "ValueError: %s" % ve.args
-
+            msg = "ValueError: %s on line %d" % ve.args[:2]
+            self.editor.GotoLine(ve.args[1] - 1)
+            #pos = self.editor.GetLineEndPosition(ve.args[3])
+            
+            self.editor.SetSelection(ve.args[2][0], ve.args[2][1])
             self.parent.showMsg(msg)
+
             return False
 
         self.parent.statusbar.SetStatusText("Compiled...OK")

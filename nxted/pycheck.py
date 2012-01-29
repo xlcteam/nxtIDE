@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import sys, re
+import sys, re, os
 import compiler.ast
 from compiler.visitor import ASTVisitor
 from compiler import parse, walk
@@ -118,9 +118,11 @@ class Visitor(ASTVisitor):
                     fn_type = self.fn_types[node.node.name][i]
                     fn_name = node.node.name
                     var_type = type(node.args[i].value)
+                    var_value = node.args[i].value
 
                     raise ValueError("%s expects %s not %s" % 
-                                    (fn_name, fn_type, var_type.__name__))
+                                    (fn_name, fn_type, var_type.__name__),
+                                *self.parent.first_match(fn_name, i, var_value))
                    
 
             if isinstance(node.args[i], compiler.ast.Name) and \
@@ -145,7 +147,8 @@ class Visitor(ASTVisitor):
                    # self.parent.first_match(fn_name, i, var_name)
                     
                     raise ValueError("%s expects %s not %s" % 
-                                    (fn_name, fn_type, var_type.__name__))
+                                    (fn_name, fn_type, var_type.__name__),
+                                *self.parent.first_match(fn_name, i, var_name))
             
             self.v(node.args[i])
 
@@ -249,15 +252,17 @@ class PyCheck():
                 return line
 
             line += 1
+        return line
     
     def first_match(self, fn_name, narg, val):
-        regex = '.*?%s\(%s\s*%s\).*?' % \
+        regex = '.*?%s\(%s\s*(%s)\).*?' % \
                 (fn_name, '.*?,'*narg, val)
 
-        a = re.search(regex, self.src)
-        help(a)
+        match = re.search(regex, self.src)
+        
+        line = self.src.count(os.linesep, 0, match.start()) + 1
 
-        print a.start(), a.span(), a.expand()
+        return [line, (match.start(1), match.end(1)) ]
             
 
 __lfix__ = "#lfixed"
