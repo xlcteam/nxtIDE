@@ -133,7 +133,13 @@ def screenTest():
 
 
 def PointOut(x, y):
-    """PointOut(x, y)"""
+    """PointOut(x, y)
+    
+    Draws a point on the screen at (x, y)
+
+    param: (int) x: The x coordinate of the point
+    param: (int) y: The y coordinate of the point
+    """
     screenTest()
     dieTest()
     x, y = makeXY(x, y)
@@ -189,10 +195,10 @@ LCD_LINE8 =  8
 def TextOut(x, y, text):
     """TextOut(x, y, text)
     
-    Prints text on the surface.
+    Prints text on the screen.
     
-    :param (int) x: X-axis of the text
-    :param (int) y: Y-axis or the text
+    :param (int) x: X coordinate of the text
+    :param (int) y: Y coordinate or the text
     :param (str) text: The text to print
     """
 
@@ -202,7 +208,13 @@ def TextOut(x, y, text):
 
 def NumOut(x, y, num):
     """NumOut(x, y, num)
-    The same as TextOut but for integers """
+    
+    Prints number on the screen.
+ 
+    :param (int) x: X coordinate of the text
+    :param (int) y: Y coordinate or the text
+    :param (int) num: The number to print
+    """
 
     
     num = str(num)
