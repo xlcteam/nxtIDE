@@ -15,7 +15,7 @@ def getAPI():
         if func[0].isupper():
             id = getattr(api, func)
             if type(id).__name__ == "function":
-                out[func] = id.__doc__
+                out[func] = id.__doc__.replace(':param ', '')
 
     
     return out

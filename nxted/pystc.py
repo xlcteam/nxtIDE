@@ -215,6 +215,8 @@ class PythonSTC(stc.StyledTextCtrl):
             if style == stc.STC_P_IDENTIFIER:
                 id = self.getIdentifier(pos - 1)
                 if id in self.api:
+                    self.CallTipSetForeground("#000")
+                    self.CallTipSetBackground("#FFF")
                     self.CallTipShow(pos - len(id), self.api[id])
                                  
                                  

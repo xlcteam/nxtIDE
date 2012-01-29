@@ -1,5 +1,6 @@
 CircleOut: CircleOut(x, y, radius)
-ClearScreen: ClearScreen()
+ClearLine: "ClearLine(line)\n    \n    Clears one line on the screen."
+ClearScreen: "ClearScreen()\n    \n    Clears the screen.\n    "
 Coast: Coast(motor)
 Float: Float(motor)
 LineOut: "LineOut(x0, y0, x1, y1)\n    \n    Function for printing line from [x1,y1]\
@@ -14,5 +15,11 @@ Random: Random(n = 0)
 RectOut: RectOut(x, y, width, height)
 ResetTachoCount: ResetTachoCount(motor)
 RotateMotor: RotateMotor(motor, speed, angle)
-TextOut: "TextOut(x, y, text)\n    High level function for printing text on surface "
-Wait: Wait(sec)
+Sensor: "Sensor(sensor)\n    \n    Reads a value from given sensor.\n    \n    (int)\
+  \ sensor: sensor we want to read from\n    "
+SensorUS: SensorUS(sensor)
+TextOut: "TextOut(x, y, text)\n    \n    Prints text on the surface.\n    \n    (int)\
+  \ x: X-axis of the text\n    (int) y: Y-axis or the text\n    (str) text: The text\
+  \ to print\n    "
+Wait: "Wait(milisec)\n    \n    Waits for given number of miliseconds.\n\n    (int)\
+  \ milisec: number of miliseconds\n    "
