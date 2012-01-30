@@ -188,13 +188,11 @@ class Robot(NXTBrick):
         if not self.touchesAt(self.touchPoints["topleft"]):
             rotA = self.mA / 30.0
         else:
-            print "A touched"
             rotA -= self.mA / 20.0 
 
         if not self.touchesAt(self.touchPoints["topright"]):
             rotB = self.mB / 30.0
         else:
-            print "B touched"
             rotB -= self.mB / 20.0
 
         rotC = self.mC / 30.0
