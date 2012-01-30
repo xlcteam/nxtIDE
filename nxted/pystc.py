@@ -22,7 +22,7 @@ if wx.Platform == '__WXMSW__':
     faces = { 'times': 'Times New Roman',
               'mono' : 'Courier',
               'helv' : 'Arial',
-              'other': 'Comic Sans MS',
+              'other': 'Helvetica',
               'size' : 12,
               'size2': 10,
              }
@@ -185,7 +185,7 @@ class PythonSTC(stc.StyledTextCtrl):
         self.StyleSetSpec(stc.STC_P_STRINGEOL, "fore:#ffffff,face:%(mono)s,back:#E0C0E0,eol,size:%(size)d" % faces)
 
         self.SetCaretForeground("white")
-        self.SetSelBackground(True, "#000")
+        self.SetSelBackground(True, "#503C1A")
         
         self.SetMarginType(1, stc.STC_MARGIN_NUMBER)
         self.SetMarginWidth(1, 25)   
