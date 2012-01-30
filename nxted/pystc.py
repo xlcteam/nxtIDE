@@ -203,6 +203,9 @@ class PythonSTC(stc.StyledTextCtrl):
 
         self.api = yaml.load(open(root + os.sep + 'help.yml'))
 
+        self.last_id = None
+        self.last_arg_pos = 0
+
     
     def OnChar(self, event):
         key = event.GetKeyCode()
@@ -215,14 +218,28 @@ class PythonSTC(stc.StyledTextCtrl):
             if style == stc.STC_P_IDENTIFIER:
                 id = self.getIdentifier(pos - 1)
                 if id in self.api:
+                    self.last_id = id
+                    self.last_arg_pos = 1
                     self.CallTipSetForeground("#000")
                     self.CallTipSetBackground("#FFF")
                     self.CallTipShow(pos - len(id), self.api[id])
+                    pos = self.getArgPos(self.last_id, self.last_arg_pos)
+                    self.CallTipSetHighlight(pos[0], pos[1]-1)
                                  
+        
+        if key == ord(','):
+            if self.last_id is not None:
+                self.last_arg_pos += 1
+                pos = self.getArgPos(self.last_id, self.last_arg_pos)
+                self.CallTipSetHighlight(pos[0], pos[1]-1)
+                
+            
                                  
         # Hiding CallTip
         if key == ord(')'):
             self.CallTipCancel()
+            self.last_id = None
+            self.last_arg_pos = 0
         
         event.Skip()
 
@@ -441,6 +458,15 @@ class PythonSTC(stc.StyledTextCtrl):
             pos -= 1
 
         return out
+
+    def getArgPos(self, id, n):
+        """Returns position of the n-th argument in function description"""
+
+        m = re.match(".*?\((.*?[,\)]){%d}" % (n) ,
+                        self.api[id])
+
+        return m.span(1)
+
             
 
         
