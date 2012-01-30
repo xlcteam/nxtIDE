@@ -349,7 +349,7 @@ class PythonSTC(stc.StyledTextCtrl):
             #print pt
             #self.Refresh(False)
 
-
+        
     def OnMarginClick(self, evt):
         # fold and unfold as needed
         if evt.GetMargin() == 2:
