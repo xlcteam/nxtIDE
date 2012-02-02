@@ -319,7 +319,10 @@ def ClearScreen():
 def ClearLine(line):
     """ClearLine(line)
     
-    Clear one line on the screen."""
+    Clear one line on the screen.
+    
+    :param (int) line: line we want to clear.
+    """
     
     #x, y = makeXY(0, line)
     #x1, y1 = makeXY(100, line-8)
@@ -353,7 +356,14 @@ OUT_ABC = 7
 
 
 def OnFwd(motor, speed):
-    """OnFwd(motor, speed)"""
+    """OnFwd(motor, speed)
+  
+    Set motor to forward direction and turn it on.
+    
+    :param (int) motor: motor we want to run.
+    :param (int) speed: speed we want to run the motor at from 0 to 100.
+    Negative value reverses direction.   
+    """
 
     dieTest()
 
@@ -374,7 +384,14 @@ def OnFwd(motor, speed):
             robot.mC = speed
 
 def OnRev(motor, speed):
-    """OnRev(motor, speed)"""
+    """OnRev(motor, speed)
+    
+    Set motor to reverse direction and turn it on.
+    
+    :param (int) motor: motor we want to run.
+    :param (int) speed: speed we want to run the motor at from 0 to 100.
+    Negative value reverses direction.
+    """
 
     dieTest()
     speed = -speed
@@ -396,7 +413,12 @@ def OnRev(motor, speed):
             robot.mC = speed
 
 def Off(motor):
-    """Off(motor)"""
+    """Off(motor)
+    
+    Turn motor off (with break).
+    
+    :param (int) motor: motor we want to stop.
+    """
 
     dieTest()
     with robot.lock:
@@ -410,17 +432,32 @@ def Off(motor):
             robot.mC = 0
 
 def Float(motor):
-    """Float(motor)"""
+    """Float(motor)
+    
+    Kills power for the motor. It's an alias to Coast.
+
+    :param (int) motor: motor we want to stop.
+    """
 
     return Off(motor)
 
 def Coast(motor):
-    """Coast(motor)"""
+    """Coast(motor)
+    
+    Kills power for the motor. It's an alias to Float.
+
+    :param (int) motor: motor we want to stop.
+    """
 
     return Off(motor)
 
 def MotorTachoCount(motor):
-    """MotorTachoCount(motor)"""
+    """MotorTachoCount(motor)
+    
+    Get motor tachometer counter value.
+
+    :param (int) motor: motor we want to get tachometer count from.
+    """
 
     dieTest()
     if motor & OUT_A:
@@ -434,7 +471,19 @@ def MotorTachoCount(motor):
 
 
 def RotateMotor(motor, speed, angle):
-    """RotateMotor(motor, speed, angle)"""
+    """RotateMotor(motor, speed, angle)
+    
+    Rotate motor in specified direction at specified speed for the specified
+    number of degrees.
+
+    :param (int) motor: motor we want to rotate
+    :param (int) speed: speed we want to run the motor at, from 0 to 100. 
+    Negative value reverses direction.
+    :param (int) angle: number of degrees we want to rotate the motor. Negative
+    value reverses direction.
+    
+    
+    """
 
     OnFwd(motor, speed)
     clock = pygame.time.Clock()
@@ -444,7 +493,12 @@ def RotateMotor(motor, speed, angle):
     Off(motor)
 
 def ResetTachoCount(motor):
-    """ResetTachoCount(motor)"""
+    """ResetTachoCount(motor)
+    
+    Reset tachometer counter. 
+
+    :param (int) motor: desired motor output.
+    """
 
     dieTest()
     with robot.lock:
@@ -474,14 +528,25 @@ def Sensor(sensor):
     return robot.sensors[sensor].getValue()
 
 def SensorUS(sensor):
-    """SensorUS(sensor)"""
+    """SensorUS(sensor)
+
+    Read value from given lowspeed sensor (e.g. Ultrasonic). The input port 
+    has to be configured as a Lowspeed before using this function.
+    
+    :param (int) sensor: sensor we want to read from
+    """
     
     return robot.sensors[sensor].getValue()
 
 
 
 def Random(n = None):
-    """Random(n = 0)"""
+    """Random(n = 0)
+    
+    Returns a random number
+
+    :param (int) n: the maximal value this function should return
+    """
 
     import random
     if n is None:
