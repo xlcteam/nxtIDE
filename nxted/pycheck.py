@@ -20,7 +20,7 @@ class Visitor(ASTVisitor):
         self.ids = {}
         self.ids['global'] = ['abs', 'str', 'ord', 'True', 'False', 'robot', 
                                 'pygame', 'list', 'range', 'RoboException', 
-                                'None']
+                                'None', 'int', 'float', 'zip']
         self.ids['__fn__'] = []
         self.ids[''] = []
 
