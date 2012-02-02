@@ -48,8 +48,8 @@ for data in extra_data:
         data_files.append(('.', [data]))
 
 
-print find_data_files('theme', 'default/*', recursive=True)
-raw_input()
+#print find_data_files('theme', 'default/*', recursive=True)
+#raw_input()
 
 
 
