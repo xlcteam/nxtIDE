@@ -95,7 +95,7 @@ class Visitor(ASTVisitor):
             if not (node.node.name in self.ids['global']):
                 #print node.node.name
                 pass
-                
+
         self.v(node.node)        
 
         for i in range(len(node.args)):
@@ -199,6 +199,7 @@ class Visitor(ASTVisitor):
         defined = node.name in self.ids[self.fn] \
             or node.name in self.ids['__fn__'] \
             or node.name in self.ids['global']
+
         
         if not defined:
             raise NameError("Name '%s' is not defined" % (node.name),
