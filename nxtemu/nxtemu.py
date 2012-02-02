@@ -27,6 +27,7 @@ from robothread import *
 import env
 
 pygame.init() 
+pygame.mixer.pre_init(44100, -16, 2)
 
 yspeed = 0
 xspeed = 0
