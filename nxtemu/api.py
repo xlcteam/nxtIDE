@@ -346,6 +346,36 @@ def Wait(milisec):
         dieTest()
 
 
+def sine_array_onecycle(hz, peak):
+    length = 44100 / float(hz)
+    omega = numpy.pi * 2 / length
+    xvalues = numpy.arange(int(length)) * omega
+    return (peak * numpy.sin(xvalues))
+    
+def sine_array(hz, peak, n_samples = 200):
+    return numpy.resize(sine_array_onecycle(hz, peak), (n_samples,))
+
+def PlayTone(freq, duration):
+    """PlayTone(freq, duration)
+    
+    Play a tone.
+
+    :param (int) freq: Frequency of the tone in Hz.
+    :param (int) duration: For how long should the brick play this tone. 
+    """
+
+    f = sine_array(freq, 1, duration*6)
+    f = numpy.array(zip(f, f))
+
+    sound = pygame.sndarray.make_sound(f)
+    channel = sound.play(-1)
+    channel.set_volume(0.2, 0.2)
+
+    Wait(duration)
+    sound.stop()
+
+
+
 OUT_A = 1
 OUT_B = 2
 OUT_C = 4
@@ -559,35 +589,6 @@ S1 = 0
 S2 = 1
 S3 = 2
 S4 = 3
-
-def PlayTone(frequency, duration):
-    """PlayTone(frequency, duration)
-    
-    Play a tone.
-
-    :param (int) frequency: Frequency of the tone in Hz.
-    :param (int) duration: For how long should the brick play this tone. 
-    """
-
-    def sine_array_onecycle(hz, peak):
-        length = 44100 / float(hz)
-        omega = numpy.pi * 2 / length
-        xvalues = numpy.arange(int(length)) * omega
-        return (peak * numpy.sin(xvalues))
-        
-    def sine_array(hz, peak, n_samples = 200):
-        return numpy.resize(sine_array_onecycle(hz, peak), (n_samples,))
-
-    f = sine_array(frequency, 20)
-    f = numpy.array(zip(f, f))
-
-    sound = pygame.sndarray.make_sound(f)
-    channel = sound.play(-1)
-    channel.set_volume(0.2, 0.2)
-
-    Wait(duration)
-    sound.stop()
-
 
 
 
