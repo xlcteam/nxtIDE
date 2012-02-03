@@ -138,8 +138,8 @@ def PointOut(x, y):
     
     Draw a point on the screen at (x, y)
 
-    param: (int) x: The x coordinate of the point
-    param: (int) y: The y coordinate of the point
+    :param int x: The x coordinate of the point
+    :param int y: The y coordinate of the point
     """
     screenTest()
     dieTest()
@@ -198,8 +198,8 @@ def TextOut(x, y, text):
     
     Print text on the screen.
     
-    :param (int) x: X coordinate of the text
-    :param (int) y: Y coordinate or the text
+    :param int x: X coordinate of the text
+    :param int y: Y coordinate or the text
     :param (str) text: The text to print
     """
 
@@ -212,9 +212,9 @@ def NumOut(x, y, num):
     
     Print number on the screen.
  
-    :param (int) x: X coordinate of the text
-    :param (int) y: Y coordinate or the text
-    :param (int) num: The number to print
+    :param int x: X coordinate of the text
+    :param int y: Y coordinate or the text
+    :param int num: The number to print
     """
 
     
@@ -321,7 +321,7 @@ def ClearLine(line):
     
     Clear one line on the screen.
     
-    :param (int) line: line we want to clear.
+    :param int line: line we want to clear.
     """
     
     #x, y = makeXY(0, line)
@@ -338,7 +338,7 @@ def Wait(milisec):
     
     Waits for given number of miliseconds.
 
-    :param (int) milisec: number of miliseconds
+    :param int milisec: number of miliseconds
     """
 
     while milisec > 1:
@@ -360,8 +360,8 @@ def PlayTone(freq, duration):
     
     Play a tone.
 
-    :param (int) freq: Frequency of the tone in Hz.
-    :param (int) duration: For how long should the brick play this tone. 
+    :param int freq: Frequency of the tone in Hz.
+    :param int duration: For how long should the brick play this tone. 
     """
 
     f = sine_array(freq, 1, duration*6)
@@ -390,9 +390,8 @@ def OnFwd(motor, speed):
   
     Set motor to forward direction and turn it on.
     
-    :param (int) motor: motor we want to run.
-    :param (int) speed: speed we want to run the motor at from 0 to 100.
-    Negative value reverses direction.   
+    :param int motor: motor we want to run.
+    :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.   
     """
 
     dieTest()
@@ -418,9 +417,8 @@ def OnRev(motor, speed):
     
     Set motor to reverse direction and turn it on.
     
-    :param (int) motor: motor we want to run.
-    :param (int) speed: speed we want to run the motor at from 0 to 100.
-    Negative value reverses direction.
+    :param int motor: motor we want to run.
+    :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
     """
 
     dieTest()
@@ -447,7 +445,7 @@ def Off(motor):
     
     Turn motor off (with break).
     
-    :param (int) motor: motor we want to stop.
+    :param int motor: motor we want to stop.
     """
 
     dieTest()
@@ -466,17 +464,7 @@ def Float(motor):
     
     Kills power for the motor. It's an alias to Coast.
 
-    :param (int) motor: motor we want to stop.
-    """
-
-    return Off(motor)
-
-def Coast(motor):
-    """Coast(motor)
-    
-    Kills power for the motor. It's an alias to Float.
-
-    :param (int) motor: motor we want to stop.
+    :param int motor: motor we want to stop.
     """
 
     return Off(motor)
@@ -486,7 +474,7 @@ def MotorTachoCount(motor):
     
     Get motor tachometer counter value.
 
-    :param (int) motor: motor we want to get tachometer count from.
+    :param int motor: motor we want to get tachometer count from.
     """
 
     dieTest()
@@ -506,11 +494,9 @@ def RotateMotor(motor, speed, angle):
     Rotate motor in specified direction at specified speed for the specified
     number of degrees.
 
-    :param (int) motor: motor we want to rotate
-    :param (int) speed: speed we want to run the motor at, from 0 to 100. 
-    Negative value reverses direction.
-    :param (int) angle: number of degrees we want to rotate the motor. Negative
-    value reverses direction.
+    :param int motor: motor we want to rotate
+    :param int speed: speed we want to run the motor at, from 0 to 100. Negative value reverses direction.
+    :param int angle: number of degrees we want to rotate the motor. Negative value reverses direction.
     
     
     """
@@ -527,7 +513,7 @@ def ResetTachoCount(motor):
     
     Reset tachometer counter. 
 
-    :param (int) motor: desired motor output.
+    :param int motor: desired motor output.
     """
 
     dieTest()
@@ -552,7 +538,7 @@ def Sensor(sensor):
     
     Read value from given sensor.
     
-    :param (int) sensor: sensor we want to read from
+    :param int sensor: sensor we want to read from
     """
     
     return robot.sensors[sensor].getValue()
@@ -563,7 +549,7 @@ def SensorUS(sensor):
     Read value from given lowspeed sensor (e.g. Ultrasonic). The input port 
     has to be configured as a Lowspeed before using this function.
     
-    :param (int) sensor: sensor we want to read from
+    :param int sensor: sensor we want to read from
     """
     
     return robot.sensors[sensor].getValue()
@@ -575,7 +561,7 @@ def Random(n = None):
     
     Returns a random number
 
-    :param (int) n: the maximal value this function should return
+    :param int n: the maximal value this function should return
     """
 
     import random
