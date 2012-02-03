@@ -364,7 +364,7 @@ def PlayTone(freq, duration):
     :param (int) duration: For how long should the brick play this tone. 
     """
 
-    f = sine_array(freq, 20)
+    f = sine_array(freq, 1, duration*6)
     f = numpy.array(zip(f, f))
 
     sound = pygame.sndarray.make_sound(f)
