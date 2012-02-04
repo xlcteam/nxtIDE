@@ -24,22 +24,23 @@ $text
 """
 
 LATEX_FUNCTION_TEMPLATE = """
+\\vspace{6pt}
 {\\bf $func}({\it $args}) 
 $desc
-$items
+$items 
 """
 
 LATEX_ARGS_ITEMS_TEMPLATE = """
 \\begin{quote}
-    \\begin{itemize}
+    \\begin{description}
         $items
-    \\end{itemize}
+    \\end{description}
 \\end{quote}
 
 """
 
 LATEX_ARG_ITEMS_TEMPLATE = """
-\\item \\textbf{$name} ({\emph{$type}}) $desc
+\\item[$name] ({\emph{$type}}) $desc
 """
 
 
@@ -108,9 +109,6 @@ def exportLatex(fname = 'reference.tex'):
                                                    desc=desc,
                                                    items=generated_items)
 
-
-    
-    
     document = document_template.safe_substitute(text=funcs, 
                                                 title="nxtIDE reference manual",
                                                 author="XLC Team")
