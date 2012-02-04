@@ -200,7 +200,7 @@ def TextOut(x, y, text):
     
     :param int x: X coordinate of the text
     :param int y: Y coordinate or the text
-    :param (str) text: The text to print
+    :param str text: The text to print
     """
 
     for char in list(text):
@@ -443,7 +443,7 @@ def OnRev(motor, speed):
 def Off(motor):
     """Off(motor)
     
-    Turn motor off (with break).
+    Turn the motor off (with break).
     
     :param int motor: motor we want to stop.
     """
@@ -462,7 +462,7 @@ def Off(motor):
 def Float(motor):
     """Float(motor)
     
-    Kills power for the motor. It's an alias to Coast.
+    Kill power for the motor.
 
     :param int motor: motor we want to stop.
     """
