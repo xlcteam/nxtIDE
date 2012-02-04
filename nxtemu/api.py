@@ -221,12 +221,17 @@ def NumOut(x, y, num):
     num = str(num)
     TextOut(x, y, num)
     
-
+#TODO
 def LineOut(x0, y0, x1, y1):
     """LineOut(x0, y0, x1, y1)
     
-    Function for printing line from [x1,y1] to [x2,y2] 
-    It is just a simple implementation of Bresenham's algorithm"""
+    Draw a line from [x0, y0] to [x1, y1].
+
+    :param int x0: X coordinate of the start point of the line
+    :param int y0: Y coordinate of the start point of the line
+    :param int x1: X coordinate of the end point of the line
+    :param int y1: Y coordinate of the start point of the line
+    """
 
     steep = abs(y1 - y0) > abs(x1 - x0)
     if steep:
@@ -260,7 +265,15 @@ def LineOut(x0, y0, x1, y1):
     
 
 def CircleOut(x, y, radius):
-    """CircleOut(x, y, radius)"""
+    """CircleOut(x, y, radius)
+
+    Draw a circle with center at [x, y] and specified radius.
+
+    :param int x: X coordinate of the center of the circle.
+    :param int x: Y coordinate of the center of the circle.
+    :param int radius: The radius of the circle.
+    
+    """
     #x,y = makeXY(x, y)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+1, 1)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+2, 1)
@@ -298,7 +311,16 @@ def CircleOut(x, y, radius):
 
 # TODO
 def RectOut(x, y, width, height):
-    """RectOut(x, y, width, height)"""
+    """RectOut(x, y, width, height)
+    
+    Draw a rectangle from [x, y] with specified width and height.
+
+    :param int x: X coordinate of the start point of the rectangle.
+    :param int y: Y coordinate of the start point of the rectangle.
+    :param int width: The width of the rectangle.
+    :param int height: The height of the rectangle.
+    
+    """
 
     LineOut(x, y, x + width, y )
     LineOut(x, y - height, x + width, y - height)
