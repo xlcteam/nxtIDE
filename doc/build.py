@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import sys
 sys.path.append('../nxtemu/')
@@ -55,17 +56,29 @@ def getAPI():
         if func[0].isupper():
             id = getattr(api, func)
             if type(id).__name__ == "function":
-                out[func] = id.__doc__
+                lang = 'en'
+                first = True
+                tmp = {}
+                for split in re.split('.*\.\. (\[\w\w\])\\n', id.__doc__):
+                    if ("[" in split and "]" in split) and not first:
+                        lang = split.replace('[', '').replace(']', '')
+                    else:
+                        tmp[lang] = split
+                        first = False 
 
-    
+                out[func] = tmp
+
     return out
 
 
-def exportYaml(fname = '../nxtemu/help.yml'):
+def exportYaml(fname = '../nxtemu/help.yml', lang='en'):
     api = getAPI()
 
     for func,desc in api.iteritems():
-        api[func] = desc.replace(':param ', '')
+        if desc.has_key(lang):
+            api[func] = desc[lang].replace(':param ', '')
+        else:
+            api[func] = ''
         
     f = open(fname, 'w')
     f.write(yaml.dump(api, default_flow_style=False))
@@ -73,7 +86,7 @@ def exportYaml(fname = '../nxtemu/help.yml'):
 
     return fname
 
-def exportLatex(fname = 'reference.tex'):
+def exportLatex(fname = 'reference.tex', lang='en'):
     api = getAPI()
     
     document_template = Template(LATEX_DOC_TEMPLATE)
@@ -84,10 +97,14 @@ def exportLatex(fname = 'reference.tex'):
     funcs = ''
 
     for func,desc in api.iteritems():
-        args = desc.split('\n')[0].split('(')[1][:-1]
+        if desc.has_key(lang):
+            args = desc[lang].split('\n')[0].split('(')[1][:-1]
+            desc = desc[lang].split('\n')[1:]
+            desc = '\n'.join(desc)
+        else:
+            args = ''
+            desc = ''
 
-        desc = desc.split('\n')[1:]
-        desc = '\n'.join(desc)
 
         matches = re.findall(":param (.*?) (.*?): (.*)", desc)
         items = ''
@@ -131,13 +148,13 @@ if __name__ == "__main__":
 
     if sys.argv[1] == 'yaml':
         if len(sys.argv) > 2:
-            file = exportYaml(sys.argv[2])
+            file = exportYaml(*sys.argv[2:])
         else:
             file = exportYaml()
 
     elif sys.argv[1] == 'latex':
         if len(sys.argv) > 2:
-            file = exportLatex(sys.argv[2])
+            file = exportLatex(*sys.argv[2:])
         else:
             file = exportLatex()
 
