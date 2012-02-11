@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pygame, sys, os.path, threading, numpy, pygame.sndarray
 from robothread import RoboException
 
@@ -136,6 +137,14 @@ def screenTest():
 def PointOut(x, y):
     """PointOut(x, y)
     
+    Draw a point on the screen at (x, y)
+
+    :param int x: The x coordinate of the point
+    :param int y: The y coordinate of the point
+    
+    .. [sk]
+    PointOut(x, y)
+
     Draw a point on the screen at (x, y)
 
     :param int x: The x coordinate of the point
@@ -331,6 +340,11 @@ def ClearScreen():
     """ClearScreen()
     
     Clear the screen.
+
+    .. [sk]
+    ClearScreen()
+
+    Vyčisti obrazovku.
     """
     screenTest()
 
@@ -554,6 +568,18 @@ IN_1 = 1
 IN_2 = 2
 IN_3 = 3
 IN_4 = 4
+
+SENSOR_TOUCH = 1
+SENSOR_LIGHT = 2
+
+
+def SetSensor(sensor, type):
+    """SetSensor(sensor, type)"""
+    pass
+
+def SetSensorLowspeed(sensor):
+    """SetSensorLowspeed(sensor)"""
+    pass
 
 def Sensor(sensor):
     """Sensor(sensor)

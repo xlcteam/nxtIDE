@@ -12,46 +12,10 @@
 \maketitle
 
 \vspace{6pt}
-{\bf Wait}({\it milisec}) 
+{\bf Float}({\it motor}) 
     
-    Waits for given number of miliseconds.
+    Kill power for the motor.
 
-
-    
-
-\begin{quote}
-    \begin{description}
-        
-\item[milisec] ({\emph{int}}) number of miliseconds
-
-    \end{description}
-\end{quote}
-
- 
-
-\vspace{6pt}
-{\bf Random}({\it n = 0}) 
-    
-    Returns a random number
-
-
-    
-
-\begin{quote}
-    \begin{description}
-        
-\item[n] ({\emph{int}}) the maximal value this function should return
-
-    \end{description}
-\end{quote}
-
- 
-
-\vspace{6pt}
-{\bf Off}({\it motor}) 
-    
-    Turn the motor off (with break).
-    
 
     
 
@@ -66,9 +30,18 @@
  
 
 \vspace{6pt}
-{\bf ResetTachoCount}({\it motor}) 
+{\bf ClearScreen}({\it }) 
     
-    Reset tachometer counter. 
+    Clear the screen.
+
+
+ 
+
+\vspace{6pt}
+{\bf OnRev}({\it motor, speed}) 
+    
+    Set motor to reverse direction and turn it on.
+    
 
 
     
@@ -76,7 +49,9 @@
 \begin{quote}
     \begin{description}
         
-\item[motor] ({\emph{int}}) desired motor output.
+\item[motor] ({\emph{int}}) motor we want to run.
+
+\item[speed] ({\emph{int}}) speed we want to run the motor at from 0 to 100. Negative value reverses direction.
 
     \end{description}
 \end{quote}
@@ -84,20 +59,17 @@
  
 
 \vspace{6pt}
-{\bf PlayTone}({\it freq, duration}) 
+{\bf Sensor}({\it sensor}) 
     
-    Play a tone.
-
-
+    Read value from given sensor.
+    
 
     
 
 \begin{quote}
     \begin{description}
         
-\item[freq] ({\emph{int}}) Frequency of the tone in Hz.
-
-\item[duration] ({\emph{int}}) For how long should the brick play this tone. 
+\item[sensor] ({\emph{int}}) sensor we want to read from
 
     \end{description}
 \end{quote}
@@ -133,16 +105,62 @@
  
 
 \vspace{6pt}
-{\bf ClearScreen}({\it }) 
-    
-    Clear the screen.
-    
+{\bf SetSensor}({\it sensor, type}) 
+
  
 
 \vspace{6pt}
-{\bf Sensor}({\it sensor}) 
+{\bf TextOut}({\it x, y, text}) 
     
-    Read value from given sensor.
+    Print text on the screen.
+    
+
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[x] ({\emph{int}}) X coordinate of the text
+
+\item[y] ({\emph{int}}) Y coordinate or the text
+
+\item[text] ({\emph{str}}) The text to print
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf SetSensorLowspeed}({\it sensor}) 
+
+ 
+
+\vspace{6pt}
+{\bf ClearLine}({\it line}) 
+    
+    Clear one line on the screen.
+    
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[line] ({\emph{int}}) line we want to clear.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf SensorUS}({\it sensor}) 
+
+    Read value from given lowspeed sensor (e.g. Ultrasonic). The input port 
+    has to be configured as a Lowspeed before using this function.
     
 
     
@@ -151,6 +169,63 @@
     \begin{description}
         
 \item[sensor] ({\emph{int}}) sensor we want to read from
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf Wait}({\it milisec}) 
+    
+    Waits for given number of miliseconds.
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[milisec] ({\emph{int}}) number of miliseconds
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf Off}({\it motor}) 
+    
+    Turn the motor off (with break).
+    
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[motor] ({\emph{int}}) motor we want to stop.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf PlayTone}({\it freq, duration}) 
+    
+    Play a tone.
+
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[freq] ({\emph{int}}) Frequency of the tone in Hz.
+
+\item[duration] ({\emph{int}}) For how long should the brick play this tone. 
 
     \end{description}
 \end{quote}
@@ -182,24 +257,6 @@
  
 
 \vspace{6pt}
-{\bf Float}({\it motor}) 
-    
-    Kill power for the motor.
-
-
-    
-
-\begin{quote}
-    \begin{description}
-        
-\item[motor] ({\emph{int}}) motor we want to stop.
-
-    \end{description}
-\end{quote}
-
- 
-
-\vspace{6pt}
 {\bf LineOut}({\it x0, y0, x1, y1}) 
     
     Draw a line from [x0, y0] to [x1, y1].
@@ -220,27 +277,6 @@
 \item[x1] ({\emph{int}}) X coordinate of the end point of the line
 
 \item[y1] ({\emph{int}}) Y coordinate of the start point of the line
-
-    \end{description}
-\end{quote}
-
- 
-
-\vspace{6pt}
-{\bf OnFwd}({\it motor, speed}) 
-  
-    Set motor to forward direction and turn it on.
-    
-
-
-    
-
-\begin{quote}
-    \begin{description}
-        
-\item[motor] ({\emph{int}}) motor we want to run.
-
-\item[speed] ({\emph{int}}) speed we want to run the motor at from 0 to 100. Negative value reverses direction.   
 
     \end{description}
 \end{quote}
@@ -299,6 +335,7 @@
 
     
 
+
 \begin{quote}
     \begin{description}
         
@@ -312,11 +349,9 @@
  
 
 \vspace{6pt}
-{\bf TextOut}({\it x, y, text}) 
+{\bf Random}({\it n = 0}) 
     
-    Print text on the screen.
-    
-
+    Returns a random number
 
 
     
@@ -324,11 +359,7 @@
 \begin{quote}
     \begin{description}
         
-\item[x] ({\emph{int}}) X coordinate of the text
-
-\item[y] ({\emph{int}}) Y coordinate or the text
-
-\item[text] ({\emph{str}}) The text to print
+\item[n] ({\emph{int}}) the maximal value this function should return
 
     \end{description}
 \end{quote}
@@ -336,9 +367,9 @@
  
 
 \vspace{6pt}
-{\bf OnRev}({\it motor, speed}) 
-    
-    Set motor to reverse direction and turn it on.
+{\bf OnFwd}({\it motor, speed}) 
+  
+    Set motor to forward direction and turn it on.
     
 
 
@@ -349,7 +380,7 @@
         
 \item[motor] ({\emph{int}}) motor we want to run.
 
-\item[speed] ({\emph{int}}) speed we want to run the motor at from 0 to 100. Negative value reverses direction.
+\item[speed] ({\emph{int}}) speed we want to run the motor at from 0 to 100. Negative value reverses direction.   
 
     \end{description}
 \end{quote}
@@ -357,36 +388,17 @@
  
 
 \vspace{6pt}
-{\bf ClearLine}({\it line}) 
+{\bf ResetTachoCount}({\it motor}) 
     
-    Clear one line on the screen.
-    
+    Reset tachometer counter. 
 
-    
-
-\begin{quote}
-    \begin{description}
-        
-\item[line] ({\emph{int}}) line we want to clear.
-
-    \end{description}
-\end{quote}
-
- 
-
-\vspace{6pt}
-{\bf SensorUS}({\it sensor}) 
-
-    Read value from given lowspeed sensor (e.g. Ultrasonic). The input port 
-    has to be configured as a Lowspeed before using this function.
-    
 
     
 
 \begin{quote}
     \begin{description}
         
-\item[sensor] ({\emph{int}}) sensor we want to read from
+\item[motor] ({\emph{int}}) desired motor output.
 
     \end{description}
 \end{quote}
