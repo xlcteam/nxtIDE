@@ -1,0 +1,366 @@
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[Bjarne]{fncychap}                                                 
+\usepackage[parfill]{parskip}
+
+\title{nxtIDE reference manual}
+\author{XLC Team}
+\date{}
+
+\begin{document}
+\maketitle
+
+\vspace{6pt}
+{\bf Float}({\it motor}) 
+    
+    Vypne motor (so zotrvačnosťou).
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[motor] ({\emph{int}}) motor, ktorý chceme zastaviť.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf ClearScreen}({\it }) 
+
+    Vyčistí obrazovku.
+    
+ 
+
+\vspace{6pt}
+{\bf OnRev}({\it motor, rýchlosť}) 
+    
+    Nastaví motor, aby išiel dozadu a zapne ho.
+    
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[motor] ({\emph{int}}) motor, ktorý chceme spustiť.
+
+\item[speed] ({\emph{int}}) rýchlosť, ktorou pôjde motor od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf Sensor}({\it sensor}) 
+    
+    Načíta hodnotu z daného senzoru.
+    
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[sensor] ({\emph{int}}) senzor, z ktorého chceme čítať.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf RectOut}({\it }) 
+
+ 
+
+\vspace{6pt}
+{\bf SetSensor}({\it }) 
+
+ 
+
+\vspace{6pt}
+{\bf TextOut}({\it x, y, text}) 
+    
+    Vypíše text na obrazovku.
+    
+
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[x] ({\emph{int}}) X-ová pozícia textu.
+
+\item[y] ({\emph{int}}) Y-ová pozícia textu.
+
+\item[text] ({\emph{str}}) Text, ktorý sa má vypísať.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf SetSensorLowspeed}({\it }) 
+
+ 
+
+\vspace{6pt}
+{\bf ClearLine}({\it riadok}) 
+    
+    Vyčistí jeden riadok na obrazovke.
+    
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[line] ({\emph{int}}) riadok, ktorý chceme vyčistiť.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf SensorUS}({\it sensor}) 
+
+    Načíta hodnotu z lowspeed sensoru (e.g. Ultrasonic). Input port
+    by mal byt nastaveny ako lowspeed pred použitím.
+    
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[sensor] ({\emph{int}}) senzor, z ktorého chceme čítať.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf Wait}({\it milisekundy}) 
+    
+    Počká na daný čas v milisekundách.
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[milisec] ({\emph{int}}) číslo v milisekundách.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf Off}({\it motor}) 
+    
+    Vypne motor (bez zotvrvačnosti).
+    
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[motor] ({\emph{int}}) motor, ktorý chceme zastaviť.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf PlayTone}({\it frekvencia, dĺžka}) 
+    
+    Prehrá tón.
+
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[freq] ({\emph{int}}) Frekvencia tónu v Hz.
+
+\item[duration] ({\emph{int}}) Dĺžka prehrávania tónu v milisekundách.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf NumOut}({\it x, y, číslo}) 
+    
+    Vypíše číslo na obrazovku.
+ 
+
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[x] ({\emph{int}}) X-ová pozícia textu.
+
+\item[y] ({\emph{int}})  Y-ová pozícia textu.
+
+\item[num] ({\emph{int}}) Číslo, ktorá chceme vypísať.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf LineOut}({\it }) 
+
+ 
+
+\vspace{6pt}
+{\bf CircleOut}({\it }) 
+
+ 
+
+\vspace{6pt}
+{\bf MotorTachoCount}({\it motor}) 
+    
+    Načítavanie otáčok motora.
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[motor] ({\emph{int}}) motor, z ktorého chceme načítavať.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf PointOut}({\it x, y}) 
+    
+    Nakreslí bod na obrazovke na pozíciach (x, y)
+
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[x] ({\emph{int}}) X-ová pozícia bodu
+
+\item[y] ({\emph{int}}) Y-ová pozícia bodu
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf Random}({\it n = 0}) 
+    
+    Vráti náhodné číslo
+    
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[n] ({\emph{int}}) najväčšia hodnota , ktorú má táto funkcia vrátiť. 
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf OnFwd}({\it motor, rýchlosť}) 
+  
+    Nastaví motor aby išiel dopredu, a pustí ho
+    
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[motor] ({\emph{int}}) motor, ktorý chceme spustiť.
+
+\item[speed] ({\emph{int}}) Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. Záporná rýchlosť zmení smer chodu motora.   
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf ResetTachoCount}({\it motor}) 
+    
+    Zresetuje tachometer. 
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[motor] ({\emph{int}}) motor, ktorého tachometer chceme zresetovať.
+
+    \end{description}
+\end{quote}
+
+ 
+
+\vspace{6pt}
+{\bf RotateMotor}({\it motor, rýchlosť, uhol}) 
+    
+    Otočí motor v špecifikovanom smere na špecifikovanj rýchlosti a špecifikovanom čísle stupňov.
+
+
+
+
+    
+
+\begin{quote}
+    \begin{description}
+        
+\item[motor] ({\emph{int}}) motor we want to rotate
+
+\item[speed] ({\emph{int}}) speed we want to run the motor at, from 0 to 100. Negative value reverses direction.
+
+\item[angle] ({\emph{int}}) number of degrees we want to rotate the motor. Negative value reverses direction.
+
+    \end{description}
+\end{quote}
+
+ 
+
+
+\end{document}
