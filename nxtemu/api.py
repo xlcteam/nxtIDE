@@ -144,11 +144,11 @@ def PointOut(x, y):
     
     .. [sk]
     PointOut(x, y)
+    
+    Nakreslí bod na obrazovke na pozíciach (x, y)
 
-    Draw a point on the screen at (x, y)
-
-    :param int x: The x coordinate of the point
-    :param int y: The y coordinate of the point
+    :param int x: X-ová pozícia bodu
+    :param int y: Y-ová pozícia bodu
     """
     screenTest()
     dieTest()
@@ -210,6 +210,15 @@ def TextOut(x, y, text):
     :param int x: X coordinate of the text
     :param int y: Y coordinate or the text
     :param str text: The text to print
+
+    .. [sk]
+    TextOut(x, y, text)
+    
+    Vypíše text na obrazovku.
+    
+    :param int x: X-ová pozícia textu.
+    :param int y: Y-ová pozícia textu.
+    :param str text: Text, ktorý sa má vypísať.
     """
 
     for char in list(text):
@@ -224,6 +233,15 @@ def NumOut(x, y, num):
     :param int x: X coordinate of the text
     :param int y: Y coordinate or the text
     :param int num: The number to print
+
+    .. [sk]
+    NumOut(x, y, číslo)
+    
+    Vypíše číslo na obrazovku.
+ 
+    :param int x: X-ová pozícia textu.
+    :param int y:  Y-ová pozícia textu.
+    :param int num: Číslo, ktorá chceme vypísať.
     """
 
     
@@ -240,8 +258,18 @@ def LineOut(x0, y0, x1, y1):
     :param int y0: Y coordinate of the start point of the line
     :param int x1: X coordinate of the end point of the line
     :param int y1: Y coordinate of the start point of the line
-    """
 
+    .. [sk]
+    LineOut(x0, y0, x1, y1)
+    
+    Funkcia na vykreslovanie čiary od [x0, y0] do [x1, y1].
+
+    :param int x0: X-ová pozíca začiatku čiary.
+    :param int y0: Y-ová pozíca začiatku čiary.
+    :param int x1: X-ová pozíca konca čiary.
+    :param int y1: Y-ová pozíca konca čiary.
+    """
+    
     steep = abs(y1 - y0) > abs(x1 - x0)
     if steep:
         x0, x1 = y0, y1
@@ -281,7 +309,15 @@ def CircleOut(x, y, radius):
     :param int x: X coordinate of the center of the circle.
     :param int x: Y coordinate of the center of the circle.
     :param int radius: The radius of the circle.
-    
+
+    .. [sk]
+    CircleOut(x, y, polomer)
+
+    Vykreslí kruh, ktorého stred je [x, y] s daným polomerom.
+
+    :param int x: X-ová pozícia stredu kruhu.
+    :param int x: Yóvá pozícia stredu kruhu.
+    :param int radius: Polomer kruhu.
     """
     #x,y = makeXY(x, y)
     #pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+1, 1)
@@ -328,7 +364,16 @@ def RectOut(x, y, width, height):
     :param int y: Y coordinate of the start point of the rectangle.
     :param int width: The width of the rectangle.
     :param int height: The height of the rectangle.
+
+    .. [sk]
+    RectOut(x, y, šírka, výška)
     
+    Vykreslí obdĺžnik z [x, y] a podľa špecifikovanej šírky a výšky.
+
+    :param int x: X-ová pozícía ľavého horného rohu.
+    :param int y: Y-ová pozícia ľavého horného rohu.
+    :param int width: Šírka obdĺžnika.
+    :param int height: Výška obldĺžnika.
     """
 
     LineOut(x, y, x + width, y )
@@ -358,6 +403,13 @@ def ClearLine(line):
     Clear one line on the screen.
     
     :param int line: line we want to clear.
+
+    .. [sk]
+    ClearLine(riadok)
+    
+    Vyčistí jeden riadok na obrazovke.
+    
+    :param int line: riadok, ktorý chceme vyčistiť.
     """
     
     #x, y = makeXY(0, line)
@@ -375,6 +427,13 @@ def Wait(milisec):
     Waits for given number of miliseconds.
 
     :param int milisec: number of miliseconds
+
+    .. [sk]
+    Wait(milisekundy)
+    
+    Počká na daný čas v milisekundách.
+
+    :param int milisec: číslo v milisekundách.
     """
 
     while milisec > 1:
@@ -397,7 +456,15 @@ def PlayTone(freq, duration):
     Play a tone.
 
     :param int freq: Frequency of the tone in Hz.
-    :param int duration: For how long should the brick play this tone. 
+    :param int duration: For how long should the brick play this tone.
+
+    .. [sk]
+    PlayTone(frekvencia, dĺžka)
+    
+    Prehrá tón.
+
+    :param int freq: Frekvencia tónu v Hz.
+    :param int duration: Dĺžka prehrávania tónu v milisekundách.
     """
 
     f = sine_array(freq, 1, duration*6)
@@ -428,6 +495,14 @@ def OnFwd(motor, speed):
     
     :param int motor: motor we want to run.
     :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.   
+
+    .. [sk]
+    OnFwd(motor, rýchlosť)
+  
+    Nastaví motor aby išiel dopredu, a pustí ho
+    
+    :param int motor: motor, ktorý chceme spustiť.
+    :param int speed: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. Záporná rýchlosť zmení smer chodu motora.   
     """
 
     dieTest()
@@ -455,6 +530,14 @@ def OnRev(motor, speed):
     
     :param int motor: motor we want to run.
     :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
+
+    .. [sk]
+    OnRev(motor, rýchlosť)
+    
+    Nastaví motor, aby išiel dozadu a zapne ho.
+    
+    :param int motor: motor, ktorý chceme spustiť.
+    :param int speed: rýchlosť, ktorou pôjde motor od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
     """
 
     dieTest()
@@ -482,6 +565,13 @@ def Off(motor):
     Turn the motor off (with break).
     
     :param int motor: motor we want to stop.
+
+    .. [sk]
+    Off(motor)
+    
+    Vypne motor (bez zotvrvačnosti).
+    
+    :param int motor: motor, ktorý chceme zastaviť.
     """
 
     dieTest()
@@ -501,6 +591,13 @@ def Float(motor):
     Kill power for the motor.
 
     :param int motor: motor we want to stop.
+
+    .. [sk]
+    Float(motor)
+    
+    Vypne motor (so zotrvačnosťou).
+
+    :param int motor: motor, ktorý chceme zastaviť.
     """
 
     return Off(motor)
@@ -511,6 +608,13 @@ def MotorTachoCount(motor):
     Get motor tachometer counter value.
 
     :param int motor: motor we want to get tachometer count from.
+
+    .. [sk]
+    MotorTachoCount(motor)
+    
+    Načítavanie otáčok motora.
+
+    :param int motor: motor, z ktorého chceme načítavať.
     """
 
     dieTest()
@@ -534,7 +638,14 @@ def RotateMotor(motor, speed, angle):
     :param int speed: speed we want to run the motor at, from 0 to 100. Negative value reverses direction.
     :param int angle: number of degrees we want to rotate the motor. Negative value reverses direction.
     
+    .. [sk]
+    RotateMotor(motor, rýchlosť, uhol)
     
+    Otočí motor v špecifikovanom smere na špecifikovanj rýchlosti a špecifikovanom čísle stupňov.
+
+    :param int motor: motor we want to rotate
+    :param int speed: speed we want to run the motor at, from 0 to 100. Negative value reverses direction.
+    :param int angle: number of degrees we want to rotate the motor. Negative value reverses direction.
     """
 
     OnFwd(motor, speed)
@@ -550,6 +661,13 @@ def ResetTachoCount(motor):
     Reset tachometer counter. 
 
     :param int motor: desired motor output.
+
+    .. [sk]
+    ResetTachoCount(motor)
+    
+    Zresetuje tachometer. 
+
+    :param int motor: motor, ktorého tachometer chceme zresetovať.
     """
 
     dieTest()
@@ -587,6 +705,13 @@ def Sensor(sensor):
     Read value from given sensor.
     
     :param int sensor: sensor we want to read from
+
+    .. [sk]
+    Sensor(sensor)
+    
+    Načíta hodnotu z daného senzoru.
+    
+    :param int sensor: senzor, z ktorého chceme čítať.
     """
     
     return robot.sensors[sensor].getValue()
@@ -598,6 +723,14 @@ def SensorUS(sensor):
     has to be configured as a Lowspeed before using this function.
     
     :param int sensor: sensor we want to read from
+
+    .. [sk]
+    SensorUS(sensor)
+
+    Načíta hodnotu z lowspeed sensoru (e.g. Ultrasonic). Input port
+    by mal byt nastaveny ako lowspeed pred použitím.
+    
+    :param int sensor: senzor, z ktorého chceme čítať.
     """
     
     return robot.sensors[sensor].getValue()
@@ -610,6 +743,13 @@ def Random(n = None):
     Returns a random number
 
     :param int n: the maximal value this function should return
+
+    .. [sk]
+    Random(n = 0)
+    
+    Vráti náhodné číslo
+    
+    :param int n: najväčšia hodnota , ktorú má táto funkcia vrátiť. 
     """
 
     import random
