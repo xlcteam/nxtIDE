@@ -316,7 +316,7 @@ def CircleOut(x, y, radius):
     Vykreslí kruh, ktorého stred je [x, y] s daným polomerom.
 
     :param int x: X-ová pozícia stredu kruhu.
-    :param int x: Yóvá pozícia stredu kruhu.
+    :param int x: Y-ová pozícia stredu kruhu.
     :param int radius: Polomer kruhu.
     """
     #x,y = makeXY(x, y)
@@ -389,7 +389,7 @@ def ClearScreen():
     .. [sk]
     ClearScreen()
 
-    Vyčisti obrazovku.
+    Vyčistí obrazovku.
     """
     screenTest()
 
