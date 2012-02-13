@@ -70,6 +70,22 @@ def getAPI():
 
     return out
 
+def getConstants():
+    """Returns a list of constants for NXT brick. """
+    
+    out = []
+    
+    api = __import__('api')
+
+    for constant in dir(api):
+        if constant[0].isupper():
+            id = getattr(api, constant)
+            if type(id).__name__ not in ["function", "type"]:
+                out.append(constant)
+
+    return out
+
+
 
 def exportYaml(fname = '../nxtemu/help.yml', lang='en'):
     api = getAPI()
@@ -144,6 +160,7 @@ if __name__ == "__main__":
         print "Please specify target:"
         print "\tlatex"
         print "\tyaml"
+        print "\tconst"
         sys.exit()
 
     if sys.argv[1] == 'yaml':
@@ -157,6 +174,12 @@ if __name__ == "__main__":
             file = exportLatex(*sys.argv[2:])
         else:
             file = exportLatex()
+
+    elif sys.argv[1] == 'const':
+        print getConstants()
+        file = "<stdout>"
+
+
 
     else:
         print "Unknown format"
