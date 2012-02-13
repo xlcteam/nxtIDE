@@ -3,6 +3,7 @@ import  keyword
 
 import  wx
 import  wx.stc  as  stc
+stc.STC_P_WORD3 = 15
 
 import re
 
@@ -167,6 +168,8 @@ class PythonSTC(stc.StyledTextCtrl):
         self.StyleSetSpec(stc.STC_P_CHARACTER, "fore:#64ce3e,face:%(helv)s,size:%(size)d,back:#0D1021" % faces)
         # Keyword
         self.StyleSetSpec(stc.STC_P_WORD, "fore:#ffc286,bold,size:%(size)d,back:#0D1021" % faces)
+        self.StyleSetSpec(stc.STC_P_WORD2, "fore:#0000ff,size:%(size)d,back:#0D1021" % faces)
+        self.StyleSetSpec(stc.STC_P_WORD3, "fore:#000000,size:%(size)d,back:#0D1021" % faces)
         # Triple quotes
         self.StyleSetSpec(stc.STC_P_TRIPLE, "fore:#95e454,size:%(size)d,back:#0D1021" % faces)
         # Triple double quotes
@@ -204,6 +207,18 @@ class PythonSTC(stc.StyledTextCtrl):
 
         self.api = yaml.load(open(root + os.sep + 'help.yml'))
 
+        self.SetKeyWords(1, " ".join(self.api.keys()))
+
+        self.constants = ['IN_1', 'IN_2', 'IN_3', 'IN_4', 'LCD_LINE1', 
+                            'LCD_LINE2', 'LCD_LINE3', 'LCD_LINE4', 
+                            'LCD_LINE5', 'LCD_LINE6', 'LCD_LINE7', 
+                            'LCD_LINE8', 'OUT_A', 'OUT_AB', 'OUT_ABC', 
+                            'OUT_AC', 'OUT_B', 'OUT_BC', 'OUT_C', 
+                            'S1', 'S2', 'S3', 'S4', 
+                            'SENSOR_LIGHT', 'SENSOR_TOUCH']
+
+
+
         self.last_id = None
         self.last_arg_pos = 0
 
@@ -215,9 +230,16 @@ class PythonSTC(stc.StyledTextCtrl):
         
         # Showing CallTip
         if key == ord('('):
+            print "Gotcha"
             style = self.GetStyleAt(pos - 1)
-            if style == stc.STC_P_IDENTIFIER:
-                id = self.getIdentifier(pos - 1)
+            print style,stc.STC_P_IDENTIFIER, stc.STC_P_WORD2
+            print self.getWORD2(), self.getIdentifier()
+            if style == stc.STC_P_WORD2 or style == stc.STC_P_IDENTIFIER:
+                if style == stc.STC_P_WORD2:
+                    id = self.getWORD2(pos - 1)
+                elif style == stc.STC_P_IDENTIFIER:
+                    id = self.getIdentifier(pos - 1)
+
                 if id in self.api:
                     self.last_id = id
                     self.last_arg_pos = 1
@@ -350,6 +372,13 @@ class PythonSTC(stc.StyledTextCtrl):
             #print pt
             #self.Refresh(False)
 
+       #const = self.getIdentifier();
+       #if const in self.constants:
+       #    self.StartStyling(caretPos - len(const), 
+       #                        stc.STC_P_WORD3)
+       #    self.SetStyling(len(const), stc.STC_P_WORD3)
+
+
         
     def OnMarginClick(self, evt):
         # fold and unfold as needed
@@ -459,6 +488,20 @@ class PythonSTC(stc.StyledTextCtrl):
             pos -= 1
 
         return out
+
+    def getWORD2(self, pos = None):
+        """Returns text marked as WORD2. Starts at current position""" 
+
+        out = ""
+        if pos is None:
+            pos = self.GetCurrentPos() - 1 
+
+        while self.GetStyleAt(pos) == stc.STC_P_WORD2:
+            out = chr(self.GetCharAt(pos)) + out
+            pos -= 1
+
+        return out
+
 
     def getArgPos(self, id, n):
         """Returns position of the n-th argument in function description"""
