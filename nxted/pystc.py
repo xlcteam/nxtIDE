@@ -3,7 +3,6 @@ import  keyword
 
 import  wx
 import  wx.stc  as  stc
-stc.STC_P_WORD3 = 15
 
 import re
 
@@ -169,7 +168,6 @@ class PythonSTC(stc.StyledTextCtrl):
         # Keyword
         self.StyleSetSpec(stc.STC_P_WORD, "fore:#ffc286,bold,size:%(size)d,back:#0D1021" % faces)
         self.StyleSetSpec(stc.STC_P_WORD2, "fore:#0000ff,size:%(size)d,back:#0D1021" % faces)
-        self.StyleSetSpec(stc.STC_P_WORD3, "fore:#000000,size:%(size)d,back:#0D1021" % faces)
         # Triple quotes
         self.StyleSetSpec(stc.STC_P_TRIPLE, "fore:#95e454,size:%(size)d,back:#0D1021" % faces)
         # Triple double quotes
@@ -222,7 +220,6 @@ class PythonSTC(stc.StyledTextCtrl):
         self.last_id = None
         self.last_arg_pos = 0
 
-    
     def OnChar(self, event):
         key = event.GetKeyCode()
         
@@ -230,10 +227,7 @@ class PythonSTC(stc.StyledTextCtrl):
         
         # Showing CallTip
         if key == ord('('):
-            print "Gotcha"
             style = self.GetStyleAt(pos - 1)
-            print style,stc.STC_P_IDENTIFIER, stc.STC_P_WORD2
-            print self.getWORD2(), self.getIdentifier()
             if style == stc.STC_P_WORD2 or style == stc.STC_P_IDENTIFIER:
                 if style == stc.STC_P_WORD2:
                     id = self.getWORD2(pos - 1)
@@ -372,14 +366,7 @@ class PythonSTC(stc.StyledTextCtrl):
             #print pt
             #self.Refresh(False)
 
-       #const = self.getIdentifier();
-       #if const in self.constants:
-       #    self.StartStyling(caretPos - len(const), 
-       #                        stc.STC_P_WORD3)
-       #    self.SetStyling(len(const), stc.STC_P_WORD3)
 
-
-        
     def OnMarginClick(self, evt):
         # fold and unfold as needed
         if evt.GetMargin() == 2:
