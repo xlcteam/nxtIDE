@@ -76,6 +76,33 @@ class SensorLight(BaseSensor):
         return self.lightness(rgb)
 
 
+class SensorTouch(BaseSensor):
+    """Touch Sensor"""
+    pos = {1: [23.615528128088304, 70.54801085509538], 
+           2: [-22, 270], 
+           3: [-23.615528128088304, -70.54801085509538]}
+
+    def getValue(self):
+
+        pos = self.pos[self.slot]
+
+        dx = cos(radians(pos[1] + robot.angle)) * pos[0]
+        dy = sin(radians(pos[1] + robot.angle)) * pos[0]
+
+        x = int(round(robot.x - dx))
+        y = int(round(robot.y - dy))
+
+        #rgb = env.background.get_at((x, y))
+        env.background.set_at((x, y), (0, 0, 0xff))
+        print (dx, dy), (x, y)
+        return 0
+        #return self.lightness(rgb)
+
+
+
+
+ 
+
 
 def sensor_generator(type, slot = None):
     if slot == '': slot = None
@@ -84,6 +111,8 @@ def sensor_generator(type, slot = None):
         return SensorLight(slot) 
     elif type == 'sonic':
         return SensorUS(slot)
+    elif type == 'touch':
+        return SensorTouch(slot)
     else:
         return BaseSensor(slot)
 
