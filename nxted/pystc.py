@@ -165,15 +165,11 @@ class PythonSTC(stc.StyledTextCtrl):
         # String
         self.StyleSetSpec(stc.STC_P_STRING, "fore:#800000,italic,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
         # Single quoted string
-        self.StyleSetSpec(stc.STC_P_CHARACTER, "fore:#800000,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_CHARACTER, "fore:#800000,italic,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
         # Keyword
-<<<<<<< HEAD
         self.StyleSetSpec(stc.STC_P_WORD, "fore:0000ff,bold,size:%(size)d,back:#ffffff" % faces)
-=======
-        self.StyleSetSpec(stc.STC_P_WORD, "fore:#ffc286,bold,size:%(size)d,back:#0D1021" % faces)
-        self.StyleSetSpec(stc.STC_P_WORD2, "fore:#0000ff,size:%(size)d,back:#0D1021" % faces)
-        self.StyleSetSpec(stc.STC_P_WORD3, "fore:#000000,size:%(size)d,back:#0D1021" % faces)
->>>>>>> 8163e94c96f46b1ce3bf8a8205e1c574810e28e3
+        self.StyleSetSpec(stc.STC_P_WORD2, "fore:#0000ff,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_WORD3, "fore:#000000,size:%(size)d,back:#ffffff" % faces)
         # Triple quotes
         self.StyleSetSpec(stc.STC_P_TRIPLE, "fore:#800000,size:%(size)d,back:#ffffff" % faces)
         # Triple double quotes
@@ -185,7 +181,7 @@ class PythonSTC(stc.StyledTextCtrl):
         # Operators
         self.StyleSetSpec(stc.STC_P_OPERATOR, "fore:#000000,size:%(size)d,back:#ffffff" % faces)
         # Identifiers 
-        self.StyleSetSpec(stc.STC_P_IDENTIFIER, "fore:#0000ff,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_IDENTIFIER, "fore:#000000,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
         # Comment-blocks
         self.StyleSetSpec(stc.STC_P_COMMENTBLOCK, "fore:#aeaeae,size:%(size)d,back:#0D1021" % faces)
         # End of line where string is not closed
