@@ -1,6 +1,6 @@
 from brick import *
 
-from pgu import gui 
+from pgu import gui
 
 import env
 
@@ -12,7 +12,7 @@ from dialog import SettingsDialog
 
 from sensors import *
 
-class Robot(NXTBrick): 
+class Robot(NXTBrick):
     proc = None
     die = False
     inputs = {}
@@ -43,11 +43,11 @@ class Robot(NXTBrick):
         ]
     }
 
-    def __init__(self, wboot = True): 
+    def __init__(self, wboot = True):
         __builtins__['robot']= self
 
-        self.x = env.w/2 
-        self.y = env.h/2 
+        self.x = env.w/2
+        self.y = env.h/2
         self.angle = 0
         
         
@@ -62,11 +62,11 @@ class Robot(NXTBrick):
 
         self.radius = 21
 
-        self.dragged = False 
-        self.dragoffset = [] 
+        self.dragged = False
+        self.dragoffset = []
         #self.image = pygame.image.load("./robot.jpg").convert()
         #path = os.path.dirname(os.path.abspath(sys.argv[0]))
-        #self.image = pygame.image.load(path + "/robot.png").convert_alpha()  # imgs.robot.convert()
+        #self.image = pygame.image.load(path + "/robot.png").convert_alpha() # imgs.robot.convert()
         self.image = imgs.robot.convert_alpha()
         #self.image = pygame.image.load("black_and_blacker.png").convert_alpha()
 
@@ -78,37 +78,37 @@ class Robot(NXTBrick):
 
 
         self.lcd = pygame.Surface((204, 130))
-        pygame.draw.rect(self.lcd, pygame.Color(0x43, 0x6c, 0x30), 
+        pygame.draw.rect(self.lcd, pygame.Color(0x43, 0x6c, 0x30),
             ((0, 0), (204, 130)))
 
         if wboot:
             #print "booting"
             RoboThread(target=self.boot).start()
         
-        self.sensors = {1: BaseSensor(1), 
-                        2: BaseSensor(2), 
+        self.sensors = {1: BaseSensor(1),
+                        2: BaseSensor(2),
                         3: BaseSensor(3),
                         4: BaseSensor(4)}
 
         self.dialog = SettingsDialog()
 
     
-    def getDistanceTo(self, point): 
-        dx = point[0] - self.x 
-        dy = point[1] - self.y 
-        return math.sqrt(dx**2 + dy**2) 
+    def getDistanceTo(self, point):
+        dx = point[0] - self.x
+        dy = point[1] - self.y
+        return math.sqrt(dx**2 + dy**2)
 
-    def mouseOver(self):  
-        mpos = pygame.mouse.get_pos() 
-        if self.getDistanceTo(mpos) < self.radius: 
-            return True 
-        else: 
-            return False 
+    def mouseOver(self):
+        mpos = pygame.mouse.get_pos()
+        if self.getDistanceTo(mpos) < self.radius:
+            return True
+        else:
+            return False
 
-    def drag(self): 
-        mpos = pygame.mouse.get_pos() 
-        self.x = mpos[0] 
-        self.y = mpos[1] 
+    def drag(self):
+        mpos = pygame.mouse.get_pos()
+        self.x = mpos[0]
+        self.y = mpos[1]
         
 
         #pygame.image.save(self.image, "robot_.png")
@@ -124,16 +124,16 @@ class Robot(NXTBrick):
         rot_image = rot_image.subsurface(rot_rect).copy()
         return rot_image
 
-    def draw(self): 
+    def draw(self):
 
-        env.screen.blit(env.background, (0,0)) 
-        env.screen.blit(self.rot_center(self.image, -self.angle), 
+        env.screen.blit(env.background, (0,0))
+        env.screen.blit(self.rot_center(self.image, -self.angle),
                 (self.x - 30, self.y - 30))
 
         env.screen.blit(self.lcd, ((640 + (378/2 - 100)-2, 90), (204, 130)))
 
         env.app.paint()
-        pygame.display.flip() 
+        pygame.display.flip()
 
     def touchesAt(self, positions):
         
@@ -188,7 +188,7 @@ class Robot(NXTBrick):
         if not self.touchesAt(self.touchPoints["topleft"]):
             rotA = self.mA / 30.0
         else:
-            rotA -= self.mA / 20.0 
+            rotA -= self.mA / 20.0
 
         if not self.touchesAt(self.touchPoints["topright"]):
             rotB = self.mB / 30.0
@@ -230,17 +230,17 @@ class Robot(NXTBrick):
         if self.screen == 4:
             if self.proc == None:
 
-                module = __import__('e' + self.progs[self.prog])                                               
+                module = __import__('e' + self.progs[self.prog])
                                                                                          
                 self.proc = RoboThread(target=module.main,
-                                       cleaner=self.cleaner)        
+                                       cleaner=self.cleaner)
                 self.proc.setName("brick")
 
                 ClearScreen()
                 self.scr_runner = RoboThread(target=robot.running)
 
                 self.scr_runner.start()
-                self.proc.start()                                                       
+                self.proc.start()
         else:
             self.scrout()
         
@@ -251,7 +251,7 @@ class Robot(NXTBrick):
         
         # exiting
        #if self.screen == 0:
-       #    sys.exit(0)
+       # sys.exit(0)
         
         if self.screen == -1:
             self.screen += 2
@@ -271,7 +271,7 @@ class Robot(NXTBrick):
             self.prog = (self.prog - 1) % len(self.progs)
         
         if self.screen == -1:
-            self.btn_x = 0 
+            self.btn_x = 0
 
         self.scrout()
 
@@ -281,7 +281,7 @@ class Robot(NXTBrick):
             self.prog = (self.prog + 1) % len(self.progs)
 
         if self.screen == -1:
-            self.btn_x = 1 
+            self.btn_x = 1
 
 
         self.scrout()
@@ -314,10 +314,10 @@ class Robot(NXTBrick):
             if inp['slot'] != '':
                 dx = inp['slot']*7
                 if inp['slot'] == 3:
-                    dx += 1    
+                    dx += 1
                 
                 dw = 1 if inp['slot'] == 2 else 0
-                pygame.draw.rect(image, (0xfa, 0x70, 0x0d), 
+                pygame.draw.rect(image, (0xfa, 0x70, 0x0d),
                                  (13+dx, 9, 5+dw, 5))
                 
 
@@ -357,5 +357,3 @@ class Robot(NXTBrick):
         self.imgUpdate()
 
         d.close()
-
-
