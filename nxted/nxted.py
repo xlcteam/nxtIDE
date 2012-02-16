@@ -70,6 +70,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             return self.onSaveAs(event)
 
     def onSaveAs(self, event):
+
         dir = os.getcwd()
         wc = 'Py files (*.py)|*.py|All files(*)|*'
         dialog = wx.FileDialog(self, message = 'Save file as...',
@@ -86,7 +87,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.path = path
             self.filename = os.path.basename(path)
             self.SetTitle(self.filename)
-
+        
         
         dialog.Destroy()
     
