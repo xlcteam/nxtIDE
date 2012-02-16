@@ -1,52 +1,59 @@
-CircleOut: CircleOut(x, y, radius)
-ClearLine: "ClearLine(line)\n    \n    Clear one line on the screen.\n    \n    (int)\
-  \ line: line we want to clear.\n    "
-ClearScreen: "ClearScreen()\n    \n    Clear the screen.\n    "
-Coast: "Coast(motor)\n    \n    Kills power for the motor. It's an alias to Float.\n\
-  \n    (int) motor: motor we want to stop.\n    "
-Float: "Float(motor)\n    \n    Kills power for the motor. It's an alias to Coast.\n\
-  \n    (int) motor: motor we want to stop.\n    "
-LineOut: "LineOut(x0, y0, x1, y1)\n    \n    Function for printing line from [x1,y1]\
-  \ to [x2,y2] \n    It is just a simple implementation of Bresenham's algorithm"
+CircleOut: "CircleOut(x, y, radius)\n\n    Draw a circle with center at [x, y] and\
+  \ specified radius.\n\n    int x: X coordinate of the center of the circle.\n  \
+  \  int x: Y coordinate of the center of the circle.\n    int radius: The radius\
+  \ of the circle.\n\n"
+ClearLine: "ClearLine(line)\n    \n    Clear one line on the screen.\n    \n    int\
+  \ line: line we want to clear.\n\n"
+ClearScreen: "ClearScreen()\n    \n    Clear the screen.\n\n"
+Float: "Float(motor)\n    \n    Kill power for the motor.\n\n    int motor: motor\
+  \ we want to stop.\n\n"
+LineOut: "LineOut(x0, y0, x1, y1)\n    \n    Draw a line from [x0, y0] to [x1, y1].\n\
+  \n    int x0: X coordinate of the start point of the line\n    int y0: Y coordinate\
+  \ of the start point of the line\n    int x1: X coordinate of the end point of the\
+  \ line\n    int y1: Y coordinate of the start point of the line\n\n"
 MotorTachoCount: "MotorTachoCount(motor)\n    \n    Get motor tachometer counter value.\n\
-  \n    (int) motor: motor we want to get tachometer count from.\n    "
-NumOut: "NumOut(x, y, num)\n    \n    Print number on the screen.\n \n    (int) x:\
-  \ X coordinate of the text\n    (int) y: Y coordinate or the text\n    (int) num:\
-  \ The number to print\n    "
-'Off': "Off(motor)\n    \n    Turn motor off (with break).\n    \n    (int) motor:\
-  \ motor we want to stop.\n    "
+  \n    int motor: motor we want to get tachometer count from.\n\n"
+NumOut: "NumOut(x, y, num)\n    \n    Print number on the screen.\n \n    int x: X\
+  \ coordinate of the text\n    int y: Y coordinate or the text\n    int num: The\
+  \ number to print\n\n"
+'Off': "Off(motor)\n    \n    Turn the motor off (with break).\n    \n    int motor:\
+  \ motor we want to stop.\n\n"
 OnFwd: "OnFwd(motor, speed)\n  \n    Set motor to forward direction and turn it on.\n\
-  \    \n    (int) motor: motor we want to run.\n    (int) speed: speed we want to\
-  \ run the motor at from 0 to 100.\n    Negative value reverses direction.   \n \
-  \   "
+  \    \n    int motor: motor we want to run.\n    int speed: speed we want to run\
+  \ the motor at from 0 to 100. Negative value reverses direction.   \n\n"
 OnRev: "OnRev(motor, speed)\n    \n    Set motor to reverse direction and turn it\
-  \ on.\n    \n    (int) motor: motor we want to run.\n    (int) speed: speed we want\
-  \ to run the motor at from 0 to 100.\n    Negative value reverses direction.\n \
-  \   "
-PlayTone: "PlayTone(frequency, duration)\n    \n    Play a tone.\n\n    (int) frequency:\
-  \ Frequency of the tone in Hz.\n    (int) duration: For how long should the brick\
-  \ play this tone. \n    "
-PointOut: "PointOut(x, y)\n    \n    Draw a point on the screen at (x, y)\n\n    param:\
-  \ (int) x: The x coordinate of the point\n    param: (int) y: The y coordinate of\
-  \ the point\n    "
-Random: "Random(n = 0)\n    \n    Returns a random number\n\n    (int) n: the maximal\
-  \ value this function should return\n    "
-RectOut: RectOut(x, y, width, height)
+  \ on.\n    \n    int motor: motor we want to run.\n    int speed: speed we want\
+  \ to run the motor at from 0 to 100. Negative value reverses direction.\n\n"
+PlayTone: "PlayTone(freq, duration)\n    \n    Play a tone.\n\n    int freq: Frequency\
+  \ of the tone in Hz.\n    int duration: For how long should the brick play this\
+  \ tone.\n\n"
+PointOut: "PointOut(x, y)\n    \n    Draw a point on the screen at (x, y)\n\n    int\
+  \ x: The x coordinate of the point\n    int y: The y coordinate of the point\n \
+  \   \n"
+Random: "Random(n = 0)\n    \n    Returns a random number\n\n    int n: the maximal\
+  \ value this function should return\n\n"
+RectOut: "RectOut(x, y, width, height)\n    \n    Draw a rectangle from [x, y] with\
+  \ specified width and height.\n\n    int x: X coordinate of the start point of the\
+  \ rectangle.\n    int y: Y coordinate of the start point of the rectangle.\n   \
+  \ int width: The width of the rectangle.\n    int height: The height of the rectangle.\n\
+  \n"
 ResetTachoCount: "ResetTachoCount(motor)\n    \n    Reset tachometer counter. \n\n\
-  \    (int) motor: desired motor output.\n    "
+  \    int motor: desired motor output.\n\n"
 RotateMotor: "RotateMotor(motor, speed, angle)\n    \n    Rotate motor in specified\
   \ direction at specified speed for the specified\n    number of degrees.\n\n   \
-  \ (int) motor: motor we want to rotate\n    (int) speed: speed we want to run the\
-  \ motor at, from 0 to 100. \n    Negative value reverses direction.\n    (int) angle:\
-  \ number of degrees we want to rotate the motor. Negative\n    value reverses direction.\n\
-  \    \n    \n    "
-Sensor: "Sensor(sensor)\n    \n    Read value from given sensor.\n    \n    (int)\
-  \ sensor: sensor we want to read from\n    "
+  \ int motor: motor we want to rotate\n    int speed: speed we want to run the motor\
+  \ at, from 0 to 100. Negative value reverses direction.\n    int angle: number of\
+  \ degrees we want to rotate the motor. Negative value reverses direction.\n    \n"
+Sensor: "Sensor(sensor)\n    \n    Read value from given sensor.\n    \n    int sensor:\
+  \ sensor we want to read from\n\n"
 SensorUS: "SensorUS(sensor)\n\n    Read value from given lowspeed sensor (e.g. Ultrasonic).\
   \ The input port \n    has to be configured as a Lowspeed before using this function.\n\
-  \    \n    (int) sensor: sensor we want to read from\n    "
-TextOut: "TextOut(x, y, text)\n    \n    Print text on the screen.\n    \n    (int)\
-  \ x: X coordinate of the text\n    (int) y: Y coordinate or the text\n    (str)\
-  \ text: The text to print\n    "
-Wait: "Wait(milisec)\n    \n    Waits for given number of miliseconds.\n\n    (int)\
-  \ milisec: number of miliseconds\n    "
+  \    \n    int sensor: sensor we want to read from\n\n"
+SetSensor: SetSensor(sensor, type)
+SetSensorLowspeed: SetSensorLowspeed(sensor)
+SetSensorType: SetSensorType(sensor, type)
+TextOut: "TextOut(x, y, text)\n    \n    Print text on the screen.\n    \n    int\
+  \ x: X coordinate of the text\n    int y: Y coordinate or the text\n    str text:\
+  \ The text to print\n\n"
+Wait: "Wait(milisec)\n    \n    Waits for given number of miliseconds.\n\n    int\
+  \ milisec: number of miliseconds\n\n"

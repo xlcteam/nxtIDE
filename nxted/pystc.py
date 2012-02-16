@@ -36,7 +36,7 @@ elif wx.Platform == '__WXMAC__':
              }
 else:
     faces = { 'times': 'Times',
-              'mono' : 'Courier',
+              'mono' : 'Courier New',
               'helv' : 'Helvetica',
               'other': 'new century schoolbook',
               'size' : 12,
@@ -150,7 +150,7 @@ class PythonSTC(stc.StyledTextCtrl):
 
         # Global default styles for all languages
         self.StyleSetSpec(stc.STC_STYLE_DEFAULT,     "face:%(helv)s,back:#ffffff,size:%(size)d" % faces)
-        self.StyleSetSpec(stc.STC_STYLE_LINENUMBER,  "back:#ffffff,fore:#d7d4d4,face:%(helv)s,size:%(size2)d" % faces)
+        self.StyleSetSpec(stc.STC_STYLE_LINENUMBER,  "back:#ffffff,fore:#111111,face:%(helv)s,size:%(size2)d" % faces)
         self.StyleSetSpec(stc.STC_STYLE_CONTROLCHAR, "fore:#000000,face:%(other)s" % faces)
         self.StyleSetSpec(stc.STC_STYLE_BRACELIGHT,  "fore:#000000,back:#ffffff,bold,size:14")
         self.StyleSetSpec(stc.STC_STYLE_BRACEBAD,    "fore:#000000,back:#ffffff")
@@ -166,8 +166,8 @@ class PythonSTC(stc.StyledTextCtrl):
         # Single quoted string
         self.StyleSetSpec(stc.STC_P_CHARACTER, "fore:#800000,italic,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
         # Keyword
-        self.StyleSetSpec(stc.STC_P_WORD, "fore:#ffc286,bold,size:%(size)d,back:#0D1021" % faces)
-        self.StyleSetSpec(stc.STC_P_WORD2, "fore:#0000ff,size:%(size)d,back:#0D1021" % faces)
+        self.StyleSetSpec(stc.STC_P_WORD, "fore:#000000,bold,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_WORD2, "fore:#0000ff,size:%(size)d,back:#ffffff" % faces)
         # Triple quotes
         self.StyleSetSpec(stc.STC_P_TRIPLE, "fore:#800000,size:%(size)d,back:#ffffff" % faces)
         # Triple double quotes

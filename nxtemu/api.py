@@ -693,11 +693,15 @@ SENSOR_LIGHT = 2
 
 def SetSensor(sensor, type):
     """SetSensor(sensor, type)"""
-    pass
+    sensor = 1
+
+def SetSensorType(sensor, type):
+    """SetSensorType(sensor, type)"""
+    sensor = 1
 
 def SetSensorLowspeed(sensor):
     """SetSensorLowspeed(sensor)"""
-    pass
+    sensor = 1
 
 def Sensor(sensor):
     """Sensor(sensor)
