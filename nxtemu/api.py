@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-import pygame, sys, os.path, threading, numpy, pygame.sndarray
+import pygame, sys, os.path, threading, pygame.sndarray
+from numpy import sin, array, arange, resize, pi
 from robothread import RoboException
 
 
@@ -443,12 +444,12 @@ def Wait(milisec):
 
 def sine_array_onecycle(hz, peak):
     length = 44100 / float(hz)
-    omega = numpy.pi * 2 / length
-    xvalues = numpy.arange(int(length)) * omega
-    return (peak * numpy.sin(xvalues))
+    omega = pi * 2 / length
+    xvalues = arange(int(length)) * omega
+    return (peak * sin(xvalues))
     
 def sine_array(hz, peak, n_samples = 200):
-    return numpy.resize(sine_array_onecycle(hz, peak), (n_samples,))
+    return resize(sine_array_onecycle(hz, peak), (n_samples,))
 
 def PlayTone(freq, duration):
     """PlayTone(freq, duration)
@@ -468,7 +469,7 @@ def PlayTone(freq, duration):
     """
 
     f = sine_array(freq, 1, duration*6)
-    f = numpy.array(zip(f, f))
+    f = array(zip(f, f))
 
     sound = pygame.sndarray.make_sound(f)
     channel = sound.play(-1)
@@ -693,11 +694,15 @@ SENSOR_LIGHT = 2
 
 def SetSensor(sensor, type):
     """SetSensor(sensor, type)"""
-    pass
+    sensor = 1
+
+def SetSensorType(sensor, type):
+    """SetSensorType(sensor, type)"""
+    sensor = 1
 
 def SetSensorLowspeed(sensor):
     """SetSensorLowspeed(sensor)"""
-    pass
+    sensor = 1
 
 def Sensor(sensor):
     """Sensor(sensor)

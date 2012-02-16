@@ -13,6 +13,9 @@ import sys
 import yaml
 import tempfile
 
+import ctypes
+
+
 
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
@@ -45,9 +48,19 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
         self.emuproc = None
         
+    def gethome(self):
+        try:
+            dll = ctypes.windll.shell32
+            buf = ctypes.create_unicode_buffer(300) #TODO: max_path
+            if dll.SHGetSpecialFolderPathW(None, buf, 0x0005, False):
+                    return buf.value
+            else:
+                    return os.getcwd()
+        except:
+            return os.getcwd()
 
     def onOpen(self, event):
-        dir = os.getcwd()
+        dir = self.gethome()
         wc = 'Py files (*.py)|*.py|All files(*)|*'
         dialog = wx.FileDialog(self, message = 'Open file ...',
                                defaultDir = dir, defaultFile = '', 
@@ -70,7 +83,9 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             return self.onSaveAs(event)
 
     def onSaveAs(self, event):
-        dir = os.getcwd()
+
+        dir = self.gethome()
+
         wc = 'Py files (*.py)|*.py|All files(*)|*'
         dialog = wx.FileDialog(self, message = 'Save file as...',
                                defaultDir = dir, defaultFile = self.GetTitle(), 
@@ -86,7 +101,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.path = path
             self.filename = os.path.basename(path)
             self.SetTitle(self.filename)
-
+        
         
         dialog.Destroy()
     
