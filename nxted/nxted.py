@@ -387,6 +387,5 @@ if __name__ == "__main__":
         app = wx.App(redirect=1, filename='nxted.exe.log')
     else:
         app = wx.App()
-
     Editor(None)
     app.MainLoop()
