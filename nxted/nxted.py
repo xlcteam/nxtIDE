@@ -138,7 +138,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             return False
 
         except SyntaxError as se:
-            msg = "SyntaxError: on line %d" % se.args[1][1]
+            msg = "SyntaxError: %s \n\t on line %d" % \
+                                (se.args[0], se.args[1][1])
             
             pos = self.editor.GetLineEndPosition(se.args[1][1] - 2)
             pos += se.args[1][2]
