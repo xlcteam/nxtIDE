@@ -68,10 +68,21 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                                style=wx.OPEN)
         if dialog.ShowModal() == wx.ID_OK:
             path = dialog.GetPath()
-            self.editor.LoadFile(path)
-            self.path = path
-            self.filename = os.path.basename(path)
-            self.SetTitle(self.filename)
+
+            # if there is something in actual editor create a new one
+            if self.path is not '':
+                child = self.parent.OnNewChild(None)
+
+                child.editor.LoadFile(path)
+                child.path = path
+                child.filename = os.path.basename(path)
+                child.SetTitle(child.filename)
+
+            else:
+                self.editor.LoadFile(path)
+                self.path = path
+                self.filename = os.path.basename(path)
+                self.SetTitle(self.filename)
 
         
         dialog.Destroy()
@@ -386,6 +397,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
 
         child.Refresh()
         self._mgr.Update()
+        return child
         
 
     def OnDoClose(self, evt):
