@@ -436,9 +436,11 @@ def Wait(milisec):
 
     :param int milisec: číslo v milisekundách.
     """
+    
 
     while milisec > 1:
-        milisec -= pygame.time.delay(100)
+        step = 100 if milisec > 500 else milisec 
+        milisec -= pygame.time.delay(step)
         dieTest()
 
 

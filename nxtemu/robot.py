@@ -211,6 +211,7 @@ class Robot(NXTBrick):
         self.x += math.sin(math.radians(self.angle)) * p
         self.y += -math.cos(math.radians(self.angle)) * p
         
+        self.angle = round(self.angle)
 
         self.draw()
         # print background.get_at((int(self.x), int(self.y)))
