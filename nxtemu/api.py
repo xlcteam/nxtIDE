@@ -653,9 +653,11 @@ def RotateMotor(motor, speed, angle):
 
     OnFwd(motor, speed)
     clock = pygame.time.Clock()
-    while MotorTachoCount(motor) < angle:
+    start = MotorTachoCount(motor)
+    while (MotorTachoCount(motor) - start) < angle:
         dieTest()
-        clock.tick(20)
+        clock.tick(40)
+
     Off(motor)
 
 def ResetTachoCount(motor):
