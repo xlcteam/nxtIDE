@@ -78,5 +78,12 @@ setup(
                          },
              },
     data_files = data_files,
+<<<<<<< HEAD
     windows=["nxtemu.py"]
+=======
+    windows=[{
+        'script': 'nxtemu.py',
+        'icon_resources' : [(0, 'icons/NXTemu.ico')]
+    }]
+>>>>>>> 5dc2f99710c219db5605d360bd10e443dc289bda
 )
