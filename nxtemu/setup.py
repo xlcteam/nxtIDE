@@ -78,5 +78,5 @@ setup(
                          },
              },
     data_files = data_files,
-    windows=['nxtemu.py']
+    windows=["nxtemu.py"]
 )
