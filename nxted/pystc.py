@@ -237,8 +237,8 @@ class PythonSTC(stc.StyledTextCtrl):
                 if id in self.api:
                     self.last_id = id
                     self.last_arg_pos = 1
-                    self.CallTipSetForeground("#000")
-                    self.CallTipSetBackground("#FFF")
+                    self.CallTipSetForeground("#000000")
+                    self.CallTipSetBackground("#FFFFFF")
                     self.CallTipShow(pos - len(id), self.api[id])
                     pos = self.getArgPos(self.last_id, self.last_arg_pos)
                     self.CallTipSetHighlight(pos[0], pos[1]-1)
@@ -286,8 +286,8 @@ class PythonSTC(stc.StyledTextCtrl):
 
             # Tips
             if event.ShiftDown():
-                self.CallTipSetBackground("#a59e52")
-                self.CallTipSetForeground("#000000")
+                #self.CallTipSetBackground("#ffffff")
+                self.CallTipSetForeground("#ffffff")
                 self.CallTipShow(pos, 'lots of of text: blah, blah, blah\n\n'
                                  'show some suff, maybe parameters..\n\n'
                                  'fubar(param1, param2)')
