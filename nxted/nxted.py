@@ -304,7 +304,8 @@ class Editor(wx.aui.AuiMDIParentFrame):
                                           style = wx.DEFAULT_FRAME_STYLE)
 
         
-        
+        self.SetIcon(wx.Icon('icons/nxted.ico', wx.BITMAP_TYPE_ICO))
+
         self._mgr = wx.aui.AuiManager()                                         
         self._mgr.SetManagedWindow(self) 
         self.msgs = wx.TextCtrl(self,-1, "", wx.Point(0, 0), wx.Size(150, 40),

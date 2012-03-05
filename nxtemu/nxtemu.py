@@ -27,7 +27,8 @@ from robothread import *
 import env
 
 pygame.init() 
-pygame.display.set_icon(pygame.image.load(p('./icons/nxtemu_ico.png')).convert())
+icon = pygame.image.load(p('./icons/nxtemu.ico')).convert_alpha()
+pygame.display.set_icon(icon)
 pygame.mixer.pre_init(44100, -16, 2)
 
 yspeed = 0
