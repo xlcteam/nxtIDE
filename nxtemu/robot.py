@@ -183,17 +183,19 @@ class Robot(NXTBrick):
         # self.stayIn()
         angle = 0
         rotA = rotB = 0
-        
+        touchedA = touchedB = False
 
         if not self.touchesAt(self.touchPoints["topleft"]):
             rotA = self.mA / 30.0
         else:
-            rotA -= self.mA / 20.0 
+            touchedA = True
+            rotA -= self.mA / 40.0 
 
         if not self.touchesAt(self.touchPoints["topright"]):
             rotB = self.mB / 30.0
         else:
-            rotB -= self.mB / 20.0
+            touchedB = True
+            rotB -= self.mB / 40.0
 
         rotC = self.mC / 30.0
                
@@ -214,6 +216,12 @@ class Robot(NXTBrick):
         self.angle = round(self.angle)
 
         self.draw()
+        
+        if touchedA:
+            self.rotA += -2*rotA
+        if touchedB:
+            self.rotB += -2*rotB
+
         # print background.get_at((int(self.x), int(self.y)))
 
     def onCenter(self):
