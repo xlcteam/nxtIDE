@@ -496,7 +496,11 @@ class PythonSTC(stc.StyledTextCtrl):
         m = re.match(".*?\((.*?[,\)]){%d}" % (n) ,
                         self.api[id])
 
-        return m.span(1)
+        if m is not None:
+            return m.span(1)
+        else:
+            return (0, 0)
+
 
             
 

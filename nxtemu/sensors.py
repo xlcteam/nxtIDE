@@ -92,11 +92,15 @@ class SensorTouch(BaseSensor):
         x = int(round(robot.x - dx))
         y = int(round(robot.y - dy))
 
-        #rgb = env.background.get_at((x, y))
-        env.background.set_at((x, y), (0, 0, 0xff))
-        print (dx, dy), (x, y)
-        return 0
-        #return self.lightness(rgb)
+        o = env.background.get_at((x, y))
+        #env.background.set_at((x, y), (0, 0, 0xff))
+
+        if o == (190, 190, 190, 255):
+            print 1
+            return 1 
+        else:
+            print 0
+            return 0
 
 
 
