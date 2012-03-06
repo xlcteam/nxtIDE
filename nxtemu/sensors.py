@@ -32,8 +32,8 @@ class SensorUS(BaseSensor):
 
         (x, y) = (robot.x - dx, robot.y - dy)
         for z in xrange(800):
-            x += cos(radians(robot.angle - 90))
-            y += sin(radians(robot.angle - 90))
+            x += sin(radians(robot.angle))
+            y += -cos(radians(robot.angle))
             
             o = env.background.get_at((int(round(x)), int(round(y))))
             if o == (190, 190, 190, 255):
@@ -96,10 +96,8 @@ class SensorTouch(BaseSensor):
         #env.background.set_at((x, y), (0, 0, 0xff))
 
         if o == (190, 190, 190, 255):
-            print 1
             return 1 
         else:
-            print 0
             return 0
 
 
