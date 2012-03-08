@@ -1,11 +1,8 @@
 ; setup_script.nsi
-;
-; This script is perhaps one of the simplest NSIs you can make. All of the
-; optional settings are left to their default settings. The installer simply 
-; prompts the user asking them where to install, and drops a copy of example1.nsi
-; there. 
 
 ;--------------------------------
+
+!include "MUI.nsh"
 
 !define inst_icon "nxtIDE.ico"
 ; !define uninst_icon ""
@@ -28,6 +25,13 @@ RequestExecutionLevel admin
 ; Pages
 icon "${inst_icon}"
 ; UninstallIcon "${uninst_icon}"
+
+!insertmacro MUI_PAGE_WELCOME
+;LangString PAGE_TITLE ${LANG_ENGLISH} "nxtIDE"
+;LangString PAGE_SUBTITLE ${LANG_ENGLISH} "Brought to you by XLC Team"
+
+
+;!insertmacro MUI_LANGUAGE "English"
 Page directory
 Page instfiles
 
