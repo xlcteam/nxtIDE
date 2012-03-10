@@ -1,16 +1,12 @@
 ; setup_script.nsi
-
+; script for nxtIDE installer
 ;--------------------------------
 
-!include "MUI.nsh"
-
-!define inst_icon "nxtIDE.ico"
-; !define uninst_icon ""
-
-
+	!include "MUI2.nsh"
+	!define inst_icon "nxtIDE.ico"
 
 ; The name of the installer
-Name "nxtIDE_setup.exe"
+Name "nxtIDE"
 
 ; The file to write
 OutFile "nxtIDE_setup.exe"
@@ -21,25 +17,57 @@ InstallDir $PROGRAMFILES\nxtIDE
 RequestExecutionLevel admin
 
 ;--------------------------------
+;Interface Settings
 
-; Pages
-icon "${inst_icon}"
-; UninstallIcon "${uninst_icon}"
+	!define MUI_ICON "${inst_icon}"
+	!define MUI_HEADERIMAGE
+	!define MUI_WELCOMEFINISHPAGE_BITMAP "nxtIDE_header.bmp"
+	!define MUI_UNWELCOMEFINISHPAGE_BITMAP "nxtIDE_header.bmp"
+	!define MUI_HEADERIMAGE_BITMAP "nxtIDE_header.bmp"
+	!define MUI_ABORTWARNING
 
+	!define MUI_WELCOMEPAGE_TITLE "Welcome to the nxtIDE Setup Wizard"
+	!define MUI_WELCOMEPAGE_TEXT "Brought to you by XLC Team"
+
+
+	!define MUI_FINISHPAGE_TITLE "nxtIDE was installed successfully."
+	!define MUI_FINISHPAGE_TEXT "Ok, now let's begin to code."
+	;!define MUI_FINISHPAGE_RUN
+  ;!define MUI_FINISHPAGE_RUN_CHECKED
+  ;!define MUI_FINISHPAGE_RUN_TEXT "Run program"
+	;!define MUI_FINISHPAGE_RUN_FUNCTION "startnxted"
+
+
+	;uninstall constants
+	!define MUI_UNWELCOMEPAGE_TITLE "Welcome to the nxtIDE uninstall Wizard"
+	!define MUI_UNWELCOMEPAGE_TEXT "Brought to you by XLC Team"
+	
+	!define MUI_UNFINISHPAGE_TITLE "nxtIDE was uninstalled successfully."
+	!define MUI_UNFINISHPAGE_TEXT "Thank you for using nxtIDE."
+
+;--------------------------------
+
+
+;pages
 !insertmacro MUI_PAGE_WELCOME
-;LangString PAGE_TITLE ${LANG_ENGLISH} "nxtIDE"
-;LangString PAGE_SUBTITLE ${LANG_ENGLISH} "Brought to you by XLC Team"
+!insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_INSTFILES
+!insertmacro MUI_PAGE_FINISH
+
+!insertmacro MUI_UNPAGE_WELCOME
+!insertmacro MUI_UNPAGE_DIRECTORY
+!insertmacro MUI_UNPAGE_INSTFILES
+!insertmacro MUI_UNPAGE_FINISH
+
+  
+;--------------------------------
+;Languages
+	!insertmacro MUI_LANGUAGE "English"
+;--------------------------------
 
 
-;!insertmacro MUI_LANGUAGE "English"
-Page directory
-Page instfiles
 
 
-UninstPage uninstConfirm
-UninstPage instfiles
-
-;-------------------------------
 
 ; The stuff to install
 Section "..\build" ;No components page, name is not important
@@ -87,8 +115,6 @@ Section
 	SetOutPath "$INSTDIR\nxtemu\"
 	CreateShortCut $DESKTOP\nxtemu.lnk $INSTDIR\nxtemu\nxtemu.exe 
 SectionEnd
-
-
 
 section "Uninstall"
 	SetShellVarContext all
