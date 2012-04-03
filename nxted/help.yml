@@ -50,6 +50,7 @@ SensorUS: "SensorUS(sensor)\n\n    Read value from given lowspeed sensor (e.g. U
   \ The input port \n    has to be configured as a Lowspeed before using this function.\n\
   \    \n    int sensor: sensor we want to read from\n\n"
 SetSensor: SetSensor(sensor, type)
+SetSensorLight: SetSensorLight(sensor)
 SetSensorLowspeed: SetSensorLowspeed(sensor)
 SetSensorType: SetSensorType(sensor, type)
 TextOut: "TextOut(x, y, text)\n    \n    Print text on the screen.\n    \n    int\

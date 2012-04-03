@@ -708,6 +708,10 @@ def SetSensorLowspeed(sensor):
     """SetSensorLowspeed(sensor)"""
     sensor = 1
 
+def SetSensorLight(sensor):
+    """SetSensorLight(sensor)"""
+    sensor = 1
+
 def Sensor(sensor):
     """Sensor(sensor)
     
