@@ -5,6 +5,7 @@ import wx.aui
 import os
 
 from pystc import PythonSTC
+from pystc import FindDialog
 
 import pycheck
 import subprocess
@@ -295,6 +296,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
     ID_EMU_RUN = 1007
     ID_BRICK_DOWNLOAD = 1008
     ID_BRICK_DOWNLOAD_RUN = 1009
+    ID_FIND = 1010
 
     emuproc = None
     def __init__(self, parent):
@@ -353,7 +355,10 @@ class Editor(wx.aui.AuiMDIParentFrame):
         item = self.menu.Append(self.ID_SAVE_AS, "Save as\tCtrl+Shift+S")
         self.menu.AppendSeparator()
 
-      
+        item = self.menu.Append(self.ID_FIND, "Find\tCtrl+F")
+        self.Bind(wx.EVT_MENU, self.OnFind, item)
+        self.menu.AppendSeparator()
+
                 
         item = self.menu.Append(-1, "Next\tCtrl-PgDn")
         self.Bind(wx.EVT_MENU, self.Next, item)
@@ -384,6 +389,9 @@ class Editor(wx.aui.AuiMDIParentFrame):
         mb.Append(self.menu, "&File")
         mb.Append(self.run_menu, "&Run")
         return mb
+
+    def OnFind(self, event):
+        FindDialog(self, id=wx.ID_ANY, title='Find...')
 
     def Next(self, event):
         return self.ActivateNext()

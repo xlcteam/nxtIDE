@@ -49,6 +49,49 @@ else:
 
 #----------------------------------------------------------------------
 
+class FindDialog(wx.Dialog):
+    def __init__ (self, parent, id, title):
+        wx.Dialog.__init__(self, parent, id, title, size=(200, 150))
+    
+        sizer = wx.GridSizer(2, 1, 5, 5)
+    
+        self.inp = wx.TextCtrl(self, -1, pos=(5, 5), size=(160, -1))
+        btn = wx.Button(self, -1, 'Find', pos=(10, 30))
+        self.Bind(wx.EVT_BUTTON, self.onFind, btn)
+
+        #sizer.Add(self.inp)
+        #sizer.Add(btn)
+
+        #self.SetSizer(sizer)
+
+        self.Centre()
+        self.Show()
+        
+        
+    def hasSelection(self):
+        start, end = self.inp.GetSelection()
+        return (end - start) > 0
+
+    def getSelectionLines(self, skip=True):
+        val = self.inp.GetValue()
+        if self.hasSelection():
+            start, end = self.GetSelection()
+            startline = self.LineFromPosition(start)
+            endline = self.LineFromPosition(end)
+            if skip and endline > startline:
+                if not self.GetTextRange(self.PositionFromLine(endline), self.GetCurrentPos()):
+                    endline -= 1
+                self.SetSelection(startline, endline)
+            return range(startline, endline + 1)
+        else:
+            #return [self.GetCurrentLine()]
+            return False
+
+    def onFind(self, event):
+        if self.getSelectionLines() == False:
+            wx.MessageBox('Nothing found', 'Result', 
+                    wx.OK | wx.ICON_INFORMATION)
+
 class PythonSTC(stc.StyledTextCtrl):
 
     fold_symbols = 2
@@ -279,7 +322,10 @@ class PythonSTC(stc.StyledTextCtrl):
                 self.AddText("\n" + self.GetIndent()*' ' + self.indent)
             else:
                 self.AddText("\n" + self.indent)
-            return    
+            return
+
+        if (key == 102 or key == 70) and event.ControlDown():
+            FindDialog(self, id=wx.ID_ANY, title='Find...')
 
         if key == 32 and event.ControlDown():
             pos = self.GetCurrentPos()
@@ -388,7 +434,6 @@ class PythonSTC(stc.StyledTextCtrl):
                             self.Expand(lineClicked, True, True, 100)
                     else:
                         self.ToggleFold(lineClicked)
-
 
     def FoldAll(self):
         lineCount = self.GetLineCount()
