@@ -3,6 +3,7 @@ import  keyword
 
 import  wx
 import  wx.stc  as  stc
+import  wx.lib.newevent
 
 import re
 
@@ -48,6 +49,56 @@ else:
 
 
 #----------------------------------------------------------------------
+(EventTabpadOutput, EVT_TABPAD_STATUS) = wx.lib.newevent.NewEvent()
+class FindDialog(wx.Dialog):
+    def __init__ (self, parent, id, title):
+        wx.Dialog.__init__(self, parent, id, title, size=(200, 150))
+
+        self.parent = parent
+        self.tabList = []
+        
+        #sizer = wx.GridSizer(2, 1, 5, 5)
+    
+        self.inp = wx.TextCtrl(self, -1, pos=(5, 5), size=(160, -1))
+        btn = wx.Button(self, -1, 'Find', pos=(10, 30))
+        self.Bind(wx.EVT_BUTTON, self.onFind, btn)
+
+        #sizer.Add(self.inp)
+        #sizer.Add(btn)
+
+        #self.SetSizer(sizer)
+
+        self.Centre()
+        self.Show()
+        
+
+    def onFind(self, event):
+        self.word = self.inp.GetValue()
+
+        self.SearchFromHead(self.word)
+        
+
+        #if self.getSelectionLines() == False:
+        #    wx.MessageBox('Nothing found', 'Result', 
+        #            wx.OK | wx.ICON_INFORMATION)
+
+        self.Destroy()
+
+    def SearchFromHead(self, word):
+        self.printStatus('Search Word: '+word)
+        currentTabNum = self.parent.GetSelection()
+        self.parent.SetSelection(self, word, select=True)
+        currentSTC = self.tabList[self.parent.currentTabNum]
+        currentSTC.GotoPos(0)
+        currentSTC.SearchAnchor()
+        currentSTC.SearchNext( wx.stc.STC_FIND_REGEXP, word)
+
+
+    def printStatus(self, msg, append = False):
+        evt = EventTabpadOutput(output=msg, append=append)
+        wx.PostEvent(self.parent, evt)
+        
+
 
 class PythonSTC(stc.StyledTextCtrl):
 
@@ -279,7 +330,10 @@ class PythonSTC(stc.StyledTextCtrl):
                 self.AddText("\n" + self.GetIndent()*' ' + self.indent)
             else:
                 self.AddText("\n" + self.indent)
-            return    
+            return
+
+        if (key == 102 or key == 70) and event.ControlDown():
+            FindDialog(self, id=wx.ID_ANY, title='Find...')
 
         if key == 32 and event.ControlDown():
             pos = self.GetCurrentPos()
@@ -388,7 +442,6 @@ class PythonSTC(stc.StyledTextCtrl):
                             self.Expand(lineClicked, True, True, 100)
                     else:
                         self.ToggleFold(lineClicked)
-
 
     def FoldAll(self):
         lineCount = self.GetLineCount()
