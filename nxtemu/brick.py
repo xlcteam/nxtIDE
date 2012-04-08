@@ -254,12 +254,14 @@ class NXTBrick:
         #print prgdir
         self.progs = glob(prgdir + 'e*.py')
 
-        self.progs = sorted(self.progs, cmp=older_first)
-        
-        for x in range(len(self.progs)):
-            self.progs[x] = self.progs[x].replace(prgdir + 'e' , '') \
-                        .replace('.py', '')
+        progs = sorted(self.progs, cmp=older_first)
+        self.progs = []
 
+        for x in range(len(progs)):
+            prog = progs[x].replace(prgdir + 'e' , '') \
+                        .replace('.py', '')
+            if not ('.' in prog):
+                self.progs.append(prog)
         
     
     def running(self):
