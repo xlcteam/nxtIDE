@@ -2,6 +2,7 @@
 
 import wx
 import wx.aui
+import wx.stc as stc
 import os
 
 from pystc import PythonSTC
@@ -15,8 +16,70 @@ import tempfile
 
 import ctypes
 
+#--------------------------------
+class FindDialog(wx.Dialog):
+    SEARCHED = False
+    res = None
+    def __init__ (self, parent, id, title):
+        wx.Dialog.__init__(self, parent, id, title, size=(300, 200))
+
+        self.parent = parent
+
+        self.currTab = self.parent.GetActiveChild()
+        
+        self.hbox = wx.BoxSizer(wx.HORIZONTAL)
+        self.vbox = wx.BoxSizer(wx.VERTICAL)
+        
+        self.inp = wx.TextCtrl(self, -1)
+        btn = wx.Button(self, -1, 'Search')
+        self.Bind(wx.EVT_BUTTON, self.onFind, btn)
 
 
+        #search buttons
+        self.hbox.Add(btn, flag=wx.EXPAND)
+        
+        self.vbox.Add(self.inp, flag=wx.EXPAND | wx.TOP)
+        self.vbox.Add(self.hbox)
+                
+        self.SetSizer(self.vbox)
+        self.Centre()
+
+    def SearchFromHead(self, word):
+        currPos = self.currTab.editor.GetCurrentPos()
+
+        if self.SEARCHED == False:
+            self.SEARCHED = True
+            self.currTab.editor.GotoPos(0)
+            self.currTab.editor.SearchAnchor()
+            self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, word)
+        else:
+            self.currTab.editor.GotoPos(currPos + len(word))
+            self.currTab.editor.SearchAnchor()
+            self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, word)
+
+    def onFind(self, event):
+        self.word = self.inp.GetValue()
+
+        if self.word == '':
+            return
+
+        self.updateRes()
+        if self.res == -1:
+            self.currTab.editor.GotoPos(0)
+            self.updateRes()
+            if self.res == -1:
+                wx.MessageBox('Nothing found', 'Result', 
+                        wx.OK | wx.ICON_INFORMATION)
+                self.SEARCHED = False
+                return
+        
+        self.SearchFromHead(self.word)
+        
+    def updateRes(self):
+        self.word = self.inp.GetValue()
+        self.currTab.editor.SearchAnchor()
+        self.res = self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, self.word)
+    
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
     filename = ''
@@ -295,6 +358,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
     ID_EMU_RUN = 1007
     ID_BRICK_DOWNLOAD = 1008
     ID_BRICK_DOWNLOAD_RUN = 1009
+    ID_FIND = 1010
 
     emuproc = None
     def __init__(self, parent):
@@ -304,7 +368,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
                                           style = wx.DEFAULT_FRAME_STYLE)
 
         
-        self.SetIcon(wx.Icon('icons/nxted.ico', wx.BITMAP_TYPE_ICO))
+        self.SetIcon(wx.Icon('icons/nxted_128.ico', wx.BITMAP_TYPE_ICO))
 
         self._mgr = wx.aui.AuiManager()                                         
         self._mgr.SetManagedWindow(self) 
@@ -353,7 +417,10 @@ class Editor(wx.aui.AuiMDIParentFrame):
         item = self.menu.Append(self.ID_SAVE_AS, "Save as\tCtrl+Shift+S")
         self.menu.AppendSeparator()
 
-      
+        item = self.menu.Append(self.ID_FIND, "Find\tCtrl+F")
+        self.Bind(wx.EVT_MENU, self.OnFind, item)
+        self.menu.AppendSeparator()
+
                 
         item = self.menu.Append(-1, "Next\tCtrl-PgDn")
         self.Bind(wx.EVT_MENU, self.Next, item)
@@ -384,6 +451,11 @@ class Editor(wx.aui.AuiMDIParentFrame):
         mb.Append(self.menu, "&File")
         mb.Append(self.run_menu, "&Run")
         return mb
+
+    def OnFind(self, event):
+        dlg = FindDialog(self, id=self.ID_FIND, title='Find...')
+        dlg.ShowModal()
+        dlg.Destroy()
 
     def Next(self, event):
         return self.ActivateNext()

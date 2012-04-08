@@ -4,6 +4,7 @@ import  keyword
 import  wx
 import  wx.stc  as  stc
 
+
 import re
 
 import yaml, os.path, sys
@@ -48,7 +49,6 @@ else:
 
 
 #----------------------------------------------------------------------
-
 class PythonSTC(stc.StyledTextCtrl):
 
     fold_symbols = 2
@@ -279,7 +279,10 @@ class PythonSTC(stc.StyledTextCtrl):
                 self.AddText("\n" + self.GetIndent()*' ' + self.indent)
             else:
                 self.AddText("\n" + self.indent)
-            return    
+            return
+
+        if (key == 102 or key == 70) and event.ControlDown():
+            FindDialog(self, id=wx.ID_ANY, title='Find...')
 
         if key == 32 and event.ControlDown():
             pos = self.GetCurrentPos()
@@ -388,7 +391,6 @@ class PythonSTC(stc.StyledTextCtrl):
                             self.Expand(lineClicked, True, True, 100)
                     else:
                         self.ToggleFold(lineClicked)
-
 
     def FoldAll(self):
         lineCount = self.GetLineCount()

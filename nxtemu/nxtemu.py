@@ -31,14 +31,6 @@ icon = pygame.image.load(p('./icons/nxtemu.png')).convert_alpha()
 pygame.display.set_icon(icon)
 pygame.mixer.pre_init(44100, -16, 2)
 
-yspeed = 0
-xspeed = 0
-maxspeed = 4
-minspeed = -4
-stop = 0
-accel = 0.1
-yup = True
-xleft = True
 
 env.init()
 
@@ -145,82 +137,6 @@ if __name__ == "__main__":
             robot.angle -= 1
         elif keystate[K_RIGHT] and mod & KMOD_SHIFT:
             robot.angle += 1
-
-        elif keystate[K_LEFT]:
-            xleft = True
-            if xspeed < maxspeed:
-                xspeed += accel
-                robot.x -= xspeed
-            if xspeed >= maxspeed:
-                xspeed = maxspeed
-                robot.x -= xspeed
-        elif keystate[K_RIGHT]:
-            xleft = False
-            if xspeed < maxspeed:
-                xspeed += accel
-                robot.x += xspeed
-            if xspeed >= maxspeed:
-                xspeed = maxspeed
-                robot.x += xspeed
-        elif keystate[K_UP]:
-            robot.y -= 1
-        elif keystate[K_DOWN]:
-            robot.y += 1
-
-        if keystate[K_UP]:
-            yup = True
-            if yspeed < maxspeed:
-                yspeed += accel
-                robot.y -= yspeed
-            if yspeed >= maxspeed:
-                yspeed = maxspeed
-                robot.y -= yspeed
-
-        elif keystate[K_DOWN]:
-            yup = False
-            if yspeed < maxspeed:
-                yspeed += accel
-                robot.y += yspeed
-            if yspeed >= maxspeed:
-                yspeed = maxspeed
-                robot.y += yspeed
-
-
-
-        
-        # if keys aren't push
-        if (not(keystate[K_LEFT]) and not(keystate[K_RIGHT])):
-            if xspeed < stop:
-                xspeed += accel
-                if xleft:
-                    robot.x -= xspeed
-                else:
-                    robot.x += xspeed
-            if xspeed > stop:
-                xspeed -= accel
-                if xleft:
-                    robot.x -= xspeed
-                else:
-                    robot.x += xspeed
-            if round(xspeed, 5) == stop:
-                xspeed = stop
-
-        if (not(keystate[K_UP]) and not(keystate[K_DOWN])):
-            if yspeed < stop:
-                yspeed += accel
-                if yup:
-                    robot.y -= yspeed
-                else:
-                    robot.y += yspeed
-            if yspeed > stop:
-                yspeed -= accel
-                if yup:
-                    robot.y -= yspeed
-                else:
-                    robot.y += yspeed
-            if round(yspeed, 5) == stop:
-                yspeed = stop
-
 
         if robot.dragged: 
             robot.draw() 
