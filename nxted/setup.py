@@ -31,6 +31,8 @@ setup(
                          },
              },
     data_files = data_files,
-    windows=['nxted.py']
+    windows=[{  'script': 'nxted.py',
+                'icon_resources' : [(1, 'icons/nxted_128.ico')]
+             }]
 )
 

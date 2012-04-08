@@ -113,6 +113,11 @@
  
 
 \vspace{6pt}
+{\bf SetSensorLowspeed}({\it sensor}) 
+
+ 
+
+\vspace{6pt}
 {\bf TextOut}({\it x, y, text}) 
     
     Print text on the screen.
@@ -134,11 +139,6 @@
 
     \end{description}
 \end{quote}
-
- 
-
-\vspace{6pt}
-{\bf SetSensorLowspeed}({\it sensor}) 
 
  
 
@@ -182,18 +182,25 @@
  
 
 \vspace{6pt}
-{\bf Wait}({\it milisec}) 
+{\bf RotateMotor}({\it motor, speed, angle}) 
     
-    Waits for given number of miliseconds.
+    Rotate motor in specified direction at specified speed for the specified
+    number of degrees.
 
 
 
+
+    
 
 
 \begin{quote}
     \begin{description}
         
-\item[milisec] ({\emph{int}}) number of miliseconds
+\item[motor] ({\emph{int}}) motor we want to rotate
+
+\item[speed] ({\emph{int}}) speed we want to run the motor at, from 0 to 100. Negative value reverses direction.
+
+\item[angle] ({\emph{int}}) number of degrees we want to rotate the motor. Negative value reverses direction.
 
     \end{description}
 \end{quote}
@@ -361,6 +368,11 @@
  
 
 \vspace{6pt}
+{\bf SetSensorLight}({\it sensor}) 
+
+ 
+
+\vspace{6pt}
 {\bf Random}({\it n = 0}) 
     
     Returns a random number
@@ -421,25 +433,23 @@
  
 
 \vspace{6pt}
-{\bf RotateMotor}({\it motor, speed, angle}) 
+{\bf SetSensorType}({\it sensor, type}) 
+
+ 
+
+\vspace{6pt}
+{\bf Wait}({\it milisec}) 
     
-    Rotate motor in specified direction at specified speed for the specified
-    number of degrees.
+    Waits for given number of miliseconds.
 
 
 
-
-    
 
 
 \begin{quote}
     \begin{description}
         
-\item[motor] ({\emph{int}}) motor we want to rotate
-
-\item[speed] ({\emph{int}}) speed we want to run the motor at, from 0 to 100. Negative value reverses direction.
-
-\item[angle] ({\emph{int}}) number of degrees we want to rotate the motor. Negative value reverses direction.
+\item[milisec] ({\emph{int}}) number of miliseconds
 
     \end{description}
 \end{quote}
