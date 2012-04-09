@@ -21,7 +21,11 @@ class FindDialog(wx.Dialog):
     SEARCHED = False
     res = None
     def __init__ (self, parent, id, title):
+<<<<<<< HEAD
         wx.Dialog.__init__(self, parent, id, title, size=(200, 40),
+=======
+        wx.Dialog.__init__(self, parent, id, title, size=(200, 40), 
+>>>>>>> fd3c87bb90e1f908933ad1d67c966ea9bc3feeb5
                             style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 
         self.parent = parent
