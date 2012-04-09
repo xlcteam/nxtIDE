@@ -21,29 +21,24 @@ class FindDialog(wx.Dialog):
     SEARCHED = False
     res = None
     def __init__ (self, parent, id, title):
-        wx.Dialog.__init__(self, parent, id, title, size=(250, 130))
+        wx.Dialog.__init__(self, parent, id, title, size=(200, 60))
 
         self.parent = parent
 
         self.currTab = self.parent.GetActiveChild()
         
         self.hbox = wx.BoxSizer(wx.HORIZONTAL)
-        self.vbox = wx.BoxSizer(wx.VERTICAL)
         
-        st = wx.StaticText(self, label="Type word you want to search")
-        self.inp = wx.TextCtrl(self)
+        self.inp = wx.TextCtrl(self, -1)
         btn = wx.Button(self, -1, 'Search')
         self.Bind(wx.EVT_BUTTON, self.onFind, btn)
 
 
         #search buttons
-        self.hbox.Add(btn, flag=wx.EXPAND)
-
-        self.vbox.Add(st, flag=wx.CENTER)
-        self.vbox.Add(self.inp, flag=wx.EXPAND | wx.TOP | wx.RIGHT | wx.LEFT | wx.BOTTOM, border=10)
-        self.vbox.Add(self.hbox, flag=wx.CENTER, border=10)
+        self.hbox.Add(btn, flag=wx.EXPAND | wx.TOP | wx.LEFT | wx.RIGHT | wx.BOTTOM, border=5)
+        self.hbox.Add(self.inp, flag=wx.EXPAND | wx.TOP | wx.LEFT | wx.BOTTOM, border=5)
                 
-        self.SetSizer(self.vbox)
+        self.SetSizer(self.hbox)
         self.Centre()
 
     def SearchFromHead(self, word):
@@ -170,9 +165,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
         if dialog.ShowModal() == wx.ID_OK:
             path = dialog.GetPath()
-            path = path.replace('.py', '')
-            path = path.replace('.', '_')    # make it pythonic
-            path += '.py'
+            if not path.endswith('.py'):
+                path += '.py'
 
             self.editor.SaveFile(path)
             self.path = path
