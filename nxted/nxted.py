@@ -21,11 +21,7 @@ class FindDialog(wx.Dialog):
     SEARCHED = False
     res = None
     def __init__ (self, parent, id, title):
-<<<<<<< HEAD
-        wx.Dialog.__init__(self, parent, id, title, size=(200, 40),
-=======
-        wx.Dialog.__init__(self, parent, id, title, size=(200, 40), 
->>>>>>> fd3c87bb90e1f908933ad1d67c966ea9bc3feeb5
+        wx.Dialog.__init__(self, parent, id, title, size=(200, 70),
                             style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 
         self.parent = parent
@@ -40,8 +36,8 @@ class FindDialog(wx.Dialog):
 
 
         #search buttons
-        self.hbox.Add(self.inp, flag=wx.EXPAND | wx.TOP | wx.LEFT | wx.BOTTOM, border=5)
-        self.hbox.Add(btn, flag=wx.EXPAND | wx.TOP | wx.LEFT | wx.RIGHT | wx.BOTTOM, border=5)
+        self.hbox.Add(self.inp, flag=wx.EXPAND | wx.TOP | wx.LEFT | wx.BOTTOM, proportion=1, border=5)
+        self.hbox.Add(btn, flag=wx.TOP | wx.LEFT | wx.RIGHT | wx.BOTTOM, proportion=0, border=5)
                 
         self.SetSizer(self.hbox)
         self.Centre()
