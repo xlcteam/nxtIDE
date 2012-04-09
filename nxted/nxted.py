@@ -70,6 +70,8 @@ class FindDialog(wx.Dialog):
                         wx.OK | wx.ICON_INFORMATION)
                 self.SEARCHED = False
                 return
+            else:
+                self.SEARCHED = False
         
         self.SearchFromHead(self.word)
         
