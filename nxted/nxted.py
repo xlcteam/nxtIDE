@@ -165,8 +165,10 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
         if dialog.ShowModal() == wx.ID_OK:
             path = dialog.GetPath()
-            if not path.endswith('.py'):
-                path += '.py'
+
+            path = path.replace('.py', '')
+            path = path.replace('.', '_')    # make it pythonic
+            path += '.py'
 
             self.editor.SaveFile(path)
             self.path = path
