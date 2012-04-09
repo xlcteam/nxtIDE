@@ -188,6 +188,9 @@ class PythonSTC(stc.StyledTextCtrl):
         self.SetCaretForeground("black")
         self.SetSelForeground(True, "#000000")
         self.SetSelBackground(True, "#3399ff")
+
+        self.SetVisiblePolicy(stc.STC_VISIBLE_SLOP, 10)
+
         
         self.SetMarginType(1, stc.STC_MARGIN_NUMBER)
         self.SetMarginWidth(1, 25)   

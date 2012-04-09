@@ -49,11 +49,17 @@ class FindDialog(wx.Dialog):
             self.SEARCHED = True
             self.currTab.editor.GotoPos(0)
             self.currTab.editor.SearchAnchor()
-            self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, word)
+            res = self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, word)
         else:
             self.currTab.editor.GotoPos(currPos + len(word))
             self.currTab.editor.SearchAnchor()
-            self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, word)
+            res = self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, word)
+
+        if res == -1:
+            self.SEARCHED = False
+            self.SearchFromHead(word)
+
+        self.currTab.editor.EnsureCaretVisible()
 
     def onFind(self, event):
         self.word = self.inp.GetValue()
