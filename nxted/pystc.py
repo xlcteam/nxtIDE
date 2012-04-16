@@ -136,7 +136,6 @@ class PythonSTC(stc.StyledTextCtrl):
         self.Bind(stc.EVT_STC_UPDATEUI, self.OnUpdateUI)
         self.Bind(stc.EVT_STC_MARGINCLICK, self.OnMarginClick)
         self.Bind(wx.EVT_KEY_DOWN, self.OnKeyPressed)
-        self.Bind(wx.EVT_KEY_UP, self.OnKeyReleased)
         self.Bind(wx.EVT_CHAR, self.OnChar)
 
 
@@ -325,10 +324,7 @@ class PythonSTC(stc.StyledTextCtrl):
         else:
             event.Skip()
 
-    def OnKeyReleased(self, event):
 
-        self.EnsureCaretVisible()
-    
     def OnUpdateUI(self, evt):
         # check for matching braces
         braceAtCaret = -1
