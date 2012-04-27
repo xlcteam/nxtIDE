@@ -284,9 +284,6 @@ class PythonSTC(stc.StyledTextCtrl):
                 self.AddText("\n" + self.indent)
             return
 
-        if (key == 102 or key == 70) and event.ControlDown():
-            FindDialog(self, id=wx.ID_ANY, title='Find...')
-
         if key == 32 and event.ControlDown():
             pos = self.GetCurrentPos()
 
