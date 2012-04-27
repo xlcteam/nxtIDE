@@ -3,6 +3,7 @@ import pygame, sys, os.path, threading, pygame.sndarray
 from numpy import sin, array, arange, resize, pi
 from robothread import RoboException
 
+sensors = {}
 
 def makeXY(x, y):                                                     
     """ Generates real x,y from NXT like x,y """                            
@@ -710,6 +711,10 @@ def SetSensorLowspeed(sensor):
 
 def SetSensorLight(sensor):
     """SetSensorLight(sensor)"""
+    sensor = 1
+
+def SetSensorTouch(sensor):
+    """SetSensorTouch(sensor)"""
     sensor = 1
 
 def Sensor(sensor):

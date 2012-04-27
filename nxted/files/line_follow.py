@@ -1,11 +1,9 @@
-from api import *
 def main():
     
     SetSensorLight(IN_1)
     SetSensorLight(IN_3)
     
     while 1:
-        ticker()#lfixed
         if Sensor(IN_3) < 50:
             OnRev(OUT_B, 100)
             OnFwd(OUT_A, 100)
