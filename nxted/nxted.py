@@ -154,6 +154,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                 self.SetTitle(self.filename)
 
         
+        self.parent.titleUpdate()
         dialog.Destroy()
 
     def onSave(self, event):
@@ -185,6 +186,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.SetTitle(self.filename)
         
         
+        self.parent.titleUpdate()
         dialog.Destroy()
     
     def closeTest(self):
@@ -371,7 +373,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
     emuproc = None
     def __init__(self, parent):
         wx.aui.AuiMDIParentFrame.__init__(self, parent, -1,
-                                          title = "NXC Editor",
+                                          title = "nxted",
                                           size = (640,480),
                                           style = wx.DEFAULT_FRAME_STYLE)
 
@@ -390,6 +392,8 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.mb = self.MakeMenuBar()
         self.SetMenuBar(self.mb)
         self.statusbar = self.CreateStatusBar()
+
+        self.Bind(wx.aui.EVT_AUINOTEBOOK_PAGE_CHANGING, self.tabChanged)
 
         self.OnNewChild(None)
         
@@ -489,6 +493,15 @@ class Editor(wx.aui.AuiMDIParentFrame):
         pref = PreferencesDialog(self, -1, 'Preferences')
         pref.ShowModal()
         pref.Destroy()
+
+    def titleUpdate(self):
+        self.SetTitle("%s - %s" % (self.GetActiveChild().GetTitle(), 
+                                   'nxted')
+                     )
+
+    def tabChanged(self, evt):
+        wx.FutureCall(200, self.titleUpdate)
+
  
             
 if __name__ == "__main__":
