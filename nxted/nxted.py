@@ -466,13 +466,13 @@ class Editor(wx.aui.AuiMDIParentFrame):
         return mb
 
     def OnFind(self, event):
-        #dlg = FindDialog(self, id=self.ID_FIND, title='Find...')
-        #dlg.ShowModal()
-        #dlg.Destroy()
-        findData = wx.FindReplaceData(wx.FR_DOWN)
-        dlg = wx.FindReplaceDialog(self, findData, "Find and Replace", wx.FR_REPLACEDIALOG)
-        dlg.data = findData  # segfaults without this line
-        dlg.Show(True)
+        dlg = FindDialog(self, id=self.ID_FIND, title='Find...')
+        dlg.ShowModal()
+        dlg.Destroy()
+        #findData = wx.FindReplaceData(wx.FR_DOWN)
+        #dlg = wx.FindReplaceDialog(self, findData, "Find and Replace", wx.FR_REPLACEDIALOG)
+        #dlg.data = findData  # segfaults without this line
+        #dlg.Show(True)
 
     def Next(self, event):
         return self.ActivateNext()
