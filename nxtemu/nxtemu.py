@@ -24,13 +24,12 @@ from clicker import Clicker
 from robot import Robot
 from robothread import *
 
-import env
-
 pygame.init() 
 icon = pygame.image.load(p('./icons/nxtemu.png')).convert_alpha()
 pygame.display.set_icon(icon)
 pygame.mixer.pre_init(44100, -16, 2)
 
+import env
 
 env.init()
 
