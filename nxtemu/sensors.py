@@ -78,6 +78,7 @@ class SensorLight(BaseSensor):
 
 class SensorTouch(BaseSensor):
     """Touch Sensor"""
+    type = 'touch'
     pos = {1: [23.615528128088304, 70.54801085509538], 
            2: [-22, 270], 
            3: [-23.615528128088304, -70.54801085509538]}
