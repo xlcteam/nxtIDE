@@ -102,10 +102,6 @@ class SensorTouch(BaseSensor):
 
 
 
-
- 
-
-
 def sensor_generator(type, slot = None):
     if slot == '': slot = None
 
