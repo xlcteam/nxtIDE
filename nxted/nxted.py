@@ -112,7 +112,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.Bind(wx.EVT_MENU, self.onDownloadRun, 
                   id=parent.ID_BRICK_DOWNLOAD_RUN)
         
-        self.Bind(wx.EVT_CLOSE, self.close)
+        self.Bind(wx.EVT_CLOSE, self.onClose)
 
         self.parent = parent
 
@@ -194,13 +194,6 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.parent.count -= 1
         if self.parent.count < 1:
             self.parent.Destroy()
-
-
-
-    def close(self, event):
-        self.closeTest()
-
-        event.Skip()
 
     def onClose(self, event):
         self.closeTest()
@@ -447,8 +440,8 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.menu.AppendSeparator()
         
         item = self.menu.Append(self.ID_CLOSE, "Close\tCtrl-W")
-        item = self.menu.Append(-1, "Quit\tCtrl-Q")
         self.Bind(wx.EVT_MENU, self.OnDoClose, item)
+        item = self.menu.Append(-1, "Quit\tCtrl-Q")
         
 
         self.run_menu= wx.Menu()
@@ -469,10 +462,10 @@ class Editor(wx.aui.AuiMDIParentFrame):
         dlg = FindDialog(self, id=self.ID_FIND, title='Find...')
         dlg.ShowModal()
         dlg.Destroy()
-        #findData = wx.FindReplaceData(wx.FR_DOWN)
-        #dlg = wx.FindReplaceDialog(self, findData, "Find and Replace", wx.FR_REPLACEDIALOG)
-        #dlg.data = findData  # segfaults without this line
-        #dlg.Show(True)
+       #findData = wx.FindReplaceData(wx.FR_DOWN)
+       #dlg = wx.FindReplaceDialog(self, findData, "Find and Replace", wx.FR_REPLACEDIALOG)
+       #dlg.data = findData  # segfaults without this line
+       #dlg.Show(True)
 
     def Next(self, event):
         return self.ActivateNext()
