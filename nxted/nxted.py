@@ -40,6 +40,7 @@ class FindDialog(wx.Dialog):
         self.hbox.Add(btn, flag=wx.TOP | wx.LEFT | wx.RIGHT | wx.BOTTOM, proportion=0, border=5)
                 
         self.SetSizer(self.hbox)
+        self.inp.SetFocus()
         self.Centre()
 
     def SearchFromHead(self, word):
@@ -468,6 +469,10 @@ class Editor(wx.aui.AuiMDIParentFrame):
         dlg = FindDialog(self, id=self.ID_FIND, title='Find...')
         dlg.ShowModal()
         dlg.Destroy()
+        #findData = wx.FindReplaceData(wx.FR_DOWN)
+        #dlg = wx.FindReplaceDialog(self, findData, "Find and Replace", wx.FR_REPLACEDIALOG)
+        #dlg.data = findData  # segfaults without this line
+        #dlg.Show(True)
 
     def Next(self, event):
         return self.ActivateNext()
