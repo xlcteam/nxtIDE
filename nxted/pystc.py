@@ -36,10 +36,10 @@ elif wx.Platform == '__WXMAC__':
               'size2': 10,
              }
 else:
-    faces = { 'times': 'Times',
-              'mono' : 'Courier New',
-              'helv' : 'Helvetica',
-              'other': 'new century schoolbook',
+    faces = { 'times': 'Inconsolata',
+              'mono' : 'Inconsolata',
+              'helv' : 'Inconsolata',
+              'other': 'Inconsolata',
               'size' : 12,
               'size2': 10,
              }
