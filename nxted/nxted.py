@@ -174,7 +174,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                                wildcard = wc,
                                style=wx.SAVE | wx.OVERWRITE_PROMPT)
 
-        if dialog.ShowModal() == wx.ID_OK:
+        status = dialog.ShowModal()
+        if status == wx.ID_OK:
             path = dialog.GetPath()
 
             path = path.replace('.py', '')
@@ -189,14 +190,24 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         
         self.parent.titleUpdate()
         dialog.Destroy()
+
+        if status == wx.ID_CANCEL:
+            return False
+        else:
+            return True
     
-    def closeTest(self):
+
+    def onClose(self, event):
+        """Handle for closing PYSTCChild via either clicking on X or pressing
+        Ctrl+W"""
+
+        if self.editor.GetModify():
+            self.onSaveAs(None)
+
         self.parent.count -= 1
         if self.parent.count < 1:
             self.parent.Destroy()
 
-    def onClose(self, event):
-        self.closeTest()
 
         self.Destroy()
 
