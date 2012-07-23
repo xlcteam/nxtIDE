@@ -17,81 +17,14 @@ import tempfile
 
 import ctypes
 
-#--------------------------------
-class FindDialog(wx.Dialog):
-    SEARCHED = False
-    res = None
-    def __init__ (self, parent, id, title):
-        wx.Dialog.__init__(self, parent, id, title, size=(200, 70),
-                            style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
-
-        self.parent = parent
-
-        self.currTab = self.parent.GetActiveChild()
-        
-        self.hbox = wx.BoxSizer(wx.HORIZONTAL)
-        
-        self.inp = wx.TextCtrl(self, -1)
-        btn = wx.Button(self, -1, 'Search')
-        self.Bind(wx.EVT_BUTTON, self.onFind, btn)
-
-
-        #search buttons
-        self.hbox.Add(self.inp, flag=wx.EXPAND | wx.TOP | wx.LEFT | wx.BOTTOM, proportion=1, border=5)
-        self.hbox.Add(btn, flag=wx.TOP | wx.LEFT | wx.RIGHT | wx.BOTTOM, proportion=0, border=5)
-                
-        self.SetSizer(self.hbox)
-        self.inp.SetFocus()
-        self.Centre()
-
-    def SearchFromHead(self, word):
-        currPos = self.currTab.editor.GetCurrentPos()
-
-        if self.SEARCHED == False:
-            self.SEARCHED = True
-            self.currTab.editor.GotoPos(0)
-            self.currTab.editor.SearchAnchor()
-            res = self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, word)
-        else:
-            self.currTab.editor.GotoPos(currPos + len(word))
-            self.currTab.editor.SearchAnchor()
-            res = self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, word)
-
-        if res == -1:
-            self.SEARCHED = False
-            self.SearchFromHead(word)
-
-        self.currTab.editor.EnsureCaretVisible()
-
-    def onFind(self, event):
-        self.word = self.inp.GetValue()
-
-        if self.word == '':
-            return
-
-        self.updateRes()
-        if self.res == -1:
-            self.currTab.editor.GotoPos(0)
-            self.updateRes()
-            if self.res == -1:
-                wx.MessageBox('Nothing found', 'Result', 
-                        wx.OK | wx.ICON_INFORMATION)
-                self.SEARCHED = False
-                return
-            else:
-                self.SEARCHED = False
-        
-        self.SearchFromHead(self.word)
-        
-    def updateRes(self):
-        self.word = self.inp.GetValue()
-        self.currTab.editor.SearchAnchor()
-        self.res = self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, self.word)
-    
+#--------------------------------   
 
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
     filename = ''
+    SEARCHED = False
+    res = None
+    dlg = None
 
     def __init__(self, parent, title):
         """PYSTCChild initalization."""
@@ -112,6 +45,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.Bind(wx.EVT_MENU, self.onSave, id=parent.ID_SAVE)
         self.Bind(wx.EVT_MENU, self.onSaveAs, id=parent.ID_SAVE_AS)
         self.Bind(wx.EVT_MENU, self.onClose, id=parent.ID_CLOSE)
+        self.Bind(wx.EVT_MENU, self.onFindOpen, id=parent.ID_FIND)
 
         self.Bind(wx.EVT_MENU, self.onCompile, id=parent.ID_COMPILE)
         self.Bind(wx.EVT_MENU, self.onEmuRun, id=parent.ID_EMU_RUN)
@@ -125,6 +59,83 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
         self.emuproc = None
 
+        self.findData = wx.FindReplaceData(wx.FR_DOWN)
+
+        self.Bind(wx.EVT_FIND, self.onFind)
+        self.Bind(wx.EVT_FIND_NEXT, self.onFind)
+        self.Bind(wx.EVT_FIND_REPLACE, self.onReplace)
+        self.Bind(wx.EVT_FIND_REPLACE_ALL, self.onReplaceAll)
+        self.Bind(wx.EVT_FIND_CLOSE, self.onFindClose)
+
+
+    def onFindOpen(self, event):
+        self.dlg = wx.FindReplaceDialog(self, self.findData, "Find and Replace",
+                            wx.FR_REPLACEDIALOG | wx.FR_NOUPDOWN | wx.FR_NOMATCHCASE | wx.FR_NOWHOLEWORD)
+        self.dlg.ShowModal()
+        self.dlg.Destroy()
+
+    def onFind(self, event):
+        self.word = self.findData.GetFindString()
+        
+        if self.word == '':
+            return
+
+        self.updateRes()
+        if self.res == -1:
+            self.editor.GotoPos(0)
+            self.updateRes()
+            if self.res == -1:
+                wx.MessageBox('Nothing found', 'Result', 
+                        wx.OK | wx.ICON_INFORMATION)
+                self.SEARCHED = False
+                return
+            else:
+                self.SEARCHED = False
+        
+        self.SearchFromHead(self.word)
+        
+    def onReplace(self, event):
+        rstring = self.findData.GetReplaceString()
+        
+        self.onFind(None)
+
+        pos = self.editor.GetCurrentPos()
+        sel = self.editor.GetSelection()
+        
+        self.editor.Delete(sel)
+        self.editor.Insert(rstring, pos)
+
+    def onReplaceAll(self, event):
+        rstring = self.findData.GetReplaceString()
+
+    def onFindClose(self, event):
+        self.dlg.Destroy()
+
+        
+    def SearchFromHead(self, word):
+        currPos = self.editor.GetCurrentPos()
+
+        if self.SEARCHED == False:
+            self.SEARCHED = True
+            self.editor.GotoPos(0)
+            self.editor.SearchAnchor()
+            res = self.editor.SearchNext( stc.STC_FIND_REGEXP, word)
+        else:
+            self.editor.GotoPos(currPos + len(word))
+            self.editor.SearchAnchor()
+            res = self.editor.SearchNext( stc.STC_FIND_REGEXP, word)
+
+        if res == -1:
+            self.SEARCHED = False
+            self.SearchFromHead(word)
+
+        self.editor.EnsureCaretVisible()
+
+    def updateRes(self):
+        self.word = self.findData.GetFindString()
+        self.editor.SearchAnchor()
+        self.res = self.editor.SearchNext( stc.STC_FIND_REGEXP, self.word)
+        
 
     def get_doc_dir(self):
         """Returns the path to 'Documents' directory."""
@@ -464,7 +475,6 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.menu.AppendSeparator()
 
         item = self.menu.Append(self.ID_FIND, "Find\tCtrl+F")
-        self.Bind(wx.EVT_MENU, self.OnFind, item)
         self.menu.AppendSeparator()
 
                 
@@ -497,15 +507,6 @@ class Editor(wx.aui.AuiMDIParentFrame):
         mb.Append(self.menu, "&File")
         mb.Append(self.run_menu, "&Run")
         return mb
-
-    def OnFind(self, event):
-        dlg = FindDialog(self, id=self.ID_FIND, title='Find...')
-        dlg.ShowModal()
-        dlg.Destroy()
-       #findData = wx.FindReplaceData(wx.FR_DOWN)
-       #dlg = wx.FindReplaceDialog(self, findData, "Find and Replace", wx.FR_REPLACEDIALOG)
-       #dlg.data = findData  # segfaults without this line
-       #dlg.Show(True)
 
     def Next(self, event):
         return self.ActivateNext()
