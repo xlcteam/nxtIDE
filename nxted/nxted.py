@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import wx
 import wx.aui
@@ -216,7 +217,19 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         Ctrl+W"""
 
         if self.editor.GetModify():
-            self.onSaveAs(None)
+            dlgStyle = wx.YES_NO | wx.CANCEL | wx.ICON_INFORMATION
+            msg = ("Save changes to document %s before closing?") % self.filename
+
+            dlg = wx.MessageBox(msg, "Save changes?", style=dlgStyle)
+
+            if dlg == wx.YES:
+                self.onSave(None)
+                self.Destroy()
+            elif dlg == wx.NO: 
+                self.Destroy()       
+
+            dlg.Destroy()           
+            return
 
         self.parent.count -= 1
         if self.parent.count < 1:
