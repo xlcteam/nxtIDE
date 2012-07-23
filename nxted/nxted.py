@@ -95,10 +95,11 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.SearchFromHead(self.word)
         
     def onReplace(self, event):
+        fstring = self.findData.GetFindString()
         rstring = self.findData.GetReplaceString()
         
         self.onFind(None)
-
+        
         pos = self.editor.GetCurrentPos()
         sel = self.editor.GetSelection()
         
@@ -106,7 +107,13 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.editor.Insert(rstring, pos)
 
     def onReplaceAll(self, event):
+        fstring = self.findData.GetFindString()
         rstring = self.findData.GetReplaceString()
+
+        text = self.editor.GetText()
+        text = text.replace(fstring, rstring)
+
+        self.editor.SetText(text)
 
     def onFindClose(self, event):
         self.dlg.Destroy()
