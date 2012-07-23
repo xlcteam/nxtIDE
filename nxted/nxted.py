@@ -98,6 +98,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
         wx.aui.AuiMDIChildFrame.__init__(self, parent, -1, title=title)
 
+        self.filename = title + '.py'           
+
         self.editor = PythonSTC(self, -1)
         self.mgr = wx.aui.AuiManager()
         self.mgr.SetManagedWindow(self)
