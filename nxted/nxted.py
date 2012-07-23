@@ -87,20 +87,24 @@ class FindDialog(wx.Dialog):
         self.currTab.editor.SearchAnchor()
         self.res = self.currTab.editor.SearchNext( stc.STC_FIND_REGEXP, self.word)
     
+
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
     filename = ''
+
     def __init__(self, parent, title):
+        """PYSTCChild initalization."""
+
         wx.aui.AuiMDIChildFrame.__init__(self, parent, -1, title=title)
 
         self.editor = PythonSTC(self, -1)
         self.mgr = wx.aui.AuiManager()
         self.mgr.SetManagedWindow(self)
-        self.mgr.AddPane(self.editor, 
-                                 wx.aui.AuiPaneInfo().Name("editor").
-                                 CenterPane().PaneBorder(False))
+        self.mgr.AddPane(self.editor,
+                         wx.aui.AuiPaneInfo().Name("editor").
+                         CenterPane().PaneBorder(False))
         self.mgr.Update()
-        
+
         self.Bind(wx.EVT_MENU, self.onOpen, id=parent.ID_OPEN)
         self.Bind(wx.EVT_MENU, self.onSave, id=parent.ID_SAVE)
         self.Bind(wx.EVT_MENU, self.onSaveAs, id=parent.ID_SAVE_AS)
@@ -109,19 +113,22 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.Bind(wx.EVT_MENU, self.onCompile, id=parent.ID_COMPILE)
         self.Bind(wx.EVT_MENU, self.onEmuRun, id=parent.ID_EMU_RUN)
         self.Bind(wx.EVT_MENU, self.onDownload, id=parent.ID_BRICK_DOWNLOAD)
-        self.Bind(wx.EVT_MENU, self.onDownloadRun, 
+        self.Bind(wx.EVT_MENU, self.onDownloadRun,
                   id=parent.ID_BRICK_DOWNLOAD_RUN)
-        
+
         self.Bind(wx.EVT_CLOSE, self.onClose)
 
         self.parent = parent
 
         self.emuproc = None
-        
-    def gethome(self):
+
+
+    def get_doc_dir(self):
+        """Returns the path to 'Documents' directory."""
+
         try:
             dll = ctypes.windll.shell32
-            buf = ctypes.create_unicode_buffer(300) #TODO: max_path
+            buf = ctypes.create_unicode_buffer(300)  # TODO: max_path
             if dll.SHGetSpecialFolderPathW(None, buf, 0x0005, False):
                     return buf.value
             else:
@@ -129,17 +136,21 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         except:
             return os.getcwd()
 
+
     def onOpen(self, event):
-        dir = self.gethome()
+        """Handle for file opening."""
+
+        dir = self.get_doc_dir()
         wc = 'Py files (*.py)|*.py|All files(*)|*'
-        dialog = wx.FileDialog(self, message = 'Open file ...',
-                               defaultDir = dir, defaultFile = '', 
-                               wildcard = wc,
+        dialog = wx.FileDialog(self, message='Open file ...',
+                               defaultDir=dir, defaultFile='',
+                               wildcard=wc,
                                style=wx.OPEN)
+
         if dialog.ShowModal() == wx.ID_OK:
             path = dialog.GetPath()
 
-            # if there is something in actual editor create a new one
+            # if there is something in active editor create a new one
             if self.path is not '':
                 child = self.parent.OnNewChild(None)
 
@@ -154,24 +165,28 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                 self.filename = os.path.basename(path)
                 self.SetTitle(self.filename)
 
-        
         self.parent.titleUpdate()
         dialog.Destroy()
 
+
     def onSave(self, event):
+        """Handle for file saving."""
+
         if self.path != '':
             self.editor.SaveFile(self.path)
         else:
             return self.onSaveAs(event)
 
-    def onSaveAs(self, event):
 
-        dir = self.gethome()
+    def onSaveAs(self, event):
+        """Handle for saving file as."""
+
+        dir = self.get_doc_dir()
 
         wc = 'Py files (*.py)|*.py|All files(*)|*'
-        dialog = wx.FileDialog(self, message = 'Save file as...',
-                               defaultDir = dir, defaultFile = self.GetTitle(), 
-                               wildcard = wc,
+        dialog = wx.FileDialog(self, message='Save file as...',
+                               defaultDir=dir, defaultFile=self.GetTitle(),
+                               wildcard=wc,
                                style=wx.SAVE | wx.OVERWRITE_PROMPT)
 
         status = dialog.ShowModal()
@@ -186,8 +201,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.path = path
             self.filename = os.path.basename(path)
             self.SetTitle(self.filename)
-        
-        
+
         self.parent.titleUpdate()
         dialog.Destroy()
 
@@ -195,7 +209,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             return False
         else:
             return True
-    
+
 
     def onClose(self, event):
         """Handle for closing PYSTCChild via either clicking on X or pressing
