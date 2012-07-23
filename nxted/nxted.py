@@ -72,7 +72,6 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.dlg = wx.FindReplaceDialog(self, self.findData, "Find and Replace",
                             wx.FR_REPLACEDIALOG | wx.FR_NOUPDOWN | wx.FR_NOMATCHCASE | wx.FR_NOWHOLEWORD)
         self.dlg.ShowModal()
-        self.dlg.Destroy()
 
     def onFind(self, event):
         self.word = self.findData.GetFindString()
@@ -88,25 +87,23 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                 wx.MessageBox('Nothing found', 'Result', 
                         wx.OK | wx.ICON_INFORMATION)
                 self.SEARCHED = False
-                return
+                return False
             else:
                 self.SEARCHED = False
         
         self.SearchFromHead(self.word)
+        return True
         
     def onReplace(self, event):
-        fstring = self.findData.GetFindString()
         rstring = self.findData.GetReplaceString()
-        
-        self.onFind(None)
-        
-        pos = self.editor.GetCurrentPos()
-        sel = self.editor.GetSelection()
-        
-        self.editor.Delete(sel)
-        self.editor.Insert(rstring, pos)
+        currPos = self.editor.GetCurrentPos()            
+
+        if self.onFind(None):
+            self.editor.ReplaceSelection(rstring)
+            self.editor.SetSelection(currPos, currPos + len(rstring))
 
     def onReplaceAll(self, event):
+        self.editor.GotoPos(0)
         fstring = self.findData.GetFindString()
         rstring = self.findData.GetReplaceString()
 
@@ -117,8 +114,9 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
     def onFindClose(self, event):
         self.dlg.Destroy()
+        self.SEARCHED = False
 
-        
+
     def SearchFromHead(self, word):
         currPos = self.editor.GetCurrentPos()
 
@@ -126,13 +124,13 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.SEARCHED = True
             self.editor.GotoPos(0)
             self.editor.SearchAnchor()
-            res = self.editor.SearchNext( stc.STC_FIND_REGEXP, word)
         else:
             self.editor.GotoPos(currPos + len(word))
             self.editor.SearchAnchor()
-            res = self.editor.SearchNext( stc.STC_FIND_REGEXP, word)
+            
+        self.res = self.editor.SearchNext( stc.STC_FIND_REGEXP, word)
 
-        if res == -1:
+        if self.res == -1:
             self.SEARCHED = False
             self.SearchFromHead(word)
 
