@@ -123,14 +123,13 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         if self.SEARCHED == False:
             self.SEARCHED = True
             self.editor.GotoPos(0)
-            self.editor.SearchAnchor()
         else:
             self.editor.GotoPos(currPos + len(word))
-            self.editor.SearchAnchor()
-            
-        self.res = self.editor.SearchNext( stc.STC_FIND_REGEXP, word)
+        
+        self.editor.SearchAnchor()
+        res = self.editor.SearchNext( stc.STC_FIND_REGEXP, word)
 
-        if self.res == -1:
+        if res == -1:
             self.SEARCHED = False
             self.SearchFromHead(word)
 
