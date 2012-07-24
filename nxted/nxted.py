@@ -96,12 +96,12 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         
     def onReplace(self, event):
         rstring = self.findData.GetReplaceString()
-        currPos = self.editor.GetCurrentPos()            
 
         if self.onFind(None):
             self.editor.ReplaceSelection(rstring)
-            self.editor.SetSelection(currPos, currPos + len(rstring))
-
+            currPos = self.editor.GetCurrentPos()            
+            self.editor.SetSelection(currPos - len(rstring) , currPos)
+           
     def onReplaceAll(self, event):
         self.editor.GotoPos(0)
         fstring = self.findData.GetFindString()
