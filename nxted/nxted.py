@@ -85,9 +85,10 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.updateRes()
             if self.res == -1:
                 wx.MessageBox('Nothing found', 'Result', wx.OK | wx.ICON_INFORMATION)
+                self.SEARCHED = False
                 return False
-
-            self.SEARCHED = False
+            else:
+                self.SEARCHED = False
         
         self.SearchFromHead(self.word)
         return True
