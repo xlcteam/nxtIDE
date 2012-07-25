@@ -84,8 +84,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.editor.GotoPos(0)
             self.updateRes()
             if self.res == -1:
-                wx.MessageBox('Nothing found', 'Result', 
-                        wx.OK | wx.ICON_INFORMATION)
+                wx.MessageBox('Nothing found', 'Result', wx.OK | wx.ICON_INFORMATION)
                 self.SEARCHED = False
                 return False
             else:
@@ -106,6 +105,11 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.editor.GotoPos(0)
         fstring = self.findData.GetFindString()
         rstring = self.findData.GetReplaceString()
+
+        self.updateRes()
+        if self.res == -1:
+            wx.MessageBox('Nothing found', 'Result', wx.OK | wx.ICON_INFORMATION)  
+            return        
 
         text = self.editor.GetText()
         text = text.replace(fstring, rstring)
