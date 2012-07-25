@@ -144,7 +144,6 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.editor.SearchAnchor()
         self.res = self.editor.SearchNext( stc.STC_FIND_REGEXP, self.word)
         
-
     def get_doc_dir(self):
         """Returns the path to 'Documents' directory."""
 
@@ -249,8 +248,14 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             elif dlg == wx.NO: 
                 self.Destroy()       
 
-            dlg.Destroy()           
+            # in case of Cancel
+            else:
+                return -1
+
             return
+            
+            # we don't need this, dlg is integer
+            #dlg.Destroy()           
 
         self.parent.count -= 1
         if self.parent.count < 1:
@@ -447,6 +452,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.statusbar = self.CreateStatusBar()
 
         self.Bind(wx.aui.EVT_AUINOTEBOOK_PAGE_CHANGING, self.tabChanged)
+        self.Bind(wx.EVT_CLOSE, self.OnQuit)
 
         self.OnNewChild(None)
         
@@ -498,8 +504,8 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.menu.AppendSeparator()
         
         item = self.menu.Append(self.ID_CLOSE, "Close\tCtrl-W")
-        self.Bind(wx.EVT_MENU, self.OnDoClose, item)
         item = self.menu.Append(-1, "Quit\tCtrl-Q")
+        self.Bind(wx.EVT_MENU, self.OnQuit, item)
         
 
         self.run_menu= wx.Menu()
@@ -532,9 +538,14 @@ class Editor(wx.aui.AuiMDIParentFrame):
         return child
         
 
-    def OnDoClose(self, evt):
-        os.removedirs(self.dir)
-        self.Close()
+    def OnQuit(self, evt):
+        #os.removedirs(self.dir)
+
+        while self.GetActiveChild() != None:
+            if self.GetActiveChild().onClose(None) == -1:
+                return
+        
+        self.Destroy()
 
     def onPreferences(self, evt):
         pref = PreferencesDialog(self, -1, 'Preferences')
