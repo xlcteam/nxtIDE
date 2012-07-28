@@ -377,26 +377,29 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
 class PreferencesDialog(wx.Dialog):
     def __init__(self, parent, id, title):
-        wx.Dialog.__init__(self, parent, id, title, size=(300, 305))
+        wx.Dialog.__init__(self, parent, id, title, size=(300, 290))
         
-        sizer = wx.GridBagSizer(9,3)
-
-        l1 = wx.StaticText(self, -1, 'nxtemu directory:')
-        l1.SetFont(wx.Font(10, wx.MODERN, wx.NORMAL, wx.BOLD))
-        self.i1 = wx.TextCtrl(self, -1, parent.cfg["nxtemu"])
+        sizer = wx.GridBagSizer(8,1)
+        itemsizer = wx.GridBagSizer(1, 3)
+        sb = wx.StaticBox(self, label="nxtemu directory")
+        boxsizer = wx.StaticBoxSizer(sb, wx.HORIZONTAL)
+        
+        self.i1 = wx.TextCtrl(self, -1, parent.cfg["nxtemu"], style=wx.EXPAND)
         b1 = wx.Button(self, -1, '...', style=wx.BU_EXACTFIT)
         self.Bind(wx.EVT_BUTTON, self.onDir, b1)
         ok = wx.Button(self, -1, 'Save', style=wx.BU_EXACTFIT)
         self.Bind(wx.EVT_BUTTON, self.onOk, ok)
 
-        sizer.Add(l1, pos=(0,0), flag=wx.LEFT|wx.TOP, border=5)
-        sizer.Add(self.i1, pos=(1,0), span=(1,3),flag=wx.TOP|wx.LEFT|wx.EXPAND, border=1)
-        sizer.Add(b1, pos=(1,3), flag=wx.RIGHT|wx.TOP|wx.EXPAND, border=1)
 
-        sizer.Add(ok, pos=(9, 3), flag=wx.TOP|wx.RIGHT|wx.EXPAND, border=1)
+        itemsizer.Add(self.i1, pos=(0,0), span=(1,3), flag=wx.EXPAND, border=3)
+        itemsizer.Add(b1, pos=(0,3), border=3)
+        itemsizer.AddGrowableCol(0)
+
+        boxsizer.Add(itemsizer)
+        sizer.Add(boxsizer, pos=(0,0), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
+        sizer.Add(ok, pos=(8, 1), flag=wx.TOP|wx.RIGHT|wx.EXPAND|wx.ALIGN_RIGHT, border=1)
         
-        sizer.AddGrowableCol(0)    
-        
+        sizer.AddGrowableCol(0)  
         self.SetSizer(sizer)
 
         self.parent = parent
