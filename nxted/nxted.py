@@ -379,7 +379,7 @@ class PreferencesDialog(wx.Dialog):
     def __init__(self, parent, id, title):
         wx.Dialog.__init__(self, parent, id, title, size=(300, 290))
         
-        sizer = wx.GridBagSizer(8,1)
+        sizer = wx.GridBagSizer(8,3)
         itemsizer = wx.GridBagSizer(1, 3)
         sb = wx.StaticBox(self, label="nxtemu directory")
         boxsizer = wx.StaticBoxSizer(sb, wx.HORIZONTAL)
@@ -387,8 +387,10 @@ class PreferencesDialog(wx.Dialog):
         self.i1 = wx.TextCtrl(self, -1, parent.cfg["nxtemu"], style=wx.EXPAND)
         b1 = wx.Button(self, -1, '...', style=wx.BU_EXACTFIT)
         self.Bind(wx.EVT_BUTTON, self.onDir, b1)
-        ok = wx.Button(self, -1, 'Save', style=wx.BU_EXACTFIT)
+        ok = wx.Button(self, -1, 'Save and Apply', style=wx.BU_EXACTFIT)
         self.Bind(wx.EVT_BUTTON, self.onOk, ok)
+        cancel = wx.Button(self, -1, 'Cancel', style=wx.BU_EXACTFIT)
+        self.Bind(wx.EVT_BUTTON, self.onCancel, cancel)
 
 
         itemsizer.Add(self.i1, pos=(0,0), span=(1,3), flag=wx.EXPAND, border=3)
@@ -397,7 +399,8 @@ class PreferencesDialog(wx.Dialog):
 
         boxsizer.Add(itemsizer)
         sizer.Add(boxsizer, pos=(0,0), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
-        sizer.Add(ok, pos=(8, 1), flag=wx.TOP|wx.RIGHT|wx.EXPAND|wx.ALIGN_RIGHT, border=1)
+        sizer.Add(ok, pos=(8, 1), flag=wx.TOP|wx.RIGHT|wx.EXPAND, border=1)
+        sizer.Add(cancel, pos=(8, 3), flag=wx.TOP|wx.RIGHT|wx.EXPAND, border=1)
         
         sizer.AddGrowableCol(0)  
         self.SetSizer(sizer)
@@ -419,6 +422,10 @@ class PreferencesDialog(wx.Dialog):
         f = open("config.yml", 'w')
         f.write(yaml.dump(self.parent.cfg))
         f.close()
+        self.Destroy()
+
+
+    def onCancel(self,event):
         self.Destroy()
 
 
