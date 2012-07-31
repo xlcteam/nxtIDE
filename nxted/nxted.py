@@ -441,6 +441,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
     ID_BRICK_DOWNLOAD = 1008
     ID_BRICK_DOWNLOAD_RUN = 1009
     ID_FIND = 1010
+    ID_ABOUT = 1011
 
     emuproc = None
     def __init__(self, parent):
@@ -530,10 +531,14 @@ class Editor(wx.aui.AuiMDIParentFrame):
                              "Download to NXT Brick\tCtrl-F5")
         self.run_menu.Append(self.ID_BRICK_DOWNLOAD_RUN, 
                              "Download to Brick && run\tCtrl-F6")
-        
+
+        self.help_menu = wx.Menu()
+        item = self.help_menu.Append(self.ID_ABOUT, "About nxtIDE")
+        self.Bind(wx.EVT_MENU, self.onAbout, item)
     
         mb.Append(self.menu, "&File")
         mb.Append(self.run_menu, "&Run")
+        mb.Append(self.help_menu, "&Help")
         return mb
 
     def Next(self, event):
@@ -565,6 +570,19 @@ class Editor(wx.aui.AuiMDIParentFrame):
         pref = PreferencesDialog(self, -1, 'Preferences')
         pref.ShowModal()
         pref.Destroy()
+
+    def onAbout(self, evt):
+        info = wx.AboutDialogInfo()
+
+        #info.SetIcon(wx.Icon('icons/nxted_128.ico', wx.BITMAP_TYPE_PNG))
+        info.SetName('nxtIDE')
+        info.SetDescription('All you need to play with LEGO NXT robots and Python')
+        info.SetCopyright('(C) 2011 - infinity XLC Team (http://xlc-team.info)')
+        info.SetDevelopers(['Marek Šuppa - main developer', 'Adrián Matejov', 'Ján Ďurkáč'])
+        info.SetDocWriters(['Marek Šuppa'])
+        info.SetWebSite('http://xlcteam.github.com/nxtIDE')
+    
+        wx.AboutBox(info)
 
     def titleUpdate(self):
         self.SetTitle("%s - %s" % (self.GetActiveChild().GetTitle(), 
