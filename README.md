@@ -7,6 +7,9 @@ nxtIDE contains
 * nxted  -> for edit, compile, run, and download your code
 * nxtemu -> for emulating Lego Mindstorms NXT Robot
 
+
+You can download latest version [HERE](https://github.com/xlcteam/nxtIDE/downloads)
+
 nxtemu
 ------
 ![screenshot](https://github.com/xlcteam/nxtIDE/raw/master/nxtemu/screen/emuscreen.png)
