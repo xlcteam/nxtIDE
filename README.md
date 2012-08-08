@@ -8,7 +8,7 @@ nxtIDE contains
 * nxtemu -> for emulating Lego Mindstorms NXT Robot
 
 
-You can download latest version [HERE](https://github.com/xlcteam/nxtIDE/downloads)
+You can download latest version from [here](https://github.com/xlcteam/nxtIDE/downloads)
 
 nxtemu
 ------
