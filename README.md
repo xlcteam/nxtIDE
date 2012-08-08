@@ -4,7 +4,7 @@ nxtIDE
 
 nxtIDE contains
 
-* nxted  -> for edit, compile, run, and download your code
+* nxted  -> for editing, compiling, running, and downloading your code
 * nxtemu -> for emulating Lego Mindstorms NXT Robot
 
 
