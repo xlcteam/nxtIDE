@@ -28,10 +28,12 @@ def init():
     pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
 
     if cfg['bckg']:
-        img = pygame.image.load(cfg['bckg'])
-        if img.get_alpha() != None:
-            img = img.convert_alpha()
-        else:
-            img = img.convert()
-
-        background.blit(img, (3, 3))
+        try:
+            img = pygame.image.load(cfg['bckg'])
+            if img.get_alpha() != None:
+                img = img.convert_alpha()
+            else:
+                img = img.convert()
+            background.blit(img, (3, 3))
+        except:
+            pass

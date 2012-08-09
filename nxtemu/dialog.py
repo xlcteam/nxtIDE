@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import pygame, sys
+import pygame, sys, yaml
 from pygame.locals import *
 
 from pgu import gui
@@ -17,6 +17,8 @@ class SettingsDialog(gui.Dialog):
     inputs = {}
     slots = [1, 2, 3]
     def __init__(self, **params):
+        self.cfg = yaml.load(open("config.yml").read())
+
         title = gui.Label("Settings")
         self.value = gui.Form()
 
@@ -198,6 +200,13 @@ class SettingsDialog(gui.Dialog):
         self.port_connect_update()
 
     def out(self):
+        if self.background_input.value:
+            self.cfg['bckg'] = self.background_input.value
+
+        f = open("config.yml", 'w')
+        f.write(yaml.dump(self.cfg))
+        f.close()
+            
         return {'inputs': self.inputs, 
                 'others': self.value.items() + [('bckg', self.background_input.value)]}
 
