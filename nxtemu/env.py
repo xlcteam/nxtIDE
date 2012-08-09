@@ -1,5 +1,5 @@
 
-import pygame, random, math, time, sys, os
+import pygame, random, math, time, sys, os, yaml
 from pygame.locals import * 
 
 import imgs
@@ -16,6 +16,8 @@ background = pygame.Surface(screen.get_size()).convert()
 
 
 def init():
+    cfg = yaml.load(open("config.yml").read())
+
     background.fill((255, 255, 255))
 
     pygame.display.set_caption("nxtemu")
@@ -25,5 +27,11 @@ def init():
     pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
     pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
 
+    if cfg['bckg']:
+        img = pygame.image.load(cfg['bckg'])
+        if img.get_alpha() != None:
+            img = img.convert_alpha()
+        else:
+            img = img.convert()
 
-
+        background.blit(img, (3, 3))
