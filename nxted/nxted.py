@@ -12,7 +12,7 @@ import pycheck
 import subprocess
 from threading import Thread
 import sys
-import yaml
+import ConfigParser
 import tempfile
 
 import ctypes
@@ -269,7 +269,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.parent.hideMsg()
 
         check = pycheck.PyCheck()
-        check.check(self.parent.cfg['nxtemu'] + "/api.py")
+        check.check(self.parent.cfg['nxtemudir'] + "/api.py")
         try:
             check.check(self.path)
         except NameError as nr:
@@ -306,7 +306,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         wx.FutureCall(2000, self.clearStatusbar)
 
         f = open("%s/__progs__/e%s" % \
-                 (self.parent.cfg["nxtemu"], self.filename), "w")
+                 (self.parent.cfg["nxtemudir"], self.filename), "w")
 
         f.write("from api import *\n")
         f.write(pycheck.loopFix(self.editor.GetText(), "ticker()"))
@@ -330,7 +330,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         
         # run an exe application if on Windows, otherwise py script
         extension = 'exe' if hasattr(sys, 'frozen') else 'py'
-        nxtemu = "%s/nxtemu.%s" % (self.parent.cfg["nxtemu"], extension)
+        nxtemu = "%s/nxtemu.%s" % (self.parent.cfg["nxtemudir"], extension)
         
         self.emuproc = subprocess.Popen([nxtemu, 
                                          self.filename.replace('.py', '')],
@@ -387,7 +387,7 @@ class PreferencesDialog(wx.Dialog):
         #define buttons, inputs...
         l1 = wx.StaticText(self, -1, 'nxtemu directory:')
         l1.SetFont(wx.Font(10, wx.MODERN, wx.NORMAL, wx.BOLD))
-        self.i1 = wx.TextCtrl(self, -1, parent.cfg["nxtemu"], style=wx.EXPAND)
+        self.i1 = wx.TextCtrl(self, -1, parent.cfg["nxtemudir"], style=wx.EXPAND)
         b1 = wx.Button(self, -1, '...', style=wx.BU_EXACTFIT)
         self.Bind(wx.EVT_BUTTON, self.onDir, b1)
         ok = wx.Button(self, -1, 'Save and Apply', style=wx.BU_EXACTFIT)
@@ -412,18 +412,21 @@ class PreferencesDialog(wx.Dialog):
     def onDir(self, event):
         dialog = wx.DirDialog(None, "Choose a directory:", 
                                 style=wx.DD_DEFAULT_STYLE, 
-                                defaultPath=self.parent.cfg["nxtemu"])
+                                defaultPath=self.parent.cfg["nxtemudir"])
         if dialog.ShowModal() == wx.ID_OK:
-            self.parent.cfg["nxtemu"] = dialog.GetPath()
+            self.parent.cfg["nxtemudir"] = dialog.GetPath()
 
-            self.i1.SetValue(self.parent.cfg["nxtemu"])
+            self.i1.SetValue(self.parent.cfg["nxtemudir"])
             dialog.Destroy()
 
 
     def onOk(self, event):
-        f = open("config.yml", 'w')
-        f.write(yaml.dump(self.parent.cfg))
-        f.close()
+        self.parent.cfg["nxtemudir"] = self.i1.GetValue()
+
+        self.parent.cfgfile.set('nxted', 'nxtemu', self.i1.GetValue())
+        with open('config.ini', 'wb') as configfile:
+            self.parent.cfgfile.write(configfile)
+
         self.Destroy()
 
 
@@ -475,7 +478,10 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.Show(True)
         
         # import config from yaml file
-        self.cfg = yaml.load(open("config.yml").read())
+        self.cfgfile = ConfigParser.ConfigParser()
+        self.cfgfile.readfp(open('config.ini'))
+
+        self.cfg = { 'nxtemudir' : self.cfgfile.get('nxted', 'nxtemu')}
         
         self.dir = tempfile.mkdtemp()
     

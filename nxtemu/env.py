@@ -19,7 +19,7 @@ def init():
     cfg = ConfigParser.ConfigParser()
     cfg.readfp(open('config.ini'))
 
-    bckg = cfg.get('nxtemusection', 'bckg')
+    bckg = cfg.get('nxtemu', 'bckg')
 
     background.fill((255, 255, 255))
 

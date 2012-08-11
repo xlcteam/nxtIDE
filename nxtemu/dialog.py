@@ -20,7 +20,7 @@ class SettingsDialog(gui.Dialog):
         self.cfg = ConfigParser.ConfigParser()
         self.cfg.readfp(open('config.ini'))
 
-        self.bckg = self.cfg.get('nxtemusection', 'bckg')
+        self.bckg = self.cfg.get('nxtemu', 'bckg')
 
         title = gui.Label("Settings")
         self.value = gui.Form()
@@ -205,7 +205,7 @@ class SettingsDialog(gui.Dialog):
 
     def out(self):
         self.bckg = self.background_input.value
-        self.cfg.set('nxtemusection', 'bckg', self.bckg)
+        self.cfg.set('nxtemu', 'bckg', self.bckg)
 
         with open('config.ini', 'wb') as configfile:
             self.cfg.write(configfile)
