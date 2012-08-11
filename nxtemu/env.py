@@ -1,5 +1,5 @@
 
-import pygame, random, math, time, sys, os, yaml
+import pygame, random, math, time, sys, os, ConfigParser
 from pygame.locals import * 
 
 import imgs
@@ -16,7 +16,10 @@ background = pygame.Surface(screen.get_size()).convert()
 
 
 def init():
-    cfg = yaml.load(open("config.yml").read())
+    cfg = ConfigParser.ConfigParser()
+    cfg.readfp(open('config.ini'))
+
+    bckg = cfg.get('nxtemusection', 'bckg')
 
     background.fill((255, 255, 255))
 
@@ -27,9 +30,9 @@ def init():
     pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
     pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
 
-    if cfg['bckg']:
+    if bckg:
         try:
-            img = pygame.image.load(cfg['bckg'])
+            img = pygame.image.load(bckg)
             if img.get_alpha() != None:
                 img = img.convert_alpha()
             else:

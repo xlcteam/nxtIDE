@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import pygame, sys, yaml
+import pygame, sys, ConfigParser
 from pygame.locals import *
 
 from pgu import gui
@@ -17,7 +17,10 @@ class SettingsDialog(gui.Dialog):
     inputs = {}
     slots = [1, 2, 3]
     def __init__(self, **params):
-        self.cfg = yaml.load(open("config.yml").read())
+        self.cfg = ConfigParser.ConfigParser()
+        self.cfg.readfp(open('config.ini'))
+
+        self.bckg = self.cfg.get('nxtemusection', 'bckg')
 
         title = gui.Label("Settings")
         self.value = gui.Form()
@@ -83,6 +86,7 @@ class SettingsDialog(gui.Dialog):
         t.td(self.background_input, style={'padding_left': 4})
         t.td(inp, style={'padding_left': 4})
         
+        self.background_input.value = self.bckg
         background.td(t)
 
         return background
@@ -200,12 +204,11 @@ class SettingsDialog(gui.Dialog):
         self.port_connect_update()
 
     def out(self):
-        if self.background_input.value:
-            self.cfg['bckg'] = self.background_input.value
+        self.bckg = self.background_input.value
+        self.cfg.set('nxtemusection', 'bckg', self.bckg)
 
-        f = open("config.yml", 'w')
-        f.write(yaml.dump(self.cfg))
-        f.close()
+        with open('config.ini', 'wb') as configfile:
+            self.cfg.write(configfile)
             
         return {'inputs': self.inputs, 
                 'others': self.value.items() + [('bckg', self.background_input.value)]}
