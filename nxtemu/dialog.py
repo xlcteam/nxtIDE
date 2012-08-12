@@ -21,7 +21,7 @@ class SettingsDialog(gui.Dialog):
         self.cfgfile = ConfigParser.ConfigParser()
         self.cfgfile.read(p('config.ini'))
 
-        self.cfg = { 'bckg' : self.cfg.get('nxtemu', 'bckg') }
+        self.cfg = { 'bckg' : self.cfgfile.get('nxtemu', 'bckg') }
 
         title = gui.Label("Settings")
         self.value = gui.Form()
