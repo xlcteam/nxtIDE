@@ -347,8 +347,8 @@ class Robot(NXTBrick):
             
             self.sensors[i] = sensor_generator(inp['type'], inp['slot'])
         
-        if out['others'][0][1] == 'custom' and out['others'][1][1] != '':
-            robot.background = out['others'][1][1]
+        if out['others']['background'] is not None:
+            robot.background = out['others']['background']
             env.init()
             
             img = pygame.image.load(robot.background)

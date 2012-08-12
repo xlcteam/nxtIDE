@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 import pygame, random, math, time, sys, os, ConfigParser
 from pygame.locals import * 
 
@@ -19,10 +19,9 @@ WALL_HEIGHT = 3
 window = pygame.display.set_mode((w + WALL_HEIGHT*2 + 378,h + WALL_HEIGHT*2)) 
 screen = pygame.display.get_surface() 
 background = pygame.Surface(screen.get_size()).convert()
-
+cfg = ConfigParser.ConfigParser()
 
 def init():
-    cfg = ConfigParser.ConfigParser()
     cfg.read(p('config.ini'))
 
     bckg = cfg.get('nxtemu', 'bckg')
