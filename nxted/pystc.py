@@ -7,7 +7,7 @@ import  wx.stc  as  stc
 
 import re
 
-import yaml, os.path, sys
+import ConfigParser, os.path, sys
 
 #----------------------------------------------------------------------
 
@@ -206,9 +206,12 @@ class PythonSTC(stc.StyledTextCtrl):
         root = os.path.dirname(sys.path[0] + os.sep) \
                         .replace("library.zip", "")
 
-        self.api = yaml.load(open(root + os.sep + 'help.yml'))
+        self.apifile = ConfigParser.ConfigParser()
+        self.apifile.readfp(open(root + os.sep + 'help.ini'))
 
-        self.SetKeyWords(1, " ".join(self.api.keys()))
+        self.api = self.apifile.items('nxtedhelp')
+
+        #self.SetKeyWords(1, " ".join(self.api.keys()))
 
         self.constants = ['IN_1', 'IN_2', 'IN_3', 'IN_4', 'LCD_LINE1', 
                             'LCD_LINE2', 'LCD_LINE3', 'LCD_LINE4', 
