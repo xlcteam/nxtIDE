@@ -18,10 +18,10 @@ class SettingsDialog(gui.Dialog):
     slots = [1, 2, 3]
 
     def __init__(self, **params):
-        self.cfg = ConfigParser.ConfigParser()
-        self.cfg.read(p('config.ini'))
+        self.cfgfile = ConfigParser.ConfigParser()
+        self.cfgfile.read(p('config.ini'))
 
-        self.bckg = self.cfg.get('nxtemu', 'bckg')
+        self.cfg = { 'bckg' : self.cfg.get('nxtemu', 'bckg') }
 
         title = gui.Label("Settings")
         self.value = gui.Form()
@@ -205,11 +205,11 @@ class SettingsDialog(gui.Dialog):
         self.port_connect_update()
 
     def out(self):
-        self.bckg = self.background_input.value
-        self.cfg.set('nxtemu', 'bckg', self.bckg)
+        self.cfg['bckg'] = self.background_input.value
+        self.cfgfile.set('nxtemu', 'bckg', self.cfg['bckg'])
 
         with open('config.ini', 'wb') as configfile:
-            self.cfg.write(configfile)
+            self.cfgfile.write(configfile)
             
         return {'inputs': self.inputs, 
                 'others': self.value.items() + [('bckg', self.background_input.value)]}
