@@ -7,6 +7,12 @@ import imgs
 w = 640 
 h = 480
 
+def p(path):
+    """Nasty monkey patch - shall be removed"""
+    import os
+    from os.path import abspath, dirname
+    return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
+            + path
 
 WALL_HEIGHT = 3
 
@@ -17,7 +23,7 @@ background = pygame.Surface(screen.get_size()).convert()
 
 def init():
     cfg = ConfigParser.ConfigParser()
-    cfg.readfp(open('config.ini'))
+    cfg.read(p('config.ini'))
 
     bckg = cfg.get('nxtemu', 'bckg')
 

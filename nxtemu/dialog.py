@@ -16,9 +16,10 @@ class SettingsDialog(gui.Dialog):
     ports = {}
     inputs = {}
     slots = [1, 2, 3]
+
     def __init__(self, **params):
         self.cfg = ConfigParser.ConfigParser()
-        self.cfg.readfp(open('config.ini'))
+        self.cfg.read(p('config.ini'))
 
         self.bckg = self.cfg.get('nxtemu', 'bckg')
 

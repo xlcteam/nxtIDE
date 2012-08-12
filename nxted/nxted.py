@@ -338,8 +338,12 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                                          stdout = subprocess.PIPE,
                                          stderr = subprocess.PIPE)
         
-        Thread(target=self.emuproc.communicate).start()
 
+
+        Thread(target=self.runner).start()
+
+    def runner(self):
+        c = self.emuproc.communicate()
 
     def onDownloadRun(self, event):
         self.onCompile(event=None)
