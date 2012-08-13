@@ -207,9 +207,10 @@ class PythonSTC(stc.StyledTextCtrl):
                         .replace("library.zip", "")
 
         self.apifile = ConfigParser.ConfigParser()
+        self.apifile.optionxform = str
         self.apifile.readfp(open(root + os.sep + 'help.ini'))
 
-        self.api = self.apifile.items('nxtedhelp')
+        self.api = dict(self.apifile.items('functions'))
 
         #self.SetKeyWords(1, " ".join(self.api.keys()))
 
@@ -239,13 +240,17 @@ class PythonSTC(stc.StyledTextCtrl):
                     id = self.getWORD2(pos - 1)
                 elif style == stc.STC_P_IDENTIFIER:
                     id = self.getIdentifier(pos - 1)
-
+                
                 if id in self.api:
                     self.last_id = id
                     self.last_arg_pos = 1
                     self.CallTipSetForeground("#000000")
                     self.CallTipSetBackground("#FFFFFF")
-                    self.CallTipShow(pos - len(id), self.api[id])
+
+                    self.CallTipShow(pos - len(id), 
+                                     self.api[id].replace('\\t', '    ')
+                                                 .replace('\\n', '\n'))
+
                     pos = self.getArgPos(self.last_id, self.last_arg_pos)
                     self.CallTipSetHighlight(pos[0], pos[1]-1)
                                  

@@ -5,6 +5,8 @@ import sys
 sys.path.append('../nxtemu/')
 sys.path.append('../nxted/')
 import yaml, re
+import ConfigParser
+
 from string import Template
 
 LATEX_DOC_TEMPLATE = """
@@ -87,7 +89,7 @@ def getConstants():
 
 
 
-def exportYaml(fname = '../nxted/help.yml', lang='en'):
+def exportYaml(fname='../nxted/help.yml', lang='en'):
     api = getAPI()
 
     for func,desc in api.iteritems():
@@ -101,6 +103,27 @@ def exportYaml(fname = '../nxted/help.yml', lang='en'):
     f.close() 
 
     return fname
+
+def exportIni(fname='../nxted/help.ini', lang='en'):
+    config = ConfigParser.RawConfigParser(dict_type=dict, allow_no_value=True)
+    config.optionxform = str
+    api = getAPI()
+
+    config.add_section('functions')
+
+    for func,desc in api.iteritems():
+        if desc.has_key(lang):
+            desc[lang] = desc[lang].replace(':param ', '')
+            desc[lang] = desc[lang].replace('    ', '\\t')
+            desc[lang] = desc[lang].replace('\n', '\\n')
+
+            config.set('functions', func, desc[lang])
+        else:
+            config.set('functions', func, '')
+    
+    with open(fname, 'wb') as configfile:
+        config.write(configfile)
+
 
 def exportLatex(fname = 'reference.tex', lang='en'):
     api = getAPI()
@@ -158,6 +181,7 @@ def exportLatex(fname = 'reference.tex', lang='en'):
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         print "Please specify target:"
+        print "\tini"
         print "\tlatex"
         print "\tyaml"
         print "\tconst"
@@ -174,6 +198,14 @@ if __name__ == "__main__":
             file = exportLatex(*sys.argv[2:])
         else:
             file = exportLatex()
+
+    elif sys.argv[1] == 'ini':
+        if len(sys.argv) > 2:
+            file = exportIni(*sys.argv[2:])
+        else:
+            file = exportIni()
+
+
 
     elif sys.argv[1] == 'const':
         print getConstants()
