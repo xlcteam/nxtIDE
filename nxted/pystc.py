@@ -212,7 +212,7 @@ class PythonSTC(stc.StyledTextCtrl):
 
         self.api = dict(self.apifile.items('functions'))
 
-        #self.SetKeyWords(1, " ".join(self.api.keys()))
+        self.SetKeyWords(1, " ".join(self.api.keys()))
 
         self.constants = ['IN_1', 'IN_2', 'IN_3', 'IN_4', 'LCD_LINE1', 
                             'LCD_LINE2', 'LCD_LINE3', 'LCD_LINE4', 
