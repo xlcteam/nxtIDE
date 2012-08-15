@@ -22,7 +22,7 @@ import ctypes
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
     filename = ''
-    SEARCHED = False
+    searched = False
     res = None
     dlg = None
 
@@ -86,10 +86,10 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.updateRes()
             if self.res == -1:
                 wx.MessageBox('Nothing found', 'Result', wx.OK | wx.ICON_INFORMATION)
-                self.SEARCHED = False
+                self.searched = False
                 return False
             else:
-                self.SEARCHED = False
+                self.searched = False
         
         self.SearchFromHead(self.word)
         return True
@@ -119,14 +119,14 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
     def onFindClose(self, event):
         self.dlg.Destroy()
-        self.SEARCHED = False
+        self.searched = False
 
 
     def SearchFromHead(self, word):
         currPos = self.editor.GetCurrentPos()
 
-        if self.SEARCHED == False:
-            self.SEARCHED = True
+        if self.searched == False:
+            self.searched = True
             self.editor.GotoPos(0)
         else:
             self.editor.GotoPos(currPos + len(word))
@@ -135,7 +135,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         res = self.editor.SearchNext( stc.STC_FIND_REGEXP, word)
 
         if res == -1:
-            self.SEARCHED = False
+            self.searched = False
             self.SearchFromHead(word)
 
         self.editor.EnsureCaretVisible()
