@@ -34,6 +34,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.filename = title + '.py'           
 
         self.editor = PythonSTC(self, -1)
+        self.editor.SetFocus()
         self.mgr = wx.aui.AuiManager()
         self.mgr.SetManagedWindow(self)
         self.mgr.AddPane(self.editor,
