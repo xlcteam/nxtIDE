@@ -18,6 +18,7 @@ import tempfile
 import ctypes
 
 #--------------------------------   
+__version__ = "0.6.5"
 
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
@@ -588,6 +589,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
         #info.SetIcon(wx.Icon('icons/nxted_128.ico', wx.BITMAP_TYPE_PNG))
         info.SetName('nxtIDE')
         info.SetDescription('All you need to play with LEGO NXT robots and Python')
+        info.SetVersion(__version__)
         info.SetCopyright('(C) 2011 - infinity XLC Team (http://xlc-team.info)')
         info.SetDevelopers(['Marek Šuppa - main developer', 'Adrián Matejov', 'Ján Ďurkáč'])
         info.SetDocWriters(['Marek Šuppa'])
