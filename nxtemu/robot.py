@@ -4,6 +4,8 @@ from pgu import gui
 
 import env
 
+import os
+
 import math
 
 import imgs
@@ -224,10 +226,35 @@ class Robot(NXTBrick):
 
         # print background.get_at((int(self.x), int(self.y)))
 
+    def remove_prog(self):
+        try:
+            os.remove('__progs__/e' + self.progs[self.prog] + '.py')
+            try:
+                os.remove('__progs__/e' + self.progs[self.prog] + '.pyc')
+            except: pass
+        except: pass
+        #self.progs.remove(self.prog) 
+        self.progLoad() #stupid to call this, but dont know why funct above doesnt work           
+        self.screen = 2
+        self.prog_menu = 'run'
+        self.scrout()
+
     def onCenter(self):
         # Turning off
         if self.screen == -1 and self.btn_x == 0:
             sys.exit(0)
+        
+        if self.screen == 3 and self.prog_menu == 'delete':
+            self.screen = -3
+            self.scrout()
+            return
+        elif self.screen == -3 and self.btn_x_del == 0:
+            self.remove_prog()
+            return
+        elif self.screen == -3 and self.btn_x_del == 1:
+            self.screen = 3
+            self.scrout()
+            return
 
         if self.screen < 4:
             self.screen += 1
@@ -265,6 +292,17 @@ class Robot(NXTBrick):
         if self.screen == -1:
             self.screen += 2
 
+        if self.screen == 3:
+            self.screen -= 1
+            self.prog_menu = 'run'
+            self.scrout()
+            return
+
+        if self.screen == -3:
+            self.screen = 3
+            self.scrout()
+            return
+
         if self.proc == None:
             self.screen -= 1
             self.scrout()
@@ -282,6 +320,13 @@ class Robot(NXTBrick):
         if self.screen == -1:
             self.btn_x = 0
 
+        if self.screen == 3:
+            self.prog_menu = 'delete'
+
+        if self.screen == -3:
+            self.btn_x_del = 0
+            
+
         self.scrout()
 
     def onRight(self):
@@ -292,6 +337,11 @@ class Robot(NXTBrick):
         if self.screen == -1:
             self.btn_x = 1
 
+        if self.screen == 3:
+            self.prog_menu = 'run'
+        
+        if self.screen == -3:
+            self.btn_x_del = 1
 
         self.scrout()
 
