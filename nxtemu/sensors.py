@@ -102,7 +102,7 @@ class SensorTouch(BaseSensor):
             return 0
 
 class SensorCompass(BaseSensor):
-    """HTCompass sensor - measures robot's rotation from north (0° - 359°)"""
+    """HTCompass sensor - measures robot's rotation from north (0 - 359)"""
     type = 'compass'
     #TODO: make a slot at the top of robot for it
 
