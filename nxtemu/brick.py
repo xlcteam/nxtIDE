@@ -167,7 +167,7 @@ class NXTBrick:
     scr_killed = False
     btn_x = 0
     btn_x_del = 1
-    prog_menu = 'run'
+    prog_menu = 'Run'
     def __init__(self):
         pass
     
@@ -222,13 +222,12 @@ class NXTBrick:
     def screen3(self):
         self.header()
         self.textCenterOut(LCD_LINE4, self.progs[self.prog])
+        self.textCenterOut(LCD_LINE5, self.prog_menu)
 
-        if self.prog_menu == 'run':
-            self.textCenterOut(LCD_LINE5, "Run")
+        if self.prog_menu == 'Run':
             self.imgOut(10, 4, self.imgs['delete'])
             self.imgOut(42, 4, self.imgs['run'])
-        elif self.prog_menu == 'delete':
-            self.textCenterOut(LCD_LINE5, "Delete")
+        elif self.prog_menu == 'Delete':
             self.imgOut(42, 4, self.imgs['delete'])
             self.imgOut(70, 4, self.imgs['run'])
 

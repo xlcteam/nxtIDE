@@ -236,7 +236,7 @@ class Robot(NXTBrick):
         #self.progs.remove(self.prog) 
         self.progLoad() #stupid to call this, but dont know why funct above doesnt work           
         self.screen = 2
-        self.prog_menu = 'run'
+        self.prog_menu = 'Run'
         self.scrout()
 
     def onCenter(self):
@@ -244,7 +244,7 @@ class Robot(NXTBrick):
         if self.screen == -1 and self.btn_x == 0:
             sys.exit(0)
         
-        if self.screen == 3 and self.prog_menu == 'delete':
+        if self.screen == 3 and self.prog_menu == 'Delete':
             self.screen = -3
             self.scrout()
             return
@@ -294,7 +294,7 @@ class Robot(NXTBrick):
 
         if self.screen == 3:
             self.screen -= 1
-            self.prog_menu = 'run'
+            self.prog_menu = 'Run'
             self.scrout()
             return
 
@@ -321,7 +321,7 @@ class Robot(NXTBrick):
             self.btn_x = 0
 
         if self.screen == 3:
-            self.prog_menu = 'delete'
+            self.prog_menu = 'Delete'
 
         if self.screen == -3:
             self.btn_x_del = 0
@@ -338,7 +338,7 @@ class Robot(NXTBrick):
             self.btn_x = 1
 
         if self.screen == 3:
-            self.prog_menu = 'run'
+            self.prog_menu = 'Run'
         
         if self.screen == -3:
             self.btn_x_del = 1
