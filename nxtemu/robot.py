@@ -233,8 +233,10 @@ class Robot(NXTBrick):
                 os.remove('__progs__/e' + self.progs[self.prog] + '.pyc')
             except: pass
         except: pass
-        #self.progs.remove(self.prog) 
-        self.progLoad() #stupid to call this, but dont know why funct above doesnt work           
+        
+        self.progs.remove(self.progs[self.prog])
+        self.prog = (self.prog - 1) % len(self.progs)
+
         self.screen = 2
         self.prog_menu = 'Run'
         self.scrout()
