@@ -239,27 +239,27 @@ class Robot(NXTBrick):
 
         self.screen = 2
         self.prog_menu = 'Run'
-        self.scrout()
 
     def onCenter(self):
         # Turning off
         if self.screen == -1 and self.btn_x == 0:
             sys.exit(0)
-        elif self.screen == 3 and self.prog_menu == 'Delete':
-            self.screen = -3
+
+        if self.screen in self.unique_screens:
+            if self.screen == 3 and self.prog_menu == 'Delete':
+                self.screen = -3
+            elif self.screen == -3 and self.btn_x_del == 0:
+                self.remove_prog()
+            elif self.screen == -3 and self.btn_x_del == 1:
+                self.screen = 3
+            elif self.screen == 0 and self.menu == 'View':
+                self.screen = 10
+            elif self.screen == 10:
+                self.screen = 100
+
             self.scrout()
             return
-        elif self.screen == -3 and self.btn_x_del == 0:
-            self.remove_prog()
-            return
-        elif self.screen == -3 and self.btn_x_del == 1:
-            self.screen = 3
-            self.scrout()
-            return
-        elif self.screen == 0 and self.menu == 'View':
-            self.screen = 10
-            self.scrout()
-            return
+
 
         if self.screen < 4:
             self.screen += 1
@@ -293,16 +293,21 @@ class Robot(NXTBrick):
         # exiting
        #if self.screen == 0:
        # sys.exit(0)
-        
-        if self.screen == -1:
-            self.screen += 2
-        elif self.screen == 3:
-            self.screen -= 1
-            self.prog_menu = 'Run'
-            self.scrout()
-            return
-        elif self.screen == -3:
-            self.screen = 3
+        if self.screen in self.unique_screens:
+            if self.screen == -1:
+                self.screen += 1
+                self.menu = 'My Files'
+            elif self.screen == 3:
+                self.screen -= 1
+                self.prog_menu = 'Run'
+            elif self.screen == -3:
+                self.screen = 3
+            elif self.screen == 10:
+                self.screen = 0
+                self.menu = 'My Files'
+            elif self.screen == 0:
+                self.screen -= 1
+
             self.scrout()
             return
         

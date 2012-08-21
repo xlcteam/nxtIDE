@@ -161,6 +161,7 @@ class NXTBrick:
     }
 
     screen = 0
+    unique_screens = [-1, 3, -3, 0, 10, 100]
     prog = 0
     progs = []
     scr_running = False
@@ -211,6 +212,7 @@ class NXTBrick:
         self.progLoad()
         self.prog = 0
 
+    #screen for sensors
     def screen10(self):
         self.header()
         self.textCenterOut(LCD_LINE5, self.view_sensors[self.view_s_id])
@@ -219,6 +221,15 @@ class NXTBrick:
         self.imgOut(40, 4, self.imgs['swfiles'])
         self.imgOut(70, 4, self.imgs['swfiles'])
         
+    #screen for ports
+    def screen100(self):
+        self.header()
+        self.textCenterOut(LCD_LINE5, 'Port ' + self.view_port)
+
+        self.imgOut(10, 4, self.imgs['swfiles'])
+        self.imgOut(40, 4, self.imgs['swfiles'])
+        self.imgOut(70, 4, self.imgs['swfiles'])
+            
     def screen2(self):
         self.header()
         
