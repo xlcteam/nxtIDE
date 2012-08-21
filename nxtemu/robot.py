@@ -254,6 +254,8 @@ class Robot(NXTBrick):
                 self.screen = 3
             elif self.screen == 0 and self.menu == 'View':
                 self.screen = 10
+            elif self.screen == 0 and self.menu == 'My Files':
+                self.screen += 1
             elif self.screen == 10:
                 self.screen = 100
 
