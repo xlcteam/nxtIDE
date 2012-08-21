@@ -256,6 +256,10 @@ class Robot(NXTBrick):
             self.screen = 3
             self.scrout()
             return
+        elif self.screen == 0 and self.menu == 'View':
+            self.screen = 10
+            self.scrout()
+            return
 
         if self.screen < 4:
             self.screen += 1
@@ -323,6 +327,8 @@ class Robot(NXTBrick):
             self.btn_x_del = 0
         elif self.screen == 0:
             self.menu = 'My Files'
+        elif self.screen == 10:
+            self.view_s_id = (self.view_s_id - 1) % len(self.view_sensors)
 
         self.scrout()
 
@@ -338,6 +344,8 @@ class Robot(NXTBrick):
             self.btn_x_del = 1
         elif self.screen == 0:
             self.menu = 'View'
+        elif self.screen == 10:
+            self.view_s_id = (self.view_s_id + 1) % len(self.view_sensors)
 
         self.scrout()
 

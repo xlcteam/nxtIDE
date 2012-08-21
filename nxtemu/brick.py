@@ -169,6 +169,9 @@ class NXTBrick:
     btn_x_del = 1
     prog_menu = 'Run'
     menu = 'My Files'
+    view_port = 1
+    view_sensors = ['Light', 'UltraSonic', 'Touch']
+    view_s_id = 0
     def __init__(self):
         pass
     
@@ -207,9 +210,15 @@ class NXTBrick:
         
         self.progLoad()
         self.prog = 0
+
+    def screen10(self):
+        self.header()
+        self.textCenterOut(LCD_LINE5, self.view_sensors[self.view_s_id])
+
+        self.imgOut(10, 4, self.imgs['swfiles'])
+        self.imgOut(40, 4, self.imgs['swfiles'])
+        self.imgOut(70, 4, self.imgs['swfiles'])
         
-        
-    
     def screen2(self):
         self.header()
         
@@ -224,7 +233,6 @@ class NXTBrick:
         if len(self.progs) > 2:
             self.imgOut(10, 4, self.imgs['swfiles'])
 
-    
     def screen3(self):
         self.header()
         self.textCenterOut(LCD_LINE4, self.progs[self.prog])
