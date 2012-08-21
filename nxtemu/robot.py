@@ -245,8 +245,7 @@ class Robot(NXTBrick):
         # Turning off
         if self.screen == -1 and self.btn_x == 0:
             sys.exit(0)
-        
-        if self.screen == 3 and self.prog_menu == 'Delete':
+        elif self.screen == 3 and self.prog_menu == 'Delete':
             self.screen = -3
             self.scrout()
             return
@@ -293,18 +292,16 @@ class Robot(NXTBrick):
         
         if self.screen == -1:
             self.screen += 2
-
-        if self.screen == 3:
+        elif self.screen == 3:
             self.screen -= 1
             self.prog_menu = 'Run'
             self.scrout()
             return
-
-        if self.screen == -3:
+        elif self.screen == -3:
             self.screen = 3
             self.scrout()
             return
-
+        
         if self.proc == None:
             self.screen -= 1
             self.scrout()
@@ -318,17 +315,13 @@ class Robot(NXTBrick):
         #print "left"
         if self.screen == 2:
             self.prog = (self.prog - 1) % len(self.progs)
-        
-        if self.screen == -1:
+        elif self.screen == -1:
             self.btn_x = 0
-
-        if self.screen == 3:
+        elif self.screen == 3:
             self.prog_menu = 'Delete'
-
-        if self.screen == -3:
+        elif self.screen == -3:
             self.btn_x_del = 0
-
-        if self.screen == 0:
+        elif self.screen == 0:
             self.menu = 'My Files'
 
         self.scrout()
@@ -337,17 +330,13 @@ class Robot(NXTBrick):
         #print "right"
         if self.screen == 2:
             self.prog = (self.prog + 1) % len(self.progs)
-
-        if self.screen == -1:
+        elif self.screen == -1:
             self.btn_x = 1
-
-        if self.screen == 3:
+        elif self.screen == 3:
             self.prog_menu = 'Run'
-        
-        if self.screen == -3:
+        elif self.screen == -3:
             self.btn_x_del = 1
-
-        if self.screen == 0:
+        elif self.screen == 0:
             self.menu = 'View'
 
         self.scrout()
