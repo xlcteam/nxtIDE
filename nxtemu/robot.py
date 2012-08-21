@@ -327,7 +327,9 @@ class Robot(NXTBrick):
 
         if self.screen == -3:
             self.btn_x_del = 0
-            
+
+        if self.screen == 0:
+            self.menu = 'My Files'
 
         self.scrout()
 
@@ -344,6 +346,9 @@ class Robot(NXTBrick):
         
         if self.screen == -3:
             self.btn_x_del = 1
+
+        if self.screen == 0:
+            self.menu = 'View'
 
         self.scrout()
 

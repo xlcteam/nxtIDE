@@ -168,6 +168,7 @@ class NXTBrick:
     btn_x = 0
     btn_x_del = 1
     prog_menu = 'Run'
+    menu = 'My Files'
     def __init__(self):
         pass
     
@@ -189,9 +190,14 @@ class NXTBrick:
     def screen0(self):
         self.header()
 
-        self.textCenterOut(LCD_LINE5+2, "My Files")
+        self.textCenterOut(LCD_LINE5+2, self.menu)
         
-        self.imgOut(40, 1, self.imgs['myfiles'])
+        if self.menu == "My Files":
+            self.imgOut(40, 1, self.imgs['myfiles'])
+            self.imgOut(70, 1, self.imgs['view'])
+        elif self.menu == "View":
+            self.imgOut(10, 1, self.imgs['myfiles'])
+            self.imgOut(40, 1, self.imgs['view'])
     
     def screen1(self):
         self.header()
