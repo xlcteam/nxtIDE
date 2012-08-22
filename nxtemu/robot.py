@@ -245,8 +245,7 @@ class Robot(NXTBrick):
         if self.screen == -1 and self.btn_x == 0:
             sys.exit(0)
 
-        if self.screen in self.unique_screens and \
-                (self.screen != 3 and self.prog_menu != 'Run'):
+        if self.screen in self.unique_screens:
             if self.screen == 3 and self.prog_menu == 'Delete':
                 self.screen = -3
             elif self.screen == -3 and self.btn_x_del == 0:
@@ -266,6 +265,20 @@ class Robot(NXTBrick):
                 ClearScreen()
                 self.scr_view = RoboThread(target=robot.sensor_viewing)
                 self.scr_view.start()
+            elif self.screen == 3 and self.prog_menu == 'Run':
+                if self.proc == None:
+
+                    module = __import__('e' + self.progs[self.prog])
+                                                                                             
+                    self.proc = RoboThread(target=module.main,
+                                           cleaner=self.cleaner)
+                    self.proc.setName("brick")
+
+                    ClearScreen()
+                    self.scr_runner = RoboThread(target=robot.running)
+
+                    self.scr_runner.start()
+                    self.proc.start()
             else:
                 self.scrout()
                 return
