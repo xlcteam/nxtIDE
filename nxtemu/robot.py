@@ -291,22 +291,7 @@ class Robot(NXTBrick):
         if self.screen == 2 and len(self.progs) == 0:
             self.screen -= 1
 
-        if self.screen == 4:
-            if self.proc == None:
-
-                module = __import__('e' + self.progs[self.prog])
-                                                                                         
-                self.proc = RoboThread(target=module.main,
-                                       cleaner=self.cleaner)
-                self.proc.setName("brick")
-
-                ClearScreen()
-                self.scr_runner = RoboThread(target=robot.running)
-
-                self.scr_runner.start()
-                self.proc.start()
-        else:
-            self.scrout()
+        self.scrout()
         
             
         #print "center"
