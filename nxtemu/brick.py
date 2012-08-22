@@ -235,9 +235,9 @@ class NXTBrick:
         self.header()
         self.textCenterOut(LCD_LINE5, 'Port ' + str(self.view_port + 1))
 
-        self.imgOut(10, 4, self.imgs['run'])
-        self.imgOut(40, 4, self.imgs['run'])
-        self.imgOut(70, 4, self.imgs['run'])
+        self.imgOut(12, 4, self.imgs['run'])
+        self.imgOut(42, 4, self.imgs['run'])
+        self.imgOut(72, 4, self.imgs['run'])
 
     #screen for values
     def screen1000(self):
