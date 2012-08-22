@@ -217,15 +217,15 @@ class NXTBrick:
         self.header()
         self.textCenterOut(LCD_LINE5, self.view_sensors[self.view_s_id])
 
-        if self.view_s_id == 1:
-            self.imgOut(10, 4, self.imgs['touch'])
-            self.imgOut(40, 4, self.imgs['light'])
-            self.imgOut(70, 4, self.imgs['sonic'])
-        elif self.view_s_id == 2:
+        if self.view_s_id == 0:
+            self.imgOut(10, 1, self.imgs['touch'])
+            self.imgOut(40, 1, self.imgs['light'])
+            self.imgOut(70, 1, self.imgs['sonic'])
+        elif self.view_s_id == 1:
             self.imgOut(10, 4, self.imgs['light'])
             self.imgOut(40, 4, self.imgs['sonic'])
             self.imgOut(70, 4, self.imgs['touch'])
-        elif self.view_s_id == 3:
+        elif self.view_s_id == 2:
             self.imgOut(10, 4, self.imgs['sonic'])
             self.imgOut(40, 4, self.imgs['touch'])
             self.imgOut(70, 4, self.imgs['light'])
