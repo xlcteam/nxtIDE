@@ -170,7 +170,7 @@ class NXTBrick:
     btn_x_del = 1
     prog_menu = 'Run'
     menu = 'My Files'
-    view_port = 1
+    view_port = 0
     view_sensors = ['Light', 'UltraSonic', 'Touch']
     view_s_id = 0
     def __init__(self):
@@ -233,7 +233,7 @@ class NXTBrick:
     #screen for ports
     def screen100(self):
         self.header()
-        self.textCenterOut(LCD_LINE5, 'Port ' + str(self.view_port))
+        self.textCenterOut(LCD_LINE5, 'Port ' + str(self.view_port + 1))
 
         self.imgOut(10, 4, self.imgs['run'])
         self.imgOut(40, 4, self.imgs['run'])
