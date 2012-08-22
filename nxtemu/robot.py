@@ -245,7 +245,8 @@ class Robot(NXTBrick):
         if self.screen == -1 and self.btn_x == 0:
             sys.exit(0)
 
-        if self.screen in self.unique_screens:
+        if self.screen in self.unique_screens and \
+                (self.screen != 3 and self.prog_menu != 'Run'):
             if self.screen == 3 and self.prog_menu == 'Delete':
                 self.screen = -3
             elif self.screen == -3 and self.btn_x_del == 0:
