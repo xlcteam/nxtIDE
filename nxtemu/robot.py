@@ -279,6 +279,7 @@ class Robot(NXTBrick):
 
                     self.scr_runner.start()
                     self.proc.start()
+                    return
             else:
                 self.scrout()
                 return
