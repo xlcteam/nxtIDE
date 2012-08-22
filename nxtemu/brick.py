@@ -163,6 +163,7 @@ class NXTBrick:
     }
 
     screen = 0
+    unique_screens = [-1, 3, -3, 0, 10, 100]
     prog = 0
     progs = []
     scr_running = False
@@ -170,6 +171,10 @@ class NXTBrick:
     btn_x = 0
     btn_x_del = 1
     prog_menu = 'Run'
+    menu = 'My Files'
+    view_port = 0
+    view_sensors = ['Light', 'UltraSonic', 'Touch']
+    view_s_id = 0
     def __init__(self):
         pass
     
@@ -191,9 +196,14 @@ class NXTBrick:
     def screen0(self):
         self.header()
 
-        self.textCenterOut(LCD_LINE5+2, "My Files")
+        self.textCenterOut(LCD_LINE5+2, self.menu)
         
-        self.imgOut(40, 1, self.imgs['myfiles'])
+        if self.menu == "My Files":
+            self.imgOut(40, 1, self.imgs['myfiles'])
+            self.imgOut(70, 1, self.imgs['view'])
+        elif self.menu == "View":
+            self.imgOut(10, 1, self.imgs['myfiles'])
+            self.imgOut(40, 1, self.imgs['view'])
     
     def screen1(self):
         self.header()
@@ -203,9 +213,34 @@ class NXTBrick:
         
         self.progLoad()
         self.prog = 0
+
+    #screen for sensors
+    def screen10(self):
+        self.header()
+        self.textCenterOut(LCD_LINE5, self.view_sensors[self.view_s_id])
+
+        if self.view_s_id == 0:
+            self.imgOut(10, 1, self.imgs['touch'])
+            self.imgOut(40, 1, self.imgs['light'])
+            self.imgOut(70, 1, self.imgs['sonic'])
+        elif self.view_s_id == 1:
+            self.imgOut(10, 1, self.imgs['light'])
+            self.imgOut(40, 1, self.imgs['sonic'])
+            self.imgOut(70, 1, self.imgs['touch'])
+        elif self.view_s_id == 2:
+            self.imgOut(10, 1, self.imgs['sonic'])
+            self.imgOut(40, 1, self.imgs['touch'])
+            self.imgOut(70, 1, self.imgs['light'])
         
-        
-    
+    #screen for ports
+    def screen100(self):
+        self.header()
+        self.textCenterOut(LCD_LINE5, 'Port ' + str(self.view_port + 1))
+
+        self.imgOut(10, 4, self.imgs['run'])
+        self.imgOut(40, 4, self.imgs['run'])
+        self.imgOut(70, 4, self.imgs['run'])
+            
     def screen2(self):
         self.header()
         
@@ -220,7 +255,6 @@ class NXTBrick:
         if len(self.progs) > 2:
             self.imgOut(10, 4, self.imgs['swfiles'])
 
-    
     def screen3(self):
         self.header()
         self.textCenterOut(LCD_LINE4, self.progs[self.prog])
