@@ -222,13 +222,13 @@ class NXTBrick:
             self.imgOut(40, 1, self.imgs['light'])
             self.imgOut(70, 1, self.imgs['sonic'])
         elif self.view_s_id == 1:
-            self.imgOut(10, 4, self.imgs['light'])
-            self.imgOut(40, 4, self.imgs['sonic'])
-            self.imgOut(70, 4, self.imgs['touch'])
+            self.imgOut(10, 1, self.imgs['light'])
+            self.imgOut(40, 1, self.imgs['sonic'])
+            self.imgOut(70, 1, self.imgs['touch'])
         elif self.view_s_id == 2:
-            self.imgOut(10, 4, self.imgs['sonic'])
-            self.imgOut(40, 4, self.imgs['touch'])
-            self.imgOut(70, 4, self.imgs['light'])
+            self.imgOut(10, 1, self.imgs['sonic'])
+            self.imgOut(40, 1, self.imgs['touch'])
+            self.imgOut(70, 1, self.imgs['light'])
         
     #screen for ports
     def screen100(self):
