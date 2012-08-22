@@ -217,18 +217,27 @@ class NXTBrick:
         self.header()
         self.textCenterOut(LCD_LINE5, self.view_sensors[self.view_s_id])
 
-        self.imgOut(10, 4, self.imgs['swfiles'])
-        self.imgOut(40, 4, self.imgs['swfiles'])
-        self.imgOut(70, 4, self.imgs['swfiles'])
+        if self.view_s_id == 1:
+            self.imgOut(10, 4, self.imgs['touch'])
+            self.imgOut(40, 4, self.imgs['light'])
+            self.imgOut(70, 4, self.imgs['sonic'])
+        elif self.view_s_id == 2:
+            self.imgOut(10, 4, self.imgs['light'])
+            self.imgOut(40, 4, self.imgs['sonic'])
+            self.imgOut(70, 4, self.imgs['touch'])
+        elif self.view_s_id == 3:
+            self.imgOut(10, 4, self.imgs['sonic'])
+            self.imgOut(40, 4, self.imgs['touch'])
+            self.imgOut(70, 4, self.imgs['light'])
         
     #screen for ports
     def screen100(self):
         self.header()
-        self.textCenterOut(LCD_LINE5, 'Port ' + self.view_port)
+        self.textCenterOut(LCD_LINE5, 'Port ' + str(self.view_port))
 
-        self.imgOut(10, 4, self.imgs['swfiles'])
-        self.imgOut(40, 4, self.imgs['swfiles'])
-        self.imgOut(70, 4, self.imgs['swfiles'])
+        self.imgOut(10, 4, self.imgs['run'])
+        self.imgOut(40, 4, self.imgs['run'])
+        self.imgOut(70, 4, self.imgs['run'])
             
     def screen2(self):
         self.header()
