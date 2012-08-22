@@ -161,7 +161,7 @@ class NXTBrick:
     }
 
     screen = 0
-    unique_screens = [-1, 3, -3, 0, 10, 100]
+    unique_screens = [-1, 3, -3, 0, 10, 100, 1000]
     prog = 0
     progs = []
     scr_running = False
@@ -238,6 +238,11 @@ class NXTBrick:
         self.imgOut(10, 4, self.imgs['run'])
         self.imgOut(40, 4, self.imgs['run'])
         self.imgOut(70, 4, self.imgs['run'])
+
+    #screen for values
+    def screen1000(self):
+        self.header()
+        
             
     def screen2(self):
         self.header()
@@ -336,6 +341,28 @@ class NXTBrick:
 
             if len(s) >= 3:
                 s = ""
+
+            clock.tick(3)
+
+    def sensor_viewing(self):
+        self.viewing = True
+        clock = pygame.time.Clock()
+
+        sensor = self.view_sensors[self.view_s_id]
+        
+
+        if sensor == 'Light':
+            s = Sensor(IN_+'%d') % self.view_port + 1
+        elif sensor == 'Ultrasonic':
+            s = fero
+        elif sensor == 'Touch':
+            s = stevo
+
+        while self.viewing:
+            self.header()
+            refresh = s            
+
+            self.textCenterOut(LCD_LINE4, refresh)
 
             clock.tick(3)
 
