@@ -188,13 +188,12 @@ class NXTBrick:
             self.around()
         
     def around(self):
-        #LineOut(10, 10, 10, 18)
-        #LineOut(60, 0, 60, 30)
-        #LineOut(30, 30, 60, 30)
-        pass
+        LineOut(63, 0, 63, 25)
+        LineOut(38, 0, 38, 25)
+        LineOut(38, 25, 63, 25)
 
     def screen0(self):
-        self.header()
+        self.header(True)
 
         self.textCenterOut(LCD_LINE5+2, self.menu)
         
