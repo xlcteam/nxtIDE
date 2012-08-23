@@ -272,12 +272,22 @@ def LineOut(x0, y0, x1, y1):
     :param int y1: Y-ová pozíca konca čiary.
     """
     
+    tmp = []
     steep = abs(y1 - y0) > abs(x1 - x0)
     if steep:
-        x0, x1 = y0, y1
+        tmp = [x0, x1]
+        x0 = y0
+        x1 = y1
+        y0 = tmp[0]
+        y1 = tmp[1]
+
 
     if x0 > x1:
-        x0, y0 = x1, y1
+        tmp = [x0, y0]
+        x0 = x1
+        y0 = y1
+        x1 = tmp[0]
+        y1 = tmp[1]
 
     deltax = x1 - x0
     deltay = abs(y1 - y0)

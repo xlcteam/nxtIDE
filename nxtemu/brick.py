@@ -351,14 +351,13 @@ class NXTBrick:
         clock = pygame.time.Clock()
 
         sensor = self.view_sensors[self.view_s_id]
-        
 
         if sensor == 'Light':
-            s = Sensor(IN_+'%d') % self.view_port + 1
+            s = Sensor(self.view_port + 1) 
         elif sensor == 'Ultrasonic':
-            s = fero
+            s = SensorUS(self.view_port + 1) 
         elif sensor == 'Touch':
-            s = stevo
+            s = Sensor(self.view_port + 1) 
 
         while self.viewing:
             self.header()

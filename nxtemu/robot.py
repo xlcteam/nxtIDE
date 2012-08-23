@@ -265,10 +265,6 @@ class Robot(NXTBrick):
                 ClearScreen()
                 self.scr_view = RoboThread(target=robot.sensor_viewing)
                 self.scr_view.start()
-            else:
-                self.scrout()
-                return
-
 
         if self.screen < 4:
             self.screen += 1
@@ -368,7 +364,7 @@ class Robot(NXTBrick):
         elif self.screen == 10:
             self.view_s_id = (self.view_s_id + 1) % len(self.view_sensors)
         elif self.screen == 100:
-            self.view_port = (self.view_port + 1) % 4
+            self.view_port = (self.view_port + 1) % 4 
 
         self.scrout()
 
