@@ -265,6 +265,7 @@ class Robot(NXTBrick):
                 ClearScreen()
                 self.scr_view = RoboThread(target=robot.sensor_viewing)
                 self.scr_view.start()
+                return
             elif self.screen == 3 and self.prog_menu == 'Run':
                 if self.proc == None:
 
