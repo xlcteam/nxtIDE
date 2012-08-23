@@ -216,7 +216,7 @@ class NXTBrick:
     #screen for sensors
     def screen10(self):
         self.header()
-        self.textCenterOut(LCD_LINE5, self.view_sensors[self.view_s_id])
+        self.textCenterOut(LCD_LINE5+2, self.view_sensors[self.view_s_id])
 
         if self.view_s_id == 0:
             self.imgOut(10, 1, self.imgs['touch'])
@@ -234,7 +234,7 @@ class NXTBrick:
     #screen for ports
     def screen100(self):
         self.header()
-        self.textCenterOut(LCD_LINE5, 'Port ' + str(self.view_port + 1))
+        self.textCenterOut(LCD_LINE5+2, 'Port ' + str(self.view_port + 1))
 
         self.imgOut(10, 4, self.imgs['run'])
         self.imgOut(40, 4, self.imgs['run'])
@@ -248,7 +248,7 @@ class NXTBrick:
     def screen2(self):
         self.header()
         
-        self.textCenterOut(LCD_LINE5, self.progs[self.prog])
+        self.textCenterOut(LCD_LINE5+2, self.progs[self.prog])
 
         self.imgOut(40, 4, self.imgs['swfiles'])
         if len(self.progs) > 1:
@@ -261,8 +261,8 @@ class NXTBrick:
 
     def screen3(self):
         self.header()
-        self.textCenterOut(LCD_LINE4, self.progs[self.prog])
-        self.textCenterOut(LCD_LINE5, self.prog_menu)
+        self.textCenterOut(LCD_LINE4+2, self.progs[self.prog])
+        self.textCenterOut(LCD_LINE5+2, self.prog_menu)
 
         if self.prog_menu == 'Run':
             self.imgOut(10, 4, self.imgs['delete'])
