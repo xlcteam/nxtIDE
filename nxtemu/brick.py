@@ -179,7 +179,7 @@ class NXTBrick:
         pass
     
     
-    def header(self, around = True):
+    def header(self, around = False):
         self.textCenterOut(LCD_LINE1+1, self.name)
         self.imgOut(88, 59, self.imgs['battery'])
         LineOut(0, 56, 100, 56)
@@ -188,8 +188,8 @@ class NXTBrick:
             self.around()
         
     def around(self):
-        LineOut(63, 0, 63, 25)
-        LineOut(38, 0, 38, 25)
+        LineOut(63, 1, 63, 25)
+        LineOut(38, 1, 38, 25)
         LineOut(38, 25, 63, 25)
 
     def screen0(self):
@@ -360,7 +360,7 @@ class NXTBrick:
 
         while self.viewing:
             self.header()
-            refresh = s            
+            refresh = str(s)           
 
             self.textCenterOut(LCD_LINE4, refresh)
 
