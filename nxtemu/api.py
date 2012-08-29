@@ -657,9 +657,9 @@ def RotateMotor(motor, speed, angle):
     
     Otočí motor v špecifikovanom smere na špecifikovanj rýchlosti a špecifikovanom čísle stupňov.
 
-    :param int motor: motor we want to rotate
-    :param int speed: speed we want to run the motor at, from 0 to 100. Negative value reverses direction.
-    :param int angle: number of degrees we want to rotate the motor. Negative value reverses direction.
+    :param int motor: motor, ktorý chceme točiť
+    :param int speed: rýchlosť, ktorou chceme točiť motor od 0 do 100. Záporná hodnota otočí smer chodu motora.
+    :param int angle: počet stupňov pre otáčanie motora. Záporná hodnota otočí smer chodu motorra.
     """
 
     OnFwd(motor, speed)

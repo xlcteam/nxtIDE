@@ -244,6 +244,11 @@ class Robot(NXTBrick):
         # Turning off
         if self.screen == -1 and self.btn_x == 0:
             sys.exit(0)
+            
+        if self.screen_x == 0:
+            self.screen_y -= 1
+        else:
+            self.screen_y += 1
 
         if self.screen in self.unique_screens:
             if self.screen == 3 and self.prog_menu == 'Delete':
@@ -265,6 +270,27 @@ class Robot(NXTBrick):
                 ClearScreen()
                 self.scr_view = RoboThread(target=robot.sensor_viewing)
                 self.scr_view.start()
+                return
+
+            elif self.screen == 3 and self.prog_menu == 'Run':
+                if self.proc == None:
+
+                    module = __import__('e' + self.progs[self.prog])
+                                                                                             
+                    self.proc = RoboThread(target=module.main,
+                                           cleaner=self.cleaner)
+                    self.proc.setName("brick")
+
+                    ClearScreen()
+                    self.scr_runner = RoboThread(target=robot.running)
+
+                    self.scr_runner.start()
+                    self.proc.start()
+                    return
+            else:
+                self.scrout()
+                return
+
 
         if self.screen < 4:
             self.screen += 1
@@ -273,28 +299,18 @@ class Robot(NXTBrick):
         if self.screen == 2 and len(self.progs) == 0:
             self.screen -= 1
 
-        if self.screen == 4:
-            if self.proc == None:
-
-                module = __import__('e' + self.progs[self.prog])
-                                                                                         
-                self.proc = RoboThread(target=module.main,
-                                       cleaner=self.cleaner)
-                self.proc.setName("brick")
-
-                ClearScreen()
-                self.scr_runner = RoboThread(target=robot.running)
-
-                self.scr_runner.start()
-                self.proc.start()
-        else:
-            self.scrout()
+        self.scrout()
         
             
         #print "center"
 
     def onBack(self):
         
+        if self.screen_x == 0:
+            self.screen_y += 1
+        else:
+            self.screen_z += 1
+
         # exiting
        #if self.screen == 0:
        # sys.exit(0)
@@ -332,6 +348,9 @@ class Robot(NXTBrick):
     
     def onLeft(self):
         #print "left"
+        
+        self.screen_x -= 1
+
         if self.screen == 2:
             self.prog = (self.prog - 1) % len(self.progs)
         elif self.screen == -1:
@@ -351,6 +370,9 @@ class Robot(NXTBrick):
 
     def onRight(self):
         #print "right"
+        
+        self.screen_x += 1
+
         if self.screen == 2:
             self.prog = (self.prog + 1) % len(self.progs)
         elif self.screen == -1:
