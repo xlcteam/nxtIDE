@@ -246,9 +246,9 @@ class Robot(NXTBrick):
             sys.exit(0)
             
         if self.screen_x == 0:
-            self.screen_y -= 1
-        else:
             self.screen_y += 1
+        else:
+            self.screen_z += 1
 
         if self.screen in self.unique_screens:
             if self.screen == 3 and self.prog_menu == 'Delete':
@@ -307,7 +307,7 @@ class Robot(NXTBrick):
     def onBack(self):
         
         if self.screen_x == 0:
-            self.screen_y += 1
+            self.screen_y -= 1
         else:
             self.screen_z += 1
 

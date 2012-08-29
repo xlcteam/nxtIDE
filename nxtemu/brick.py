@@ -175,6 +175,7 @@ class NXTBrick:
     unique_screens = [-1, 3, -3, 0, 10, 100, 1000]
     prog = 0
     progs = []
+    self.viewing = False
     scr_running = False
     scr_killed = False
     btn_x = 0
