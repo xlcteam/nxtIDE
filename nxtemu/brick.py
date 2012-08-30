@@ -169,20 +169,16 @@ class NXTBrick:
     }
 
     screen = 0
+
     screen_x = 0
     screen_y = 0
     screen_z = 0
-    unique_screens = [-1, 3, -3, 0, 10, 100, 1000]
+
     prog = 0
     progs = []
-    self.viewing = False
+    viewing = False
     scr_running = False
     scr_killed = False
-    btn_x = 0
-    btn_x_del = 1
-    prog_menu = 'Run'
-    menu = 'My Files'
-    view_port = 0
     view_sensors = ['Light', 'UltraSonic', 'Touch']
     view_s_id = 0
     def __init__(self):
@@ -205,12 +201,17 @@ class NXTBrick:
     def screen0(self):
         self.header(True)
 
-        self.textCenterOut(LCD_LINE5+2, self.menu)
-        
-        if self.menu == "My Files":
+        # first centeral screen: pos [0, 0, 0] 
+        if self.screen_x == 0:
+            self.textCenterOut(LCD_LINE5+2, 'My Files')
+
             self.imgOut(40, 1, self.imgs['myfiles'])
             self.imgOut(70, 1, self.imgs['view'])
-        elif self.menu == "View":
+
+        # view screen: pos [1, 0, 0]
+        else:
+            self.textCenterOut(LCD_LINE5+2, 'View')
+
             self.imgOut(10, 1, self.imgs['myfiles'])
             self.imgOut(40, 1, self.imgs['view'])
     
@@ -257,6 +258,18 @@ class NXTBrick:
             
     def screen2(self):
         self.header()
+
+        # special case of all items being on the same level
+        if self.screen_y == 2 and self.screen_z == 1:
+            self.screen_y = 3
+            self.screen_x = 0
+            self.screen_z = 0
+            self.scrout()
+
+            return
+
+
+        self.prog = (self.screen_x % len(self.progs))
         
         self.textCenterOut(LCD_LINE5+2, self.progs[self.prog])
 
@@ -270,14 +283,27 @@ class NXTBrick:
             self.imgOut(10, 4, self.imgs['swfiles'])
 
     def screen3(self):
+        
+        # special case; makes getting back from selected delete possible
+        if self.screen_z < 0:
+            self.screen_y = 2
+            self.screen_x = self.prog
+            self.screen_z = 0
+            self.scrour()
+
+            return
+
         self.header()
         self.textCenterOut(LCD_LINE4+2, self.progs[self.prog])
-        self.textCenterOut(LCD_LINE5+2, self.prog_menu)
 
-        if self.prog_menu == 'Run':
+        x = self.screen_x % 2
+
+        if x == 0:
+            self.textCenterOut(LCD_LINE5+2, 'Run')
             self.imgOut(10, 4, self.imgs['delete'])
             self.imgOut(42, 4, self.imgs['run'])
-        elif self.prog_menu == 'Delete':
+        elif x == 1:
+            self.textCenterOut(LCD_LINE5+2, 'Delete')
             self.imgOut(42, 4, self.imgs['delete'])
             self.imgOut(70, 4, self.imgs['run'])
 
@@ -309,8 +335,7 @@ class NXTBrick:
 
     def scrout(self):
         ClearScreen()
-       #screen = 'screen%d_%d' % (self.screen_y, self.screen_z)
-        screen = 'screen%d' % self.screen
+        screen = 'screen%d' % self.screen_y
         getattr(self, screen.replace('-', '_'))()
     
     def progLoad(self):

@@ -241,63 +241,65 @@ class Robot(NXTBrick):
         self.prog_menu = 'Run'
 
     def onCenter(self):
+        print "onCenter"
+
         # Turning off
         if self.screen == -1 and self.btn_x == 0:
             sys.exit(0)
             
-        if self.screen_x == 0:
-            self.screen_y += 1
-        else:
-            self.screen_z += 1
 
-        if self.screen in self.unique_screens:
-            if self.screen == 3 and self.prog_menu == 'Delete':
-                self.screen = -3
-            elif self.screen == -3 and self.btn_x_del == 0:
-                self.remove_prog()
-            elif self.screen == -3 and self.btn_x_del == 1:
-                self.screen = 3
-            elif self.screen == 0 and self.menu == 'View':
-                self.screen = 10
-            elif self.screen == 0 and self.menu == 'My Files':
-                self.screen += 1
-            elif self.screen == 10:
-                self.screen = 100
-            elif self.screen == 100:
-                self.screen = 1000
 
-            if self.screen == 1000:
+
+       #if self.screen in self.unique_screens:
+       #    if self.screen == 3 and self.prog_menu == 'Delete':
+       #        self.screen = -3
+       #    elif self.screen == -3 and self.btn_x_del == 0:
+       #        self.remove_prog()
+       #    elif self.screen == -3 and self.btn_x_del == 1:
+       #        self.screen = 3
+       #    elif self.screen == 0 and self.menu == 'View':
+       #        self.screen = 10
+       #    elif self.screen == 0 and self.menu == 'My Files':
+       #        self.screen += 1
+       #    elif self.screen == 10:
+       #        self.screen = 100
+       #    elif self.screen == 100:
+       #        self.screen = 1000
+
+       #    if self.screen == 1000:
+       #        ClearScreen()
+       #        self.scr_view = RoboThread(target=robot.sensor_viewing)
+       #        self.scr_view.start()
+       #        return
+
+        if [self.screen_x, self.screen_y, self.screen_z] == [0, 3, 0]:
+            if self.proc == None:
+
+                module = __import__('e' + self.progs[self.prog])
+                                                                                         
+                self.proc = RoboThread(target=module.main,
+                                       cleaner=self.cleaner)
+                self.proc.setName("brick")
+
                 ClearScreen()
-                self.scr_view = RoboThread(target=robot.sensor_viewing)
-                self.scr_view.start()
+                self.scr_runner = RoboThread(target=robot.running)
+
+                self.scr_runner.start()
+                self.proc.start()
                 return
 
-            elif self.screen == 3 and self.prog_menu == 'Run':
-                if self.proc == None:
 
-                    module = __import__('e' + self.progs[self.prog])
-                                                                                             
-                    self.proc = RoboThread(target=module.main,
-                                           cleaner=self.cleaner)
-                    self.proc.setName("brick")
-
-                    ClearScreen()
-                    self.scr_runner = RoboThread(target=robot.running)
-
-                    self.scr_runner.start()
-                    self.proc.start()
-                    return
+        if self.screen_y < 4:
+            if self.screen_x == 0:
+                self.screen_y += 1
             else:
-                self.scrout()
-                return
+                self.screen_z += 1
 
-
-        if self.screen < 4:
-            self.screen += 1
+        print self.screen_x, self.screen_y, self.screen_z
 
         # taking care of empty __progs__ directory
-        if self.screen == 2 and len(self.progs) == 0:
-            self.screen -= 1
+        if self.screen_y == 2 and len(self.progs) == 0:
+            self.screen_y -= 1
 
         self.scrout()
         
@@ -306,88 +308,33 @@ class Robot(NXTBrick):
 
     def onBack(self):
         
-        if self.screen_x == 0:
-            self.screen_y -= 1
-        else:
-            self.screen_z += 1
-
-        # exiting
-       #if self.screen == 0:
-       # sys.exit(0)
-        if self.screen in self.unique_screens:
-            if self.screen == -1:
-                self.screen += 1
-                self.menu = 'My Files'
-            elif self.screen == 3:
-                self.screen -= 1
-                self.prog_menu = 'Run'
-            elif self.screen == -3:
-                self.screen = 3
-            elif self.screen == 10:
-                self.screen = 0
-                self.menu = 'My Files'
-            elif self.screen == 0:
-                self.screen -= 1
-            elif self.screen == 100:
-                self.screen = 10
-            elif self.screen == 1000:
-                self.screen = 100
-                self.scr_viewing = False
-
-            self.scrout()
-            return
-        
         if self.proc == None:
-            self.screen -= 1
+            if self.screen_x == 0:
+                self.screen_y -= 1
+            else:
+                self.screen_z -= 1
+            
             self.scrout()
+
+
         else:
             self.die = True
             self.scr_running = False
 
-        #print "back"
+       #print "onBack" 
+       #print self.screen_x, self.screen_y, self.screen_z
+
     
     def onLeft(self):
         #print "left"
         
         self.screen_x -= 1
-
-        if self.screen == 2:
-            self.prog = (self.prog - 1) % len(self.progs)
-        elif self.screen == -1:
-            self.btn_x = 0
-        elif self.screen == 3:
-            self.prog_menu = 'Delete'
-        elif self.screen == -3:
-            self.btn_x_del = 0
-        elif self.screen == 0:
-            self.menu = 'My Files'
-        elif self.screen == 10:
-            self.view_s_id = (self.view_s_id - 1) % len(self.view_sensors)
-        elif self.screen == 100:
-            self.view_port = (self.view_port - 1) % 4
-
         self.scrout()
 
     def onRight(self):
         #print "right"
         
         self.screen_x += 1
-
-        if self.screen == 2:
-            self.prog = (self.prog + 1) % len(self.progs)
-        elif self.screen == -1:
-            self.btn_x = 1
-        elif self.screen == 3:
-            self.prog_menu = 'Run'
-        elif self.screen == -3:
-            self.btn_x_del = 1
-        elif self.screen == 0:
-            self.menu = 'View'
-        elif self.screen == 10:
-            self.view_s_id = (self.view_s_id + 1) % len(self.view_sensors)
-        elif self.screen == 100:
-            self.view_port = (self.view_port + 1) % 4 
-
         self.scrout()
 
     def cleaner(self):
