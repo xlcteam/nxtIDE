@@ -406,7 +406,7 @@ class NXTBrick:
             s = SensorUS(self.view_port_id + 1)
 
         while self.viewing:
-            ClearScreen()
+            #ClearScreen()
             self.header()
             refresh = str(s)           
 
