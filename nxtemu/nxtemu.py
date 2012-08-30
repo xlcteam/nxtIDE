@@ -75,6 +75,7 @@ if __name__ == "__main__":
         robot.wboot = False
         
         def runner():
+            robot.screen_y = 3
             robot.scrout()
             Wait(800)
             robot.onCenter()

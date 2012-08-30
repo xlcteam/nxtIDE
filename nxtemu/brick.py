@@ -1,5 +1,6 @@
 from api import *
 from glob import glob
+from robothread import *
 import os, os.path, sys
 
 class NXTBrick:
@@ -164,8 +165,7 @@ class NXTBrick:
                 [10, 10] , [10, 9] , [10, 8] , [10, 7] , [10, 6] , [10, 5] , [10, 4] , [10, 3] ,
                 [10, 2] , [10, 1] , [10, 0] , [11, 13] , [11, 11] , [11, 0] , [12, 13] , [12, 11] ,
                 [12, 10] , [12, 9] , [12, 8] , [12, 7] , [12, 6] , [12, 5] , [12, 4] , [12, 3] ,
-                [12, 2] , [12, 1] , [13, 12] , [13, 11] ,
-]
+                [12, 2] , [12, 1] , [13, 12] , [13, 11] ,]
     }
 
     screen = 0
@@ -179,8 +179,10 @@ class NXTBrick:
     viewing = False
     scr_running = False
     scr_killed = False
+    scr_view = None
     view_sensors = ['Light', 'UltraSonic', 'Touch']
     view_s_id = 0
+    view_port_id = 0
     def __init__(self):
         pass
     
@@ -226,36 +228,40 @@ class NXTBrick:
         self.prog = 0
 
     #screen for sensors
-    def screen10(self):
+    def screen01(self):
         self.header()
-        self.textCenterOut(LCD_LINE5+2, self.view_sensors[self.view_s_id])
+        self.screen_x = self.screen_x % 3
+        self.view_s_id = self.screen_x
+        self.textCenterOut(LCD_LINE5+2, self.view_sensors[self.screen_x])
 
-        if self.view_s_id == 0:
+        if self.screen_x == 0:
             self.imgOut(10, 1, self.imgs['touch'])
             self.imgOut(40, 1, self.imgs['light'])
             self.imgOut(70, 1, self.imgs['sonic'])
-        elif self.view_s_id == 1:
+        elif self.screen_x == 1:
             self.imgOut(10, 1, self.imgs['light'])
             self.imgOut(40, 1, self.imgs['sonic'])
             self.imgOut(70, 1, self.imgs['touch'])
-        elif self.view_s_id == 2:
+        elif self.screen_x == 2:
             self.imgOut(10, 1, self.imgs['sonic'])
             self.imgOut(40, 1, self.imgs['touch'])
             self.imgOut(70, 1, self.imgs['light'])
         
     #screen for ports
-    def screen100(self):
+    def screen02(self):
         self.header()
-        self.textCenterOut(LCD_LINE5+2, 'Port ' + str(self.view_port + 1))
+        self.screen_x = self.screen_x % 4
+        self.view_port_id = self.screen_x
+        self.textCenterOut(LCD_LINE5+2, 'Port ' + str(self.view_port_id + 1))
 
         self.imgOut(12, 4, self.imgs['run'])
         self.imgOut(42, 4, self.imgs['run'])
         self.imgOut(72, 4, self.imgs['run'])
 
-    #screen for values
-    def screen1000(self):
-        self.header()
-        
+    def screen03(self):
+        ClearScreen()
+        self.scr_view = RoboThread(target=robot.sensor_viewing)
+        self.scr_view.start()
             
     def screen2(self):
         self.header()
@@ -395,11 +401,12 @@ class NXTBrick:
         sensor = self.view_sensors[self.view_s_id]
 
         if sensor == 'Light' or sensor == 'Touch':
-            s = Sensor(self.view_port + 1)
-        elif sensor == 'Ultrasonic':
-            s = SensorUS(self.view_port + 1)
+            s = Sensor(self.view_port_id + 1)
+        elif sensor == 'UltraSonic':
+            s = SensorUS(self.view_port_id + 1)
 
         while self.viewing:
+            ClearScreen()
             self.header()
             refresh = str(s)           
 
@@ -424,7 +431,6 @@ class NXTBrick:
 
     def boot(self):
         Wait(200)
-        
         self.scrout()
         
         #TextOut(30, LCD_LINE4, "nxtemu")

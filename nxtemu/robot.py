@@ -236,12 +236,6 @@ class Robot(NXTBrick):
                 self.screen_x = 0
                 self.scrout()
                 return
-            
-        """if [self.screen_x, self.screen_y, self.screen_z] == xyzd:
-            ClearScreen()
-            self.scr_view = RoboThread(target=robot.sensor_viewing)
-            self.scr_view.start()
-            return"""
 
         # delete prog from nxtemu
         if [self.screen_y, self.screen_z] == [3, 1]:
@@ -269,7 +263,9 @@ class Robot(NXTBrick):
             return
 
         if self.screen_y < 4:
-            if self.screen_x == 0 or self.screen_y == 2:
+            if self.screen_x == 0 and self.screen_y == 0 and self.screen_z:
+                self.screen_z += 1
+            elif self.screen_x == 0 or self.screen_y == 2:
                 self.screen_y += 1
                 self.screen_x = 0
             else:
@@ -292,9 +288,14 @@ class Robot(NXTBrick):
             return
 
         if self.proc == None:
-            if self.screen_x == 0:
-                self.screen_y -= 1
+            if self.scr_view == None:
+                if self.screen_x == 0:
+                    self.screen_y -= 1
+                else:
+                    self.screen_z -= 1
             else:
+                self.scr_viewing = False
+                self.scr_view = None
                 self.screen_z -= 1
             self.screen_x = 0
             self.scrout()
@@ -307,13 +308,13 @@ class Robot(NXTBrick):
 
     def onLeft(self):
         #print "left"
-        if self.proc == None:
+        if self.proc == None and self.scr_view == None:
             self.screen_x -= 1
         self.scrout()
 
     def onRight(self):
         #print "right"
-        if self.proc == None:
+        if self.proc == None and self.scr_view == None:
             self.screen_x += 1
         self.scrout()
 
