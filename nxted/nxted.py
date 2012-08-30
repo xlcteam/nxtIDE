@@ -17,8 +17,9 @@ import tempfile
 
 import ctypes
 
-#--------------------------------   
+#--------------------------------
 __version__ = "0.6.5"
+
 
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
@@ -32,7 +33,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
         wx.aui.AuiMDIChildFrame.__init__(self, parent, -1, title=title)
 
-        self.filename = title + '.py'           
+        self.filename = title + '.py'
 
         self.editor = PythonSTC(self, -1)
         self.editor.SetFocus()
@@ -69,15 +70,16 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.Bind(wx.EVT_FIND_REPLACE_ALL, self.onReplaceAll)
         self.Bind(wx.EVT_FIND_CLOSE, self.onFindClose)
 
-
     def onFindOpen(self, event):
-        self.dlg = wx.FindReplaceDialog(self, self.findData, "Find and Replace",
-                            wx.FR_REPLACEDIALOG | wx.FR_NOUPDOWN | wx.FR_NOMATCHCASE | wx.FR_NOWHOLEWORD)
+        self.dlg = wx.FindReplaceDialog(self, self.findData,
+                            "Find and Replace",
+                            wx.FR_REPLACEDIALOG | wx.FR_NOUPDOWN |
+                            wx.FR_NOMATCHCASE | wx.FR_NOWHOLEWORD)
         self.dlg.ShowModal()
 
     def onFind(self, event):
         self.word = self.findData.GetFindString()
-        
+
         if self.word == '':
             return
 
@@ -86,23 +88,24 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.editor.GotoPos(0)
             self.updateRes()
             if self.res == -1:
-                wx.MessageBox('Nothing found', 'Result', wx.OK | wx.ICON_INFORMATION)
+                wx.MessageBox('Nothing found', 'Result',
+                                wx.OK | wx.ICON_INFORMATION)
                 self.searched = False
                 return False
             else:
                 self.searched = False
-        
+
         self.SearchFromHead(self.word)
         return True
-        
+
     def onReplace(self, event):
         rstring = self.findData.GetReplaceString()
 
         if self.onFind(None):
             self.editor.ReplaceSelection(rstring)
-            currPos = self.editor.GetCurrentPos()            
-            self.editor.SetSelection(currPos - len(rstring) , currPos)
-           
+            currPos = self.editor.GetCurrentPos()
+            self.editor.SetSelection(currPos - len(rstring), currPos)
+
     def onReplaceAll(self, event):
         self.editor.GotoPos(0)
         fstring = self.findData.GetFindString()
@@ -110,8 +113,9 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
         self.updateRes()
         if self.res == -1:
-            wx.MessageBox('Nothing found', 'Result', wx.OK | wx.ICON_INFORMATION)  
-            return        
+            wx.MessageBox('Nothing found', 'Result',
+                            wx.OK | wx.ICON_INFORMATION)
+            return
 
         text = self.editor.GetText()
         text = text.replace(fstring, rstring)
@@ -122,7 +126,6 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.dlg.Destroy()
         self.searched = False
 
-
     def SearchFromHead(self, word):
         currPos = self.editor.GetCurrentPos()
 
@@ -131,9 +134,9 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.editor.GotoPos(0)
         else:
             self.editor.GotoPos(currPos + len(word))
-        
+
         self.editor.SearchAnchor()
-        res = self.editor.SearchNext( stc.STC_FIND_REGEXP, word)
+        res = self.editor.SearchNext(stc.STC_FIND_REGEXP, word)
 
         if res == -1:
             self.searched = False
@@ -144,8 +147,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
     def updateRes(self):
         self.word = self.findData.GetFindString()
         self.editor.SearchAnchor()
-        self.res = self.editor.SearchNext( stc.STC_FIND_REGEXP, self.word)
-        
+        self.res = self.editor.SearchNext(stc.STC_FIND_REGEXP, self.word)
+
     def get_doc_dir(self):
         """Returns the path to 'Documents' directory."""
 
@@ -158,7 +161,6 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                     return os.getcwd()
         except:
             return os.getcwd()
-
 
     def onOpen(self, event):
         """Handle for file opening."""
@@ -191,7 +193,6 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         self.parent.titleUpdate()
         dialog.Destroy()
 
-
     def onSave(self, event):
         """Handle for file saving."""
 
@@ -199,7 +200,6 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.editor.SaveFile(self.path)
         else:
             return self.onSaveAs(event)
-
 
     def onSaveAs(self, event):
         """Handle for saving file as."""
@@ -233,41 +233,37 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         else:
             return True
 
-
     def onClose(self, event):
         """Handle for closing PYSTCChild via either clicking on X or pressing
         Ctrl+W"""
 
         if self.editor.GetModify():
             dlgStyle = wx.YES_NO | wx.CANCEL | wx.ICON_INFORMATION
-            msg = ("Save changes to document %s before closing?") % self.filename
+            msg = ("Save changes to document %s before closing?") \
+                    % self.filename
 
             dlg = wx.MessageBox(msg, "Save changes?", style=dlgStyle)
 
             if dlg == wx.YES:
                 self.onSave(None)
                 self.Destroy()
-            elif dlg == wx.NO: 
-                self.Destroy()       
+            elif dlg == wx.NO:
+                self.Destroy()
 
             # in case of Cancel
             else:
                 return -1
 
             return
-            
-            # we don't need this, dlg is integer
-            #dlg.Destroy()           
 
         self.parent.count -= 1
         if self.parent.count < 1:
             self.parent.Destroy()
 
-
         self.Destroy()
 
     def onCompile(self, event):
-        self.onSave(event = None)
+        self.onSave(event=None)
         self.parent.hideMsg()
 
         check = pycheck.PyCheck()
@@ -278,13 +274,13 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             msg = "NameError: %s on line %d" % nr.args
             self.editor.GotoLine(nr.args[1] - 1)
             self.parent.showMsg(msg)
-            
+
             return False
 
         except SyntaxError as se:
             msg = "SyntaxError: %s \n\t on line %d" % \
                                 (se.args[0], se.args[1][1])
-            
+
             pos = self.editor.GetLineEndPosition(se.args[1][1] - 2)
             pos += se.args[1][2]
 
@@ -297,7 +293,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             msg = "ValueError: %s on line %d" % ve.args[:2]
             self.editor.GotoLine(ve.args[1] - 1)
             #pos = self.editor.GetLineEndPosition(ve.args[3])
-            
+
             self.editor.SetSelection(ve.args[2][0], ve.args[2][1])
             self.parent.showMsg(msg)
 
@@ -317,11 +313,10 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         return True
 
     def onEmuRun(self, event):
-        
         # do not run in emulator if there is a syntax or name error
-        if not self.onCompile(event = None):
+        if not self.onCompile(event=None):
             return
-        
+
         if self.emuproc != None:
             try:
                 self.emuproc.terminate()
@@ -329,18 +324,16 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                 pass
 
             self.emuproc = None
-        
+
         # run an exe application if on Windows, otherwise py script
         extension = 'exe' if hasattr(sys, 'frozen') else 'py'
         nxtemu = "%s/nxtemu.%s" % (self.parent.cfg["nxtemudir"], extension)
-        
-        self.emuproc = subprocess.Popen([nxtemu, 
-                                         self.filename.replace('.py', '')],
-                                         stdin = subprocess.PIPE,
-                                         stdout = subprocess.PIPE,
-                                         stderr = subprocess.PIPE)
-        
 
+        self.emuproc = subprocess.Popen([nxtemu,
+                                         self.filename.replace('.py', '')],
+                                         stdin=subprocess.PIPE,
+                                         stdout=subprocess.PIPE,
+                                         stderr=subprocess.PIPE)
 
         Thread(target=self.runner).start()
 
@@ -356,7 +349,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         f = open(path, "w")
         f.write(self.editor.GetText())
         f.close()
-        
+
         out = download(path, run=True)
 
         if out != ('', ''):
@@ -376,24 +369,25 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
         if out != ('', ''):
             self.parent.showMsg(''.join(out))
-            
-        
+
     def clearStatusbar(self):
         self.parent.statusbar.SetStatusText("", 0)
+
 
 class PreferencesDialog(wx.Dialog):
     def __init__(self, parent, id, title):
         wx.Dialog.__init__(self, parent, id, title, size=(300, 290))
-        
-        sizer = wx.GridBagSizer(8,3)
+
+        sizer = wx.GridBagSizer(8, 3)
         boxsizer = wx.BoxSizer(wx.VERTICAL)
         box1 = wx.BoxSizer(wx.HORIZONTAL)
         box2 = wx.BoxSizer(wx.HORIZONTAL)
-        
+
         #define buttons, inputs...
         l1 = wx.StaticText(self, -1, 'nxtemu directory:')
         l1.SetFont(wx.Font(10, wx.MODERN, wx.NORMAL, wx.BOLD))
-        self.i1 = wx.TextCtrl(self, -1, parent.cfg["nxtemudir"], style=wx.EXPAND)
+        self.i1 = wx.TextCtrl(self, -1, parent.cfg["nxtemudir"],
+                                style=wx.EXPAND)
         b1 = wx.Button(self, -1, '...', style=wx.BU_EXACTFIT)
         self.Bind(wx.EVT_BUTTON, self.onDir, b1)
         ok = wx.Button(self, -1, 'Save and Apply', style=wx.BU_EXACTFIT)
@@ -409,22 +403,21 @@ class PreferencesDialog(wx.Dialog):
 
         boxsizer.Add(l1, flag=wx.LEFT, border=5)
         boxsizer.Add(box1, flag=wx.EXPAND)
-        
+
         boxsizer.Add(box2, flag=wx.ALIGN_RIGHT)
         self.SetSizer(boxsizer)
 
         self.parent = parent
-    
+
     def onDir(self, event):
-        dialog = wx.DirDialog(None, "Choose a directory:", 
-                                style=wx.DD_DEFAULT_STYLE, 
+        dialog = wx.DirDialog(None, "Choose a directory:",
+                                style=wx.DD_DEFAULT_STYLE,
                                 defaultPath=self.parent.cfg["nxtemudir"])
         if dialog.ShowModal() == wx.ID_OK:
             self.parent.cfg["nxtemudir"] = dialog.GetPath()
 
             self.i1.SetValue(self.parent.cfg["nxtemudir"])
             dialog.Destroy()
-
 
     def onOk(self, event):
         self.parent.cfg["nxtemudir"] = self.i1.GetValue()
@@ -435,8 +428,7 @@ class PreferencesDialog(wx.Dialog):
 
         self.Destroy()
 
-
-    def onCancel(self,event):
+    def onCancel(self, event):
         self.Destroy()
 
 
@@ -453,22 +445,22 @@ class Editor(wx.aui.AuiMDIParentFrame):
     ID_ABOUT = 1011
 
     emuproc = None
+
     def __init__(self, parent):
         wx.aui.AuiMDIParentFrame.__init__(self, parent, -1,
-                                          title = "nxted",
-                                          size = (640,480),
-                                          style = wx.DEFAULT_FRAME_STYLE)
+                                          title="nxted",
+                                          size=(640, 480),
+                                          style=wx.DEFAULT_FRAME_STYLE)
 
-        
         self.SetIcon(wx.Icon('icons/nxted_128.ico', wx.BITMAP_TYPE_ICO))
 
-        self._mgr = wx.aui.AuiManager()                                         
-        self._mgr.SetManagedWindow(self) 
-        self.msgs = wx.TextCtrl(self,-1, "", wx.Point(0, 0), wx.Size(150, 40),
-                          wx.NO_BORDER | wx.TE_MULTILINE)    
-        self._mgr.AddPane(self.msgs, wx.aui.AuiPaneInfo().    
-                         Name("messages").Caption("Messages").Bottom().          
-                         CloseButton(True).MaximizeButton(True).Hide())   
+        self._mgr = wx.aui.AuiManager()
+        self._mgr.SetManagedWindow(self)
+        self.msgs = wx.TextCtrl(self, -1, "", wx.Point(0, 0), wx.Size(150, 40),
+                          wx.NO_BORDER | wx.TE_MULTILINE)
+        self._mgr.AddPane(self.msgs, wx.aui.AuiPaneInfo().
+                         Name("messages").Caption("Messages").Bottom().
+                         CloseButton(True).MaximizeButton(True).Hide())
 
         self.count = 0
         self.mb = self.MakeMenuBar()
@@ -479,19 +471,19 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.Bind(wx.EVT_CLOSE, self.OnQuit)
 
         self.OnNewChild(None)
-        
+
         #self._mgr.Update()
         self.Show(True)
-        
+
         # import config from yaml file
         self.cfgfile = ConfigParser.ConfigParser()
         self.cfgfile.readfp(open('config.ini'))
 
-        self.cfg = { 'nxtemudir' : self.cfgfile.get('nxted', 'nxtemu')}
-        
+        self.cfg = {'nxtemudir': self.cfgfile.get('nxted', 'nxtemu')}
+
         self.dir = tempfile.mkdtemp()
-    
-    def showMsg(self, msg = None):
+
+    def showMsg(self, msg=None):
         if msg != None:
             self.msgs.SetValue(msg)
 
@@ -509,7 +501,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.Bind(wx.EVT_MENU, self.OnNewChild, item)
 
         self.menu.AppendSeparator()
-        
+
         item = self.menu.Append(self.ID_OPEN, "Open\tCtrl+O")
         item = self.menu.Append(self.ID_SAVE, "Save\tCtrl+S")
         item = self.menu.Append(self.ID_SAVE_AS, "Save as\tCtrl+Shift+S")
@@ -518,36 +510,33 @@ class Editor(wx.aui.AuiMDIParentFrame):
         item = self.menu.Append(self.ID_FIND, "Find\tCtrl+F")
         self.menu.AppendSeparator()
 
-                
         item = self.menu.Append(-1, "Next\tCtrl-PgDn")
         self.Bind(wx.EVT_MENU, self.Next, item)
         item = self.menu.Append(-1, "Previous\tCtrl-PgUp")
         self.Bind(wx.EVT_MENU, self.Prev, item)
 
-
         self.menu.AppendSeparator()
         item = self.menu.Append(-1, "Preferences")
         self.Bind(wx.EVT_MENU, self.onPreferences, item)
         self.menu.AppendSeparator()
-        
+
         item = self.menu.Append(self.ID_CLOSE, "Close\tCtrl-W")
         item = self.menu.Append(-1, "Quit\tCtrl-Q")
         self.Bind(wx.EVT_MENU, self.OnQuit, item)
-        
 
-        self.run_menu= wx.Menu()
+        self.run_menu = wx.Menu()
         self.run_menu.Append(self.ID_COMPILE, "Compile\tF5")
         self.run_menu.Append(self.ID_EMU_RUN, "Run in nxtemu\tF6")
         self.run_menu.AppendSeparator()
-        self.run_menu.Append(self.ID_BRICK_DOWNLOAD, 
+        self.run_menu.Append(self.ID_BRICK_DOWNLOAD,
                              "Download to NXT Brick\tCtrl-F5")
-        self.run_menu.Append(self.ID_BRICK_DOWNLOAD_RUN, 
+        self.run_menu.Append(self.ID_BRICK_DOWNLOAD_RUN,
                              "Download to Brick && run\tCtrl-F6")
 
         self.help_menu = wx.Menu()
         item = self.help_menu.Append(self.ID_ABOUT, "About nxtIDE")
         self.Bind(wx.EVT_MENU, self.onAbout, item)
-    
+
         mb.Append(self.menu, "&File")
         mb.Append(self.run_menu, "&Run")
         mb.Append(self.help_menu, "&Help")
@@ -567,7 +556,6 @@ class Editor(wx.aui.AuiMDIParentFrame):
         child.Refresh()
         self._mgr.Update()
         return child
-        
 
     def OnQuit(self, evt):
         #os.removedirs(self.dir)
@@ -575,7 +563,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
         while self.GetActiveChild() != None:
             if self.GetActiveChild().onClose(None) == -1:
                 return
-        
+
         self.Destroy()
 
     def onPreferences(self, evt):
@@ -588,25 +576,26 @@ class Editor(wx.aui.AuiMDIParentFrame):
 
         #info.SetIcon(wx.Icon('icons/nxted_128.ico', wx.BITMAP_TYPE_PNG))
         info.SetName('nxtIDE')
-        info.SetDescription('All you need to play with LEGO NXT robots and Python')
+        info.SetDescription('All you need to play with LEGO NXT robots and \
+                            Python')
         info.SetVersion(__version__)
-        info.SetCopyright('(C) 2011 - infinity XLC Team (http://xlc-team.info)')
-        info.SetDevelopers(['Marek Šuppa - main developer', 'Adrián Matejov', 'Ján Ďurkáč'])
+        info.SetCopyright('(C) 2011 - infinity XLC Team \
+                            (http://xlc-team.info)')
+        info.SetDevelopers(['Marek Šuppa - main developer', 'Adrián Matejov',
+                            'Ján Ďurkáč'])
         info.SetDocWriters(['Marek Šuppa'])
         info.SetWebSite('http://xlcteam.github.com/nxtIDE')
-    
+
         wx.AboutBox(info)
 
     def titleUpdate(self):
-        self.SetTitle("%s - %s" % (self.GetActiveChild().GetTitle(), 
+        self.SetTitle("%s - %s" % (self.GetActiveChild().GetTitle(),
                                    'nxted')
                      )
 
     def tabChanged(self, evt):
         wx.FutureCall(200, self.titleUpdate)
 
- 
-            
 if __name__ == "__main__":
     if hasattr(sys, 'frozen'):
         app = wx.App(redirect=1, filename='nxted.exe.log')
