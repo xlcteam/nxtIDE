@@ -168,8 +168,6 @@ class NXTBrick:
                 [12, 2] , [12, 1] , [13, 12] , [13, 11] ,]
     }
 
-    screen = 0
-
     screen_x = 0
     screen_y = 0
     screen_z = 0
@@ -372,9 +370,7 @@ class NXTBrick:
     
     def running(self):
         self.scr_running = True
-        #self.header()
-        
-        #self.imgOut(42, 4, self.imgs['run'])
+
         pygame.time.delay(200)
         s = ""
         clock = pygame.time.Clock()
@@ -384,10 +380,7 @@ class NXTBrick:
 
             s += "."
             t = (3-len(s))*" "
-            # ClearLine(LCD_LINE5)
             TextOut(20, LCD_LINE5, "Running " + s + t)
-
-            #print "'"+s+t+"'"
 
             if len(s) >= 3:
                 s = ""
@@ -432,12 +425,6 @@ class NXTBrick:
     def boot(self):
         Wait(200)
         self.scrout()
-        
-        #TextOut(30, LCD_LINE4, "nxtemu")
-        
-
-        #Wait(8000)
-        #ClearScreen()
     
     def textCenterOut(self, line, text):
         x = 50 - len(text)*3

@@ -68,7 +68,6 @@ if __name__ == "__main__":
 
         prog = sys.argv[1]
         robot.progLoad()
-        #print robot.progs
        
         robot.prog = robot.progs.index(prog)
         robot.screen = 3
@@ -132,7 +131,7 @@ if __name__ == "__main__":
         keystate = pygame.key.get_pressed()
         mod = pygame.key.get_mods()
 
-        # move robot by keys
+        # rotate robot by keys
         if keystate[K_LEFT] and mod & KMOD_SHIFT:
             robot.angle -= 1
         elif keystate[K_RIGHT] and mod & KMOD_SHIFT:

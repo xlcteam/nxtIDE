@@ -271,8 +271,6 @@ class Robot(NXTBrick):
             else:
                 self.screen_z += 1
 
-        #print self.screen_x, self.screen_y, self.screen_z
-
         # taking care of empty __progs__ directory
         if self.screen_y == 2 and len(self.progs) == 0:
             self.screen_y -= 1
@@ -294,7 +292,7 @@ class Robot(NXTBrick):
                 else:
                     self.screen_z -= 1
             else:
-                self.scr_viewing = False
+                self.viewing = False
                 self.scr_view = None
                 self.screen_z -= 1
             self.screen_x = 0
@@ -303,17 +301,12 @@ class Robot(NXTBrick):
             self.die = True
             self.scr_running = False
 
-       #print "onBack"
-       #print self.screen_x, self.screen_y, self.screen_z
-
     def onLeft(self):
-        #print "left"
         if self.proc == None and self.scr_view == None:
             self.screen_x -= 1
         self.scrout()
 
     def onRight(self):
-        #print "right"
         if self.proc == None and self.scr_view == None:
             self.screen_x += 1
         self.scrout()
