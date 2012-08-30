@@ -200,6 +200,7 @@ class NXTBrick:
 
     def screen0(self):
         self.header(True)
+        self.screen_x = self.screen_x % 2        
 
         # first centeral screen: pos [0, 0, 0] 
         if self.screen_x == 0:
@@ -268,8 +269,8 @@ class NXTBrick:
 
             return
 
-
-        self.prog = (self.screen_x % len(self.progs))
+        self.screen_x = self.screen_x % len(self.progs)
+        self.prog = self.screen_x
         
         self.textCenterOut(LCD_LINE5+2, self.progs[self.prog])
 
@@ -289,30 +290,31 @@ class NXTBrick:
             self.screen_y = 2
             self.screen_x = self.prog
             self.screen_z = 0
-            self.scrour()
+            self.scrout()
 
             return
 
         self.header()
         self.textCenterOut(LCD_LINE4+2, self.progs[self.prog])
 
-        x = self.screen_x % 2
+        self.screen_x = self.screen_x % 2
 
-        if x == 0:
+        if self.screen_x == 0:
             self.textCenterOut(LCD_LINE5+2, 'Run')
             self.imgOut(10, 4, self.imgs['delete'])
             self.imgOut(42, 4, self.imgs['run'])
-        elif x == 1:
+        elif self.screen_x == 1:
             self.textCenterOut(LCD_LINE5+2, 'Delete')
             self.imgOut(42, 4, self.imgs['delete'])
             self.imgOut(70, 4, self.imgs['run'])
 
-    def screen_3(self):
+    def screen31(self):
         self.header()
 
         self.textCenterOut(LCD_LINE4, "Are you sure?")
+        self.screen_x = self.screen_x % 2
 
-        if self.btn_x_del == 1:
+        if self.screen_x == 0:
             self.imgOut(20, 4, self.imgs['ok'])
             self.imgOut(40, 4, self.imgs['cross'])
         else:
@@ -323,8 +325,9 @@ class NXTBrick:
         self.header()
 
         self.textCenterOut(LCD_LINE4, "Turn off?")
-        
-        if self.btn_x == 0:
+        self.screen_x = self.screen_x % 2
+
+        if self.screen_x == 0:
             self.imgOut(40, 4, self.imgs['ok'])
             self.imgOut(60, 4, self.imgs['cross'])
         else:
@@ -335,7 +338,11 @@ class NXTBrick:
 
     def scrout(self):
         ClearScreen()
-        screen = 'screen%d' % self.screen_y
+        if self.screen_z:
+            # YZ
+            screen = 'screen%d%d' % (self.screen_y, self.screen_z)
+        else:
+            screen = 'screen%d' % self.screen_y
         getattr(self, screen.replace('-', '_'))()
     
     def progLoad(self):
@@ -387,12 +394,10 @@ class NXTBrick:
 
         sensor = self.view_sensors[self.view_s_id]
 
-        if sensor == 'Light':
-            s = Sensor(self.view_port + 1) 
+        if sensor == 'Light' or sensor == 'Touch':
+            s = Sensor(self.view_port + 1)
         elif sensor == 'Ultrasonic':
-            s = SensorUS(self.view_port + 1) 
-        elif sensor == 'Touch':
-            s = Sensor(self.view_port + 1) 
+            s = SensorUS(self.view_port + 1)
 
         while self.viewing:
             self.header()
