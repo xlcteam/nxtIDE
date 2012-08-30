@@ -224,21 +224,6 @@ class Robot(NXTBrick):
 
         # print background.get_at((int(self.x), int(self.y)))
 
-    def remove_prog(self):
-        try:
-            os.remove('__progs__/e' + self.progs[self.prog] + '.py')
-            try:
-                os.remove('__progs__/e' + self.progs[self.prog] + '.pyc')
-            except: pass
-        except: pass
-        
-        self.progs.remove(self.progs[self.prog])
-        self.prog = (self.prog - 1) % len(self.progs)
-
-        self.screen_x = 0
-        self.screen_y = 2
-        self.screen_z = 0
-
     def onCenter(self):
         #print "onCenter"
 

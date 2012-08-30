@@ -407,6 +407,21 @@ class NXTBrick:
 
             clock.tick(3)
 
+    def remove_prog(self):
+        try:
+            os.remove('__progs__/e' + self.progs[self.prog] + '.py')
+            try:
+                os.remove('__progs__/e' + self.progs[self.prog] + '.pyc')
+            except: pass
+        except: pass
+        
+        self.progs.remove(self.progs[self.prog])
+        self.prog = (self.prog - 1) % len(self.progs)
+
+        self.screen_x = 0
+        self.screen_y = 2
+        self.screen_z = 0
+
     def boot(self):
         Wait(200)
         
