@@ -236,16 +236,7 @@ class Robot(NXTBrick):
                 self.screen_x = 0
                 self.scrout()
                 return
-
-        # delete prog from nxtemu
-       #if [self.screen_x, self.screen_y] == [1, 3]:
-       #    if self.screen_x == 1:
-       #        self.remove_prog()
-       #    else:
-       #        self.screen_x, self.screen_y, self.screen_z = 0, 3, 0
-       #    self.scrout()
-       #    return
-           
+          
         if [self.screen_x, self.screen_y, self.screen_z] == [0, 3, 0]:
             if self.proc == None:
 

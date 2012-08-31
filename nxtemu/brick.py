@@ -364,6 +364,7 @@ class NXTBrick:
         # in case of child screen or program listing which can be redirected to
         # one screen
         if self.screen_z and self.screen_y != 2:
+            # using x to determine difference between Y and Z
             screen = 'screen%dx%d' % (self.screen_y, self.screen_z)
         else:
             screen = 'screen%d' % self.screen_y
