@@ -155,7 +155,7 @@ class NXTBrick:
                 [18, 6],[18, 10],[18, 11],[19, 7],[19, 8],[19, 9],],
 
         'delete': [
-                [3, 12] , [3, 11] , [4, 13] , [4, 11] , [4, 10] , [4, 9] ,
+                [3, 12], [3, 11], [4, 13], [4, 11], [4, 10], [4, 9],
                 [4, 8] , [4, 7] , [4, 6] , [4, 5] , [4, 4] , [4, 3] , [4, 2] , [4, 1] ,
                 [5, 13] , [5, 11] , [5, 0] , [6, 13] , [6, 11] , [6, 10] , [6, 9] , [6, 8] ,
                 [6, 7] , [6, 6] , [6, 5] , [6, 4] , [6, 3] , [6, 2] , [6, 1] , [6, 0] ,
@@ -226,7 +226,7 @@ class NXTBrick:
         self.prog = 0
 
     #screen for sensors
-    def screen01(self):
+    def screen0x1(self):
         self.header()
         self.screen_x = self.screen_x % 3
         self.view_s_id = self.screen_x
@@ -246,7 +246,7 @@ class NXTBrick:
             self.imgOut(70, 1, self.imgs['light'])
         
     #screen for ports
-    def screen02(self):
+    def screen0x2(self):
         self.header()
         self.screen_x = self.screen_x % 4
         self.view_port_id = self.screen_x
@@ -312,7 +312,7 @@ class NXTBrick:
             self.imgOut(42, 4, self.imgs['delete'])
             self.imgOut(70, 4, self.imgs['run'])
 
-    def screen31(self):
+    def screen3x1(self):
         self.header()
 
         self.textCenterOut(LCD_LINE4, "Are you sure?")
@@ -325,6 +325,24 @@ class NXTBrick:
             self.imgOut(40, 4, self.imgs['ok'])
             self.imgOut(60, 4, self.imgs['cross'])
     
+    def screen3x2(self):
+        """If you got to this screen you confirmed that you want to delete the
+        selected program."""
+
+        # the function above takes care of jumping back
+        self.remove_prog()
+        self.scrout()
+
+
+
+    def screen4x1(self):
+        """Getting to this screen means that you want do cancel deletion of a
+        program."""
+
+        self.screen_y = 3
+        self.screen_z = 0
+        self.scrout()
+
     def screen_1(self):
         self.header()
 
@@ -342,9 +360,11 @@ class NXTBrick:
 
     def scrout(self):
         ClearScreen()
-        if self.screen_z:
-            # YZ
-            screen = 'screen%d%d' % (self.screen_y, self.screen_z)
+        
+        # in case of child screen or program listing which can be redirected to
+        # one screen
+        if self.screen_z and self.screen_y != 2:
+            screen = 'screen%dx%d' % (self.screen_y, self.screen_z)
         else:
             screen = 'screen%d' % self.screen_y
         getattr(self, screen.replace('-', '_'))()
