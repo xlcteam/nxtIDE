@@ -261,11 +261,12 @@ class Robot(NXTBrick):
                 self.scr_runner.start()
                 self.proc.start()
             return
-
-        if self.screen_y < 4:
-            if self.screen_x == 0 and self.screen_y == 0 and self.screen_z:
-                self.screen_z += 1
-            elif self.screen_x == 0 or self.screen_y == 2:
+        
+        if self.screen_z:
+            self.screen_z += 1
+        
+        elif self.screen_y < 4:
+            if self.screen_x == 0 or self.screen_y == 2:
                 self.screen_y += 1
                 self.screen_x = 0
             else:
@@ -287,10 +288,10 @@ class Robot(NXTBrick):
 
         if self.proc == None:
             if self.scr_view == None:
-                if self.screen_x == 0:
-                    self.screen_y -= 1
-                else:
+                if self.screen_z:
                     self.screen_z -= 1
+                else:
+                    self.screen_y -= 1
             else:
                 self.viewing = False
                 self.scr_view = None
