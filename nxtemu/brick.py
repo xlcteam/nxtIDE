@@ -185,7 +185,7 @@ class NXTBrick:
         pass
     
     
-    def header(self, around = False):
+    def header(self, around=False):
         self.textCenterOut(LCD_LINE1+1, self.name)
         self.imgOut(88, 59, self.imgs['battery'])
         LineOut(0, 56, 100, 56)
@@ -214,20 +214,20 @@ class NXTBrick:
             self.textCenterOut(LCD_LINE5+2, 'View')
 
             self.imgOut(10, 1, self.imgs['myfiles'])
-            self.imgOut(40, 1, self.imgs['view'])
+            self.imgOut(41, 1, self.imgs['view'])
     
     def screen1(self):
-        self.header()
+        self.header(True)
         self.textCenterOut(LCD_LINE5+2, "Software files")
         
-        self.imgOut(40, 4, self.imgs['swfiles'])
+        self.imgOut(42, 4, self.imgs['swfiles'])
         
         self.progLoad()
         self.prog = 0
 
     #screen for sensors
     def screen0x1(self):
-        self.header()
+        self.header(True)
         self.screen_x = self.screen_x % 3
         self.view_s_id = self.screen_x
         self.textCenterOut(LCD_LINE5+2, self.view_sensors[self.screen_x])
@@ -247,7 +247,7 @@ class NXTBrick:
         
     #screen for ports
     def screen0x2(self):
-        self.header()
+        self.header(True)
         self.screen_x = self.screen_x % 4
         self.view_port_id = self.screen_x
         self.textCenterOut(LCD_LINE5+2, 'Port ' + str(self.view_port_id + 1))
@@ -262,7 +262,7 @@ class NXTBrick:
         self.scr_view.start()
             
     def screen2(self):
-        self.header()
+        self.header(True)
 
         # special case of all items being on the same level
         if self.screen_y == 2 and self.screen_z == 1:
@@ -278,7 +278,7 @@ class NXTBrick:
         
         self.textCenterOut(LCD_LINE5+2, self.progs[self.prog])
 
-        self.imgOut(40, 4, self.imgs['swfiles'])
+        self.imgOut(42, 4, self.imgs['swfiles'])
         if len(self.progs) > 1:
             if len(self.progs) == 2 and self.prog == 1:
                 self.imgOut(10, 4, self.imgs['swfiles'])
@@ -298,7 +298,7 @@ class NXTBrick:
 
             return
 
-        self.header()
+        self.header(True)
         self.textCenterOut(LCD_LINE4+2, self.progs[self.prog])
 
         self.screen_x = self.screen_x % 2
@@ -306,14 +306,14 @@ class NXTBrick:
         if self.screen_x == 0:
             self.textCenterOut(LCD_LINE5+2, 'Run')
             self.imgOut(10, 4, self.imgs['delete'])
-            self.imgOut(42, 4, self.imgs['run'])
+            self.imgOut(43, 4, self.imgs['run'])
         elif self.screen_x == 1:
             self.textCenterOut(LCD_LINE5+2, 'Delete')
             self.imgOut(42, 4, self.imgs['delete'])
             self.imgOut(70, 4, self.imgs['run'])
 
     def screen3x1(self):
-        self.header()
+        self.header(True)
 
         self.textCenterOut(LCD_LINE4, "Are you sure?")
         self.screen_x = self.screen_x % 2
@@ -346,7 +346,7 @@ class NXTBrick:
         self.scrout()
 
     def screen_1(self):
-        self.header()
+        self.header(True)
 
         self.textCenterOut(LCD_LINE4, "Turn off?")
         self.screen_x = self.screen_x % 2
