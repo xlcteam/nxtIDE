@@ -3,6 +3,14 @@ from glob import glob
 from robothread import *
 import os, os.path, sys
 
+def p(path):
+    """Nasty monkey patch - shall be removed"""
+    import os
+    from os.path import abspath, dirname
+    return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
+            + path
+
+
 class NXTBrick:
     name = "emulator"
     imgs = {
