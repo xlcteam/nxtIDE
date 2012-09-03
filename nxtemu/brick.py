@@ -329,10 +329,13 @@ class NXTBrick:
         """If you got to this screen you confirmed that you want to delete the
         selected program."""
 
-        # the function above takes care of jumping back
+        # the function below takes care of jumping back
         self.remove_prog()
+
+        # in case of no programs left we shall jump to 'Sofrware Files'
         if len(self.progs) == 0:
             self.screen_y -= 1
+
         self.scrout()
 
 
@@ -432,9 +435,9 @@ class NXTBrick:
 
     def remove_prog(self):
         try:
-            os.remove('__progs__/e' + self.progs[self.prog] + '.py')
+            os.remove(p('__progs__/e' + self.progs[self.prog] + '.py'))
             try:
-                os.remove('__progs__/e' + self.progs[self.prog] + '.pyc')
+                os.remove(p( '__progs__/e' + self.progs[self.prog] + '.pyc' ))
             except: pass
         except: pass
         
