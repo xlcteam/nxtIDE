@@ -331,6 +331,8 @@ class NXTBrick:
 
         # the function above takes care of jumping back
         self.remove_prog()
+        if len(self.progs) == 0:
+            self.screen_y -= 1
         self.scrout()
 
 
