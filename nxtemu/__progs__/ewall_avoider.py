@@ -1,8 +1,10 @@
 from api import *
+from api import *
 
 
 def main():
     while 1:
+        ticker()#lfixed
         
         if SensorUS(IN_2) < 15:
             OnFwd(OUT_A, 90)
