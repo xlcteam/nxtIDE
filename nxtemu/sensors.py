@@ -101,7 +101,7 @@ class SensorTouch(BaseSensor):
         else:
             return 0
 
-class SensorCompass(BaseSensor):
+class SensorHTCompass(BaseSensor):
     """HTCompass sensor - measures robot's rotation from north (0 - 359)"""
     type = 'compass'
     #TODO: make a slot at the top of robot for it
@@ -120,6 +120,8 @@ def sensor_generator(type, slot = None):
         return SensorUS(slot)
     elif type == 'touch':
         return SensorTouch(slot)
+    elif type == 'compass':
+        return SensorHTCompass(slot)
     else:
         return BaseSensor(slot)
 

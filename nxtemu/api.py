@@ -17,7 +17,7 @@ def makeXY(x, y):
     else:                                                                   
         return (rx, y*2+1)  
 
-# font adapted form
+# font adapted from
 # http://www.openobject.org/opensourceurbanism/Bike_POV_Beta_4
 chars =[[0x00,0x00,0x00,0x00,0x00],
     [0x00,0x00,0x6f,0x00,0x00],  
@@ -763,7 +763,22 @@ def SensorUS(sensor):
     
     return robot.sensors[sensor].getValue()
 
+def SensorHTCompass(sensor):
+    """SensorHTCompass(sensor)
+    
+    Read value from given Compass sensor. Returns deviation from north.
 
+    :param int sensor: sensor we want to read from
+
+    .. [sk]
+    SensorHTCompass(sensor)
+
+    Načíta hodnotu z Kompasu. Vrati odchýlku od severu.
+
+    :param int sensor: senzor, z ktorého chceme čítať
+    """
+    
+    return robot.sensors[sensor].getValue()
 
 def Random(n = None):
     """Random(n = 0)
