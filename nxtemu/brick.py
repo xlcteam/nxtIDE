@@ -390,11 +390,11 @@ class NXTBrick:
         self.screen_x = self.screen_x % 2
 
         if self.screen_x == 0:
-            self.imgOut(20, 4, self.imgs['ok'])
-            self.imgOut(40, 4, self.imgs['cross'])
+            self.imgOut(12, 4, self.imgs['ok'])
+            self.imgOut(42, 4, self.imgs['cross'])
         else:
-            self.imgOut(40, 4, self.imgs['ok'])
-            self.imgOut(60, 4, self.imgs['cross'])
+            self.imgOut(42, 4, self.imgs['ok'])
+            self.imgOut(72, 4, self.imgs['cross'])
     
     def screen3x2(self):
         """If you got to this screen you confirmed that you want to delete the
@@ -426,11 +426,11 @@ class NXTBrick:
         self.screen_x = self.screen_x % 2
 
         if self.screen_x == 0:
-            self.imgOut(40, 4, self.imgs['ok'])
-            self.imgOut(60, 4, self.imgs['cross'])
+            self.imgOut(42, 4, self.imgs['ok'])
+            self.imgOut(70, 4, self.imgs['cross'])
         else:
-            self.imgOut(20, 4, self.imgs['ok'])
-            self.imgOut(40, 4, self.imgs['cross'])
+            self.imgOut(12, 4, self.imgs['ok'])
+            self.imgOut(42, 4, self.imgs['cross'])
             
         
 
