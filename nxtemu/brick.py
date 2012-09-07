@@ -327,7 +327,7 @@ class NXTBrick:
         self.imgOut(42, 4, self.imgs['port' + str(port_middle)])
         self.imgOut(72, 4, self.imgs['port' + str(port_right)])
 
-    def screen03(self):
+    def screen0x3(self):
         ClearScreen()
         self.scr_view = RoboThread(target=robot.sensor_viewing)
         self.scr_view.start()
