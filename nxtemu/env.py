@@ -19,7 +19,7 @@ WALL_HEIGHT = 3
 window = pygame.display.set_mode((w + WALL_HEIGHT*2 + 378,h + WALL_HEIGHT*2)) 
 screen = pygame.display.get_surface() 
 background = pygame.Surface(screen.get_size()).convert()
-cfg = ConfigParser.ConfigParser()
+cfg = ConfigParser.RawConfigParser()
 
 def init():
     cfg.read(p('config.ini'))

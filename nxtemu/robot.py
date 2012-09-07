@@ -14,6 +14,14 @@ from dialog import SettingsDialog
 
 from sensors import *
 
+def p(path):
+    """Nasty monkey patch - shall be removed"""
+    import os
+    from os.path import abspath, dirname
+    return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
+            + path
+
+
 class Robot(NXTBrick):
     proc = None
     die = False
@@ -347,6 +355,8 @@ class Robot(NXTBrick):
         out = d.out()
 
         env.cfg.set('nxtemu', 'bckg', out['others']['background'])
+        with open('config.ini', 'wb') as configfile:
+            env.cfg.write(configfile)
 
         robot.inputs = out['inputs']
         
