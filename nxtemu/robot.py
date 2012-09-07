@@ -346,6 +346,8 @@ class Robot(NXTBrick):
     def dialogReturn(self, d):
         out = d.out()
 
+        env.cfg.set('nxtemu', 'bckg', out['others']['background'])
+
         robot.inputs = out['inputs']
         
         for i in out['inputs']:
