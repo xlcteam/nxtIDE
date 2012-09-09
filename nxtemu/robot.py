@@ -291,6 +291,8 @@ class Robot(NXTBrick):
             self.die = True
             self.scr_running = False
 
+        #print self.screen_x, self.screen_y, self.screen_z
+
     def onLeft(self):
         if self.proc == None and self.scr_view == None:
             self.screen_x -= 1
