@@ -14,6 +14,14 @@ from dialog import SettingsDialog
 
 from sensors import *
 
+def p(path):
+    """Nasty monkey patch - shall be removed"""
+    import os
+    from os.path import abspath, dirname
+    return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
+            + path
+
+
 class Robot(NXTBrick):
     proc = None
     die = False
@@ -252,12 +260,16 @@ class Robot(NXTBrick):
                 self.scr_runner.start()
                 self.proc.start()
             return
-        
-        if self.screen_x == 0:
-            self.screen_y += 1
-        else:
+
+        if self.screen_z:
             self.screen_z += 1
             self.screen_x = 0
+        else:
+            if self.screen_x == 0:
+                self.screen_y += 1
+            else:
+                self.screen_z += 1
+                self.screen_x = 0
         
         # taking care of empty __progs__ directory
         if self.screen_y == 2 and len(self.progs) == 0:
@@ -347,6 +359,10 @@ class Robot(NXTBrick):
 
     def dialogReturn(self, d):
         out = d.out()
+
+        env.cfg.set('nxtemu', 'bckg', out['others']['background'])
+        with open('config.ini', 'wb') as configfile:
+            env.cfg.write(configfile)
 
         robot.inputs = out['inputs']
         
