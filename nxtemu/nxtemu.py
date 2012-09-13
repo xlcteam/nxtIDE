@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 import pygame, random, math, time, sys, os
 from pygame.locals import * 
