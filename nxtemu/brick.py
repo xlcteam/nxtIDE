@@ -513,6 +513,8 @@ class NXTBrick:
             s = Sensor(self.view_port_id + 1)
         elif sensor == 'UltraSonic':
             s = SensorUS(self.view_port_id + 1)
+        elif sensor == 'Compass':
+            s = SensorHTCompass(self.view_port_id + 1)
 
         while self.viewing:
             #ClearScreen()
