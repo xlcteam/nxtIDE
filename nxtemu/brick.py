@@ -171,7 +171,7 @@ class NXTBrick:
                 [13, 15],[13, 16],[14, 1],[14, 2],[14, 14],[14, 15],[15, 1],
                 [15, 2],[15, 14],[15, 15],[16, 2],[16, 3],[16, 13],[16, 14],
                 [17, 3],[17, 4],[17, 12],[17, 13],[18, 4],[18, 5],[18, 6],
-                [18, 7],[18, 8],[18, 9],[18, 10],[18, 11],[18, 12],]
+                [18, 7],[18, 8],[18, 9],[18, 10],[18, 11],[18, 12],],
 
         'delete': [
                 [3, 12], [3, 11], [4, 13], [4, 11], [4, 10], [4, 9],
@@ -259,7 +259,7 @@ class NXTBrick:
     scr_running = False
     scr_killed = False
     scr_view = None
-    view_sensors = ['Light', 'UltraSonic', 'Touch']
+    view_sensors = ['Light', 'UltraSonic', 'Touch', 'Compass']
     view_s_id = 0
     view_port_id = 0
     def __init__(self):
@@ -309,12 +309,13 @@ class NXTBrick:
     #screen for sensors
     def screen0x1(self):
         self.header(True)
-        self.screen_x = self.screen_x % 3
+        self.screen_x = self.screen_x % 4
         self.view_s_id = self.screen_x
         self.textCenterOut(LCD_LINE5+2, self.view_sensors[self.screen_x])
 
+        # nasty code -- needs fix (how could I implement something like this)
         if self.screen_x == 0:
-            self.imgOut(10, 1, self.imgs['touch'])
+            self.imgOut(10, 1, self.imgs['compass'])
             self.imgOut(40, 1, self.imgs['light'])
             self.imgOut(70, 1, self.imgs['sonic'])
         elif self.screen_x == 1:
@@ -324,6 +325,10 @@ class NXTBrick:
         elif self.screen_x == 2:
             self.imgOut(10, 1, self.imgs['sonic'])
             self.imgOut(40, 1, self.imgs['touch'])
+            self.imgOut(70, 1, self.imgs['compass'])
+        elif self.screen_x == 3:
+            self.imgOut(10, 1, self.imgs['touch'])
+            self.imgOut(40, 1, self.imgs['compass'])
             self.imgOut(70, 1, self.imgs['light'])
         
     #screen for ports
