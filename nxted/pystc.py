@@ -59,6 +59,8 @@ class PythonSTC(stc.StyledTextCtrl):
                  pos=wx.DefaultPosition, size=wx.DefaultSize,
                  style=0):
         stc.StyledTextCtrl.__init__(self, parent, ID, pos, size, style)
+        
+        self.parent = parent
 
         self.CmdKeyAssign(ord('B'), stc.STC_SCMOD_CTRL, stc.STC_CMD_ZOOMIN)
         self.CmdKeyAssign(ord('N'), stc.STC_SCMOD_CTRL, stc.STC_CMD_ZOOMOUT)
@@ -136,6 +138,7 @@ class PythonSTC(stc.StyledTextCtrl):
         self.Bind(stc.EVT_STC_UPDATEUI, self.OnUpdateUI)
         self.Bind(stc.EVT_STC_MARGINCLICK, self.OnMarginClick)
         self.Bind(wx.EVT_KEY_DOWN, self.OnKeyPressed)
+        self.Bind(wx.EVT_KEY_UP, self.OnKeyReleased)
         self.Bind(wx.EVT_CHAR, self.OnChar)
 
 
@@ -275,7 +278,8 @@ class PythonSTC(stc.StyledTextCtrl):
         key = event.GetKeyCode()
         
         pos = self.GetCurrentPos()
-        
+
+       
         
         if key == wx.WXK_RETURN:
             
@@ -328,7 +332,18 @@ class PythonSTC(stc.StyledTextCtrl):
                 self.AutoCompShow(len(id), " ".join(kw))
         else:
             event.Skip()
+    
+    def OnKeyReleased(self, event):
 
+        if self.GetModify(): 
+            if '*' not in self.parent.GetTitle():
+                self.parent.SetTitle(self.parent.GetTitle() + '*')
+        else:
+            if '*' in self.parent.GetTitle():
+                self.parent.SetTitle(self.parent.GetTitle().replace('*', ''))
+
+        self.parent.parent.titleUpdate()
+ 
 
     def OnUpdateUI(self, evt):
         # check for matching braces

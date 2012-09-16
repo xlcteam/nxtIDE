@@ -196,6 +196,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
     def onSave(self, event):
         """Handle for file saving."""
 
+        self.clear_changed()
+
         if self.path != '':
             self.editor.SaveFile(self.path)
         else:
@@ -208,7 +210,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
         wc = 'Py files (*.py)|*.py|All files(*)|*'
         dialog = wx.FileDialog(self, message='Save file as...',
-                               defaultDir=dir, defaultFile=self.GetTitle(),
+                               defaultDir=dir, defaultFile=self.filename,
                                wildcard=wc,
                                style=wx.SAVE | wx.OVERWRITE_PROMPT)
 
@@ -231,6 +233,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         if status == wx.ID_CANCEL:
             return False
         else:
+            
+            self.clear_changed()
             return True
 
     def onClose(self, event):
@@ -372,6 +376,14 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
     def clearStatusbar(self):
         self.parent.statusbar.SetStatusText("", 0)
+
+    def clear_changed(self):
+        """Removes '*' from the title """
+
+        self.SetTitle(self.GetTitle().replace('*', ''))
+        self.parent.titleUpdate()
+
+
 
 
 class PreferencesDialog(wx.Dialog):
