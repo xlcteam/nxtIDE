@@ -21,8 +21,8 @@ RequestExecutionLevel admin
 
 	!define MUI_ICON "${inst_icon}"
 	!define MUI_HEADERIMAGE
-	!define MUI_WELCOMEFINISHPAGE_BITMAP "nxtIDE_header.bmp"
-	!define MUI_UNWELCOMEFINISHPAGE_BITMAP "nxtIDE_header.bmp"
+	!define MUI_WELCOMEFINISHPAGE_BITMAP "brick.bmp"
+	!define MUI_UNWELCOMEFINISHPAGE_BITMAP "brick.bmp"
 	!define MUI_HEADERIMAGE_BITMAP "nxtIDE_header.bmp"
 	!define MUI_ABORTWARNING
 

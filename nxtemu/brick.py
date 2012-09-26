@@ -159,6 +159,20 @@ class NXTBrick:
                 [15, 7],[15, 9],[15, 10],[16, 8],[17, 4],[17, 12],[18, 5],
                 [18, 6],[18, 10],[18, 11],[19, 7],[19, 8],[19, 9],],
 
+        'compass': [[0, 4],[0, 5],[0, 6],[0, 7],[0, 8],[0, 9],[0, 10],[0, 11],
+                [0, 12],[1, 3],[1, 4],[1, 12],[1, 13],[2, 2],[2, 3],[2, 13],
+                [2, 14],[3, 1],[3, 2],[3, 14],[3, 15],[4, 1],[4, 2],[4, 14],
+                [4, 15],[5, 0],[5, 1],[5, 15],[5, 16],[6, 0],[6, 16],[7, 0],
+                [7, 16],[8, 0],[8, 3],[8, 4],[8, 5],[8, 6],[8, 10],[8, 11],
+                [8, 12],[8, 13],[8, 16],[9, 0],[9, 2],[9, 7],[9, 8],[9, 9],
+                [9, 10],[9, 11],[9, 12],[9, 13],[9, 14],[9, 16],[10, 0],[10, 3],
+                [10, 4],[10, 5],[10, 6],[10, 10],[10, 11],[10, 12],[10, 13],
+                [10, 16],[11, 0],[11, 16],[12, 0],[12, 16],[13, 0],[13, 1],
+                [13, 15],[13, 16],[14, 1],[14, 2],[14, 14],[14, 15],[15, 1],
+                [15, 2],[15, 14],[15, 15],[16, 2],[16, 3],[16, 13],[16, 14],
+                [17, 3],[17, 4],[17, 12],[17, 13],[18, 4],[18, 5],[18, 6],
+                [18, 7],[18, 8],[18, 9],[18, 10],[18, 11],[18, 12],],
+
         'delete': [
                 [3, 12], [3, 11], [4, 13], [4, 11], [4, 10], [4, 9],
                 [4, 8] , [4, 7] , [4, 6] , [4, 5] , [4, 4] , [4, 3] , [4, 2] , [4, 1] ,
@@ -245,7 +259,7 @@ class NXTBrick:
     scr_running = False
     scr_killed = False
     scr_view = None
-    view_sensors = ['Light', 'UltraSonic', 'Touch']
+    view_sensors = ['Light', 'UltraSonic', 'Touch', 'Compass']
     view_s_id = 0
     view_port_id = 0
     def __init__(self):
@@ -295,12 +309,13 @@ class NXTBrick:
     #screen for sensors
     def screen0x1(self):
         self.header(True)
-        self.screen_x = self.screen_x % 3
+        self.screen_x = self.screen_x % 4
         self.view_s_id = self.screen_x
         self.textCenterOut(LCD_LINE5+2, self.view_sensors[self.screen_x])
 
+        # nasty code -- needs fix (how could I implement something like this)
         if self.screen_x == 0:
-            self.imgOut(10, 1, self.imgs['touch'])
+            self.imgOut(10, 1, self.imgs['compass'])
             self.imgOut(40, 1, self.imgs['light'])
             self.imgOut(70, 1, self.imgs['sonic'])
         elif self.screen_x == 1:
@@ -310,6 +325,10 @@ class NXTBrick:
         elif self.screen_x == 2:
             self.imgOut(10, 1, self.imgs['sonic'])
             self.imgOut(40, 1, self.imgs['touch'])
+            self.imgOut(70, 1, self.imgs['compass'])
+        elif self.screen_x == 3:
+            self.imgOut(10, 1, self.imgs['touch'])
+            self.imgOut(40, 1, self.imgs['compass'])
             self.imgOut(70, 1, self.imgs['light'])
         
     def screen1x1(self):
@@ -507,6 +526,8 @@ class NXTBrick:
             s = Sensor(self.view_port_id + 1)
         elif sensor == 'UltraSonic':
             s = SensorUS(self.view_port_id + 1)
+        elif sensor == 'Compass':
+            s = SensorHTCompass(self.view_port_id + 1)
 
         while self.viewing:
             #ClearScreen()
