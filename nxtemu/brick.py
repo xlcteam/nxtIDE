@@ -508,21 +508,21 @@ class NXTBrick:
 
         sensor = self.view_sensors[self.view_s_id]
 
-        if sensor == 'Light' or sensor == 'Touch':
-            s = Sensor(self.view_port_id + 1)
-        elif sensor == 'UltraSonic':
-            s = SensorUS(self.view_port_id + 1)
-        elif sensor == 'Compass':
-            s = SensorHTCompass(self.view_port_id + 1)
-
         while self.viewing:
+            ClearLine(LCD_LINE4)
+            if sensor == 'Light' or sensor == 'Touch':
+                s = Sensor(self.view_port_id + 1)
+            elif sensor == 'UltraSonic':
+                s = SensorUS(self.view_port_id + 1)
+            elif sensor == 'Compass':
+                s = SensorHTCompass(self.view_port_id + 1)
+
             #ClearScreen()
             self.header()
-            refresh = str(s)           
 
-            self.textCenterOut(LCD_LINE4, refresh)
+            self.textCenterOut(LCD_LINE4, str(int(s)))
 
-            clock.tick(3)
+            clock.tick(20)
 
     def remove_prog(self):
         try:

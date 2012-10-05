@@ -108,7 +108,7 @@ class SensorHTCompass(BaseSensor):
     #TODO: make a slot at the top of robot for it
 
     def getValue(self):
-        return robot.angle % 360
+        return robot.angle % 360.0
 
 
 
