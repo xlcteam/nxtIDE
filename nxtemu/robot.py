@@ -359,8 +359,8 @@ class Robot(NXTBrick):
         out = d.out()
 
         env.cfg.set('nxtemu', 'bckg', out['others']['background'])
-        with open('config.ini', 'wb') as configfile:
-            env.cfg.write(configfile)
+        #with open('config.ini', 'wb') as configfile:
+        #    env.cfg.write(configfile)
 
         robot.inputs = out['inputs']
         

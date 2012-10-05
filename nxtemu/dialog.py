@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import pygame, sys, ConfigParser
+import pygame, sys
 from pygame.locals import *
 
 from pgu import gui
