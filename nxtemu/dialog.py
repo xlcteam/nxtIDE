@@ -122,6 +122,9 @@ class SettingsDialog(gui.Dialog):
         sensors.td(gui.Tool(sensors_group, 
                         gui.Image(p('icons/touch.png')), value='touch'))
         sensors.tr()
+        sensors.td(gui.Tool(sensors_group,
+                        gui.Image(p('icons/compass.png')), value='compass'))
+        sensors.tr()
         sensors.td(gui.Tool(sensors_group, gui.Label('None'), value=''))
 
         sensors_group.connect(gui.CHANGE, self.sensor_change, sensors_group)
