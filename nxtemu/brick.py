@@ -535,9 +535,18 @@ class NXTBrick:
             #ClearScreen()
             #self.header()
 
+            def pad(s):
+                if s < 10:
+                    return "  " + str(int(s))
+                elif s < 100:
+                    return " " + str(int(s))
+                else:
+                    return str(int(s))
+
+
             if backup != s:
                 ClearLine(LCD_LINE4)
-                self.textCenterOut(LCD_LINE4, str(int(s)))
+                self.textCenterOut(LCD_LINE4, pad(s))
                 backup = s
 
             clock.tick(20)
