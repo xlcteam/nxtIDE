@@ -353,16 +353,6 @@ class NXTBrick:
         self.imgOut(42, 4, self.imgs['port' + str(port_middle)])
         self.imgOut(72, 4, self.imgs['port' + str(port_right)])
 
-<<<<<<< HEAD
-    def screen0x3(self):
-        """Viewing data from the given sensor."""
-        ClearScreen()
-
-        self.scr_view = RoboThread(target=robot.sensor_viewing)
-        self.scr_view.start()
-            
-=======
->>>>>>> f22ec1a8c46d9a3a87679fa2945ca1f1acd816d2
     def screen2(self):
         self.header(True)
 
@@ -450,8 +440,6 @@ class NXTBrick:
         self.screen_z = 0
         self.scrout()
 
-<<<<<<< HEAD
-=======
     def screen0x3(self):
         """Viewing data from the given sensor."""
 
@@ -460,7 +448,6 @@ class NXTBrick:
         self.scr_view = RoboThread(target=robot.sensor_viewing)
         self.scr_view.start()
  
->>>>>>> f22ec1a8c46d9a3a87679fa2945ca1f1acd816d2
 
     def screen_1(self):
         self.header(True)
@@ -533,8 +520,11 @@ class NXTBrick:
 
         sensor = self.view_sensors[self.view_s_id]
 
+        self.header()
+
+        backup = 0
+
         while self.viewing:
-            ClearLine(LCD_LINE4)
             if sensor == 'Light' or sensor == 'Touch':
                 s = Sensor(self.view_port_id + 1)
             elif sensor == 'UltraSonic':
@@ -543,9 +533,12 @@ class NXTBrick:
                 s = SensorHTCompass(self.view_port_id + 1)
 
             #ClearScreen()
-            self.header()
+            #self.header()
 
-            self.textCenterOut(LCD_LINE4, str(int(s)))
+            if backup != s:
+                ClearLine(LCD_LINE4)
+                self.textCenterOut(LCD_LINE4, str(int(s)))
+                backup = s
 
             clock.tick(20)
 
