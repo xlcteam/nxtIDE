@@ -353,6 +353,7 @@ class NXTBrick:
         self.imgOut(42, 4, self.imgs['port' + str(port_middle)])
         self.imgOut(72, 4, self.imgs['port' + str(port_right)])
 
+<<<<<<< HEAD
     def screen0x3(self):
         """Viewing data from the given sensor."""
         ClearScreen()
@@ -360,6 +361,8 @@ class NXTBrick:
         self.scr_view = RoboThread(target=robot.sensor_viewing)
         self.scr_view.start()
             
+=======
+>>>>>>> f22ec1a8c46d9a3a87679fa2945ca1f1acd816d2
     def screen2(self):
         self.header(True)
 
@@ -447,6 +450,17 @@ class NXTBrick:
         self.screen_z = 0
         self.scrout()
 
+<<<<<<< HEAD
+=======
+    def screen0x3(self):
+        """Viewing data from the given sensor."""
+
+        ClearScreen()
+
+        self.scr_view = RoboThread(target=robot.sensor_viewing)
+        self.scr_view.start()
+ 
+>>>>>>> f22ec1a8c46d9a3a87679fa2945ca1f1acd816d2
 
     def screen_1(self):
         self.header(True)
