@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import pygame, sys, ConfigParser
+import pygame, sys
 from pygame.locals import *
 
 from pgu import gui
@@ -121,6 +121,9 @@ class SettingsDialog(gui.Dialog):
         sensors.tr()
         sensors.td(gui.Tool(sensors_group, 
                         gui.Image(p('icons/touch.png')), value='touch'))
+        sensors.tr()
+        sensors.td(gui.Tool(sensors_group,
+                        gui.Image(p('icons/compass.png')), value='compass'))
         sensors.tr()
         sensors.td(gui.Tool(sensors_group, gui.Label('None'), value=''))
 

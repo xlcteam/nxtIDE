@@ -491,6 +491,22 @@ def PlayTone(freq, duration):
     Wait(duration)
     sound.stop()
 
+def Beep(duration):
+    """Beep(duration)
+
+    Beeps.
+
+    :param int duration: For how long should the brick beeps in milliseconds.
+
+    .. [sk]
+    Beep(dížka)
+
+    Pípne.
+
+    :param int duration: Ako dlho potrvá pípnutie v milisekundách.
+    """
+
+    PlayTone(2600, duration)
 
 
 OUT_A = 1
