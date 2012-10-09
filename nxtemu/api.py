@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pygame, sys, os.path, threading, pygame.sndarray
 from numpy import sin, array, arange, resize, pi
-from robothread import RoboException
+from robothread import RoboException, RoboThread
 
 sensors = {}
 
@@ -408,6 +408,22 @@ def ClearScreen():
     with robot.lock:
         pygame.draw.rect(robot.lcd, pygame.Color(0x43, 0x6c, 0x30), 
             ((0, 0), (204, 130)))
+
+def ResetScreen():
+    """ResetScreen()
+
+    Return the screen to Running... state.
+
+    .. [sk]
+    ResetScreen()
+
+    Vráti obrazovku do stavu Running... .
+    """
+    if not robot.scr_running:
+        robot.scr_running = True
+        scr_runner = RoboThread(target=robot.running)
+        scr_runner.start()
+
 
 def ClearLine(line):
     """ClearLine(line)
