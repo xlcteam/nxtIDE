@@ -2,7 +2,7 @@ from distutils.core import setup
 import py2exe, yaml
 from glob import *
  
-data_files = ['config.yml', 'help.yml']
+data_files = ['config.ini', 'help.ini']
 data_files += glob('dlls/*.dll')
 data_files.append(('pynxc/nxc/win32', ['pynxc/nxc/win32/nbc.exe']))
 data_files.append(('pynxc', ['pynxc/MyDefs.h']))
