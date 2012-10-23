@@ -1,5 +1,4 @@
 def main():
-    
     SetSensorLight(IN_1)
     SetSensorLight(IN_4)
     
