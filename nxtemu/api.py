@@ -832,6 +832,20 @@ def Random(n = None):
         return random.randint(-32767, 32767)
     else:
         return random.randint(0, n-1)
+
+def StopAllTasks():
+    """StopAllTasks()
+
+    Stops all running tasks.
+
+    .. [sk]
+    StopAllTasks()
+
+    Zastaví program.
+    """
+
+    robot.scr_running = False
+    robot.die = True
     
 
 S1 = 0
