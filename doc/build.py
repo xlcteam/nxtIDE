@@ -124,6 +124,8 @@ def exportIni(fname='../nxted/help.ini', lang='en'):
     with open(fname, 'wb') as configfile:
         config.write(configfile)
 
+    return fname
+
 
 def exportLatex(fname = 'reference.tex', lang='en'):
     api = getAPI()
