@@ -522,7 +522,7 @@ class NXTBrick:
 
         self.header()
 
-        backup = 0
+        backup = None
 
         while self.viewing:
             if sensor == 'Light' or sensor == 'Touch':
