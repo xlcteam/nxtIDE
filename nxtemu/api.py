@@ -118,6 +118,9 @@ chars =[[0x00,0x00,0x00,0x00,0x00],
 
 
 def dieTest():
+    while robot.paused:  # pauses execution of the emulated program
+        __clock__.tick(20)
+
     with robot.lock:
         if robot.die:
             robot.die = False
