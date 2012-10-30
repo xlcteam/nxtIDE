@@ -66,7 +66,6 @@ class ConsoleDialog(gui.Dialog):
             self.line.value = ''
             self.line.focus()
             print('>>> '+val)
-            print("kon")
             try:
                 code = compile(val,'<string>','single')
                 eval(code,globals(),self._locals)
