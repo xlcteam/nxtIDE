@@ -29,6 +29,7 @@ class Robot(NXTBrick):
     background = None
     bckg = None
     sensors = {}
+    paused = False
     touchPoints = {
         "topleft": [
             [29.0, -133.60281897270363],
@@ -192,36 +193,38 @@ class Robot(NXTBrick):
         angle = 0
         rotA = rotB = 0
         touchedA = touchedB = False
+       
+        if not robot.paused:
 
-        if not self.touchesAt(self.touchPoints["topleft"]):
-            rotA = self.mA / 30.0
-        else:
-            touchedA = True
-            rotA -= self.mA / 40.0 
+            if not self.touchesAt(self.touchPoints["topleft"]):
+                rotA = self.mA / 30.0
+            else:
+                touchedA = True
+                rotA -= self.mA / 40.0 
 
-        if not self.touchesAt(self.touchPoints["topright"]):
-            rotB = self.mB / 30.0
-        else:
-            touchedB = True
-            rotB -= self.mB / 40.0
+            if not self.touchesAt(self.touchPoints["topright"]):
+                rotB = self.mB / 30.0
+            else:
+                touchedB = True
+                rotB -= self.mB / 40.0
 
-        rotC = self.mC / 30.0
-               
-        angle += (rotA - rotB) / 3
+            rotC = self.mC / 30.0
+                   
+            angle += (rotA - rotB) / 3
 
-        self.angle += angle
-        p = (rotA + rotB) / 2 / 1.8
-        
-        # #print self.angle, self.mA, self.mB, self
-        
-        self.rotA += rotA
-        self.rotB += rotB
-        self.rotC += rotC
+            self.angle += angle
+            p = (rotA + rotB) / 2 / 1.8
+            
+            # #print self.angle, self.mA, self.mB, self
+            
+            self.rotA += rotA
+            self.rotB += rotB
+            self.rotC += rotC
 
-        self.x += math.sin(math.radians(self.angle)) * p
-        self.y += -math.cos(math.radians(self.angle)) * p
-        
-        self.angle = round(self.angle)
+            self.x += math.sin(math.radians(self.angle)) * p
+            self.y += -math.cos(math.radians(self.angle)) * p
+            
+            self.angle = round(self.angle)
 
         self.draw()
         
@@ -331,6 +334,8 @@ class Robot(NXTBrick):
         #print "cleaner"
 
     def onDialog(self):
+        self.paused = True
+
         self.dialog.connect(gui.CHANGE, self.dialogReturn, self.dialog)
         self.dialog.open()
         self.dialog.rect.x = 120
@@ -358,6 +363,7 @@ class Robot(NXTBrick):
         self.image = image
 
     def dialogReturn(self, d):
+        self.paused = False
         out = d.out()
 
         env.cfg.set('nxtemu', 'bckg', out['others']['background'])
