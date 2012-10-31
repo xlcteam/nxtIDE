@@ -22,10 +22,10 @@ background = pygame.Surface(screen.get_size()).convert()
 cfg = ConfigParser.RawConfigParser()
 
 def init():
-    cfg.read(p('config.ini'))
+    cfg.read(p('./config.ini'))
     
     bckg = cfg.get('nxtemu', 'bckg')
-    print bckg
+    
     background.fill((255, 255, 255))
 
     pygame.display.set_caption("nxtemu")
