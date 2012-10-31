@@ -54,8 +54,10 @@ clock = pygame.time.Clock()
 if __name__ == "__main__":
     env.app = gui.App(theme=gui.Theme(p("theme/default/"))) 
     settings = gui.Image(p("icons/settings.png"))
+    console = gui.Image(p("icons/python.png"))
    # settings.connect
     c = gui.Container(align=-1,valign=-1)
+    c.add(console, 970, 10)
     c.add(settings, 960, 400)
     env.app.init(c, env.screen)    
 
@@ -93,6 +95,7 @@ if __name__ == "__main__":
     clicker.bind(((751, 252), (41, 40)), robot.onLeft)
     clicker.bind(((870, 252), (41, 40)), robot.onRight)
     clicker.bind(((960, 400), (50, 50)), robot.onDialog)
+    clicker.bind(((970, 10), (1015, 55)), robot.onConsole)
 
     while running: 
         for event in pygame.event.get(): 

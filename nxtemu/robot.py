@@ -11,6 +11,7 @@ import math
 import imgs
 from robothread import *
 from dialog import SettingsDialog
+from console import ConsoleDialog
 
 from sensors import *
 
@@ -100,6 +101,8 @@ class Robot(NXTBrick):
                         4: BaseSensor(4)}
 
         self.dialog = SettingsDialog()
+
+        self.console = ConsoleDialog()
 
     
     def getDistanceTo(self, point):
@@ -339,7 +342,26 @@ class Robot(NXTBrick):
         self.dialog.connect(gui.CHANGE, self.dialogReturn, self.dialog)
         self.dialog.open()
         self.dialog.rect.x = 120
-    
+
+    def onConsole(self):
+        width = env.w + env.WALL_HEIGHT*2 + 378
+        height = env.h + env.WALL_HEIGHT*2 + 140
+        
+        env.window = pygame.display.set_mode((width, height))
+        env.screen = pygame.display.get_surface()
+                
+
+        self.console.connect(gui.CHANGE, self.consoleQuit, self.console)
+        self.console.open()
+        
+        self.console.rect.x = 0
+        self.console.rect.y = env.h + env.WALL_HEIGHT*2
+
+    def consoleQuit(self, d):
+        print "sdf"
+        env.window = pygame.display.set_mode((env.w + env.WALL_HEIGHT*2 + 378, env.h + env.WALL_HEIGHT*2))
+        d.close()
+
     def imgUpdate(self):
         image = imgs.robot.convert_alpha()
         

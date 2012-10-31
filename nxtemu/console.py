@@ -3,15 +3,18 @@
 
 # An interactive console for live programming
 
-from api import *
+import api
 
 import traceback
+
+import env
 
 from pgu import gui
 from pgu import html
 
 import pygame
 from pygame.locals import *
+import sys
 
 
 class StringStream:
@@ -26,6 +29,7 @@ class StringStream:
             self.lines.tr()
             self.lines.td(gui.Label(str(line)),align=-1)
         self._data = _lines[-1:][0]
+        #set_ver_scroll(self, percents)
 
 
 class ConsoleDialog(gui.Dialog):
@@ -39,10 +43,10 @@ class ConsoleDialog(gui.Dialog):
         t = gui.Table()
         t.tr()
 
-        self.lines = gui.Table(width=500,height=400)
+        self.lines = gui.Table(width=env.w + env.WALL_HEIGHT*2 + 350, height=140)
 
-        self.box = gui.ScrollArea(self.lines,500,380)
-        self.box.set_vertical_scroll(65535)
+        self.box = gui.ScrollArea(self.lines, 0, 85, hscrollbar=False, vscrollbar=True)
+        self.box.set_vertical_scroll(100)
         t.td(self.box)
 
         t.tr()
