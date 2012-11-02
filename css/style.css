@@ -1,0 +1,80 @@
+body {
+  margin-top: 1.0em;
+  background-color: #DFE2E2;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  color: #555;
+}
+#container {
+  margin: 0 auto;
+  width: 700px;
+  margin-top: 160px;
+}
+#container h2 {
+  text-align: center;
+  color: #000;
+}
+section h2 {
+  font-family: "Lucida Console", Monaco, monospace;
+  margin-bottom: 5px;
+}
+
+section div {
+  border-radius: 10px;
+  background-color: #fff; 
+}
+
+section div p {
+  padding: 10px;
+  margin-top: 0px;
+}
+
+#fork-us {
+  float: right !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+}
+
+#header {
+  color: #515050;
+  font-weight: 900;
+  font-size: 1.2em;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 999;
+  -moz-box-shadow:    5px 5px 5px 6px #ccc;
+  -webkit-box-shadow: 5px 5px 5px 6px #ccc;
+  box-shadow:         5px 5px 5px 6px #ccc;
+}
+
+#header div {
+  margin: 0 auto;
+  width: 650px;
+}
+
+#header img{
+  float: left;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+#header h1 {
+  margin: 0;
+  margin-right: .1em;
+  text-shadow: rgba(0, 0, 0, .7) 1px 1px 2px;
+  font-family: Verdana, Geneva, sans-serif;
+  letter-spacing: -1px;
+}
+#header .logo {
+  text-transform: none;
+  text-decoration: none;
+  color: #FFA900;
+  margin-right: 7px;
+  font-size: 1.5em;
+}
+#header p {
+  font-style: italic;
+  margin-top: 0px;
+}
