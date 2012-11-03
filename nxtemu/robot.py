@@ -363,12 +363,10 @@ class Robot(NXTBrick):
 
         env.init()
 
-                
-
         self.console.connect(gui.CHANGE, self.consoleQuit, self.console)
         self.console.connect(gui.CLOSE, self.consoleQuit, self.console)
         self.console.open()
-        
+
         self.console.rect.x = 0
         self.console.rect.y = env.h + env.WALL_HEIGHT*2
 
