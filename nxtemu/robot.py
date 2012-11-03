@@ -10,6 +10,7 @@ import math
 
 import imgs
 from robothread import *
+
 from dialog import SettingsDialog
 from console import ConsoleDialog
 
@@ -358,6 +359,10 @@ class Robot(NXTBrick):
         
         env.window = pygame.display.set_mode((width, height))
         env.screen = pygame.display.get_surface()
+        env.background = pygame.Surface(env.screen.get_size()).convert()
+
+        env.init()
+
                 
 
         self.console.connect(gui.CHANGE, self.consoleQuit, self.console)

@@ -15,6 +15,7 @@ from pgu import html
 import pygame
 from pygame.locals import *
 import sys
+import os
 
 
 class StringStream:
@@ -25,12 +26,22 @@ class StringStream:
     def write(self, data):
         self._data = self._data+data
         _lines = self._data.split("\n")
+        
+        font = pygame.font.SysFont("sans", 12)
+
         for line in _lines[:-1]:
             self.lines.tr()
-            self.lines.td(gui.Label(str(line)),align=-1)
+            self.lines.td(gui.Label(str(line), font=font),align=-1)
         self._data = _lines[-1:][0]
-        #set_ver_scroll(self, percents)
 
+class Hack(gui.Spacer):
+    def __init__(self, width, height, box):
+        gui.Spacer.__init__(self, width, height)
+        self.box = box
+
+    def resize(self,width=None,height=None):
+        self.box.set_vertical_scroll(65535)
+        return 1,1
 
 class ConsoleDialog(gui.Dialog):
     def __init__(self, **params):
@@ -40,21 +51,32 @@ class ConsoleDialog(gui.Dialog):
 
         self.container = gui.Container()
 
-        t = gui.Table()
+        t = gui.Table(width=env.w + env.WALL_HEIGHT*2 + 360 , height=85)
         t.tr()
 
-        self.lines = gui.Table(width=env.w + env.WALL_HEIGHT*2 + 350, height=140)
+        self.lines = gui.Table()
 
-        self.box = gui.ScrollArea(self.lines, 0, 85, hscrollbar=False, vscrollbar=True)
+        self.box = gui.ScrollArea(self.lines, env.w + env.WALL_HEIGHT*2 + 300,
+                85, hscrollbar=False, vscrollbar=True)
         self.box.set_vertical_scroll(100)
         t.td(self.box)
 
-        t.tr()
-        self.line = gui.Input(size=49)
-        self.line.connect(gui.KEYDOWN, self.lkey)
-        t.td(self.line)
+        font = pygame.font.SysFont("sans", 12)
 
         t.tr()
+        
+        it = gui.Table()
+
+        it.td(gui.Label('>>>', font=font))
+
+        self.line = gui.Input(size=130, font=font)
+        self.line.connect(gui.KEYDOWN, self.lkey)
+        it.td(self.line)
+
+        t.td(it)
+        t.tr()
+
+        t.td(Hack(1, 1, self.box))
 
         self.container.add(t, 0, 0)
 
