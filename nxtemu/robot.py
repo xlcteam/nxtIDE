@@ -337,13 +337,22 @@ class Robot(NXTBrick):
         #print "cleaner"
 
     def onDialog(self):
+
+        if self.dialog.is_open():
+            return self.dialogClose(self.dialog)
+
         self.paused = True
 
         self.dialog.connect(gui.CHANGE, self.dialogReturn, self.dialog)
+        self.dialog.connect(gui.CLOSE, self.dialogClose, self.dialog)
         self.dialog.open()
         self.dialog.rect.x = 120
 
     def onConsole(self):
+
+        if self.console.is_open():
+            return self.consoleQuit(self.console)
+
         width = env.w + env.WALL_HEIGHT*2 + 378
         height = env.h + env.WALL_HEIGHT*2 + 140
         
@@ -352,14 +361,15 @@ class Robot(NXTBrick):
                 
 
         self.console.connect(gui.CHANGE, self.consoleQuit, self.console)
+        self.console.connect(gui.CLOSE, self.consoleQuit, self.console)
         self.console.open()
         
         self.console.rect.x = 0
         self.console.rect.y = env.h + env.WALL_HEIGHT*2
 
     def consoleQuit(self, d):
-        print "sdf"
-        env.window = pygame.display.set_mode((env.w + env.WALL_HEIGHT*2 + 378, env.h + env.WALL_HEIGHT*2))
+        env.window = pygame.display.set_mode((env.w + env.WALL_HEIGHT*2 + 378, 
+                                                env.h + env.WALL_HEIGHT*2))
         d.close()
 
     def imgUpdate(self):
@@ -383,6 +393,11 @@ class Robot(NXTBrick):
        #pygame.draw.rect(image, (0xfa, 0x70, 0x0d), (35, 9, 5, 5))
 
         self.image = image
+
+    def dialogClose(self, d):
+        
+        self.paused = False
+        d.close()
 
     def dialogReturn(self, d):
         self.paused = False
