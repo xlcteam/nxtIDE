@@ -15,7 +15,6 @@ from pgu import html
 import pygame
 from pygame.locals import *
 import sys
-import os
 
 
 class StringStream:
