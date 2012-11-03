@@ -26,7 +26,7 @@ def init():
     
     bckg = cfg.get('nxtemu', 'bckg')
     
-    background.fill((255, 255, 255))
+    background.fill((250, 250, 250))
 
     pygame.display.set_caption("nxtemu")
     #background.blit(pygame.image.load("./icons/brick.jpg").convert(), (640, 0))

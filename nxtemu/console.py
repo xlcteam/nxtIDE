@@ -30,7 +30,8 @@ class StringStream:
 
         for line in _lines[:-1]:
             self.lines.tr()
-            self.lines.td(gui.Label(str(line), font=font),align=-1)
+            self.lines.td(gui.Label(str(line), font=font),
+                            align=-1)
         self._data = _lines[-1:][0]
 
 class Hack(gui.Spacer):
@@ -44,19 +45,20 @@ class Hack(gui.Spacer):
 
 class ConsoleDialog(gui.Dialog):
     def __init__(self, **params):
+        
         self._locals = {}
 
         title = gui.Label("Interactive console")
 
-        self.container = gui.Container()
+        self.container = gui.Container(background= (255, 255, 255))
 
-        t = gui.Table(width=env.w + env.WALL_HEIGHT*2 + 360 , height=85)
+        t = gui.Table(width=env.w + env.WALL_HEIGHT*2 + 300 , height=85)
         t.tr()
 
-        self.lines = gui.Table()
+        self.lines = gui.Table(background=(255, 255, 255))
 
         self.box = gui.ScrollArea(self.lines, env.w + env.WALL_HEIGHT*2 + 300,
-                85, hscrollbar=False, vscrollbar=True)
+                85, hscrollbar=False, vscrollbar=True, background=(255, 255, 255))
         self.box.set_vertical_scroll(100)
         t.td(self.box)
 
@@ -66,7 +68,7 @@ class ConsoleDialog(gui.Dialog):
         
         it = gui.Table()
 
-        it.td(gui.Label('>>>', font=font))
+        it.td(gui.Label('>>> ', font=font))
 
         self.line = gui.Input(size=113, font=font)
         self.line.connect(gui.KEYDOWN, self.lkey)

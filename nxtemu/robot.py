@@ -355,7 +355,7 @@ class Robot(NXTBrick):
             return self.consoleQuit(self.console)
 
         width = env.w + env.WALL_HEIGHT*2 + 378
-        height = env.h + env.WALL_HEIGHT*2 + 140
+        height = env.h + env.WALL_HEIGHT*2 + 150
         
         env.window = pygame.display.set_mode((width, height))
         env.screen = pygame.display.get_surface()
@@ -367,8 +367,7 @@ class Robot(NXTBrick):
         self.console.connect(gui.CLOSE, self.consoleQuit, self.console)
         self.console.open()
 
-        self.console.rect.x = 0
-        self.console.rect.y = env.h + env.WALL_HEIGHT*2
+        self.console.rect.y = env.h + env.WALL_HEIGHT*2 + 5
 
     def consoleQuit(self, d):
         env.window = pygame.display.set_mode((env.w + env.WALL_HEIGHT*2 + 378, 
