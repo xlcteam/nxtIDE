@@ -23,7 +23,6 @@ def p(path):
     return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
             + path
 
-
 class Robot(NXTBrick):
     proc = None
     die = False
@@ -103,7 +102,7 @@ class Robot(NXTBrick):
 
         self.dialog = SettingsDialog()
 
-        self.console = ConsoleDialog()
+        self.console = ConsoleDialog(init_code='from api import *')
 
     
     def getDistanceTo(self, point):
@@ -338,6 +337,7 @@ class Robot(NXTBrick):
         #print "cleaner"
 
     def onDialog(self):
+
 
         if self.dialog.is_open():
             return self.dialogClose(self.dialog)

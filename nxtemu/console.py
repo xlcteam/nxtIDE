@@ -16,7 +16,6 @@ import pygame
 from pygame.locals import *
 import sys
 
-
 class StringStream:
     def __init__(self, lines):
         self._data = ''
@@ -44,7 +43,7 @@ class Hack(gui.Spacer):
         return 1,1
 
 class ConsoleDialog(gui.Dialog):
-    def __init__(self, **params):
+    def __init__(self, init_code = None, **params):
         
         self._locals = {}
 
@@ -81,6 +80,11 @@ class ConsoleDialog(gui.Dialog):
         t.td(Hack(1, 1, self.box))
 
         self.container.add(t, 0, 0)
+
+        if init_code is not None :
+            code = compile(init_code, '<string>', 'single')
+            eval(code,globals(),self._locals)
+ 
 
         gui.Dialog.__init__(self, title, self.container)
 
