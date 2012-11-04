@@ -43,7 +43,7 @@ class Hack(gui.Spacer):
         return 1,1
 
 class ConsoleDialog(gui.Dialog):
-    def __init__(self, init_code = None, **params):
+    def __init__(self, init_code=None, init_text=None, ps1='>>>', **params):
         
         self._locals = {}
 
@@ -67,9 +67,9 @@ class ConsoleDialog(gui.Dialog):
         
         it = gui.Table()
 
-        it.td(gui.Label('>>> ', font=font))
+        it.td(gui.Label(ps1 + ' ', font=font))
 
-        self.line = gui.Input(size=113, font=font)
+        self.line = gui.Input(size=(117 - len(ps1)), font=font)
         self.line.connect(gui.KEYDOWN, self.lkey)
         it.td(self.line)
 
@@ -85,6 +85,16 @@ class ConsoleDialog(gui.Dialog):
             code = compile(init_code, '<string>', 'single')
             eval(code,globals(),self._locals)
  
+        if init_text is not None:
+            _stdout = sys.stdout
+            s = sys.stdout = StringStream(self.lines)
+            
+            val = self.line.value
+            print(init_text)
+
+            sys.stdout = _stdout
+ 
+        self.ps1 = ps1
 
         gui.Dialog.__init__(self, title, self.container)
 
@@ -97,7 +107,7 @@ class ConsoleDialog(gui.Dialog):
             val = self.line.value
             self.line.value = ''
             self.line.focus()
-            print('>>> '+val)
+            print(self.ps1 + ' ' + val)
             try:
                 code = compile(val,'<string>','single')
                 eval(code,globals(),self._locals)
