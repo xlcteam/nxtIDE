@@ -375,6 +375,11 @@ class Robot(NXTBrick):
     def consoleQuit(self, d):
         env.window = pygame.display.set_mode((env.w + env.WALL_HEIGHT*2 + 378, 
                                                 env.h + env.WALL_HEIGHT*2))
+        env.screen = pygame.display.get_surface()
+        env.background = pygame.Surface(env.screen.get_size()).convert()
+
+        env.init()
+
         d.close()
 
     def imgUpdate(self):
