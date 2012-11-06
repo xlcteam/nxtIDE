@@ -2,7 +2,7 @@ from distutils.core import setup
 import os, glob, fnmatch
 import py2exe
  
-data_files = ['api.py']
+data_files = ['api.py', 'config.ini']
 #data_files.append('theme/default/*.*')
 #data_files.append(('floor/line1.jpg', 'floor/line1.jpg'))
 
@@ -80,6 +80,6 @@ setup(
     data_files = data_files,
     windows=[{
         'script': 'nxtemu.py',
-        'icon_resources' : [(1, 'icons/NXTemu_128.ico')]
+        'icon_resources' : [(0, 'icons/NXTemu_128.ico')],
     }]
 )
