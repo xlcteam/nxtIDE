@@ -15,6 +15,7 @@
 			$(function(){
 				// Tabs
 				$('#tabs').tabs();
+                $('#container').tabs();
 			});
 		</script>
 
@@ -30,86 +31,103 @@
     </div>
   </div>
   <div id="container">
-    <section id="slide">
-        <h2>Downloading and installing</h2>
-        <div>
-          <p> 
-          The latest version can be always obtained from the <a
-          href="https://github.com/xlcteam/nxtIDE/downloads">GitHub page</a>
-        of this project. <br /> <br />
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#downloads">Downloads</a></li>
+        <li><a href="#quicktut">Quick Tutorial</a></li>
+    </ul>
 
-          You can obtain installer for the latest version <a
-            href="https://github.com/downloads/xlcteam/nxtIDE/nxtIDE_setup_v0.6.5.exe">here</a>
-        </p>
-        </div>
-    </section>
-    <section id="intro">
-        <h2>Quick tutorial</h2>
-        <div id="tabs">
-          <ul>
-            <li><a href="#tabs-1">Simple movements</a></li>
-            <li><a href="#tabs-2">Light sensor</a></li>
-            <li><a href="#tabs-3">Distance sensor</a></li>
-          </ul>
-          
-          <div id="tabs-1">
-            <div style="width: 640px; height: 500px; margin: 0 auto;">
-            <!--[if IE]>
-            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-              codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-              width="640" height="500">
-            <param name="movie" value="swfs/Hello_move.swf" />
-            <![endif] -->
-            <!--[if !IE]> -->
-            <object type="application/x-shockwave-flash"
-              data="swfs/Hello_move.swf" width="640" height="500">
-            <!-- <![endif]-->
-            <p><a href="swfs/Hello_move.swf">Screencast</a></p>
-            </object>
-            </div></p>
+    <div id="home" style="word-wrap: break-word;">
+        
+    </div>
+     
+    <div id="downloads">
+        <section id="slide">
+            <h2>Downloading and installing</h2>
+            <div>
+              <p> 
+              The latest version can be always obtained from the <a
+              href="https://github.com/xlcteam/nxtIDE/downloads">GitHub page</a>
+            of this project. <br /> <br />
 
-          </div>
-
-          <div id="tabs-2">
-            <div style="width: 641px; margin: 0 auto;">
-            <!--[if IE]>
-            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-              codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-              width="640" height="500">
-            <param name="movie" value="swfs/Pouzitie_lightov.swf" />
-            <![endif] -->
-            <!--[if !IE]> -->
-            <object type="application/x-shockwave-flash"
-              data="swfs/Pouzitie_lightov.swf" width="641" height="500">
-            <!-- <![endif]-->
-            <p><a href="swfs/Pouzitie_lightov.swf">Screencast</a></p>
-            </object>
-            </div>
+              You can obtain installer for the latest version <a
+                href="https://github.com/downloads/xlcteam/nxtIDE/nxtIDE_setup_v0.6.5.exe">here</a>
             </p>
-          </div>
-
-
-          <div id="tabs-3">
-            <div style="width: 641px; margin: 0 auto;">
-            <!--[if IE]>
-            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-              codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-              width="640" height="500">
-            <param name="movie" value="swfs/Pouzitie_sonica.swf" />
-            <![endif] -->
-            <!--[if !IE]> -->
-            <object type="application/x-shockwave-flash"
-              data="swfs/Pouzitie_sonica.swf" width="640" height="500">
-            <!-- <![endif]-->
-            <p><a href="swfs/Pouzitie_sonica.swf">Screencast</a></p>
-            </object>
             </div>
-            </p>
-           </div>
+        </section>
+    </div>
+
+    <div id="console">
+
+    </div>
+    
+    <div id="quicktut">
+        <section id="intro">
+            <h2>Quick tutorial</h2>
+            <div id="tabs">
+              <ul>
+                <li><a href="#tabs-1">Simple movements</a></li>
+                <li><a href="#tabs-2">Light sensor</a></li>
+                <li><a href="#tabs-3">Distance sensor</a></li>
+              </ul>
+              
+              <div id="tabs-1">
+                <div style="width: 640px; height: 500px; margin: 0 auto;">
+                <!--[if IE]>
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+                  width="640" height="500">
+                <param name="movie" value="swfs/Hello_move.swf" />
+                <![endif] -->
+                <!--[if !IE]> -->
+                <object type="application/x-shockwave-flash"
+                  data="swfs/Hello_move.swf" width="640" height="500">
+                <!-- <![endif]-->
+                <p><a href="swfs/Hello_move.swf">Screencast</a></p>
+                </object>
+                </div></p>
+
+              </div>
+
+              <div id="tabs-2">
+                <div style="width: 641px; margin: 0 auto;">
+                <!--[if IE]>
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+                  width="640" height="500">
+                <param name="movie" value="swfs/Pouzitie_lightov.swf" />
+                <![endif] -->
+                <!--[if !IE]> -->
+                <object type="application/x-shockwave-flash"
+                  data="swfs/Pouzitie_lightov.swf" width="641" height="500">
+                <!-- <![endif]-->
+                <p><a href="swfs/Pouzitie_lightov.swf">Screencast</a></p>
+                </object>
+                </div>
+                </p>
+              </div>
 
 
-      </div>
-   </section>
+              <div id="tabs-3">
+                <div style="width: 641px; margin: 0 auto;">
+                <!--[if IE]>
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+                  width="640" height="500">
+                <param name="movie" value="swfs/Pouzitie_sonica.swf" />
+                <![endif] -->
+                <!--[if !IE]> -->
+                <object type="application/x-shockwave-flash"
+                  data="swfs/Pouzitie_sonica.swf" width="640" height="500">
+                <!-- <![endif]-->
+                <p><a href="swfs/Pouzitie_sonica.swf">Screencast</a></p>
+                </object>
+                </div>
+                </p>
+               </div>
+            </div>
+         </section>
+       </div>
   </div>
   <a href="http://github.com/xlcteam/nxtIDE"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
 
