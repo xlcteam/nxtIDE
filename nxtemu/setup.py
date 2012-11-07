@@ -80,6 +80,6 @@ setup(
     data_files = data_files,
     windows=[{
         'script': 'nxtemu.py',
-        'icon_resources' : [(0, 'icons/NXTemu_128.ico')],
+        'icon_resources' : [(0, 'icons/nxtemuico.ico')],
     }]
 )

@@ -1,5 +1,5 @@
 from distutils.core import setup
-import py2exe, yaml
+import py2exe
 from glob import *
  
 data_files = ['config.ini', 'help.ini']
@@ -32,7 +32,7 @@ setup(
              },
     data_files = data_files,
     windows=[{  'script': 'nxted.py',
-                'icon_resources' : [(1, 'icons/nxted_128.ico')]
+                'icon_resources' : [(0, 'icons/nxted.ico')]
              }]
 )
 
