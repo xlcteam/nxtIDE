@@ -33,6 +33,7 @@ class StringStream:
                             align=-1)
         self._data = _lines[-1:][0]
 
+
 class Hack(gui.Spacer):
     def __init__(self, width, height, box):
         gui.Spacer.__init__(self, width, height)
@@ -41,6 +42,7 @@ class Hack(gui.Spacer):
     def resize(self,width=None,height=None):
         self.box.set_vertical_scroll(65535)
         return 1,1
+
 
 class ConsoleDialog(gui.Dialog):
     def __init__(self, init_code=None, init_text=None, ps1='>>>', **params):
@@ -65,7 +67,6 @@ class ConsoleDialog(gui.Dialog):
         t.td(self.box)
 
         font = pygame.font.Font("theme/Inconsolata.ttf", 14)
-        print font.size("s")
 
         t.tr()
         
@@ -95,7 +96,6 @@ class ConsoleDialog(gui.Dialog):
             s = sys.stdout = StringStream(self.lines)
             
             val = self.line.value
-            print(init_text)
 
             sys.stdout = _stdout
  
