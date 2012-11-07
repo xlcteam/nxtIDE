@@ -47,6 +47,9 @@ class ConsoleDialog(gui.Dialog):
         
         self._locals = {}
 
+        self.commands = []
+        self.lastcmd = 0
+
         title = gui.Label("Interactive console")
 
         self.container = gui.Container(background= (255, 255, 255))
@@ -71,6 +74,7 @@ class ConsoleDialog(gui.Dialog):
 
         self.line = gui.Input(size=(117 - len(ps1)), font=font)
         self.line.connect(gui.KEYDOWN, self.lkey)
+        #self.line.connect(gui.MOUSEBUTTONDOWN, self.lkey)
         it.td(self.line)
 
 
@@ -98,15 +102,46 @@ class ConsoleDialog(gui.Dialog):
 
         gui.Dialog.__init__(self, title, self.container)
 
+    def own_focus(self, x, y):
+        e = pygame.event.Event(pygame.MOUSEBUTTONDOWN ,{"button": 1, "pos": (x,y)})
+        pygame.event.post(e)
+
     def lkey(self, _event):
         event = _event
-        if event.key == K_RETURN and self.line.value != "":
+
+        if event.key == K_UP:
+            if len(self.commands):
+                if self.lastcmd > 0:
+                    self.lastcmd -= 1
+                self.line.value = self.commands[self.lastcmd]
+            
+            x = int(self.rect.x) + 86 + 100
+            y = int(self.rect.y) + 86 + 38
+            self.own_focus(x,y)
+
+        elif event.key == K_DOWN:
+            if len(self.commands):
+                if self.lastcmd < len(self.commands) - 1:
+                    self.lastcmd += 1
+                self.line.value = self.commands[self.lastcmd]
+
+            
+            x = int(self.rect.x) + 86 + 100
+            y = int(self.rect.y) + 86 + 38
+            self.own_focus(x,y)
+
+            
+        elif event.key == K_RETURN and self.line.value != "":
             _stdout = sys.stdout
             s = sys.stdout = StringStream(self.lines)
             
             val = self.line.value
+
+            self.commands.append(val)
+            self.lastcmd = len(self.commands) - 1
+
             self.line.value = ''
-            self.line.focus()
+
             print(self.ps1 + ' ' + val)
             try:
                 code = compile(val,'<string>','single')
@@ -118,6 +153,7 @@ class ConsoleDialog(gui.Dialog):
                 print(e_type,e_value)
 
             sys.stdout = _stdout
+
 
 if __name__ == "__main__":
     app = gui.Desktop()
