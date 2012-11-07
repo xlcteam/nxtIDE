@@ -25,7 +25,7 @@ class StringStream:
         self._data = self._data+data
         _lines = self._data.split("\n")
         
-        font = pygame.font.SysFont("sans", 14)
+        font = pygame.font.Font("theme/Inconsolata.ttf", 14)
 
         for line in _lines[:-1]:
             self.lines.tr()
@@ -64,7 +64,8 @@ class ConsoleDialog(gui.Dialog):
         self.box.set_vertical_scroll(100)
         t.td(self.box)
 
-        font = pygame.font.SysFont("sans", 14)
+        font = pygame.font.Font("theme/Inconsolata.ttf", 14)
+        print font.size("s")
 
         t.tr()
         
@@ -72,7 +73,7 @@ class ConsoleDialog(gui.Dialog):
 
         it.td(gui.Label(ps1 + ' ', font=font))
 
-        self.line = gui.Input(size=(117 - len(ps1)), font=font)
+        self.line = gui.Input(size=(8*19 - len(ps1)*8), font=font)
         self.line.connect(gui.KEYDOWN, self.lkey)
         #self.line.connect(gui.MOUSEBUTTONDOWN, self.lkey)
         it.td(self.line)
