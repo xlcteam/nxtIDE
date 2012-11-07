@@ -278,6 +278,19 @@ def loopFix(s, fn):
                 (fn, fix), i)
     return i
 
+def defFix(s):
+    if "def main" not in s:
+
+        out = ['def main():']
+
+        for line in s.split('\n'):
+            out.append(' '*4 + line)
+
+        s = '\n'.join(out)
+
+    return s
+
+
 def realLine(s, l):
     s = s.split('\n')
     fixes = []
@@ -303,4 +316,5 @@ if __name__ == "__main__":
         TextOut(0, LCD_LINE1, "socialny defekt")
         Wait(2000)""", "t()")
     print loopFix(open("files/whiletester.py").read(), "tester()")
+    print defFix("""OnFwd(OUT_A, 100)\nWait(2000)""")
     #print realLine(string, 30)
