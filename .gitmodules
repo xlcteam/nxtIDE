@@ -1,0 +1,3 @@
+[submodule "nxted/pynxc"]
+	path = nxted/pynxc
+	url = git@github.com:xlcteam/pynxc.git
