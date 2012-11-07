@@ -311,8 +311,10 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                  (self.parent.cfg["nxtemudir"], self.filename), "w")
 
         f.write("from api import *\n")
-        f.write(pycheck.loopFix(self.editor.GetText(), "ticker()"))
+        f.write(pycheck.defFix(pycheck.loopFix(self.editor.GetText(), "ticker()")))
         f.close()
+
+
 
         return True
 
