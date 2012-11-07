@@ -464,7 +464,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
                                           size=(640, 480),
                                           style=wx.DEFAULT_FRAME_STYLE)
 
-        self.SetIcon(wx.Icon('icons/nxted_128.ico', wx.BITMAP_TYPE_ICO))
+        self.SetIcon(wx.Icon('icons/nxted.ico', wx.BITMAP_TYPE_ICO))
 
         self._mgr = wx.aui.AuiManager()
         self._mgr.SetManagedWindow(self)
