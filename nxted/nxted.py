@@ -75,7 +75,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                             "Find and Replace",
                             wx.FR_REPLACEDIALOG | wx.FR_NOUPDOWN |
                             wx.FR_NOMATCHCASE | wx.FR_NOWHOLEWORD)
-        self.dlg.ShowModal()
+        self.dlg.Show()
 
     def onFind(self, event):
         self.word = self.findData.GetFindString()

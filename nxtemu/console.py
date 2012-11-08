@@ -96,6 +96,7 @@ class ConsoleDialog(gui.Dialog):
             s = sys.stdout = StringStream(self.lines)
             
             val = self.line.value
+            print(init_text)
 
             sys.stdout = _stdout
  
