@@ -595,8 +595,8 @@ class Editor(wx.aui.AuiMDIParentFrame):
         info.SetVersion(__version__)
         info.SetCopyright('(C) 2011 - infinity XLC Team \
                             (http://xlc-team.info)')
-        info.SetDevelopers(['Marek Šuppa - main developer', 'Adrián Matejov',
-                            'Ján Ďurkáč'])
+        info.SetDevelopers(['Marek Suppa - main developer', 'Adrian Matejov',
+                            'Jan Durkac'])
         info.SetDocWriters(['Marek Šuppa'])
         info.SetWebSite('http://xlcteam.github.com/nxtIDE')
 
