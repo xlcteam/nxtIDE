@@ -79,9 +79,9 @@ class ConsoleDialog(gui.Dialog):
         
         it = gui.Table()
 
-        it.td(gui.Label(ps1 + ' ', font=font))
+        it.td(gui.Label(' ' + ps1 + ' ', font=font))
 
-        self.line = gui.Input(size=(8*19 - len(ps1)*8), font=font)
+        self.line = gui.Input(size=(8*22 - len(ps1)*8), font=font)
         self.line.connect(gui.KEYDOWN, self.lkey)
         #self.line.connect(gui.MOUSEBUTTONDOWN, self.lkey)
         it.td(self.line)

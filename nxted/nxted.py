@@ -18,7 +18,7 @@ import tempfile
 import ctypes
 
 #--------------------------------
-__version__ = "0.6.5"
+__version__ = "1.0.0"
 
 
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
