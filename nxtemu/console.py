@@ -16,6 +16,13 @@ import pygame
 from pygame.locals import *
 import sys
 
+def p(path):
+    """Nasty monkey patch - shall be removed"""
+    import os
+    from os.path import abspath, dirname
+    return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
+            + path
+
 class StringStream:
     def __init__(self, lines):
         self._data = ''
@@ -25,7 +32,7 @@ class StringStream:
         self._data = self._data+data
         _lines = self._data.split("\n")
         
-        font = pygame.font.Font("theme/Inconsolata.ttf", 14)
+        font = pygame.font.Font(p("theme/Inconsolata.ttf"), 14)
 
         for line in _lines[:-1]:
             self.lines.tr()
@@ -66,7 +73,7 @@ class ConsoleDialog(gui.Dialog):
         self.box.set_vertical_scroll(100)
         t.td(self.box)
 
-        font = pygame.font.Font("theme/Inconsolata.ttf", 14)
+        font = pygame.font.Font(p("theme/Inconsolata.ttf"), 14)
 
         t.tr()
         
