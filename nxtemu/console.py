@@ -121,7 +121,7 @@ class ConsoleDialog(gui.Dialog):
             self.own_focus(x,y)
 
         elif event.key == K_DOWN:
-            if len(self.commands):
+            if len(self.commands) is not 0:
                 if self.lastcmd < len(self.commands) - 1:
                     self.lastcmd += 1
                 self.line.value = self.commands[self.lastcmd]
@@ -139,7 +139,7 @@ class ConsoleDialog(gui.Dialog):
             val = self.line.value
 
             self.commands.append(val)
-            self.lastcmd = len(self.commands) - 1
+            self.lastcmd = len(self.commands)
 
             self.line.value = ''
 
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     app = gui.Desktop()
     app.connect(gui.QUIT,app.quit,None)
 
-    dialog = ConsoleDialog()
+    dialog = ConsoleDialog(init_text="Welcome")
 
     dialog.connect(gui.QUIT,dialog.close,None)
 
