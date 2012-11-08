@@ -133,7 +133,8 @@ class Robot(NXTBrick):
     def rot_center(self, image, angle):
         """rotate an image while keeping its center and size"""
         orig_rect = image.get_rect()
-        rot_image = pygame.transform.rotate(image, angle)
+        #rot_image = pygame.transform.rotate(image, angle)
+        rot_image = pygame.transform.rotozoom(image, angle, 1)
         rot_rect = orig_rect.copy()
         rot_rect.center = rot_image.get_rect().center
         rot_image = rot_image.subsurface(rot_rect).copy()
