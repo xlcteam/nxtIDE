@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import pygame, sys
+import pygame, sys, os
 from pygame.locals import *
 
 from pgu import gui
@@ -85,7 +85,7 @@ class SettingsDialog(gui.Dialog):
         t.td(self.background_input, style={'padding_left': 4})
         t.td(inp, style={'padding_left': 4})
         
-        if self.bckg != "None":
+        if self.bckg != "None" and os.path.exists(self.bckg):
             self.background_input.value = self.bckg
             custom_bckg.click()
 
