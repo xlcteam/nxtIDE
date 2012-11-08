@@ -100,7 +100,7 @@ class Robot(NXTBrick):
                         3: BaseSensor(3),
                         4: BaseSensor(4)}
 
-        self.dialog = SettingsDialog()
+        self.dialog = SettingsDialog(bckg=env.cfg.get('nxtemu', 'bckg'))
 
         self.console = ConsoleDialog(init_code='from api import *', 
                         init_text="\n\n\n\nWelcome to the Robot Console." \

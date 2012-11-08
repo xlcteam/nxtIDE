@@ -17,7 +17,7 @@ class SettingsDialog(gui.Dialog):
     inputs = {}
     slots = [1, 2, 3]
 
-    def __init__(self, bckg = '', **params):
+    def __init__(self, bckg = "None", **params):
         self.bckg = bckg
 
         title = gui.Label("Settings")
@@ -80,11 +80,15 @@ class SettingsDialog(gui.Dialog):
         t.td(gui.Radio(self.bckg_group, value=''))
         t.td(gui.Label('None'), align=-1, style={'padding_left': 4})
         t.tr()
-        t.td(gui.Radio(self.bckg_group, value='custom'))
+        custom_bckg = gui.Radio(self.bckg_group, value='custom')
+        t.td(custom_bckg)
         t.td(self.background_input, style={'padding_left': 4})
         t.td(inp, style={'padding_left': 4})
         
-        self.background_input.value = self.bckg
+        if self.bckg != "None":
+            self.background_input.value = self.bckg
+            custom_bckg.click()
+
         background.td(t)
 
         return background
