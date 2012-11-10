@@ -21,7 +21,7 @@ screen = pygame.display.get_surface()
 background = pygame.Surface(screen.get_size()).convert()
 cfg = ConfigParser.RawConfigParser()
 
-def init():
+def init(ports=None):
     cfg.read(p('./config.ini'))
     
     bckg = cfg.get('nxtemu', 'bckg')
@@ -34,6 +34,14 @@ def init():
 
     pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
     pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
+
+    if ports is not None:
+        for port in ports:
+            if ports[port] is not '':
+                pygame.draw.rect(background, (0, 0, 0), 
+                          (735 + 60*(port-1), 463, 26, 34))
+                img = pygame.image.load(p("icons/w_port%d.png" % int(port))).convert()
+                background.blit(img, (735 + 60*int(port-1), 440))    
 
     if bckg:
         try:

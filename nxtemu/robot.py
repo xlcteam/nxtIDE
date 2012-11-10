@@ -419,15 +419,20 @@ class Robot(NXTBrick):
             env.cfg.write(configfile)
 
         robot.inputs = out['inputs']
+
+        ports = {}
         
         for i in out['inputs']:
             inp = out['inputs'][i]
-            
+
             self.sensors[i] = sensor_generator(inp['type'], inp['slot'])
-        
+
+            ports[i] = inp['slot']
+                
+
         if out['others']['background'] is not None:
             robot.background = out['others']['background']
-            env.init()
+            env.init(ports)
             
             img = pygame.image.load(robot.background)
             if img.get_alpha() != None:
@@ -439,7 +444,7 @@ class Robot(NXTBrick):
             env.background.blit(img, (3, 3))
         else:
             robot.background = None
-            env.init()
+            env.init(ports)
         
         self.imgUpdate()
 
