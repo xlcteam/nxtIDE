@@ -100,6 +100,8 @@ class Robot(NXTBrick):
                         3: BaseSensor(3),
                         4: BaseSensor(4)}
 
+        self.ports = {}
+
         self.dialog = SettingsDialog(bckg=env.cfg.get('nxtemu', 'bckg'))
 
         self.console = ConsoleDialog(init_code='from api import *', 
@@ -365,7 +367,7 @@ class Robot(NXTBrick):
         env.screen = pygame.display.get_surface()
         env.background = pygame.Surface(env.screen.get_size()).convert()
 
-        env.init()
+        env.init(self.ports)
 
         self.console.connect(gui.CHANGE, self.consoleQuit, self.console)
         self.console.connect(gui.CLOSE, self.consoleQuit, self.console)
@@ -379,7 +381,7 @@ class Robot(NXTBrick):
         env.screen = pygame.display.get_surface()
         env.background = pygame.Surface(env.screen.get_size()).convert()
 
-        env.init()
+        env.init(self.ports)
 
         d.close()
 
@@ -420,19 +422,18 @@ class Robot(NXTBrick):
 
         robot.inputs = out['inputs']
 
-        ports = {}
         
         for i in out['inputs']:
             inp = out['inputs'][i]
 
             self.sensors[i] = sensor_generator(inp['type'], inp['slot'])
 
-            ports[i] = inp['slot']
+            self.ports[i] = inp['slot']
                 
 
         if out['others']['background'] is not None:
             robot.background = out['others']['background']
-            env.init(ports)
+            env.init(self.ports)
             
             img = pygame.image.load(robot.background)
             if img.get_alpha() != None:
@@ -444,7 +445,7 @@ class Robot(NXTBrick):
             env.background.blit(img, (3, 3))
         else:
             robot.background = None
-            env.init(ports)
+            env.init(self.ports)
         
         self.imgUpdate()
 
