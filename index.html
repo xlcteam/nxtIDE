@@ -12,8 +12,17 @@
 		<script type="text/javascript">
 			$(function(){
 				// Tabs
-				$('#tabs').tabs();
-                $('#container').tabs();
+          $('#tabs').tabs({
+              select: function(event, ui) {
+                window.location.hash = ui.tab.hash;
+              }  
+          });
+          $('#container').tabs({
+              select: function(event, ui) {
+                window.location.hash = ui.tab.hash;
+              }  
+          });
+ 
 			});
 		</script>
 
