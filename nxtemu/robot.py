@@ -232,8 +232,6 @@ class Robot(NXTBrick):
 
             self.x += math.sin(math.radians(self.angle)) * p
             self.y += -math.cos(math.radians(self.angle)) * p
-            
-            self.angle = self.angle
 
         self.draw()
         
