@@ -12,7 +12,12 @@
 		<script type="text/javascript">
 			$(function(){
 				// Tabs
-          $('#tabs').tabs({
+          $('#tabs_winks').tabs({
+              select: function(event, ui) {
+                window.location.hash = ui.tab.hash;
+              }  
+          });
+          $('#features_tabs').tabs({
               select: function(event, ui) {
                 window.location.hash = ui.tab.hash;
               }  
@@ -41,7 +46,7 @@
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#downloads">Downloads</a></li>
-        <li><a href="#console">Interactive console</a></li>
+        <li><a href="#features">Features</a></li>
         <li><a href="#quicktut">Quick Tutorial</a></li>
     </ul>
 
@@ -72,19 +77,27 @@
         </section>
     </div>
 
-    <div id="console">
-        If you want to run this console, click at the topright image in nxtemu.
-        <img src="css/console.png" style="width: 100%"/>
+    <div id="features">
+        <div id="features_tabs">
+            <ul>
+              <li><a href="#console">Console</a></li>
+            </ul>
 
-        <p>
-          You can command the robot directly form the emulator. The robot will respond immediately. 
-        </p>
+            <div id="console">
+                If you want to run this console, click at the topright image in nxtemu.
+                <img src="css/console.png" style="width: 100%"/>
+
+                <p>
+                  You can command the robot directly form the emulator. The robot will respond immediately. 
+                </p>
+            </div>
+          </div>
     </div>
     
     <div id="quicktut">
         <section id="intro">
             <h2>Quick tutorial</h2>
-            <div id="tabs">
+            <div id="tabs_winks">
               <ul>
                 <li><a href="#tabs-1">Simple movements</a></li>
                 <li><a href="#tabs-2">Light sensor</a></li>
