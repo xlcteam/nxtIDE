@@ -546,12 +546,12 @@ def OnFwd(motor, speed):
     :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.   
 
     .. [sk]
-    OnFwd(motor, rýchlosť)
+    OnFwd(motor, rychlost)
   
-    Nastaví motor aby išiel dopredu, a pustí ho
+    Nastaví motor tak, aby sa pohyboval vpred a spustí ho
     
     :param int motor: motor, ktorý chceme spustiť.
-    :param int speed: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. Záporná rýchlosť zmení smer chodu motora.   
+    :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. Záporná rýchlosť zmení smer chodu motora.   
     """
 
     dieTest()
@@ -581,12 +581,12 @@ def OnRev(motor, speed):
     :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
 
     .. [sk]
-    OnRev(motor, rýchlosť)
+    OnRev(motor, rychlost)
     
-    Nastaví motor, aby išiel dozadu a zapne ho.
+    Nastaví motor nastaví motor na pohyb vzad a spustí ho.
     
     :param int motor: motor, ktorý chceme spustiť.
-    :param int speed: rýchlosť, ktorou pôjde motor od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+    :param int rychlost: rýchlosť, ktorou pôjde motor od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
     """
 
     dieTest()
@@ -733,10 +733,10 @@ def ResetTachoCount(motor):
             robot.rotC = 0
 
 
-IN_1 = 1
-IN_2 = 2
-IN_3 = 3
-IN_4 = 4
+IN_1 = S1 = 1
+IN_2 = S2 = 2
+IN_3 = S3 = 3
+IN_4 = S4 = 4
 
 SENSOR_TOUCH = 1
 SENSOR_LIGHT = 2
@@ -851,11 +851,42 @@ def StopAllTasks():
     robot.die = True
     
 
-S1 = 0
-S2 = 1
-S3 = 2
-S4 = 3
+def on_fwd(motor, speed):
+    """on_fwd(motor, speed)
+  
+    Set motor to forward direction and turn it on.
+    
+    :param int motor: motor we want to run.
+    :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.   
 
+    .. [sk]
+    on_fwd(motor, rychlost)
+  
+    Nastaví motor tak, aby sa pohyboval vpred a spustí ho
+    
+    :param int motor: motor, ktorý chceme spustiť.
+    :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. Záporná rýchlosť zmení smer chodu motora.   
+    """
+    OnFwd(motor, speed)
+
+def on_ref(motor, speed):
+    """OnRev(motor, speed)
+    
+    Set motor to reverse direction and turn it on.
+    
+    :param int motor: motor we want to run.
+    :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
+
+    .. [sk]
+    OnRev(motor, rychlost)
+    
+    Nastaví motor nastaví motor na pohyb vzad a spustí ho.
+    
+    :param int motor: motor, ktorý chceme spustiť.
+    :param int rychlost: rýchlosť, ktorou pôjde motor od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+    """
+
+    OnRev(motor, speed)
 
 
 __clock__ = pygame.time.Clock()
