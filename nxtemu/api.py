@@ -740,6 +740,7 @@ IN_4 = S4 = 4
 
 SENSOR_TOUCH = 1
 SENSOR_LIGHT = 2
+SENSOR_SOUND = 3
 
 
 def SetSensor(sensor, type):
@@ -867,9 +868,9 @@ def on_fwd(motor, speed):
     :param int motor: motor, ktorý chceme spustiť.
     :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. Záporná rýchlosť zmení smer chodu motora.   
     """
-    OnFwd(motor, speed)
+    return OnFwd(motor, speed)
 
-def on_ref(motor, speed):
+def on_rev(motor, speed):
     """OnRev(motor, speed)
     
     Set motor to reverse direction and turn it on.
@@ -886,7 +887,23 @@ def on_ref(motor, speed):
     :param int rychlost: rýchlosť, ktorou pôjde motor od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
     """
 
-    OnRev(motor, speed)
+    return OnRev(motor, speed)
+
+
+def set_sensor(port, type):
+    """set_sensor(port, type)"""
+
+    return SetSensor(sensor, type)
+
+def set_sensors(port1, port2, port3, port4):
+    """set_sensors(port1, port2, port3, port4)"""
+
+    SetSensor(IN_1, port1)
+    SetSensor(IN_2, port2)
+    SetSensor(IN_3, port3)
+    SetSensor(IN_4, port4)
+
+    return True
 
 
 __clock__ = pygame.time.Clock()
