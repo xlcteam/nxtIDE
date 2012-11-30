@@ -3,4 +3,5 @@
 build/
 dist/
 *.zip
-*.ini
+nxted/config.ini
+nxtemu/config.ini
