@@ -869,7 +869,7 @@ def on_fwd(motor, speed):
     """
     OnFwd(motor, speed)
 
-def on_ref(motor, speed):
+def on_rev(motor, speed):
     """OnRev(motor, speed)
     
     Set motor to reverse direction and turn it on.
