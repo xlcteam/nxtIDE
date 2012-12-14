@@ -897,7 +897,7 @@ def on_rev(motor, speed):
 def set_sensor(port, type):
     """set_sensor(port, type)"""
 
-    return SetSensor(sensor, type)
+    return SetSensor(port, type)
 
 def set_sensors(port1, port2, port3, port4):
     """set_sensors(port1, port2, port3, port4)"""
