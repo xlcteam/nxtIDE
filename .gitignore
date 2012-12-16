@@ -5,3 +5,6 @@ dist/
 *.zip
 nxted/config.ini
 nxtemu/config.ini
+nxtemu/__progs__/
+nxted/files/
+nxtemu/floor/
