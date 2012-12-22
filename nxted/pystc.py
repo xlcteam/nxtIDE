@@ -548,6 +548,31 @@ class PythonSTC(stc.StyledTextCtrl):
         else:
             return (0, 0)
 
+class PythonSidebar(wx.Panel):
+    """Side toolbar class."""
+
+    def __init__(self, parent):
+        super(PythonSidebar, self).__init__(parent, size=(200, 300))
+
+
+class PythonEditor(wx.Panel):
+    """Python Editor class which should provide both pystc and the side
+    toolbar."""
+
+    def __init__(self, parent, title):
+        super(PythonEditor, self).__init__(parent, id=-1)
+
+        self.stc = PythonSTC(self, -1)
+        self.sidebar = PythonSidebar(self)
+
+        fgs = wx.FlexGridSizer(1, 2, 10, 10)
+        fgs.AddMany([(self.stc, 1, wx.EXPAND), (self.sidebar)])
+        fgs.AddGrowableRow(0, 0)
+        fgs.AddGrowableCol(0, 0)
+
+        self.SetSizer(fgs)
+
+        
 
 #----------------------------------------------------------------------
 testCode = """
@@ -565,19 +590,22 @@ def main():
 """
 
 
+
+
 if __name__ == '__main__':
     import sys
     import os
     app = wx.App()
     frame = wx.Frame(None, -1, title="test")
-    ed = PythonSTC(frame, -1)
-    ed.SetText(demoText + testCode)
-    ed.EmptyUndoBuffer()
-    ed.Colourise(0, -1)
+   #ed = PythonSTC(frame, -1)
+   #ed.SetText(demoText + testCode)
+   #ed.EmptyUndoBuffer()
+   #ed.Colourise(0, -1)
 
-    # line numbers in the margin
-    ed.SetMarginType(1, stc.STC_MARGIN_NUMBER)
-    ed.SetMarginWidth(1, 25)
+   ## line numbers in the margin
+   #ed.SetMarginType(1, stc.STC_MARGIN_NUMBER)
+   #ed.SetMarginWidth(1, 25)
+    ed = PythonEditor(frame, 'fero')
 
     frame.Show()
     app.MainLoop()
