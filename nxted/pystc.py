@@ -559,14 +559,14 @@ class PythonEditor(wx.Panel):
     """Python Editor class which should provide both pystc and the side
     toolbar."""
 
-    def __init__(self, parent, title):
+    def __init__(self, parent):
         super(PythonEditor, self).__init__(parent, id=-1)
 
         self.stc = PythonSTC(self, -1)
         self.sidebar = PythonSidebar(self)
 
         fgs = wx.FlexGridSizer(1, 2, 10, 10)
-        fgs.AddMany([(self.stc, 1, wx.EXPAND), (self.sidebar)])
+        fgs.AddMany([(self.stc, 1, wx.EXPAND), (self.sidebar) ])
         fgs.AddGrowableRow(0, 0)
         fgs.AddGrowableCol(0, 0)
 
@@ -593,10 +593,77 @@ def main():
 
 
 if __name__ == '__main__':
+    import wx.aui
+    class ParentFrame(wx.aui.AuiMDIParentFrame):
+        def __init__(self, parent):
+            wx.aui.AuiMDIParentFrame.__init__(self, parent, -1,
+                                              title="AuiMDIParentFrame",
+                                              size=(640,480),
+                                              style=wx.DEFAULT_FRAME_STYLE)
+            self.count = 0
+            mb = self.MakeMenuBar()
+            self.SetMenuBar(mb)
+            self.CreateStatusBar()
+            self._mgr = wx.aui.AuiManager()
+            self._mgr.SetManagedWindow(self)
+
+            self._mgr.AddPane(PythonSidebar(self),
+                         wx.aui.AuiPaneInfo().Name("Sidebar").
+                         Right().PaneBorder(False))
+
+            self._mgr.Update()
+ 
+
+        def MakeMenuBar(self):
+            mb = wx.MenuBar()
+            menu = wx.Menu()
+            item = menu.Append(-1, "New child window\tCtrl-N")
+            self.Bind(wx.EVT_MENU, self.OnNewChild, item)
+            item = menu.Append(-1, "Close parent")
+            self.Bind(wx.EVT_MENU, self.OnDoClose, item)
+            mb.Append(menu, "&File")
+            return mb
+            
+        def OnNewChild(self, evt):
+            self.count += 1
+            child = ChildFrame(self, self.count)
+            child.Show()
+
+        def OnDoClose(self, evt):
+            self.Close()
+            
+
+    #----------------------------------------------------------------------
+
+    class ChildFrame(wx.aui.AuiMDIChildFrame):
+        def __init__(self, parent, count):
+            wx.aui.AuiMDIChildFrame.__init__(self, parent, -1,
+                                             title="Child: %d" % count)
+            mb = parent.MakeMenuBar()
+            menu = wx.Menu()
+            item = menu.Append(-1, "This is child %d's menu" % count)
+            mb.Append(menu, "&Child")
+            self.SetMenuBar(mb)
+
+            
+            
+           #p = PythonSidebar(self) 
+           #wx.StaticText(p, -1, "This is child %d" % count, (10,10))
+           #p.SetBackgroundColour('light blue')
+            p = PythonSTC(self, -1)
+            p.SetText(testCode)
+
+            sizer = wx.BoxSizer()
+            sizer.Add(p, 1, wx.EXPAND)
+            self.SetSizer(sizer)
+            
+            wx.CallAfter(self.Layout)
+
+
     import sys
     import os
     app = wx.App()
-    frame = wx.Frame(None, -1, title="test")
+    #frame = wx.Frame(None, -1, title="test", size=(700, 300))
    #ed = PythonSTC(frame, -1)
    #ed.SetText(demoText + testCode)
    #ed.EmptyUndoBuffer()
@@ -605,9 +672,11 @@ if __name__ == '__main__':
    ## line numbers in the margin
    #ed.SetMarginType(1, stc.STC_MARGIN_NUMBER)
    #ed.SetMarginWidth(1, 25)
-    ed = PythonEditor(frame, 'fero')
+    #ed = PythonEditor(frame)
 
-    frame.Show()
+    #frame.Show()
+    f = ParentFrame(None)
+    f.Show()
     app.MainLoop()
 
 
