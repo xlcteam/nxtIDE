@@ -554,6 +554,58 @@ class PythonSidebar(wx.Panel):
     def __init__(self, parent):
         super(PythonSidebar, self).__init__(parent, size=(200, 300))
 
+        self.SetBackgroundColour('#ffffff')
+        vbox = wx.BoxSizer(wx.VERTICAL) 
+
+        self.label_flow = self.create_button('flow', font_size=16, normal_color='#aaa',
+                hover_color='#888') 
+        self.label_flow.Bind(wx.EVT_HYPERLINK, self.label_flow_clicked)
+
+        self.label_if = self.create_button('if')
+        self.label_for = self.create_button('for')
+        self.label_while = self.create_button('while')
+ 
+        self.label_for.Bind(wx.EVT_HYPERLINK, self.label_for_clicked)
+        self.label_if.Bind(wx.EVT_HYPERLINK, self.label_if_clicked)
+        self.label_while.Bind(wx.EVT_HYPERLINK, self.label_while_clicked)
+
+
+        vbox.Add(self.label_flow, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+        vbox.Add(self.label_if, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+        vbox.Add(self.label_for, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+        vbox.Add(self.label_while, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+
+
+        self.SetSizer(vbox)
+
+    def label_if_clicked(self, event):
+        print "clicked if"
+
+    def label_while_clicked(self, event):
+        print "clicked while"
+
+    def label_flow_clicked(self, event):
+        print "clicked flow"
+
+    def label_for_clicked(self, event):
+        print "clicked for"
+
+
+    def create_button(self, label, font_size=12, normal_color='#222222',
+            hover_color='#111111'):
+        btn = wx.HyperlinkCtrl(self, id=-1, url='', label=label)
+        btn.SetFont(wx.Font(font_size, wx.SWISS, wx.NORMAL, wx.BOLD, False))
+        btn.SetHoverColour(hover_color)
+        btn.SetNormalColour(normal_color)
+        btn.SetVisitedColour(normal_color)
+        btn.SetBackgroundColour('#ffffff')
+
+        return btn
+
 
 class PythonEditor(wx.Panel):
     """Python Editor class which should provide both pystc and the side
@@ -608,8 +660,9 @@ if __name__ == '__main__':
             self._mgr.SetManagedWindow(self)
 
             self._mgr.AddPane(PythonSidebar(self),
-                         wx.aui.AuiPaneInfo().Name("Sidebar").
-                         Right().PaneBorder(False))
+                         wx.aui.AuiPaneInfo().Name("sidebar").
+                         TopDockable(False).BottomDockable(False).
+                         Caption('Sidebar').Right().PaneBorder(False))
 
             self._mgr.Update()
  
