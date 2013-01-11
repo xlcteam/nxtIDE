@@ -4,7 +4,6 @@ import pygame, random, math, time, sys, os
 from pygame.locals import * 
 
 from pgu import gui 
-
 import imgs
 
 from os.path import abspath, dirname
@@ -18,7 +17,6 @@ def p(path):
             + path
 
 
-from api import *
 from clicker import Clicker
 
 from robot import Robot
