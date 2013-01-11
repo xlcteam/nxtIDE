@@ -28,26 +28,9 @@ pygame.display.set_icon(icon)
 pygame.mixer.pre_init(44100, -16, 2)
 
 import env
-
 env.init()
 
-#   env.background = pygame.Surface(env.screen.get_size()) 
-#   env.background = env.background.convert() 
-#   env.background.fill((255, 255, 255))
-
-#   pygame.display.set_caption("nxtemu")
-#   #background.blit(pygame.image.load("./icons/brick.jpg").convert(), (640, 0))
-#   env.background.blit(imgs.brick.convert(), (640, 0))
-
-#   pygame.draw.rect(env.background, pygame.Color("gray"), ((0, 0), (646, 486)))
-#   pygame.draw.rect(env.background, pygame.Color("white"), ((3, 3), (640, 480)))
-
-# background.blit(pygame.image.load("settings.png").convert_alpha(), (970, 400))
-#background.blit(pygame.image.load("./line.jpg"), (3, 3))
-
-
 clock = pygame.time.Clock() 
-
 
 if __name__ == "__main__":
     env.app = gui.App(theme=gui.Theme(p("theme/default/"))) 
