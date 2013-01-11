@@ -367,6 +367,11 @@ class Robot(NXTBrick):
 
         env.init(self.ports)
 
+        ClearScreen()
+        self.header()
+        self.textCenterOut(LCD_LINE5 + 2, "Live Console") 
+
+
         self.console.connect(gui.CHANGE, self.consoleQuit, self.console)
         self.console.connect(gui.CLOSE, self.consoleQuit, self.console)
         self.console.open()
@@ -380,6 +385,8 @@ class Robot(NXTBrick):
         env.background = pygame.Surface(env.screen.get_size()).convert()
 
         env.init(self.ports)
+        ClearScreen()
+        self.scrout()
 
         d.close()
 
