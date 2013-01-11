@@ -2,9 +2,6 @@
 # -*- coding: utf-8 -*-
 
 # An interactive console for live programming
-
-import api
-
 import traceback
 
 import env
