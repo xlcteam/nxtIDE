@@ -4,25 +4,25 @@
   <meta charset='utf-8'>
 
   <title>nxtIDE</title>
-  <link type="text/css" href="css/ui-lightness/jquery-ui.css" rel="stylesheet" />	
-  <link type="text/css" href="css/style.css" rel="stylesheet" />	
+  <link type="text/css" href="css/ui-lightness/jquery-ui.css" rel="stylesheet" />
+  <link type="text/css" href="css/style.css" rel="stylesheet" />
   <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
   <script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
-	
+
 		<script type="text/javascript">
 			$(function(){
 				// Tabs
           $('#tabs').tabs({
               select: function(event, ui) {
                 window.location.hash = ui.tab.hash;
-              }  
+              }
           });
-          $('#container').tabs({
-              select: function(event, ui) {
-                window.location.hash = ui.tab.hash;
-              }  
-          });
- 
+        //$('#container').tabs({
+        //    select: function(event, ui) {
+        //      window.location.hash = ui.tab.hash;
+        //    }
+        //});
+
 			});
 		</script>
 
@@ -38,12 +38,27 @@
     </div>
   </div>
   <div id="container">
+    <!--
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#downloads">Downloads</a></li>
         <li><a href="#console">Interactive console</a></li>
         <li><a href="#quicktut">Quick Tutorial</a></li>
     </ul>
+    -->
+
+    <div id="what">
+      <h2>What?</h2>
+      <p>
+        Lots of people know Lego Mindstorms NXT. It's a robotic kit which has awesome features: it's not that expensive, it's really easy to play with and you can do many awesome things with it.
+      </p>
+
+      <p>
+      But when it comes to programming, there are only bad options. You can use <a href="#nxt-g">NXT-G</a> which is a graphical programming language and is indeed really simple to use. But once you want to do something more advanced an complex it gets slow. <br />
+
+      On the other hand, there is BrixCC and programming language <a href="#nxc">NXC</a> (<strong>N</strong>ot e<strong>X</strong>actly <strong>C</strong>) which is based on the C programming language.
+      </p>
+    </div>
 
     <div id="home" style="word-wrap: break-word;">
         <h2>nxtemu</h2>
@@ -56,12 +71,12 @@
 
         <p>(c) 2011 - 2012, Brought to you by the <a href="https://github.com/xlcteam">XLC Team</a>, <a href="http://xlc-team.info">http://xlc-team.info</a></p>
     </div>
-     
+
     <div id="downloads">
         <section id="slide">
             <h2>Downloading and installing</h2>
             <div>
-              <p> 
+              <p>
               The latest version can be always obtained from the <a
               href="https://github.com/xlcteam/nxtIDE/downloads">GitHub page</a>
             of this project. <br /> <br />
@@ -77,20 +92,21 @@
         <img src="css/console.png" style="width: 100%"/>
 
         <p>
-          You can command the robot directly form the emulator. The robot will respond immediately. 
+          You can command the robot directly form the emulator. The robot will respond immediately.
         </p>
     </div>
-    
+
     <div id="quicktut">
         <section id="intro">
             <h2>Quick tutorial</h2>
+            <p>Here are three simple tutorials to show you what it is like to program robots with nxtIDE:</p>
             <div id="tabs">
               <ul>
                 <li><a href="#tabs-1">Simple movements</a></li>
                 <li><a href="#tabs-2">Light sensor</a></li>
                 <li><a href="#tabs-3">Distance sensor</a></li>
               </ul>
-              
+
               <div id="tabs-1">
                 <div style="width: 640px; height: 500px; margin: 0 auto;">
                 <!--[if IE]>
