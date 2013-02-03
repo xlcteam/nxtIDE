@@ -111,8 +111,10 @@ section div p {
 
 .photo img {
   margin: 0 auto;
+  display: block;
 }
 
 .photo p {
-  font-size: 11px;
+  font-size: 12px;
+  text-align: center;
 }
