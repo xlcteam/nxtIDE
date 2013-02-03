@@ -14,6 +14,7 @@ body {
 #container h2 {
   text-align: center;
   color: #000;
+  margin: 0.83em auto;
 }
 
 #container > * {
@@ -22,7 +23,6 @@ body {
 
 section h2 {
   /*font-family: "Lucida Console", Monaco, monospace;*/
-  margin-bottom: 5px;
 }
 
 section div {
@@ -86,7 +86,12 @@ section div p {
   margin-top: 0px;
 }
 
+.subtext{
+  font-size: 13px;
+}
+
 .item {
+  padding-top: 10px;
   margin: 0 auto;
   width: 700px;
   clear: left;
