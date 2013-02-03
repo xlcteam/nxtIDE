@@ -25,6 +25,11 @@ stream = open("./config.yml", "r")
 cfg = yaml.load(stream)
 stream.close()
 
+def write_config():
+    stream = open("./config.yml", "w")
+    yaml.dump(cfg, stream)
+    stream.close()
+
 def init(ports=None):
     bckg = cfg["others"]["background"];
     

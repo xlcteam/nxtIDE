@@ -419,10 +419,7 @@ class Robot(NXTBrick):
         #with open(p('./config.ini'), 'wb') as configfile:
         #    env.cfg.write(configfile)
 
-        stream = open("./config.yml", "w")
-        yaml.dump(env.cfg, stream)
-        stream.close()
-        env.cfg = out
+
 
         robot.inputs = out['inputs']
 
@@ -464,17 +461,67 @@ class Robot(NXTBrick):
         dlg.connect(gui.CLOSE, self.dialogClose, dlg)
         self.paused = True
 
+    def writeit(self, d):
+        env.write_config()
+        self.imgUpdate()
+        d.close()
+
+    # background
+    def bckg_return(self, d):
+        self.paused = False
+        out = d.out()
+        
+        env.cfg['others']['background'] = out
+
+        if out is not None:
+            robot.background = out
+            env.init(self.ports)
+            
+            img = pygame.image.load(robot.background)
+            if img.get_alpha() != None:
+                img = img.convert_alpha()
+            else:
+                img = img.convert()
+
+            env.background.blit(img, (3, 3))
+        else:
+            robot.background = None
+            env.init(self.ports)
+
+        self.writeit(d)
+    
     def background_dialog(self):
+        self.bckgDialog.connect(gui.CHANGE, self.bckg_return, self.bckgDialog)
         self.open_and_center(self.bckgDialog)
 
+    # port 1
+    def port1_return(self, d):
+        pass
+
     def port1(self):
+        self.port_1.connect(gui.CHANGE, self.port1_return, self.port_1)
         self.open_and_center(self.port_1)
 
+    # port 2
+    def port2_return(self, d):
+        pass
+
     def port2(self):
+        self.port_2.connect(gui.CHANGE, self.port2_return, self.port_2)
         self.open_and_center(self.port_2)
 
+    # port 3
+    def port3_return(self, d):
+        pass
+
     def port3(self):
+        self.port_3.connect(gui.CHANGE, self.port3_return, self.port_3)
         self.open_and_center(self.port_3)
 
+    # port 4
+    def port4_return(self, d):
+        pass
+
     def port4(self):
+        self.port_4.connect(gui.CHANGE, self.port4_return, self.port_4)
         self.open_and_center(self.port_4)    
