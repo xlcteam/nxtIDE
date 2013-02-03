@@ -3,4 +3,4 @@ inputs:
   2: {slot: '', type: None}
   3: {slot: '', type: None}
   4: {slot: '', type: None}
-others: {background: /mnt/C/dev/xlc-team/nxtIDE/nxtemu/floor/line1.jpg}
+others: {background: None}

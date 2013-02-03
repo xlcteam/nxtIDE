@@ -217,10 +217,6 @@ class SensorDialog(gui.Dialog):
         self.inp['slot'] = g.value
         self.port_connect_update()
 
-    def send(self):
-        env.cfg["inputs"][self.port] = self.inp
-        robot.dialogClose(self)
-
     def out(self):
         return self.inp
 

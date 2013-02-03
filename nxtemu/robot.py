@@ -494,9 +494,23 @@ class Robot(NXTBrick):
         self.bckgDialog.connect(gui.CHANGE, self.bckg_return, self.bckgDialog)
         self.open_and_center(self.bckgDialog)
 
+    def add_sensor(self, d, i):       
+        self.paused = False
+        out = d.out()
+        env.cfg["inputs"][i]["type"] = out["type"]
+        env.cfg["inputs"][i]["slot"] = out["slot"]
+
+        robot.inputs[i] = out
+
+        self.sensors[i] = sensor_generator(out['type'], out['slot'])
+        self.ports[i] = out['slot']
+
+        env.init(self.ports)
+        self.writeit(d)
+
     # port 1
     def port1_return(self, d):
-        pass
+        self.add_sensor(d, 1)
 
     def port1(self):
         self.port_1.connect(gui.CHANGE, self.port1_return, self.port_1)
@@ -504,7 +518,7 @@ class Robot(NXTBrick):
 
     # port 2
     def port2_return(self, d):
-        pass
+        self.add_sensor(d, 2)
 
     def port2(self):
         self.port_2.connect(gui.CHANGE, self.port2_return, self.port_2)
@@ -512,7 +526,7 @@ class Robot(NXTBrick):
 
     # port 3
     def port3_return(self, d):
-        pass
+        self.add_sensor(d, 3)
 
     def port3(self):
         self.port_3.connect(gui.CHANGE, self.port3_return, self.port_3)
@@ -520,7 +534,7 @@ class Robot(NXTBrick):
 
     # port 4
     def port4_return(self, d):
-        pass
+        self.add_sensor(d, 4)
 
     def port4(self):
         self.port_4.connect(gui.CHANGE, self.port4_return, self.port_4)
