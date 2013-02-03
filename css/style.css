@@ -1,12 +1,12 @@
 body {
   margin-top: 1.0em;
   background-color: #DFE2E2;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   color: #555;
 }
 #container {
   margin: 0 auto;
-  width: 75%;
+  width: 900px;
   margin-top: 160px;
   background-color: #fff;
   border-radius: 3px;
@@ -21,7 +21,7 @@ body {
 }
 
 section h2 {
-  font-family: "Lucida Console", Monaco, monospace;
+  /*font-family: "Lucida Console", Monaco, monospace;*/
   margin-bottom: 5px;
 }
 
@@ -84,4 +84,30 @@ section div p {
 #header p {
   font-style: italic;
   margin-top: 0px;
+}
+
+.item {
+  margin: 0 auto;
+  width: 700px;
+  clear: left;
+}
+
+.item .content {
+  width: 400px;
+}
+
+.left {
+  float: left;
+}
+
+.photo {
+  width: 300px;
+}
+
+.photo img {
+  margin: 0 auto;
+}
+
+.photo p {
+  font-size: 11px;
 }
