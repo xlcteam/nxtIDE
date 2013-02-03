@@ -15,6 +15,9 @@ body {
   text-align: center;
   color: #000;
   margin: 0.83em auto;
+  padding-top: 140px;
+  margin-top: -140px;
+
 }
 
 #container > * {
