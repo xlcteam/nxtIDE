@@ -411,47 +411,6 @@ class Robot(NXTBrick):
         self.paused = False
         d.close()
 
-    def dialogReturn(self, d):
-        self.paused = False
-        out = d.out()
-
-        #env.cfg.set('nxtemu', 'bckg', out['others']['background'])
-        #with open(p('./config.ini'), 'wb') as configfile:
-        #    env.cfg.write(configfile)
-
-
-
-        robot.inputs = out['inputs']
-
-        
-        for i in out['inputs']:
-            inp = out['inputs'][i]
-
-            self.sensors[i] = sensor_generator(inp['type'], inp['slot'])
-
-            self.ports[i] = inp['slot']
-                
-
-        if out['others']['background'] is not None:
-            robot.background = out['others']['background']
-            env.init(self.ports)
-            
-            img = pygame.image.load(robot.background)
-            if img.get_alpha() != None:
-                img = img.convert_alpha()
-            else:
-                img = img.convert()
-
-
-            env.background.blit(img, (3, 3))
-        else:
-            robot.background = None
-            env.init(self.ports)
-        
-        self.imgUpdate()
-
-        d.close()
-
     def open_and_center(self, dlg):
         if dlg.is_open():
             return self.dialogClose(dlg)
