@@ -5,11 +5,11 @@ body {
   color: #555;
 }
 #container {
-  margin: 0 auto;
-  width: 900px;
-  margin-top: 160px;
   background-color: #fff;
   border-radius: 3px;
+  float: left;
+  width: 750px;
+  margin-left: 75px;
 }
 #container h2 {
   text-align: center;
@@ -124,4 +124,44 @@ section div p {
 
 footer p {
   text-align: center;
+}
+
+#menu {
+  float: left;
+  width: 150px;
+  position: fixed;
+  margin-left: 825px;
+  background-color: #fff;
+  border-radius: 0 3px 3px 0;
+  margin-top: 80px;
+}
+
+#menu ol {
+  padding-left: 25px;
+}
+
+#menu li {
+  padding: 2px 0;
+  margin: 0;
+  font-size: 13px;
+}
+
+#menu a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#menu a:hover {
+  text-decoration: underline;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 900px;
+  margin-top: 160px;
+}
+
+object {
+  z-index: 0;
 }
