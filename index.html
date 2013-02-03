@@ -13,7 +13,12 @@
 		<script type="text/javascript">
 			$(function(){
 				// Tabs
-          $('#tabs').tabs({
+          $('#tabs_winks').tabs({
+              select: function(event, ui) {
+                window.location.hash = ui.tab.hash;
+              }
+          });
+          $('#features_tabs').tabs({
               select: function(event, ui) {
                 window.location.hash = ui.tab.hash;
               }
@@ -43,7 +48,7 @@
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#downloads">Downloads</a></li>
-        <li><a href="#console">Interactive console</a></li>
+        <li><a href="#features">Features</a></li>
         <li><a href="#quicktut">Quick Tutorial</a></li>
     </ul>
     -->
@@ -159,13 +164,16 @@
             </div>
     </div>
 
-    <div id="console">
-        If you want to run this console, click at the topright image in nxtemu.
-        <img src="css/console.png" style="width: 100%"/>
+    <div id="features">
+        <h3>Features</h3>
+            <div id="console">
+                If you want to run this console, click at the topright image in nxtemu.
+                <img src="css/console.png" style="width: 100%"/>
 
-        <p>
-          You can command the robot directly form the emulator. The robot will respond immediately.
-        </p>
+                <p>
+                  You can command the robot directly form the emulator. The robot will respond immediately.
+                </p>
+          </div>
     </div>
 
     <div id="quicktut">
@@ -173,6 +181,8 @@
             <h3>Quick tutorial</h3>
             <p>Here are three simple tutorials to show you what it is like to program robots with nxtIDE:</p>
             <div id="tabs">
+            <h2>Quick tutorial</h2>
+            <div id="tabs_winks">
               <ul>
                 <li><a href="#tabs-1">Simple movements</a></li>
                 <li><a href="#tabs-2">Light sensor</a></li>
