@@ -11,7 +11,7 @@ import math
 import imgs
 from robothread import *
 
-from dialog import SettingsDialog
+from dialog import SensorDialog, BackgroundDialog
 from console import ConsoleDialog
 
 from sensors import *
@@ -104,8 +104,13 @@ class Robot(NXTBrick):
 
         self.ports = {}
 
-        self.dialog = SettingsDialog(bckg=env.cfg["others"]["background"])
+        self.bckgDialog = BackgroundDialog(bckg=env.cfg["others"]["background"])
 
+        self.port_1 = SensorDialog(port=1)
+        self.port_2 = SensorDialog(port=2)
+        self.port_3 = SensorDialog(port=3)
+        self.port_4 = SensorDialog(port=4)
+        
         self.console = ConsoleDialog(init_code='from api import *', 
                         init_text="\n\n\n\nWelcome to the Robot Console." \
                         "Type help if you are " \
@@ -342,19 +347,6 @@ class Robot(NXTBrick):
         self.scrout()
         #print "cleaner"
 
-    def onDialog(self):
-
-
-        if self.dialog.is_open():
-            return self.dialogClose(self.dialog)
-
-        self.paused = True
-
-        self.dialog.connect(gui.CHANGE, self.dialogReturn, self.dialog)
-        self.dialog.connect(gui.CLOSE, self.dialogClose, self.dialog)
-        self.dialog.open()
-        self.dialog.rect.x = 120
-
     def onConsole(self):
 
         if self.console.is_open():
@@ -462,3 +454,27 @@ class Robot(NXTBrick):
         self.imgUpdate()
 
         d.close()
+
+    def open_and_center(self, dlg):
+        if dlg.is_open():
+            return self.dialogClose(dlg)
+
+        dlg.open()
+        dlg.rect.x = 120
+        dlg.connect(gui.CLOSE, self.dialogClose, dlg)
+        self.paused = True
+
+    def background_dialog(self):
+        self.open_and_center(self.bckgDialog)
+
+    def port1(self):
+        self.open_and_center(self.port_1)
+
+    def port2(self):
+        self.open_and_center(self.port_2)
+
+    def port3(self):
+        self.open_and_center(self.port_3)
+
+    def port4(self):
+        self.open_and_center(self.port_4)    

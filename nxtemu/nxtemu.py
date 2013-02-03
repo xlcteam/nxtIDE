@@ -75,8 +75,15 @@ if __name__ == "__main__":
     clicker.bind(((810, 308), (41, 26)), robot.onBack)
     clicker.bind(((751, 252), (41, 40)), robot.onLeft)
     clicker.bind(((870, 252), (41, 40)), robot.onRight)
-    clicker.bind(((960, 400), (50, 50)), robot.onDialog)
     clicker.bind(((970, 10),  (45, 45)), robot.onConsole)
+
+    clicker.bind(((960, 400), (50, 50)), robot.background_dialog)
+
+    # sensor binds
+    clicker.bind(((735, 440), (19, 23)), robot.port1)
+    clicker.bind(((795, 440), (19, 23)), robot.port2)
+    clicker.bind(((855, 440), (19, 23)), robot.port3)
+    clicker.bind(((915, 440), (19, 23)), robot.port4)
 
     while running: 
         for event in pygame.event.get(): 

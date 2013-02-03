@@ -11,32 +11,18 @@ def p(path):
     return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
             + path
 
-class SettingsDialog(gui.Dialog):
-    port = None   
-    ports = {}
-    inputs = {}
-    slots = [1, 2, 3]
 
-    def __init__(self, bckg = "None", **params):
+class BackgroundDialog(gui.Dialog):
+
+    def __init__(self, bckg = "None"):
         self.bckg = bckg
 
-        title = gui.Label("Settings")
+        title = gui.Label("Set background")
         self.value = gui.Form()
 
         self.container = gui.Container()
 
         table = gui.Table()
-        table.tr()
-        
-        self.sensors_img = gui.Image(p('icons/sensors.jpg'))
-        
-
-        table.td(self.sensors_img, cellspan=3)
-
-        spacer = gui.Image(p('icons/choose_port.png'))
-        self.box = gui.ScrollArea(spacer)
-        table.tr()
-        table.td(self.box, style={'border': 1})
         
         table.tr()
         table.td(self.build_background_select(), 
@@ -50,22 +36,8 @@ class SettingsDialog(gui.Dialog):
 
         self.container.add(table, 0, 0)
 
-        self.init_ports()
         gui.Dialog.__init__(self, title, self.container)
-    
-    def init_ports(self):
-        for x in range(1, 5):
-            self.ports[x] = {}
-            self.ports[x]['img'] = gui.Image(p('icons/port%d.png' % x))
-            self.ports[x]['img'].connect(gui.CLICK, self.change, x)
-            
-            self.ports[x]['sensors'] = self.build_sensors()
 
-            self.container.add(self.ports[x]['img'], 30+(60*x), 24)
-
-            self.inputs[x] = {'type': None, 'slot': ''}
-
-    
     def build_background_select(self):
         background = gui.Table()
         background.td(gui.Label("Room background:"), 
@@ -97,21 +69,79 @@ class SettingsDialog(gui.Dialog):
         d = gui.FileDialog()                                                       
         d.connect(gui.CHANGE, self.file_dialog_handle, d)                       
         d.open()   
-    
+
     def file_dialog_handle(self, dlg):
         if dlg.value: 
             self.background_input.value = dlg.value  
             self.bckg_group.value = 'custom'
 
+    def out(self):
+        return self.background_input.value
 
-    def port_select(self, port, prev=None):
+
+class SensorDialog(gui.Dialog):
+    pt = {}
+    inp = {}
+    slots = [1, 2, 3]
+    
+    def __init__(self, bckg = "None", port = None, **params):
+        self.bckg = bckg
+        self.port = port
+
+        title = gui.Label("Sensor of port %d" % int(self.port))
+        self.value = gui.Form()
+
+        self.container = gui.Container()
+
+        table = gui.Table()
+        table.tr()
         
-        if prev is not None:
-            img = p('icons/port%d.png' % (prev))
-            self.ports[prev]['img'].value = pygame.image.load(img).convert()
+        self.sensors_img = gui.Image(p('icons/sensors.jpg'))
+        table.td(self.sensors_img, cellspan=3)
+
+        spacer = gui.Spacer(200, 100)
+        self.box = gui.ScrollArea(spacer)
+        table.tr()
+        table.td(self.box, style={'border': 1})
+
+        save = gui.Button('Save')
+        save.connect(gui.CLICK, self.send, gui.CHANGE)
+
+        table.tr()
+        table.td(save, align=1)
+
+        self.container.add(table, 0, 0)
+
+        self.init_ports()
+        self.change()
+        gui.Dialog.__init__(self, title, self.container)
+
+    def init_ports(self):
+        self.pt = {}
+        self.pt['img'] = gui.Image(p('icons/w_port%d.png' % int(self.port)))
         
-        img = p('icons/w_port%d.png' % (port))
-        self.ports[port]['img'].value = pygame.image.load(img).convert()
+        self.pt['sensors'] = self.build_sensors()
+
+        self.container.add(self.pt['img'], 30+(60*self.port), 24)
+
+        self.inp = {'type': None, 'slot': ''}
+
+    def change(self):
+        # changing the image
+        
+        spacer = gui.Spacer(200, 100)
+
+        table = gui.Table()
+        table.tr()
+        table.td(self.pt['sensors'])
+        table.td(gui.Image(p('icons/arrow.png')))
+
+        slots = self.build_slots()
+
+        table.td(slots)
+        table.tr()
+
+        self.box.widget = table
 
     def build_sensors(self):
         sensors_group = gui.Group(value='')
@@ -136,10 +166,10 @@ class SettingsDialog(gui.Dialog):
         return sensors
 
     def build_slots(self):
-        slots_group = gui.Group(value=self.inputs[self.port]['slot'])
+        slots_group = gui.Group(value=self.inp['slot'])
         slots = gui.Table()
         
-        wslots = [self.inputs[self.port]['slot']] + self.slots
+        wslots = [self.inp['slot']] + self.slots
 
         for slot in [1, 2, 3]:
             slots.tr()
@@ -156,32 +186,11 @@ class SettingsDialog(gui.Dialog):
         
         slots_group.connect(gui.CHANGE, self.slot_change, slots_group)
         
-        return slots 
-
-
-
-    def change(self, port):
-        # changing the image
-        self.port_select(port, self.port)
-        self.port = port
-        
-        spacer = gui.Spacer(200, 100)
-
-        table = gui.Table()
-        table.tr()
-        table.td(self.ports[port]['sensors'])
-        table.td(gui.Image(p('icons/arrow.png')))
-
-        slots = self.build_slots()
-
-        table.td(slots)
-        table.tr()
-
-        self.box.widget = table
+        return slots
     
     def port_connected(self):
-        return self.inputs[self.port]['type'] is not None and \
-                self.inputs[self.port]['slot'] is not ''
+        return self.inp['type'] is not None and \
+                self.inp['slot'] is not ''
     
     def port_connect_update(self):
         if self.port_connected():
@@ -195,7 +204,7 @@ class SettingsDialog(gui.Dialog):
         self.container.repaint()
     
     def sensor_change(self, g):
-        self.inputs[self.port]['type'] = g.value
+        self.inp['type'] = g.value
         self.port_connect_update()
     
     def slot_change(self, g):
@@ -203,21 +212,17 @@ class SettingsDialog(gui.Dialog):
         if g.value != '':
             self.slots.remove(g.value)
         else:
-            self.slots.append(self.inputs[self.port]['slot'])
+            self.slots.append(self.inp['slot'])
 
-        self.inputs[self.port]['slot'] = g.value
+        self.inp['slot'] = g.value
         self.port_connect_update()
 
+    def send(self):
+        env.cfg["inputs"][self.port] = self.inp
+        robot.dialogClose(self)
+
     def out(self):
-
-        value = dict(self.value.items())
-        if value['background'] == '':
-            background = None
-        else:
-            background = self.background_input.value
-
-        return {'inputs': self.inputs, 
-                'others': {'background': background}} 
+        return self.inp
 
 
 
@@ -226,8 +231,8 @@ if __name__ == '__main__':
     app.connect(gui.QUIT,app.quit,None)                                        
                                                                                
     c = gui.Table(width=640,height=480)   
-    dialog = SettingsDialog()    
-
+    dialog = SensorDialog(port=1)    
+    #dialog = BackgroundDialog()
     def ret(d):
         print d.out()
         d.close()
