@@ -427,13 +427,23 @@ class Robot(NXTBrick):
 
     # background
     def bckg_return(self, d):
+
         self.paused = False
         out = d.out()
         
-        env.cfg['others']['background'] = out
+        env.cfg['others']['background'] = out['others']['background']
 
-        if out is not None:
-            robot.background = out
+        robot.inputs = out['inputs']
+        
+        for i in out['inputs']:
+            inp = out['inputs'][i]
+
+            self.sensors[i] = sensor_generator(inp['type'], inp['slot'])
+
+            self.ports[i] = inp['slot']
+
+        if out['others']['background'] is not None:
+            robot.background = out['others']['background']
             env.init(self.ports)
             
             img = pygame.image.load(robot.background)
