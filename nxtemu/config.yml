@@ -1,6 +1,6 @@
 inputs:
-  1: {slot: 2, type: touch}
+  1: {slot: '', type: null}
   2: {slot: '', type: null}
-  3: {slot: 3, type: sonic}
+  3: {slot: '', type: null}
   4: {slot: '', type: null}
-others: {background: /mnt/C/dev/xlc-team/nxtIDE/nxtemu/floor/line1.jpg}
+others: {background: null}
