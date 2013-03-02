@@ -1,6 +1,5 @@
-inputs:
-  1: {slot: '', type: None}
-  2: {slot: '', type: None}
-  3: {slot: '', type: None}
-  4: {slot: '', type: None}
-others: {background: None}
+  1: {slot: '', type: null}
+  2: {slot: '', type: null}
+  3: {slot: '', type: null}
+  4: {slot: '', type: null}
+others: {background: null}

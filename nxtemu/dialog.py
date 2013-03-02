@@ -57,7 +57,8 @@ class BackgroundDialog(gui.Dialog):
         t.td(self.background_input, style={'padding_left': 4})
         t.td(inp, style={'padding_left': 4})
         
-        if self.bckg != "None" and os.path.exists(self.bckg):
+        if self.bckg is not None and self.bckg != "None"\
+                and os.path.exists(self.bckg):
             self.background_input.value = self.bckg
             custom_bckg.click()
 
