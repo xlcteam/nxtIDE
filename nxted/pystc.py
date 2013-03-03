@@ -611,8 +611,16 @@ class PythonSidebar(wx.Panel):
         print "clicked flow"
 
     def label_for_clicked(self, event):
-        print "clicked for"
-
+        editor = self.get_active_child_editor()
+        selection = editor.GetSelection()
+        if selection[0] == selection[1]:
+            cur_line = editor.GetCurLine()
+            # if we are on an empty line
+            if cur_line[1] == 0:
+                line_num = editor.GetCurrentLine()
+                indent = editor.getIndent(editor.GetLine(line_num - 1))
+                editor.AddText(indent + 'for x in range(10):\n')
+                editor.AddText(indent + editor.GetIndent() * ' ' + 'pass')
 
     def create_button(self, label, font_size=12, normal_color='#222222',
             hover_color='#111111'):
