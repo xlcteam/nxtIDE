@@ -554,6 +554,8 @@ class PythonSidebar(wx.Panel):
     def __init__(self, parent):
         super(PythonSidebar, self).__init__(parent, size=(200, 300))
 
+        self.parent = parent
+
         self.SetBackgroundColour('#ffffff')
         vbox = wx.BoxSizer(wx.VERTICAL) 
 
@@ -582,11 +584,20 @@ class PythonSidebar(wx.Panel):
 
         self.SetSizer(vbox)
 
+    def get_active_child_editor(self):
+        editor = self.parent.GetActiveChild()
+        if editor is not None:
+            editor = editor.pystc
+
+        return editor
+
     def label_if_clicked(self, event):
-        print "clicked if"
+        editor = self.get_active_child_editor()
+
 
     def label_while_clicked(self, event):
-        print "clicked while"
+        editor = self.get_active_child_editor()
+        
 
     def label_flow_clicked(self, event):
         print "clicked flow"
@@ -703,11 +714,11 @@ if __name__ == '__main__':
            #p = PythonSidebar(self) 
            #wx.StaticText(p, -1, "This is child %d" % count, (10,10))
            #p.SetBackgroundColour('light blue')
-            p = PythonSTC(self, -1)
-            p.SetText(testCode)
+            self.pystc = PythonSTC(self, -1)
+            self.pystc.SetText(testCode)
 
             sizer = wx.BoxSizer()
-            sizer.Add(p, 1, wx.EXPAND)
+            sizer.Add(self.pystc, 1, wx.EXPAND)
             self.SetSizer(sizer)
             
             wx.CallAfter(self.Layout)
