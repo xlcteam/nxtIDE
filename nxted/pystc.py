@@ -365,7 +365,7 @@ class PythonSTC(stc.StyledTextCtrl):
 
         evt = TitleUpdateEvent()
 
-        if hasattr(self.parent, parent):
+        if hasattr(self.parent, 'parent'):
             wx.PostEvent(self.parent.parent, evt)
 
     def OnUpdateUI(self, evt):

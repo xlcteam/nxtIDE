@@ -20,6 +20,7 @@ import ctypes
 #--------------------------------
 __version__ = "1.0.0"
 
+TitleUpdateEvent, EVT_TITLE_UPDATE = wx.lib.newevent.NewEvent()
 
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
@@ -190,7 +191,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
                 self.filename = os.path.basename(path)
                 self.SetTitle(self.filename)
 
-        self.parent.titleUpdate()
+        evt = TitleUpdateEvent()
+        wx.PostEvent(self.parent, evt)
         dialog.Destroy()
 
     def onSave(self, event):
@@ -227,7 +229,9 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
             self.filename = os.path.basename(path)
             self.SetTitle(self.filename)
 
-        self.parent.titleUpdate()
+        evt = TitleUpdateEvent()
+        wx.PostEvent(self.parent, evt)
+ 
         dialog.Destroy()
 
         if status == wx.ID_CANCEL:
@@ -382,7 +386,10 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         """Removes '*' from the title """
 
         self.SetTitle(self.GetTitle().replace('*', ''))
-        self.parent.titleUpdate()
+
+        evt = TitleUpdateEvent()
+        wx.PostEvent(self.parent, evt)
+ 
 
 
 class PreferencesDialog(wx.Dialog):
@@ -493,6 +500,8 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.cfg = {'nxtemudir': self.cfgfile.get('nxted', 'nxtemu')}
 
         self.dir = tempfile.mkdtemp()
+
+        self.Bind(EVT_TITLE_UPDATE, self.titleUpdate)
 
     def showMsg(self, msg=None):
         if msg != None:
