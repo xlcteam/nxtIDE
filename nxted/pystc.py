@@ -3,6 +3,7 @@ import  keyword
 
 import  wx
 import  wx.stc as stc
+import  wx.lib.newevent
 
 
 import re
@@ -10,15 +11,6 @@ import re
 import ConfigParser
 import os.path
 import sys
-
-#----------------------------------------------------------------------
-
-demoText = """\
-# just a test
-
-"""
-
-#----------------------------------------------------------------------
 
 
 if wx.Platform == '__WXMSW__':
@@ -45,6 +37,8 @@ else:
              'size': 12,
              'size2': 10,
              }
+
+TitleUpdateEvent, EVT_TITLE_UPDATE = wx.lib.newevent.NewEvent()
 
 #   for x in dir(api):
 #       print type(getattr(api, x)), x
@@ -369,7 +363,10 @@ class PythonSTC(stc.StyledTextCtrl):
             if '*' in self.parent.GetTitle():
                 self.parent.SetTitle(self.parent.GetTitle().replace('*', ''))
 
-        self.parent.parent.titleUpdate()
+        evt = TitleUpdateEvent()
+
+        if hasattr(self.parent, parent):
+            wx.PostEvent(self.parent.parent, evt)
 
     def OnUpdateUI(self, evt):
         # check for matching braces
@@ -618,11 +615,15 @@ class PythonSidebar(wx.Panel):
                 editor.ReplaceSelection('while True:\n' 
                                     + indent + editor.GetIndent() * ' '
                                     + text )
+
+                editor.SetSelection(selection[0] + 6, selection[0] + 10)
+
             else:
                 text = text.strip()
                 editor.ReplaceSelection(indent + 'while True:\n' 
                                     + indent + editor.GetIndent() * ' '
                                     + text )
+                editor.SetSelection(selection[0] + 10, selection[0] + 14)
 
 
 
@@ -736,8 +737,12 @@ if __name__ == '__main__':
                          Caption('Sidebar').Right().PaneBorder(False))
 
             self._mgr.Update()
- 
+            self.Bind(EVT_TITLE_UPDATE, self.title)
+        def title(self, event):
+            print 'title'
 
+
+ 
         def MakeMenuBar(self):
             mb = wx.MenuBar()
             menu = wx.Menu()
@@ -763,11 +768,13 @@ if __name__ == '__main__':
         def __init__(self, parent, count):
             wx.aui.AuiMDIChildFrame.__init__(self, parent, -1,
                                              title="Child: %d" % count)
+            self.parent = parent
             mb = parent.MakeMenuBar()
             menu = wx.Menu()
             item = menu.Append(-1, "This is child %d's menu" % count)
             mb.Append(menu, "&Child")
             self.SetMenuBar(mb)
+
 
             
             
