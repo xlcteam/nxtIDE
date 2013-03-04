@@ -7,6 +7,7 @@ import wx.stc as stc
 import os
 
 from pystc import PythonSTC
+from pystc import TitleUpdateEvent, EVT_TITLE_UPDATE
 
 import pycheck
 import subprocess
@@ -20,7 +21,6 @@ import ctypes
 #--------------------------------
 __version__ = "1.0.0"
 
-TitleUpdateEvent, EVT_TITLE_UPDATE = wx.lib.newevent.NewEvent()
 
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
@@ -608,13 +608,13 @@ class Editor(wx.aui.AuiMDIParentFrame):
 
         wx.AboutBox(info)
 
-    def titleUpdate(self):
-        self.SetTitle("%s - %s" % (self.GetActiveChild().GetTitle(),
+    def titleUpdate(self, event):
+        title = "{0} - {1}".format(self.GetActiveChild().GetTitle(),
                                    'nxted')
-                      )
+        self.SetTitle(title)
 
     def tabChanged(self, evt):
-        wx.FutureCall(200, self.titleUpdate)
+        wx.FutureCall(200, self.titleUpdate, None)
 
 if __name__ == "__main__":
     if hasattr(sys, 'frozen'):
