@@ -556,17 +556,19 @@ class PythonSidebar(wx.Panel):
         self.SetBackgroundColour('#ffffff')
         vbox = wx.BoxSizer(wx.VERTICAL) 
 
-        self.label_flow = self.create_button('Flow', font_size=16, normal_color='#aaa',
-                hover_color='#888') 
+        self.label_flow = self.create_button('Flow', font_size=16,
+                normal_color='#111', hover_color='#222') 
         self.label_flow.Bind(wx.EVT_HYPERLINK, self.label_flow_clicked)
 
         self.label_if = self.create_button('if')
         self.label_for = self.create_button('for')
         self.label_while = self.create_button('while')
+        self.label_func = self.create_button('function')
  
         self.label_for.Bind(wx.EVT_HYPERLINK, self.label_for_clicked)
         self.label_if.Bind(wx.EVT_HYPERLINK, self.label_if_clicked)
         self.label_while.Bind(wx.EVT_HYPERLINK, self.label_while_clicked)
+        self.label_func.Bind(wx.EVT_HYPERLINK, self.label_func_clicked)
 
 
         vbox.Add(self.label_flow, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
@@ -577,7 +579,8 @@ class PythonSidebar(wx.Panel):
                 border=5)
         vbox.Add(self.label_while, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
-
+        vbox.Add(self.label_func, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
 
         self.SetSizer(vbox)
 
@@ -591,6 +594,8 @@ class PythonSidebar(wx.Panel):
     def label_if_clicked(self, event):
         editor = self.get_active_child_editor()
 
+    def label_func_clicked(self, event):
+        editor = self.get_active_child_editor()
 
     def label_while_clicked(self, event):
         editor = self.get_active_child_editor()
@@ -667,8 +672,8 @@ class PythonSidebar(wx.Panel):
 
 
 
-    def create_button(self, label, font_size=12, normal_color='#222222',
-            hover_color='#111111'):
+    def create_button(self, label, font_size=12, normal_color='#888',
+            hover_color='#aaa'):
         btn = wx.HyperlinkCtrl(self, id=-1, url='', label=label)
         btn.SetFont(wx.Font(font_size, wx.SWISS, wx.NORMAL, wx.BOLD, False))
         btn.SetHoverColour(hover_color)
