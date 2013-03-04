@@ -598,6 +598,7 @@ class PythonSidebar(wx.Panel):
     def label_while_clicked(self, event):
         editor = self.get_active_child_editor()
         selection = editor.GetSelection()
+        # if there is nothing selected
         if selection[0] == selection[1]:
             cur_line = editor.GetCurLine()
             line_num = editor.GetCurrentLine()
@@ -632,6 +633,7 @@ class PythonSidebar(wx.Panel):
     def label_for_clicked(self, event):
         editor = self.get_active_child_editor()
         selection = editor.GetSelection()
+        # if there is nothing selected
         if selection[0] == selection[1]:
             cur_line = editor.GetCurLine()
             # if we are on an empty line
@@ -640,6 +642,24 @@ class PythonSidebar(wx.Panel):
                 indent = editor.getIndent(editor.GetLine(line_num - 1))
                 editor.AddText(indent + 'for x in range(10):\n')
                 editor.AddText(indent + editor.GetIndent() * ' ' + 'pass')
+        else:
+            line_num = editor.GetCurrentLine()
+            indent = editor.getIndent(editor.GetLine(line_num))
+            text = editor.GetSelectedText()
+ 
+            # in case only the function call is selected
+            if indent not in text:
+                editor.ReplaceSelection('for x in range(10):\n' 
+                                    + indent + editor.GetIndent() * ' '
+                                    + text )
+            else:
+                text = text.strip()
+                editor.ReplaceSelection(indent + 'for x in range(10):\n' 
+                                    + indent + editor.GetIndent() * ' '
+                                    + text )
+
+
+
 
     def create_button(self, label, font_size=12, normal_color='#222222',
             hover_color='#111111'):
