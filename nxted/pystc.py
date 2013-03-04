@@ -600,12 +600,31 @@ class PythonSidebar(wx.Panel):
         selection = editor.GetSelection()
         if selection[0] == selection[1]:
             cur_line = editor.GetCurLine()
+            line_num = editor.GetCurrentLine()
+            indent = editor.getIndent(editor.GetLine(line_num - 1))
+ 
             # if we are on an empty line
             if cur_line[1] == 0:
-                line_num = editor.GetCurrentLine()
-                indent = editor.getIndent(editor.GetLine(line_num - 1))
                 editor.AddText(indent + 'while True:\n')
                 editor.AddText(indent + editor.GetIndent() * ' ' + 'pass')
+        else:
+            line_num = editor.GetCurrentLine()
+            indent = editor.getIndent(editor.GetLine(line_num))
+            text = editor.GetSelectedText()
+ 
+            # in case only the function call is selected
+            if indent not in text:
+                editor.ReplaceSelection('while True:\n' 
+                                    + indent + editor.GetIndent() * ' '
+                                    + text )
+            else:
+                text = text.strip()
+                editor.ReplaceSelection(indent + 'while True:\n' 
+                                    + indent + editor.GetIndent() * ' '
+                                    + text )
+
+
+
 
     def label_flow_clicked(self, event):
         print "clicked flow"
