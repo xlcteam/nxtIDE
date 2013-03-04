@@ -652,11 +652,16 @@ class PythonSidebar(wx.Panel):
                 editor.ReplaceSelection('for x in range(10):\n' 
                                     + indent + editor.GetIndent() * ' '
                                     + text )
+                # set selection to the number(10) so that it can be changed
+                # easily
+                editor.SetSelection(selection[0] + 15, selection[0] + 17)
             else:
                 text = text.strip()
                 editor.ReplaceSelection(indent + 'for x in range(10):\n' 
                                     + indent + editor.GetIndent() * ' '
                                     + text )
+
+                editor.SetSelection(selection[0] + 19, selection[0] + 21)
 
 
 
