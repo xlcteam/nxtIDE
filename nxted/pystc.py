@@ -556,7 +556,7 @@ class PythonSidebar(wx.Panel):
         self.SetBackgroundColour('#ffffff')
         vbox = wx.BoxSizer(wx.VERTICAL) 
 
-        self.label_flow = self.create_button('flow', font_size=16, normal_color='#aaa',
+        self.label_flow = self.create_button('Flow', font_size=16, normal_color='#aaa',
                 hover_color='#888') 
         self.label_flow.Bind(wx.EVT_HYPERLINK, self.label_flow_clicked)
 

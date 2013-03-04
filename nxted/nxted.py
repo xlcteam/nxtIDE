@@ -599,7 +599,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
         info.SetDescription('All you need to play with LEGO NXT robots and \
                             Python')
         info.SetVersion(__version__)
-        info.SetCopyright('(C) 2011 - infinity XLC Team \
+        info.SetCopyright('(C) 2011 - 2013, XLC Team \
                             (http://xlc-team.info)')
         info.SetDevelopers(['Marek Suppa - main developer', 'Adrian Matejov',
                             'Jan Durkac'])
