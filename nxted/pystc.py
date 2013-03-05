@@ -310,7 +310,7 @@ class PythonSTC(stc.StyledTextCtrl):
                 return
 
             c = self.GetCharAt(self.GetCurrentPos() - 1)
-            self.indent = self.getIndent(self.GetCurLine()[0])
+            self.indent = self.GetLineIndentation(self.GetCurrentLine()) * ' '
             if c == 58:
                 self.AddText("\n" + self.GetIndent() * ' ' + self.indent)
             else:
@@ -374,6 +374,8 @@ class PythonSTC(stc.StyledTextCtrl):
         braceOpposite = -1
         charBefore = None
         caretPos = self.GetCurrentPos()
+
+        #print self.GetLastChild()
 
         if caretPos > 0:
             charBefore = self.GetCharAt(caretPos - 1)
@@ -503,11 +505,6 @@ class PythonSTC(stc.StyledTextCtrl):
 
         return line
 
-    def getIndent(self, string):
-        """Returns string used as indentation in given string"""
-
-        return re.match('([ \t]*).*', string).groups()[0]
-
     def getIdentifier(self, pos=None):
         """Returns text marked as IDENTIFIER. Starts at current position"""
 
@@ -604,7 +601,7 @@ class PythonSidebar(wx.Panel):
         if selection[0] == selection[1]:
             cur_line = editor.GetCurLine()
             line_num = editor.GetCurrentLine()
-            indent = editor.getIndent(editor.GetLine(line_num - 1))
+            indent = editor.GetLineIndentation(line_num - 1) * ' '
  
             # if we are on an empty line
             if cur_line[1] == 0:
@@ -612,7 +609,7 @@ class PythonSidebar(wx.Panel):
                 editor.AddText(indent + editor.GetIndent() * ' ' + 'pass')
         else:
             line_num = editor.GetCurrentLine()
-            indent = editor.getIndent(editor.GetLine(line_num))
+            indent = editor.GetLineIndentation(line_num) * ' '
             text = editor.GetSelectedText()
  
             # in case only the function call is selected
@@ -645,12 +642,12 @@ class PythonSidebar(wx.Panel):
             # if we are on an empty line
             if cur_line[1] == 0:
                 line_num = editor.GetCurrentLine()
-                indent = editor.getIndent(editor.GetLine(line_num - 1))
+                indent = editor.GetLineIndentation(line_num - 1) * ' '
                 editor.AddText(indent + 'for x in range(10):\n')
                 editor.AddText(indent + editor.GetIndent() * ' ' + 'pass')
         else:
             line_num = editor.GetCurrentLine()
-            indent = editor.getIndent(editor.GetLine(line_num))
+            indent = editor.GetLineIndentation(line_num) * ' '
             text = editor.GetSelectedText()
  
             # in case only the function call is selected
