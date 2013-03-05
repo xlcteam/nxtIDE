@@ -611,20 +611,31 @@ class PythonSidebar(wx.Panel):
             line_num = editor.GetCurrentLine()
             indent = editor.GetLineIndentation(line_num) * ' '
             text = editor.GetSelectedText()
- 
-            # in case only the function call is selected
-            if indent not in text:
-                editor.ReplaceSelection('while True:\n' 
-                                    + indent + editor.GetIndent() * ' '
-                                    + text )
 
+            # in case only the function call is selected
+            if indent not in text.split('\n')[0]:
+
+                # adding indent before selected line, there is not any
+                text = indent + text
+                text = text.split('\n')
+                x = 0
+                for line in text:
+                    text[x] = editor.GetIndent() * ' ' + line
+                    x += 1
+                text = '\n'.join(text)
+
+                editor.ReplaceSelection('while True:\n' + text )
                 editor.SetSelection(selection[0] + 6, selection[0] + 10)
 
             else:
-                text = text.strip()
-                editor.ReplaceSelection(indent + 'while True:\n' 
-                                    + indent + editor.GetIndent() * ' '
-                                    + text )
+                text = text.split('\n')
+                x = 0
+                for line in text:
+                    text[x] = editor.GetIndent() * ' ' + line
+                    x += 1
+                text = '\n'.join(text)
+
+                editor.ReplaceSelection(indent + 'while True:\n' + text )
                 editor.SetSelection(selection[0] + 10, selection[0] + 14)
 
 
