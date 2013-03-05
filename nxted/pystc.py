@@ -638,9 +638,6 @@ class PythonSidebar(wx.Panel):
                 editor.ReplaceSelection(indent + 'while True:\n' + text )
                 editor.SetSelection(selection[0] + 10, selection[0] + 14)
 
-
-
-
     def label_flow_clicked(self, event):
         print "clicked flow"
 
@@ -660,20 +657,34 @@ class PythonSidebar(wx.Panel):
             line_num = editor.GetCurrentLine()
             indent = editor.GetLineIndentation(line_num) * ' '
             text = editor.GetSelectedText()
- 
+
             # in case only the function call is selected
-            if indent not in text:
-                editor.ReplaceSelection('for x in range(10):\n' 
-                                    + indent + editor.GetIndent() * ' '
-                                    + text )
+            if indent not in text.split('\n')[0]:
+
+                text = indent + text
+                text = text.split('\n')
+                x = 0
+                for line in text:
+                    text[x] = editor.GetIndent() * ' ' + line
+                    x += 1
+                text = '\n'.join(text)
+
+                editor.ReplaceSelection('for x in range(10):\n' + text)
+
                 # set selection to the number(10) so that it can be changed
                 # easily
                 editor.SetSelection(selection[0] + 15, selection[0] + 17)
             else:
-                text = text.strip()
+
+                text = text.split('\n')
+                x = 0
+                for line in text:
+                    text[x] = editor.GetIndent() * ' ' + line
+                    x += 1
+                text = '\n'.join(text)
+
                 editor.ReplaceSelection(indent + 'for x in range(10):\n' 
-                                    + indent + editor.GetIndent() * ' '
-                                    + text )
+                                            + text)
 
                 editor.SetSelection(selection[0] + 19, selection[0] + 21)
 
