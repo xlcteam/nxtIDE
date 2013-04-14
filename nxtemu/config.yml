@@ -3,4 +3,4 @@ inputs:
   2: {slot: '', type: null}
   3: {slot: '', type: null}
   4: {slot: '', type: null}
-others: {background: null}
+others: {background: 'C:\dev\xlc-team\nxtIDE\nxtemu\floor\line1.jpg'}

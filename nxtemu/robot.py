@@ -426,7 +426,7 @@ class Robot(NXTBrick):
         #env.cfg.set('nxtemu', 'bckg', out['others']['background'])
         #with open(p('./config.ini'), 'wb') as configfile:
         #    env.cfg.write(configfile)
-
+        env.cfg["others"]["background"] = out['others']['background']
         stream = open("./config.yml", "w")
         yaml.dump(env.cfg, stream)
         stream.close()
