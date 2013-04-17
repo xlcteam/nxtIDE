@@ -532,7 +532,7 @@ class PythonSTC(stc.StyledTextCtrl):
         return out
 
     def getArgPos(self, id, n):
-        """Returns position of the n-th argument in function description"""
+       """Returns position of the n-th argument in function description"""
 
         m = re.match(".*?\((.*?[,\)]){%d}" % (n),
                      self.api[id])
@@ -639,7 +639,7 @@ class PythonSidebar(wx.Panel):
                 editor.SetSelection(selection[0] + 10, selection[0] + 14)
 
     def label_flow_clicked(self, event):
-        print "clicked flow"
+        pass
 
     def label_for_clicked(self, event):
         editor = self.get_active_child_editor()
