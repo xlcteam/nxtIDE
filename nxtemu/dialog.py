@@ -38,6 +38,9 @@ class BackgroundDialog(gui.Dialog):
 
         gui.Dialog.__init__(self, title, self.container)
 
+    def reinit(self):
+        pass
+
     def build_background_select(self):
         background = gui.Table()
         background.td(gui.Label("Room background:"), 
@@ -80,7 +83,7 @@ class BackgroundDialog(gui.Dialog):
         return self.background_input.value
 
 
-pt = {}
+pt = { 1 : {}, 2 : {}, 3 : {}, 4 : {}}
 inp = {}
 slots = [1, 2, 3]
 
@@ -116,30 +119,17 @@ class SensorDialog(gui.Dialog):
         self.container.add(table, 0, 0)
 
         self.init_ports()
-        self.change()
+        self.reinit()
         gui.Dialog.__init__(self, title, self.container)
 
     def reinit(self):
-        pass
-
-    def init_ports(self):
-        pt['img'] = gui.Image(p('icons/w_port%d.png' % int(self.port)))
-        
-        pt['sensors'] = self.build_sensors()
-
-        self.container.add(pt['img'], 30+(60*self.port), 24)
-
-        inp['type'] = None
-        inp['slot'] = ''
-
-    def change(self):
         # changing the image
         
         spacer = gui.Spacer(200, 100)
 
         table = gui.Table()
         table.tr()
-        table.td(pt['sensors'])
+        table.td(pt[self.port]['sensors'])
         table.td(gui.Image(p('icons/arrow.png')))
 
         slots = self.build_slots()
@@ -148,6 +138,17 @@ class SensorDialog(gui.Dialog):
         table.tr()
 
         self.box.widget = table
+
+    def init_ports(self):
+        pt[self.port]['img'] = gui.Image(p('icons/w_port%d.png' % int(self.port)))
+        
+        pt[self.port]['sensors'] = self.build_sensors()
+
+        self.container.add(pt[self.port]['img'], 30+(60*self.port), 24)
+
+        inp['type'] = None
+        inp['slot'] = ''
+
 
     def build_sensors(self):
         sensors_group = gui.Group(value='')
