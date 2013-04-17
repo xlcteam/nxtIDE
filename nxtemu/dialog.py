@@ -80,10 +80,12 @@ class BackgroundDialog(gui.Dialog):
         return self.background_input.value
 
 
+pt = {}
+inp = {}
+slots = [1, 2, 3]
+
 class SensorDialog(gui.Dialog):
-    pt = {}
-    inp = {}
-    slots = [1, 2, 3]
+
     
     def __init__(self, bckg = "None", port = None, **params):
         self.bckg = bckg
@@ -118,14 +120,14 @@ class SensorDialog(gui.Dialog):
         gui.Dialog.__init__(self, title, self.container)
 
     def init_ports(self):
-        self.pt = {}
-        self.pt['img'] = gui.Image(p('icons/w_port%d.png' % int(self.port)))
+        pt['img'] = gui.Image(p('icons/w_port%d.png' % int(self.port)))
         
-        self.pt['sensors'] = self.build_sensors()
+        pt['sensors'] = self.build_sensors()
 
-        self.container.add(self.pt['img'], 30+(60*self.port), 24)
+        self.container.add(pt['img'], 30+(60*self.port), 24)
 
-        self.inp = {'type': None, 'slot': ''}
+        inp['type'] = None
+        inp['slot'] = ''
 
     def change(self):
         # changing the image
@@ -134,7 +136,7 @@ class SensorDialog(gui.Dialog):
 
         table = gui.Table()
         table.tr()
-        table.td(self.pt['sensors'])
+        table.td(pt['sensors'])
         table.td(gui.Image(p('icons/arrow.png')))
 
         slots = self.build_slots()
@@ -167,31 +169,31 @@ class SensorDialog(gui.Dialog):
         return sensors
 
     def build_slots(self):
-        slots_group = gui.Group(value=self.inp['slot'])
-        slots = gui.Table()
+        slots_group = gui.Group(value=inp['slot'])
+        slots_ = gui.Table()
         
-        wslots = [self.inp['slot']] + self.slots
+        wslots = [inp['slot']] + slots
 
         for slot in [1, 2, 3]:
-            slots.tr()
+            slots_.tr()
             if slot in wslots:
-                slots.td(gui.Tool(slots_group, 
+                slots_.td(gui.Tool(slots_group, 
                                   gui.Image(p('icons/slot%d.png' % (slot))), 
                                   value=slot))
             else:
-                slots.td(gui.Image(p('icons/slot%d.png' % (slot))))
+                slots_.td(gui.Image(p('icons/slot%d.png' % (slot))))
  
         
-        slots.tr()
-        slots.td(gui.Tool(slots_group, gui.Label('None'), value=''))
+        slots_.tr()
+        slots_.td(gui.Tool(slots_group, gui.Label('None'), value=''))
         
         slots_group.connect(gui.CHANGE, self.slot_change, slots_group)
         
-        return slots
+        return slots_
     
     def port_connected(self):
-        return self.inp['type'] is not None and \
-                self.inp['slot'] is not ''
+        return inp['type'] is not None and \
+                inp['slot'] is not ''
     
     def port_connect_update(self):
         if self.port_connected():
@@ -205,21 +207,21 @@ class SensorDialog(gui.Dialog):
         self.container.repaint()
     
     def sensor_change(self, g):
-        self.inp['type'] = g.value
+        inp['type'] = g.value
         self.port_connect_update()
     
     def slot_change(self, g):
         
         if g.value != '':
-            self.slots.remove(g.value)
+            slots.remove(g.value)
         else:
-            self.slots.append(self.inp['slot'])
+            slots.append(inp['slot'])
 
-        self.inp['slot'] = g.value
+        inp['slot'] = g.value
         self.port_connect_update()
 
     def out(self):
-        return self.inp
+        return inp
 
 
 
