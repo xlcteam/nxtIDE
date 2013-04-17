@@ -443,8 +443,8 @@ class Robot(NXTBrick):
                     img = img.convert()
 
                 env.background.blit(img, (3, 3))
-              else:
-                  env.cfg['others']['background'] = "None"
+            else:
+                env.cfg['others']['background'] = "None"
         else:
             robot.background = None
             env.init(self.ports)
