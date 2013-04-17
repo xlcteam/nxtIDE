@@ -114,10 +114,14 @@ class SensorDialog(gui.Dialog):
         table.td(save, align=1)
 
         self.container.add(table, 0, 0)
+        print "fero"
 
         self.init_ports()
         self.change()
         gui.Dialog.__init__(self, title, self.container)
+
+    def reinit(self):
+        pass
 
     def init_ports(self):
         pt['img'] = gui.Image(p('icons/w_port%d.png' % int(self.port)))

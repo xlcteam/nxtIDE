@@ -418,6 +418,7 @@ class Robot(NXTBrick):
         dlg.open()
         dlg.rect.x = 120
         dlg.connect(gui.CLOSE, self.dialogClose, dlg)
+        dlg.reinit()
         self.paused = True
 
     def writeit(self, d):
@@ -456,8 +457,8 @@ class Robot(NXTBrick):
     def add_sensor(self, d, i):       
         self.paused = False
         out = d.out()
-        env.cfg["inputs"][i]["type"] = out["type"]
-        env.cfg["inputs"][i]["slot"] = out["slot"]
+        env.cfg[i]["type"] = out["type"]
+        env.cfg[i]["slot"] = out["slot"]
 
         robot.inputs[i] = out
 
