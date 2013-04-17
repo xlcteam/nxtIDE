@@ -114,7 +114,6 @@ class SensorDialog(gui.Dialog):
         table.td(save, align=1)
 
         self.container.add(table, 0, 0)
-        print "fero"
 
         self.init_ports()
         self.change()
