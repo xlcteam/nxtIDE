@@ -132,9 +132,9 @@ class SensorDialog(gui.Dialog):
         table.td(pt[self.port]['sensors'])
         table.td(gui.Image(p('icons/arrow.png')))
 
-        slots = self.build_slots()
+        slots_ = self.build_slots()
 
-        table.td(slots)
+        table.td(slots_)
         table.tr()
 
         self.box.widget = table
