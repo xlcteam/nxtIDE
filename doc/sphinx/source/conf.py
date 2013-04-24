@@ -38,6 +38,7 @@ source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
+autodoc_lang = 'en'
 
 # General information about the project.
 project = u'nxtIDE'
