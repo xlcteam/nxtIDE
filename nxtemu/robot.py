@@ -415,6 +415,7 @@ class Robot(NXTBrick):
         if dlg.is_open():
             return self.dialogClose(dlg)
 
+        dlg.change()
         dlg.open()
         dlg.rect.x = 120
         dlg.connect(gui.CLOSE, self.dialogClose, dlg)

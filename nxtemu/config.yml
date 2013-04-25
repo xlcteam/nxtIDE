@@ -1,6 +1,6 @@
 inputs:
   1: {slot: 1, type: light}
-  2: {slot: 3, type: sonic}
-  3: {slot: '', type: null}
-  4: {slot: '', type: null}
+  2: {slot: 3, type: light}
+  3: {slot: '', type: light}
+  4: {slot: 2, type: light}
 others: {background: null}

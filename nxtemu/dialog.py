@@ -85,7 +85,7 @@ class SensorDialog(gui.Dialog):
     inp = {}
     slots = [1, 2, 3]
     
-    def __init__(self, bckg = "None", port = None, **params):
+    def __init__(self, bckg="None", port=None, **params):
         self.bckg = bckg
         self.port = port
 
@@ -170,8 +170,7 @@ class SensorDialog(gui.Dialog):
         slots_group = gui.Group(value=self.inp['slot'])
         slots = gui.Table()
         
-        wslots = [self.inp['slot']] + self.slots
-
+        wslots = self.slots
         for slot in [1, 2, 3]:
             slots.tr()
             if slot in wslots:
