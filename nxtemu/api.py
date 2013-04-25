@@ -186,7 +186,7 @@ def clearPoint(x, y):
         robot.lcd.set_at((x, y + 1), (0x43, 0x6c, 0x30))
 
 
-def printChar(x, y, char):
+def _printChar(x, y, char):
     """ Low level function for printing chars on the Surface"""
 
     char = ord(char)
@@ -240,7 +240,7 @@ def TextOut(x, y, text):
     """
 
     for char in list(text):
-        printChar(x, y, char)
+        _printChar(x, y, char)
         x += 6
 
 
@@ -343,7 +343,7 @@ def CircleOut(x, y, radius):
     Draw a circle with center at [x, y] and specified radius.
 
     :param int x: X coordinate of the center of the circle.
-    :param int x: Y coordinate of the center of the circle.
+    :param int y: Y coordinate of the center of the circle.
     :param int radius: The radius of the circle.
 
     .. [/en]
@@ -353,7 +353,7 @@ def CircleOut(x, y, radius):
     Vykreslí kruh, ktorého stred je [x, y] s daným polomerom.
 
     :param int x: X-ová pozícia stredu kruhu.
-    :param int x: Y-ová pozícia stredu kruhu.
+    :param int y: Y-ová pozícia stredu kruhu.
     :param int radius: Polomer kruhu.
     .. [/sk]
     """
@@ -567,7 +567,7 @@ def Beep(duration):
     .. [en]
     Beep(duration)
 
-    Beeps.
+    Beeps for a number of miliseconds.
 
     :param int duration: For how long should the brick beeps in milliseconds.
 
@@ -600,8 +600,9 @@ def OnFwd(motor, speed):
 
     Set motor to forward direction and turn it on.
 
-    :param int motor: motor we want to run.
-    :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
+    :param int motor: motor we want to run.  
+    :param int speed: speed we want to run the motor at from 0 to 100. Negative 
+                      value reverses direction.
 
     .. [/en]
     .. [sk]
@@ -610,7 +611,8 @@ def OnFwd(motor, speed):
     Nastaví motor tak, aby sa pohyboval vpred a spustí ho
 
     :param int motor: motor, ktorý chceme spustiť.
-    :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+    :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. 
+                         Záporná rýchlosť zmení smer chodu motora.
     .. [/sk]
     """
 
@@ -641,7 +643,8 @@ def OnRev(motor, speed):
     Set motor to reverse direction and turn it on.
 
     :param int motor: motor we want to run.
-    :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
+    :param int speed: speed we want to run the motor at from 0 to 100. Negative 
+                      value reverses direction.
 
     .. [/en]
     .. [sk]
@@ -650,7 +653,8 @@ def OnRev(motor, speed):
     Nastaví motor nastaví motor na pohyb vzad a spustí ho.
 
     :param int motor: motor, ktorý chceme spustiť.
-    :param int rychlost: rýchlosť, ktorou pôjde motor od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+    :param int rychlost: rýchlosť, ktorou pôjde motor od 0 do 100. 
+                         Záporná rýchlosť zmení smer chodu motora.
     .. [/sk]
     """
 
@@ -687,7 +691,7 @@ def Off(motor):
     .. [sk]
     Off(motor)
 
-    Vypne motor (bez zotvrvačnosti).
+    Vypne motor (a zabrzdí).
 
     :param int motor: motor, ktorý chceme zastaviť.
     .. [/sk]
@@ -766,18 +770,22 @@ def RotateMotor(motor, speed, angle):
     number of degrees.
 
     :param int motor: motor we want to rotate
-    :param int speed: speed we want to run the motor at, from 0 to 100. Negative value reverses direction.
-    :param int angle: number of degrees we want to rotate the motor. Negative value reverses direction.
+    :param int speed: speed we want to run the motor at, from 0 to 100. Negative 
+                      value reverses direction.
+    :param int angle: number of degrees we want to rotate the motor. Negative 
+                      value reverses direction.
 
     .. [/en]
     .. [sk]
     RotateMotor(motor, rýchlosť, uhol)
 
-    Otočí motor v špecifikovanom smere na špecifikovanj rýchlosti a špecifikovanom čísle stupňov.
+    Otočí motor v danom smere danou rýchlosťou a o istý počet stupňov. 
 
     :param int motor: motor, ktorý chceme točiť
-    :param int speed: rýchlosť, ktorou chceme točiť motor od 0 do 100. Záporná hodnota otočí smer chodu motora.
-    :param int angle: počet stupňov pre otáčanie motora. Záporná hodnota otočí smer chodu motorra.
+    :param int speed: rýchlosť, ktorou chceme točiť motor od 0 do 100. Záporná 
+                      hodnota otočí smer chodu motora.
+    :param int angle: počet stupňov pre otáčanie motora. Záporná hodnota otočí 
+                      smer chodu motorra.
     .. [/sk]
     """
 
@@ -889,7 +897,8 @@ def SensorUS(sensor):
     SensorUS(sensor)
 
     Read value from given lowspeed sensor (e.g. Ultrasonic). The input port
-    has to be configured as a Lowspeed before using this function.
+    has to be configured as lowspeed via :func:`api.Lowspeed` function before 
+    using this function.
 
     :param int sensor: sensor we want to read from
 
@@ -898,9 +907,9 @@ def SensorUS(sensor):
     SensorUS(sensor)
 
     Načíta hodnotu z lowspeed sensoru (e.g. Ultrasonic). Input port
-    by mal byt nastaveny ako lowspeed pred použitím.
+    by mal byť pred použitím nastavený ako lowspeed funkciou :func:`api.Lowspeed.
 
-    :param int sensor: senzor, z ktorého chceme čítať.
+    :param int sensor: senzor, z ktorého chceme načítať hodnotu
     .. [/sk]
     """
 
@@ -966,7 +975,7 @@ def StopAllTasks():
     .. [sk]
     StopAllTasks()
 
-    Zastaví program.
+    Zastaví program a všetky jeho časti.
     .. [/sk]
     """
 
@@ -982,7 +991,8 @@ def on_fwd(motor, speed):
     Set motor to forward direction and turn it on.
 
     :param int motor: motor we want to run.
-    :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
+    :param int speed: speed we want to run the motor at from 0 to 100. Negative 
+                      value reverses direction.
 
     .. [/en]
     .. [sk]
@@ -991,7 +1001,9 @@ def on_fwd(motor, speed):
     Nastaví motor tak, aby sa pohyboval vpred a spustí ho
 
     :param int motor: motor, ktorý chceme spustiť.
-    :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+    :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. 
+                         Záporná rýchlosť zmení smer chodu motora.
+
     .. [/sk]
     """
     return OnFwd(motor, speed)
@@ -1005,7 +1017,8 @@ def on_rev(motor, speed):
     Set motor to reverse direction and turn it on.
 
     :param int motor: motor we want to run.
-    :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
+    :param int speed: speed we want to run the motor at from 0 to 100. Negative 
+                      value reverses direction.
 
     .. [/en]
     .. [sk]
@@ -1014,7 +1027,9 @@ def on_rev(motor, speed):
     Nastaví motor nastaví motor na pohyb vzad a spustí ho.
 
     :param int motor: motor, ktorý chceme spustiť.
-    :param int rychlost: rýchlosť, ktorou pôjde motor od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+    :param int rychlost: rýchlosť, ktorou pôjde motor od 0 do 100. 
+                         Záporná rýchlosť zmení smer chodu motora.
+
     .. [/sk]
     """
 
@@ -1022,7 +1037,14 @@ def on_rev(motor, speed):
 
 
 def set_sensor(port, type):
-    """set_sensor(port, type)"""
+    """
+    .. [en]
+    set_sensor(port, type) 
+    
+    Sets the port to a given type. 
+    .. [/en]
+
+    """
 
     return SetSensor(port, type)
 
