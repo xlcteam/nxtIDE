@@ -287,5 +287,7 @@ epub_copyright = u'2012, mr.Shu'
 
 def setup(app):
     from sphinx.ext.autodoc import between
+    if 'autodoc_lang' in app.config.overrides:
+        autodoc_lang = app.config.overrides['autodoc_lang']
     app.connect('autodoc-process-docstring', 
             between('\.\.\s\[(/|)' + autodoc_lang + '\].*', ['function']))
