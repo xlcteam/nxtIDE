@@ -458,6 +458,7 @@ class Robot(NXTBrick):
     def add_sensor(self, d, i):       
         self.paused = False
         out = d.out()
+
         env.cfg["inputs"][i]["type"] = out["type"]
         env.cfg["inputs"][i]["slot"] = out["slot"]
 
