@@ -144,13 +144,16 @@ def screenTest():
 
 
 def PointOut(x, y):
-    """PointOut(x, y)
+    """
+    .. [en]
+    PointOut(x, y)
 
     Draw a point on the screen at (x, y)
 
     :param int x: The x coordinate of the point
     :param int y: The y coordinate of the point
 
+    .. [/en]
     .. [sk]
     PointOut(x, y)
 
@@ -158,6 +161,7 @@ def PointOut(x, y):
 
     :param int x: X-ová pozícia bodu
     :param int y: Y-ová pozícia bodu
+    .. [/sk]
     """
     screenTest()
     dieTest()
@@ -213,7 +217,9 @@ LCD_LINE8 = 8
 
 
 def TextOut(x, y, text):
-    """TextOut(x, y, text)
+    """
+    .. [en]
+    TextOut(x, y, text)
 
     Print text on the screen.
 
@@ -221,6 +227,7 @@ def TextOut(x, y, text):
     :param int y: Y coordinate or the text
     :param str text: The text to print
 
+    .. [/en]
     .. [sk]
     TextOut(x, y, text)
 
@@ -229,6 +236,7 @@ def TextOut(x, y, text):
     :param int x: X-ová pozícia textu.
     :param int y: Y-ová pozícia textu.
     :param str text: Text, ktorý sa má vypísať.
+    .. [/sk]
     """
 
     for char in list(text):
@@ -237,7 +245,9 @@ def TextOut(x, y, text):
 
 
 def NumOut(x, y, num):
-    """NumOut(x, y, num)
+    """
+    .. [en]
+    NumOut(x, y, num)
 
     Print number on the screen.
 
@@ -245,6 +255,7 @@ def NumOut(x, y, num):
     :param int y: Y coordinate or the text
     :param int num: The number to print
 
+    .. [/en]
     .. [sk]
     NumOut(x, y, číslo)
 
@@ -262,7 +273,9 @@ def NumOut(x, y, num):
 
 
 def LineOut(x0, y0, x1, y1):
-    """LineOut(x0, y0, x1, y1)
+    """
+    .. [en]
+    LineOut(x0, y0, x1, y1)
 
     Draw a line from [x0, y0] to [x1, y1].
 
@@ -271,6 +284,7 @@ def LineOut(x0, y0, x1, y1):
     :param int x1: X coordinate of the end point of the line
     :param int y1: Y coordinate of the start point of the line
 
+    .. [/en]
     .. [sk]
     LineOut(x0, y0, x1, y1)
 
@@ -280,6 +294,7 @@ def LineOut(x0, y0, x1, y1):
     :param int y0: Y-ová pozíca začiatku čiary.
     :param int x1: X-ová pozíca konca čiary.
     :param int y1: Y-ová pozíca konca čiary.
+    .. [/sk]
     """
 
     tmp = []
@@ -321,7 +336,9 @@ def LineOut(x0, y0, x1, y1):
 
 
 def CircleOut(x, y, radius):
-    """CircleOut(x, y, radius)
+    """
+    .. [en]
+    CircleOut(x, y, radius)
 
     Draw a circle with center at [x, y] and specified radius.
 
@@ -329,6 +346,7 @@ def CircleOut(x, y, radius):
     :param int x: Y coordinate of the center of the circle.
     :param int radius: The radius of the circle.
 
+    .. [/en]
     .. [sk]
     CircleOut(x, y, polomer)
 
@@ -337,6 +355,7 @@ def CircleOut(x, y, radius):
     :param int x: X-ová pozícia stredu kruhu.
     :param int x: Y-ová pozícia stredu kruhu.
     :param int radius: Polomer kruhu.
+    .. [/sk]
     """
     # x,y = makeXY(x, y)
     # pygame.draw.circle(robot.lcd, (0, 0, 0), (x, y), radius*2+1, 1)
@@ -377,7 +396,9 @@ def CircleOut(x, y, radius):
 
 
 def RectOut(x, y, width, height):
-    """RectOut(x, y, width, height)
+    """
+    .. [en]
+    RectOut(x, y, width, height)
 
     Draw a rectangle from [x, y] with specified width and height.
 
@@ -386,6 +407,7 @@ def RectOut(x, y, width, height):
     :param int width: The width of the rectangle.
     :param int height: The height of the rectangle.
 
+    .. [/en]
     .. [sk]
     RectOut(x, y, šírka, výška)
 
@@ -395,6 +417,7 @@ def RectOut(x, y, width, height):
     :param int y: Y-ová pozícia ľavého horného rohu.
     :param int width: Šírka obdĺžnika.
     :param int height: Výška obldĺžnika.
+    .. [/sk]
     """
 
     LineOut(x, y, x + width, y)
@@ -403,14 +426,18 @@ def RectOut(x, y, width, height):
 
 
 def ClearScreen():
-    """ClearScreen()
+    """
+    .. [en]
+    ClearScreen()
 
     Clear the screen.
 
+    .. [/en]
     .. [sk]
     ClearScreen()
 
     Vyčistí obrazovku.
+    .. [/sk]
     """
     screenTest()
 
@@ -420,14 +447,18 @@ def ClearScreen():
 
 
 def ResetScreen():
-    """ResetScreen()
+    """
+    .. [en]
+    ResetScreen()
 
     Return the screen to Running... state.
 
+    .. [/en]
     .. [sk]
     ResetScreen()
 
     Vráti obrazovku do stavu Running... .
+    .. [/sk]
     """
     if not robot.scr_running:
         robot.scr_running = True
@@ -436,18 +467,22 @@ def ResetScreen():
 
 
 def ClearLine(line):
-    """ClearLine(line)
+    """
+    .. [en]
+    ClearLine(line)
 
     Clear one line on the screen.
 
     :param int line: line we want to clear.
 
+    .. [/en]
     .. [sk]
     ClearLine(riadok)
 
     Vyčistí jeden riadok na obrazovke.
 
     :param int line: riadok, ktorý chceme vyčistiť.
+    .. [/sk]
     """
 
     # x, y = makeXY(0, line)
@@ -460,18 +495,22 @@ def ClearLine(line):
 
 
 def Wait(milisec):
-    """Wait(milisec)
+    """
+    .. [en]
+    Wait(milisec)
 
     Waits for given number of miliseconds.
 
     :param int milisec: number of miliseconds
 
+    .. [/en]
     .. [sk]
     Wait(milisekundy)
 
     Počká na daný čas v milisekundách.
 
     :param int milisec: číslo v milisekundách.
+    .. [/sk]
     """
 
     while milisec > 1:
@@ -492,13 +531,16 @@ def sine_array(hz, peak, n_samples=200):
 
 
 def PlayTone(freq, duration):
-    """PlayTone(freq, duration)
+    """
+    .. [en]
+    PlayTone(freq, duration)
 
     Play a tone.
 
     :param int freq: Frequency of the tone in Hz.
     :param int duration: For how long should the brick play this tone.
 
+    .. [/en]
     .. [sk]
     PlayTone(frekvencia, dĺžka)
 
@@ -506,6 +548,7 @@ def PlayTone(freq, duration):
 
     :param int freq: Frekvencia tónu v Hz.
     :param int duration: Dĺžka prehrávania tónu v milisekundách.
+    .. [/sk]
     """
 
     f = sine_array(freq, 1, duration * 6)
@@ -520,18 +563,22 @@ def PlayTone(freq, duration):
 
 
 def Beep(duration):
-    """Beep(duration)
+    """
+    .. [en]
+    Beep(duration)
 
     Beeps.
 
     :param int duration: For how long should the brick beeps in milliseconds.
 
+    .. [/en]
     .. [sk]
     Beep(dížka)
 
     Pípne.
 
     :param int duration: Ako dlho potrvá pípnutie v milisekundách.
+    .. [/sk]
     """
 
     PlayTone(2600, duration)
@@ -547,13 +594,16 @@ OUT_ABC = 7
 
 
 def OnFwd(motor, speed):
-    """OnFwd(motor, speed)
+    """
+    .. [en]
+    OnFwd(motor, speed)
 
     Set motor to forward direction and turn it on.
 
     :param int motor: motor we want to run.
     :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
 
+    .. [/en]
     .. [sk]
     OnFwd(motor, rychlost)
 
@@ -561,6 +611,7 @@ def OnFwd(motor, speed):
 
     :param int motor: motor, ktorý chceme spustiť.
     :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+    .. [/sk]
     """
 
     dieTest()
@@ -583,13 +634,16 @@ def OnFwd(motor, speed):
 
 
 def OnRev(motor, speed):
-    """OnRev(motor, speed)
+    """
+    .. [en]
+    OnRev(motor, speed)
 
     Set motor to reverse direction and turn it on.
 
     :param int motor: motor we want to run.
     :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
 
+    .. [/en]
     .. [sk]
     OnRev(motor, rychlost)
 
@@ -597,6 +651,7 @@ def OnRev(motor, speed):
 
     :param int motor: motor, ktorý chceme spustiť.
     :param int rychlost: rýchlosť, ktorou pôjde motor od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+    .. [/sk]
     """
 
     dieTest()
@@ -620,18 +675,22 @@ def OnRev(motor, speed):
 
 
 def Off(motor):
-    """Off(motor)
+    """
+    .. [en]
+    Off(motor)
 
     Turn the motor off (with break).
 
     :param int motor: motor we want to stop.
 
+    .. [/en]
     .. [sk]
     Off(motor)
 
     Vypne motor (bez zotvrvačnosti).
 
     :param int motor: motor, ktorý chceme zastaviť.
+    .. [/sk]
     """
 
     dieTest()
@@ -647,36 +706,44 @@ def Off(motor):
 
 
 def Float(motor):
-    """Float(motor)
+    """
+    .. [en]
+    Float(motor)
 
     Kill power for the motor.
 
     :param int motor: motor we want to stop.
 
+    .. [/en]
     .. [sk]
     Float(motor)
 
     Vypne motor (so zotrvačnosťou).
 
     :param int motor: motor, ktorý chceme zastaviť.
+    .. [/sk]
     """
 
     return Off(motor)
 
 
 def MotorTachoCount(motor):
-    """MotorTachoCount(motor)
+    """
+    .. [en]
+    MotorTachoCount(motor)
 
     Get motor tachometer counter value.
 
     :param int motor: motor we want to get tachometer count from.
 
+    .. [/en]
     .. [sk]
     MotorTachoCount(motor)
 
     Načítavanie otáčok motora.
 
     :param int motor: motor, z ktorého chceme načítavať.
+    .. [/sk]
     """
 
     dieTest()
@@ -691,7 +758,9 @@ def MotorTachoCount(motor):
 
 
 def RotateMotor(motor, speed, angle):
-    """RotateMotor(motor, speed, angle)
+    """
+    .. [en]
+    RotateMotor(motor, speed, angle)
 
     Rotate motor in specified direction at specified speed for the specified
     number of degrees.
@@ -700,6 +769,7 @@ def RotateMotor(motor, speed, angle):
     :param int speed: speed we want to run the motor at, from 0 to 100. Negative value reverses direction.
     :param int angle: number of degrees we want to rotate the motor. Negative value reverses direction.
 
+    .. [/en]
     .. [sk]
     RotateMotor(motor, rýchlosť, uhol)
 
@@ -708,6 +778,7 @@ def RotateMotor(motor, speed, angle):
     :param int motor: motor, ktorý chceme točiť
     :param int speed: rýchlosť, ktorou chceme točiť motor od 0 do 100. Záporná hodnota otočí smer chodu motora.
     :param int angle: počet stupňov pre otáčanie motora. Záporná hodnota otočí smer chodu motorra.
+    .. [/sk]
     """
 
     OnFwd(motor, speed)
@@ -721,18 +792,22 @@ def RotateMotor(motor, speed, angle):
 
 
 def ResetTachoCount(motor):
-    """ResetTachoCount(motor)
+    """
+    .. [en]
+    ResetTachoCount(motor)
 
     Reset tachometer counter.
 
     :param int motor: desired motor output.
 
+    .. [/en]
     .. [sk]
     ResetTachoCount(motor)
 
     Zresetuje tachometer.
 
     :param int motor: motor, ktorého tachometer chceme zresetovať.
+    .. [/sk]
     """
 
     dieTest()
@@ -787,31 +862,38 @@ def SetSensorTouch(sensor):
 
 
 def Sensor(sensor):
-    """Sensor(sensor)
+    """
+    .. [en]
+    Sensor(sensor)
 
     Read value from given sensor.
 
     :param int sensor: sensor we want to read from
 
+    .. [/en]
     .. [sk]
     Sensor(sensor)
 
     Načíta hodnotu z daného senzoru.
 
     :param int sensor: senzor, z ktorého chceme čítať.
+    .. [/sk]
     """
 
     return robot.sensors[sensor].getValue()
 
 
 def SensorUS(sensor):
-    """SensorUS(sensor)
+    """
+    .. [en]
+    SensorUS(sensor)
 
     Read value from given lowspeed sensor (e.g. Ultrasonic). The input port
     has to be configured as a Lowspeed before using this function.
 
     :param int sensor: sensor we want to read from
 
+    .. [/en]
     .. [sk]
     SensorUS(sensor)
 
@@ -819,42 +901,51 @@ def SensorUS(sensor):
     by mal byt nastaveny ako lowspeed pred použitím.
 
     :param int sensor: senzor, z ktorého chceme čítať.
+    .. [/sk]
     """
 
     return robot.sensors[sensor].getValue()
 
 
 def SensorHTCompass(sensor):
-    """SensorHTCompass(sensor)
+    """
+    .. [en]
+    SensorHTCompass(sensor)
 
     Read value from given Compass sensor. Returns deviation from north.
 
     :param int sensor: sensor we want to read from
 
+    .. [/en]
     .. [sk]
     SensorHTCompass(sensor)
 
     Načíta hodnotu z Kompasu. Vrati odchýlku od severu.
 
     :param int sensor: senzor, z ktorého chceme čítať
+    .. [/sk]
     """
 
     return robot.sensors[sensor].getValue()
 
 
 def Random(n=None):
-    """Random(n = 0)
+    """
+    .. [en]
+    Random(n = 0)
 
     Returns a random number
 
     :param int n: the maximal value this function should return
 
+    .. [/en]
     .. [sk]
     Random(n = 0)
 
     Vráti náhodné číslo
 
     :param int n: najväčšia hodnota , ktorú má táto funkcia vrátiť.
+    .. [/sk]
     """
 
     import random
@@ -865,14 +956,18 @@ def Random(n=None):
 
 
 def StopAllTasks():
-    """StopAllTasks()
+    """
+    .. [en]
+    StopAllTasks()
 
     Stops all running tasks.
 
+    .. [/en]
     .. [sk]
     StopAllTasks()
 
     Zastaví program.
+    .. [/sk]
     """
 
     robot.scr_running = False
@@ -880,13 +975,16 @@ def StopAllTasks():
 
 
 def on_fwd(motor, speed):
-    """on_fwd(motor, speed)
+    """
+    .. [en]
+    on_fwd(motor, speed)
 
     Set motor to forward direction and turn it on.
 
     :param int motor: motor we want to run.
     :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
 
+    .. [/en]
     .. [sk]
     on_fwd(motor, rychlost)
 
@@ -894,18 +992,22 @@ def on_fwd(motor, speed):
 
     :param int motor: motor, ktorý chceme spustiť.
     :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+    .. [/sk]
     """
     return OnFwd(motor, speed)
 
 
 def on_rev(motor, speed):
-    """OnRev(motor, speed)
+    """
+    .. [en]
+    on_rev(motor, speed)
 
     Set motor to reverse direction and turn it on.
 
     :param int motor: motor we want to run.
     :param int speed: speed we want to run the motor at from 0 to 100. Negative value reverses direction.
 
+    .. [/en]
     .. [sk]
     OnRev(motor, rychlost)
 
@@ -913,6 +1015,7 @@ def on_rev(motor, speed):
 
     :param int motor: motor, ktorý chceme spustiť.
     :param int rychlost: rýchlosť, ktorou pôjde motor od 0 do 100. Záporná rýchlosť zmení smer chodu motora.
+    .. [/sk]
     """
 
     return OnRev(motor, speed)

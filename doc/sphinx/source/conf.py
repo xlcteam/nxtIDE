@@ -284,3 +284,8 @@ epub_copyright = u'2012, mr.Shu'
 
 # Allow duplicate toc entries.
 #epub_tocdup = True
+
+def setup(app):
+    from sphinx.ext.autodoc import between
+    app.connect('autodoc-process-docstring', 
+            between('\.\.\s\[(/|)' + autodoc_lang + '\].*', ['function']))
