@@ -1,5 +1,5 @@
 inputs:
-  1: {slot: 1, type: touch}
+  1: {slot: 1, type: light}
   2: {slot: 3, type: light}
   3: {slot: 3, type: light}
   4: {slot: 2, type: light}
