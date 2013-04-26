@@ -79,6 +79,9 @@ class BackgroundDialog(gui.Dialog):
     def out(self):
         return self.background_input.value
 
+    def change(self):
+        pass
+
 
 class SensorDialog(gui.Dialog):
     pt = {}
@@ -170,13 +173,20 @@ class SensorDialog(gui.Dialog):
         slots_group = gui.Group(value=self.inp['slot'])
         slots = gui.Table()
         
-        wslots = self.slots
         for slot in [1, 2, 3]:
             slots.tr()
-            if slot in wslots:
+            if slot in self.slots:
                 slots.td(gui.Tool(slots_group, 
                                   gui.Image(p('icons/slot%d.png' % (slot))), 
                                   value=slot))
+
+            # if this slot is already selected make it visible
+            elif slot == self.inp['slot']:
+                slots.td(gui.Tool(slots_group, 
+                                  gui.Image(p('icons/slot%d.png' % (slot))), 
+                                  value=slot,
+                                  pcls='down'))
+ 
             else:
                 slots.td(gui.Image(p('icons/slot%d.png' % (slot))))
  

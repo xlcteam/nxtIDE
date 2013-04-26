@@ -1,6 +1,6 @@
 inputs:
-  1: {slot: 1, type: light}
+  1: {slot: 1, type: touch}
   2: {slot: 3, type: light}
-  3: {slot: '', type: light}
+  3: {slot: 3, type: light}
   4: {slot: 2, type: light}
-others: {background: null}
+others: {background: /home/xg/work/dev/xlcteam/nxtIDE/nxtemu/floor/pyconplbrusel.jpg}
