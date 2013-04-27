@@ -532,7 +532,7 @@ class PythonSTC(stc.StyledTextCtrl):
         return out
 
     def getArgPos(self, id, n):
-       """Returns position of the n-th argument in function description"""
+        """Returns position of the n-th argument in function description"""
 
         m = re.match(".*?\((.*?[,\)]){%d}" % (n),
                      self.api[id])
