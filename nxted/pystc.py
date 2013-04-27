@@ -532,8 +532,8 @@ class PythonSTC(stc.StyledTextCtrl):
         return out
 
     def getArgPos(self, id, n):
-       """Returns position of the n-th argument in function description"""
-
+        """Returns position of the n-th argument in function description"""
+       
         m = re.match(".*?\((.*?[,\)]){%d}" % (n),
                      self.api[id])
 
@@ -590,6 +590,51 @@ class PythonSidebar(wx.Panel):
 
     def label_if_clicked(self, event):
         editor = self.get_active_child_editor()
+        selection = editor.GetSelection()
+        # if there is nothing selected
+        if selection[0] == selection[1]:
+            cur_line = editor.GetCurLine()
+            # if we are on an empty line
+            if cur_line[1] == 0:
+                line_num = editor.GetCurrentLine()
+                indent = editor.GetLineIndentation(line_num - 1) * ' '
+                editor.AddText(indent + 'if True:\n')
+                editor.AddText(indent + editor.GetIndent() * ' ' + 'pass')
+        else:
+            line_num = editor.GetCurrentLine()
+            indent = editor.GetLineIndentation(line_num) * ' '
+            text = editor.GetSelectedText()
+
+            # in case only the function call is selected
+            if indent not in text.split('\n')[0]:
+
+                text = indent + text
+                text = text.split('\n')
+                x = 0
+                for line in text:
+                    text[x] = editor.GetIndent() * ' ' + line
+                    x += 1
+                text = '\n'.join(text)
+
+                editor.ReplaceSelection('if True:\n' + text)
+
+                # set selection to the number(10) so that it can be changed
+                # easily
+                editor.SetSelection(selection[0] + 3, selection[0] + 7)
+            else:
+
+                text = text.split('\n')
+                x = 0
+                for line in text:
+                    text[x] = editor.GetIndent() * ' ' + line
+                    x += 1
+                text = '\n'.join(text)
+
+                editor.ReplaceSelection(indent + 'if True:\n' 
+                                            + text)
+
+                editor.SetSelection(selection[0] + 7, selection[0] + 11)
+
 
     def label_func_clicked(self, event):
         editor = self.get_active_child_editor()
@@ -762,11 +807,10 @@ if __name__ == '__main__':
 
             self._mgr.Update()
             self.Bind(EVT_TITLE_UPDATE, self.title)
+
         def title(self, event):
-            print 'title'
+            pass
 
-
- 
         def MakeMenuBar(self):
             mb = wx.MenuBar()
             menu = wx.Menu()
