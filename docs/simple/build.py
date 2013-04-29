@@ -61,12 +61,17 @@ def getAPI():
                 lang = 'en'
                 first = True
                 tmp = {}
-                for split in re.split('.*\.\. (\[\w\w\])\\n', id.__doc__):
-                    if ("[" in split and "]" in split) and not first:
+                for split in re.split('.*\.\. ((?:\/|)\[\w\w\]).*\\n', id.__doc__):
+                    if ("[" in split and "]" in split) and first:
                         lang = split.replace('[', '').replace(']', '')
+                        first = False
+                    elif split is '\n':
+                        continue
                     else:
-                        tmp[lang] = split
-                        first = False 
+                        tmp[lang] = split.replace('.. [/{0}]\n'.format(lang),
+                                                    '')
+                        first = True 
+
 
                 out[func] = tmp
 
