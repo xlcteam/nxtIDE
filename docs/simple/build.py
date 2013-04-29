@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import sys
-sys.path.append('../nxtemu/')
-sys.path.append('../nxted/')
+sys.path.append('../../nxtemu/')
+sys.path.append('../../nxted/')
 import yaml, re
 import ConfigParser
 
