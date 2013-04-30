@@ -112,7 +112,7 @@ def exportYaml(fname='../nxted/help.yml', lang='en'):
 
     return fname
 
-def exportIni(fname='../nxted/help.ini', lang='en'):
+def exportIni(fname='../../nxted/help.ini', lang='en'):
     config = ConfigParser.RawConfigParser(dict_type=dict, allow_no_value=True)
     config.optionxform = str
     api = getAPI()
