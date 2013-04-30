@@ -4,6 +4,7 @@ import  keyword
 import  wx
 import  wx.stc as stc
 import  wx.lib.newevent
+import  wx.html
 
 
 import re
@@ -578,8 +579,14 @@ class PythonSidebar(wx.Panel):
                 border=5)
         vbox.Add(self.label_func, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
-
+        
+        self.html = wx.html.HtmlWindow(self)
+        vbox.Add(self.html, flag=wx.EXPAND | wx.ALIGN_BOTTOM, proportion=1,
+                border=5)
+ 
         self.SetSizer(vbox)
+
+        self.html.SetPage('<b>Fero</b> - Taraba')
 
     def get_active_child_editor(self):
         editor = self.parent.GetActiveChild()
