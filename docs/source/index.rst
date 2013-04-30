@@ -1,7 +1,7 @@
 nxtIDE documentation
 ====================
 
-Contents:
+Welcome to the nxtIDE documentation!
 
 .. toctree::
    :maxdepth: 2
