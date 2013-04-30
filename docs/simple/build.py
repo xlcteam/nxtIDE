@@ -68,6 +68,9 @@ def getAPI():
                     elif split is '\n':
                         continue
                     else:
+                        if split[0:4] == '    ': 
+                            split = split[4:]
+
                         tmp[lang] = split.replace('.. [/{0}]\n'.format(lang),
                                                     '')
                         first = True 
