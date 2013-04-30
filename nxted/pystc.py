@@ -586,8 +586,6 @@ class PythonSidebar(wx.Panel):
  
         self.SetSizer(vbox)
 
-        self.html.SetPage('<b>Fero</b> - Taraba')
-
     def get_active_child_editor(self):
         editor = self.parent.GetActiveChild()
         if editor is not None:
