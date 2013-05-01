@@ -151,6 +151,7 @@ class Robot(NXTBrick):
 
     def draw(self):
 
+        env.background = pygame.transform.scale(env.background, (640, 480))
         env.screen.blit(env.background, (0,0))
         env.screen.blit(self.rot_center(self.image, -self.angle),
                 (self.x - 30, self.y - 30))
@@ -443,6 +444,7 @@ class Robot(NXTBrick):
                 else:
                     img = img.convert()
 
+                img = pygame.transform.scale(img, (640, 480))
                 env.background.blit(img, (3, 3))
             else:
                 env.cfg['others']['background'] = "None"
