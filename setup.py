@@ -12,8 +12,8 @@ setup(name='nxtIDE',
       packages=['nxtemu', 'nxted'],
       entry_points = {
           'console_scripts': [
-                'nxtemu = nxtemu',
-                'nxted = nxtemu'
+              'nxtemu = nxtemu.nxtemu:main',
+              'nxted = nxted.nxted:main'
               ]     
       }
      )
