@@ -9,5 +9,11 @@ setup(name='nxtIDE',
       author='XLC Team',
       author_email='@',
       url='http://xlcteam.github.com/nxtIDE',
-      packages=find_packages(),
+      packages=['nxtemu', 'nxted'],
+      entry_points = {
+          'console_scripts': [
+                'nxtemu = nxtemu',
+                'nxted = nxtemu'
+              ]     
+      }
      )
