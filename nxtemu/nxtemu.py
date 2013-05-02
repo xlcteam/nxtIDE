@@ -32,7 +32,7 @@ env.init()
 
 clock = pygame.time.Clock() 
 
-if __name__ == "__main__":
+def main():
     env.app = gui.App(theme=gui.Theme(p("theme/default/"))) 
     settings = gui.Image(p("icons/settings.png"))
     console = gui.Image(p("icons/python.png"))
@@ -135,4 +135,7 @@ if __name__ == "__main__":
             robot.tick()
 
         clock.tick(40) # Frame rate  
+
+if __name__ == "__main__":
+    main()
 

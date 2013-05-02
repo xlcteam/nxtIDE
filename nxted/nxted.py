@@ -616,10 +616,15 @@ class Editor(wx.aui.AuiMDIParentFrame):
     def tabChanged(self, evt):
         wx.FutureCall(200, self.titleUpdate, None)
 
-if __name__ == "__main__":
+
+def main():
     if hasattr(sys, 'frozen'):
         app = wx.App(redirect=1, filename='nxted.exe.log')
     else:
         app = wx.App()
     Editor(None)
     app.MainLoop()
+
+if __name__ == "__main__":
+    main()
+

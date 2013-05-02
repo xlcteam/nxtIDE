@@ -57,6 +57,8 @@ def init(ports=None):
                 img = img.convert_alpha()
             else:
                 img = img.convert()
+            
+            img = pygame.transform.scale(img, (640, 480))
             background.blit(img, (3, 3))
         except:
             pass

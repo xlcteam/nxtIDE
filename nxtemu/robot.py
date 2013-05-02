@@ -443,6 +443,7 @@ class Robot(NXTBrick):
                 else:
                     img = img.convert()
 
+                img = pygame.transform.scale(img, (640, 480))
                 env.background.blit(img, (3, 3))
             else:
                 env.cfg['others']['background'] = "None"
