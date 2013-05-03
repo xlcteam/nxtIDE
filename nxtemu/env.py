@@ -42,6 +42,10 @@ def init(ports=None):
     pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
     pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
 
+    #draw output cables
+    pygame.draw.rect(background, pygame.Color("black"), (728, 0, 26, 29))
+    pygame.draw.rect(background, pygame.Color("black"), (788, 0, 26, 29))
+
     if ports is not None:
         for port in ports:
             if ports[port] is not '':
