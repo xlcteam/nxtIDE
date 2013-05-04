@@ -92,7 +92,7 @@ class SensorDialog(gui.Dialog):
         self.bckg = bckg
         self.port = port
 
-        title = gui.Label("Sensor of port %d" % int(self.port))
+        title = gui.Label("Setting sensor for port %d" % int(self.port))
         self.value = gui.Form()
 
         self.container = gui.Container()
