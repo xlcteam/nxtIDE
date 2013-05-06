@@ -10,14 +10,15 @@ setup(name='nxtIDE',
       author_email='xlc.team@gmail.com',
       url='http://xlcteam.github.com/nxtIDE',
       packages=['nxtemu', 'nxted'],
-      package_data = {
-          'nxtemu': ['nxtemu/*.yml', 'nxtemu/floor/*'],
-          'nxted' : ['nxted/*.ini', 'nxted/icons/*']
+      package_data={
+          'nxtemu': ['*.yml', '*.ico'],
+          'nxted' : ['*.ini', '*.png']
       },
-      entry_points = {
+      entry_points={
           'console_scripts': [
               'nxtemu = nxtemu.nxtemu:main',
               'nxted = nxted.nxted:main'
               ]     
-      }
-     )
+      },
+      install_requires=['PyYAML==3.10']
+)
