@@ -11,8 +11,8 @@ setup(name='nxtIDE',
       url='http://xlcteam.github.com/nxtIDE',
       packages=['nxtemu', 'nxted'],
       package_data={
-          'nxtemu': ['*.yml', '*.ico'],
-          'nxted' : ['*.ini', '*.png']
+          'nxtemu': ['*.yml', 'icons/*.ico', 'floor/*.jpg'],
+          'nxted' : ['*.ini', 'icons/*.ico']
       },
       entry_points={
           'console_scripts': [
