@@ -20,5 +20,5 @@ setup(name='nxtIDE',
               'nxted = nxted.nxted:main'
               ]     
       },
-      install_requires=['PyYAML==3.10']
+      install_requires=['PyYAML==3.10', 'pgu==0.18']
 )
