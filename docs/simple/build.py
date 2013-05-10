@@ -97,7 +97,7 @@ def getConstants():
 
 
 
-def exportYaml(fname='../nxted/help.yml', lang='en'):
+def exportYaml(fname='../../nxted/help.yml', lang='en'):
     api = getAPI()
 
     for func,desc in api.iteritems():
