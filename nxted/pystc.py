@@ -136,8 +136,10 @@ class PythonSTC(stc.StyledTextCtrl):
                               "white", "#404040")
             self.MarkerDefine(stc.STC_MARKNUM_FOLDERTAIL,
                               stc.STC_MARK_LCORNERCURVE, "white", "#404040")
-            self.MarkerDefine(stc.STC_MARKNUM_FOLDEREND, stc.STC_MARK_CIRCLEPLUSCONNECTED, "white", "#404040")
-            self.MarkerDefine(stc.STC_MARKNUM_FOLDEROPENMID, stc.STC_MARK_CIRCLEMINUSCONNECTED, "white", "#404040")
+            self.MarkerDefine(stc.STC_MARKNUM_FOLDEREND,
+                                stc.STC_MARK_CIRCLEPLUSCONNECTED, "white", "#404040")
+            self.MarkerDefine(stc.STC_MARKNUM_FOLDEROPENMID, 
+                                stc.STC_MARK_CIRCLEMINUSCONNECTED, "white", "#404040")
             self.MarkerDefine(stc.STC_MARKNUM_FOLDERMIDTAIL,
                               stc.STC_MARK_TCORNERCURVE, "white", "#404040")
 
@@ -151,8 +153,10 @@ class PythonSTC(stc.StyledTextCtrl):
                               "white", "#808080")
             self.MarkerDefine(stc.STC_MARKNUM_FOLDERTAIL, stc.STC_MARK_LCORNER,
                               "white", "#808080")
-            self.MarkerDefine(stc.STC_MARKNUM_FOLDEREND, stc.STC_MARK_BOXPLUSCONNECTED, "white", "#808080")
-            self.MarkerDefine(stc.STC_MARKNUM_FOLDEROPENMID, stc.STC_MARK_BOXMINUSCONNECTED, "white", "#808080")
+            self.MarkerDefine(stc.STC_MARKNUM_FOLDEREND, 
+                                stc.STC_MARK_BOXPLUSCONNECTED, "white", "#808080")
+            self.MarkerDefine(stc.STC_MARKNUM_FOLDEROPENMID, 
+                                stc.STC_MARK_BOXMINUSCONNECTED, "white", "#808080")
             self.MarkerDefine(stc.STC_MARKNUM_FOLDERMIDTAIL,
                               stc.STC_MARK_TCORNER, "white", "#808080")
 
@@ -173,7 +177,8 @@ class PythonSTC(stc.StyledTextCtrl):
         # Global default styles for all languages
         self.StyleSetSpec(stc.STC_STYLE_DEFAULT,
                           "face:%(helv)s,back:#ffffff,size:%(size)d" % faces)
-        self.StyleSetSpec(stc.STC_STYLE_LINENUMBER, "back:#ffffff,fore:#111111,face:%(helv)s,size:%(size2)d" % faces)
+        self.StyleSetSpec(stc.STC_STYLE_LINENUMBER, 
+                        "back:#ffffff,fore:#111111,face:%(helv)s,size:%(size2)d" % faces)
         self.StyleSetSpec(
             stc.STC_STYLE_CONTROLCHAR, "fore:#000000,face:%(other)s" % faces)
         self.StyleSetSpec(stc.STC_STYLE_BRACELIGHT,
@@ -182,18 +187,23 @@ class PythonSTC(stc.StyledTextCtrl):
             stc.STC_STYLE_BRACEBAD, "fore:#000000,back:#ffffff")
 
         # Default
-        self.StyleSetSpec(stc.STC_P_DEFAULT, "fore:#000000,bold,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_DEFAULT, 
+                "fore:#000000,bold,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
         # Comments
-        self.StyleSetSpec(stc.STC_P_COMMENTLINE, "fore:#000000,italic,face:%(other)s,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_COMMENTLINE, 
+                "fore:#000000,italic,face:%(other)s,size:%(size)d,back:#ffffff" % faces)
         # Number
         self.StyleSetSpec(stc.STC_P_NUMBER,
                           "fore:#ff0000,size:%(size)d,back:#ffffff" % faces)
         # String
-        self.StyleSetSpec(stc.STC_P_STRING, "fore:#800000,italic,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_STRING, 
+                "fore:#800000,italic,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
         # Single quoted string
-        self.StyleSetSpec(stc.STC_P_CHARACTER, "fore:#800000,italic,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_CHARACTER, 
+                "fore:#800000,italic,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
         # Keyword
-        self.StyleSetSpec(stc.STC_P_WORD, "fore:#000000,bold,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_WORD, 
+                "fore:#000000,bold,size:%(size)d,back:#ffffff" % faces)
         self.StyleSetSpec(stc.STC_P_WORD2,
                           "fore:#0000ff,size:%(size)d,back:#ffffff" % faces)
         # Triple quotes
@@ -203,7 +213,8 @@ class PythonSTC(stc.StyledTextCtrl):
         self.StyleSetSpec(stc.STC_P_TRIPLEDOUBLE,
                           "fore:#800000,size:%(size)d,back:#ffffff" % faces)
         # Class name definition
-        self.StyleSetSpec(stc.STC_P_CLASSNAME, "fore:#000000,bold,underline,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_CLASSNAME, 
+                "fore:#000000,bold,underline,size:%(size)d,back:#ffffff" % faces)
         # Function or method name definition
         self.StyleSetSpec(stc.STC_P_DEFNAME,
                           "fore:#000000,size:%(size)d,back:#ffffff" % faces)
@@ -211,12 +222,14 @@ class PythonSTC(stc.StyledTextCtrl):
         self.StyleSetSpec(stc.STC_P_OPERATOR,
                           "fore:#000000,size:%(size)d,back:#ffffff" % faces)
         # Identifiers
-        self.StyleSetSpec(stc.STC_P_IDENTIFIER, "fore:#000000,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
+        self.StyleSetSpec(stc.STC_P_IDENTIFIER, 
+                "fore:#000000,face:%(helv)s,size:%(size)d,back:#ffffff" % faces)
         # Comment-blocks
         self.StyleSetSpec(stc.STC_P_COMMENTBLOCK,
                           "fore:#aeaeae,size:%(size)d,back:#0D1021" % faces)
         # End of line where string is not closed
-        self.StyleSetSpec(stc.STC_P_STRINGEOL, "fore:#000000,face:%(mono)s,back:#ffffff,eol,size:%(size)d" % faces)
+        self.StyleSetSpec(stc.STC_P_STRINGEOL, 
+                "fore:#000000,face:%(mono)s,back:#ffffff,eol,size:%(size)d" % faces)
 
         self.SetCaretForeground("black")
         self.SetSelForeground(True, "#000000")
