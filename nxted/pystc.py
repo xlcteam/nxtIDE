@@ -6,7 +6,7 @@ import  wx.stc as stc
 import  wx.lib.newevent
 import  wx.html
 
-
+import yaml
 import re
 
 import ConfigParser
@@ -238,13 +238,7 @@ class PythonSTC(stc.StyledTextCtrl):
         root = os.path.dirname(sys.path[0] + os.sep) \
             .replace("library.zip", "")
 
-        self.apifile = ConfigParser.ConfigParser()
-        self.apifile.optionxform = str
-        self.apifile.readfp(open(root + os.sep + 'help.ini'))
-
-        self.api = dict(self.apifile.items('functions'))
-
-        self.SetKeyWords(1, " ".join(self.api.keys()))
+        
 
         self.constants = ['IN_1', 'IN_2', 'IN_3', 'IN_4', 'LCD_LINE1',
                           'LCD_LINE2', 'LCD_LINE3', 'LCD_LINE4',
@@ -542,6 +536,16 @@ class PythonSTC(stc.StyledTextCtrl):
             return m.span(1)
         else:
             return (0, 0)
+
+    def load_api(self, filename='help.yml'):
+        """Loads available functions and their descriptions from a given YAML
+        file."""
+
+        self.apifile = open(filename, 'r')
+        self.api = yaml.load(self.apifile)
+        self.apifile.close()
+
+        self.SetKeyWords(1, " ".join(self.api.keys()))
 
 class PythonSidebar(wx.Panel):
     """Side toolbar class."""
@@ -860,6 +864,8 @@ if __name__ == '__main__':
             sizer = wx.BoxSizer()
             sizer.Add(self.pystc, 1, wx.EXPAND)
             self.SetSizer(sizer)
+
+            self.pystc.load_api()
             
             wx.CallAfter(self.Layout)
 
