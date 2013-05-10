@@ -55,7 +55,7 @@ class PythonSTC(stc.StyledTextCtrl):
 
     def __init__(self, parent, ID,
                  pos=wx.DefaultPosition, size=wx.DefaultSize,
-                 style=0):
+                 style=0, autoload_api=True):
         stc.StyledTextCtrl.__init__(self, parent, ID, pos, size, style)
 
         self.parent = parent
@@ -239,6 +239,8 @@ class PythonSTC(stc.StyledTextCtrl):
             .replace("library.zip", "")
 
         
+        if autoload_api:
+            self.load_api()
 
         self.constants = ['IN_1', 'IN_2', 'IN_3', 'IN_4', 'LCD_LINE1',
                           'LCD_LINE2', 'LCD_LINE3', 'LCD_LINE4',
