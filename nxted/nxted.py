@@ -13,7 +13,7 @@ import pycheck
 import subprocess
 from threading import Thread
 import sys
-import ConfigParser
+import yaml
 import tempfile
 
 import ctypes
@@ -440,9 +440,9 @@ class PreferencesDialog(wx.Dialog):
     def onOk(self, event):
         self.parent.cfg["nxtemudir"] = self.i1.GetValue()
 
-        self.parent.cfgfile.set('nxted', 'nxtemu', self.i1.GetValue())
-        with open('config.ini', 'wb') as configfile:
-            self.parent.cfgfile.write(configfile)
+        stream = open("./config.yml", "w")
+        yaml.dump(self.parent.cfg, stream)
+        stream.close()
 
         self.Destroy()
 
@@ -494,10 +494,14 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.Show(True)
 
         # import config from yaml file
-        self.cfgfile = ConfigParser.ConfigParser()
-        self.cfgfile.readfp(open('config.ini'))
+        #self.cfgfile = ConfigParser.ConfigParser()
+        #self.cfgfile.readfp(open('config.ini'))
 
-        self.cfg = {'nxtemudir': self.cfgfile.get('nxted', 'nxtemu')}
+        self.cfgfile = open("./config.yml", "r")
+        self.cfg = yaml.load(self.cfgfile)
+        self.cfgfile.close()
+
+        #self.cfg = {'nxtemudir': self.cfgfile.get('nxted', 'nxtemu')}
 
         self.dir = tempfile.mkdtemp()
 

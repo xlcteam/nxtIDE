@@ -12,7 +12,7 @@ setup(name='nxtIDE',
       packages=['nxtemu', 'nxted'],
       package_data={
           'nxtemu': ['*.yml', 'icons/*.ico', 'floor/*.jpg'],
-          'nxted' : ['*.ini', 'icons/*.ico']
+          'nxted' : ['*.yml', 'icons/*.ico']
       },
       entry_points={
           'console_scripts': [
