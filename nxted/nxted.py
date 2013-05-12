@@ -6,7 +6,7 @@ import wx.aui
 import wx.stc as stc
 import os
 
-from pystc import PythonSTC
+from pystc import PythonSTC, PythonSidebar
 from pystc import TitleUpdateEvent, EVT_TITLE_UPDATE
 
 import pycheck
@@ -487,6 +487,11 @@ class Editor(wx.aui.AuiMDIParentFrame):
 
         self.Bind(wx.aui.EVT_AUINOTEBOOK_PAGE_CHANGING, self.tabChanged)
         self.Bind(wx.EVT_CLOSE, self.OnQuit)
+
+        self._mgr.AddPane(PythonSidebar(self),
+                         wx.aui.AuiPaneInfo().Name("sidebar").
+                         TopDockable(False).BottomDockable(False).
+                         Caption('Sidebar').Right().PaneBorder(False))
 
         self.OnNewChild(None)
 

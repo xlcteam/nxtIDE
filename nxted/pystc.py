@@ -604,7 +604,10 @@ class PythonSidebar(wx.Panel):
     def get_active_child_editor(self):
         editor = self.parent.GetActiveChild()
         if editor is not None:
-            editor = editor.pystc
+            if hasattr(editor, 'pystc'):
+                editor = editor.pystc
+            elif hasattr(editor, 'editor'):
+                editor = editor.editor
 
         return editor
 
