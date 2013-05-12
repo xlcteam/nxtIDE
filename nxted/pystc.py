@@ -280,6 +280,7 @@ class PythonSTC(stc.StyledTextCtrl):
                     self.last_id = id
                     self.last_arg_pos = 1
                     self.CallTipSetForeground("#000000")
+                    self.CallTipSetForegroundHighlight("#2000FF")
                     self.CallTipSetBackground("#FFFFFF")
 
                     self.CallTipShow(pos - len(id),
@@ -540,8 +541,7 @@ class PythonSTC(stc.StyledTextCtrl):
     def getArgPos(self, id, n):
         """Returns position of the n-th argument in function description"""
 
-        m = re.match(".*?\((.*?[,\)]){%d}" % (n),
-                     self.api[id])
+        m = re.match(".*?\((.*?[,\)]){%d}" % (n), self.api[id])
 
         if m is not None:
             return m.span(1)
