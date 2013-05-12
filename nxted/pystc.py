@@ -704,7 +704,8 @@ class PythonSidebar(wx.Panel):
                 text = '\n'.join(text)
 
                 editor.ReplaceSelection(indent + 'while True:\n' + text )
-                editor.SetSelection(selection[0] + 10, selection[0] + 14)
+                editor.SetSelection(selection[0] + 6 + len(indent),
+                        selection[0] + 10 + len(indent))
 
     def label_flow_clicked(self, event):
         pass
