@@ -247,10 +247,6 @@ class PythonSTC(stc.StyledTextCtrl):
         self.AutoCompSetDropRestOfWord(True)
         self.AutoCompSetFillUps("\t")
         self.AutoCompSetCancelAtStart(True)
-
-        root = os.path.dirname(sys.path[0] + os.sep) \
-            .replace("library.zip", "")
-
         
         if autoload_api:
             self.load_api()
