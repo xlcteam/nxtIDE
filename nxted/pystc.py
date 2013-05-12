@@ -656,7 +656,8 @@ class PythonSidebar(wx.Panel):
                 editor.ReplaceSelection(indent + 'if True:\n' 
                                             + text)
 
-                editor.SetSelection(selection[0] + 7, selection[0] + 11)
+                editor.SetSelection(selection[0] + 3 + len(indent),
+                        selection[0] + 7 + len(indent))
 
 
     def label_func_clicked(self, event):
@@ -755,7 +756,8 @@ class PythonSidebar(wx.Panel):
                 editor.ReplaceSelection(indent + 'for x in range(10):\n' 
                                             + text)
 
-                editor.SetSelection(selection[0] + 19, selection[0] + 21)
+                editor.SetSelection(selection[0] + 15 + len(indent), 
+                        selection[0] + 17 + len(indent))
 
 
 
