@@ -431,20 +431,23 @@ class Robot(NXTBrick):
         self.paused = False
         out = d.out()
 
-        if out is not None:
+        if out is not None and os.path.isfile(out):
             robot.background = out
             env.init(self.ports)
 
             if robot.background is not "":
                 env.cfg['others']['background'] = robot.background
-                img = pygame.image.load(robot.background)
-                if img.get_alpha() != None:
-                    img = img.convert_alpha()
-                else:
-                    img = img.convert()
+                try:
+                    img = pygame.image.load(robot.background)
+                    if img.get_alpha() != None:
+                        img = img.convert_alpha()
+                    else:
+                        img = img.convert()
 
-                img = pygame.transform.scale(img, (640, 480))
-                env.background.blit(img, (3, 3))
+                    img = pygame.transform.scale(img, (640, 480))
+                    env.background.blit(img, (3, 3))
+                except:
+                    pass
             else:
                 env.cfg['others']['background'] = "None"
         else:
