@@ -148,7 +148,7 @@ class ConsoleDialog(gui.Dialog):
 
             print(self.ps1 + ' ' + val)
             try:
-                code = compile(val,'<string>','single')
+                code = compile(val+'\n','<string>','single')
                 eval(code,globals(),self._locals)
             except: 
                 e_type,e_value,e_traceback = sys.exc_info()
