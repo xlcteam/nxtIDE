@@ -112,9 +112,9 @@ class Robot(NXTBrick):
         self.port_4 = SensorDialog(port=4)
         
         self.console = ConsoleDialog(init_code='from api import *', 
-                        init_text="\n\n\n\nWelcome to the Robot Console." \
-                        "Type help if you are " \
-                        "lost.", ps1='robot>')
+                        init_text= 10*'\n' + 
+                        "Welcome to the Robot Live Console." \
+                        "Type help if you are lost.", ps1='robot>')
 
     
     def getDistanceTo(self, point):
