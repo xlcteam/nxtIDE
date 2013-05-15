@@ -371,6 +371,9 @@ class Robot(NXTBrick):
         self.console.open()
 
         self.console.rect.y = env.h + env.WALL_HEIGHT*2 + 5
+        x = int(self.console.rect.x) + 86 + 100
+        y = int(self.console.rect.y) + 86 + 38
+        self.console.own_focus(x,y)
 
     def consoleQuit(self, d):
         env.window = pygame.display.set_mode((env.w + env.WALL_HEIGHT*2 + 378, 
