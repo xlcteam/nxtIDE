@@ -64,7 +64,7 @@ class ConsoleDialog(gui.Dialog):
         self.lines = gui.Table(background=(255, 255, 255))
 
         self.box = gui.ScrollArea(self.lines, env.w + env.WALL_HEIGHT*2 + 300,
-                85, hscrollbar=False, vscrollbar=True, background=(255, 255, 255))
+                135, hscrollbar=False, vscrollbar=True, background=(255, 255, 255))
         self.box.set_vertical_scroll(100)
         t.td(self.box)
 
@@ -120,7 +120,7 @@ class ConsoleDialog(gui.Dialog):
                 self.line.value = self.commands[self.lastcmd]
             
             x = int(self.rect.x) + 86 + 100
-            y = int(self.rect.y) + 86 + 38
+            y = int(self.rect.y) + 86 + 38 + 50
             self.own_focus(x,y)
 
         elif event.key == K_DOWN:
@@ -131,7 +131,7 @@ class ConsoleDialog(gui.Dialog):
 
             
             x = int(self.rect.x) + 86 + 100
-            y = int(self.rect.y) + 86 + 38
+            y = int(self.rect.y) + 86 + 38 + 50
             self.own_focus(x,y)
 
             

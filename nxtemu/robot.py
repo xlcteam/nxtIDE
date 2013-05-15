@@ -350,10 +350,14 @@ class Robot(NXTBrick):
     def onConsole(self):
 
         if self.console.is_open():
+            if not self.console_clicked:
+                self.console_clicked = True
+                return
+
             return self.consoleQuit(self.console)
 
         width = env.w + env.WALL_HEIGHT*2 + 378
-        height = env.h + env.WALL_HEIGHT*2 + 150
+        height = env.h + env.WALL_HEIGHT*2 + 200
         
         env.window = pygame.display.set_mode((width, height))
         env.screen = pygame.display.get_surface()
@@ -371,8 +375,11 @@ class Robot(NXTBrick):
         self.console.open()
 
         self.console.rect.y = env.h + env.WALL_HEIGHT*2 + 5
-        x = int(self.console.rect.x) + 86 + 100
-        y = int(self.console.rect.y) + 86 + 38
+        
+        # focusing the input
+        x = int(self.console.rect.x) + 86 + 10
+        y = int(self.console.rect.y) + 86 + 38 + 50
+        self.console_clicked = False
         self.console.own_focus(x,y)
 
     def consoleQuit(self, d):
