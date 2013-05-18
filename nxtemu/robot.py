@@ -25,6 +25,15 @@ def p(path):
     return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
             + path
 
+NXTEMU_ASCII = """
+               __                      
+   ____  _  __/ /____  ____ ___  __  __
+  / __ \| |/_/ __/ _ \/ __ `__ \/ / / /
+ / / / />  </ /_/  __/ / / / / / /_/ / 
+/_/ /_/_/|_|\__/\___/_/ /_/ /_/\__,_/  
+                                       
+"""
+
 class Robot(NXTBrick):
     proc = None
     die = False
@@ -112,7 +121,8 @@ class Robot(NXTBrick):
         self.port_4 = SensorDialog(port=4)
         
         self.console = ConsoleDialog(init_code='from api import *', 
-                        init_text= 10*'\n' + 
+                        init_text= 4*'\n' + 
+                        NXTEMU_ASCII + 
                         "Welcome to the Robot Live Console." \
                         "Type help if you are lost.", ps1='robot>')
 
