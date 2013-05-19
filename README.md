@@ -1,6 +1,8 @@
-
 nxtIDE
 ======
+
+*All you need to play with Lego Mindstorms NXT and Python*
+
 
 nxtIDE contains
 
@@ -19,4 +21,4 @@ nxted
 ![screenshot](https://github.com/xlcteam/nxtIDE/raw/master/nxted/screen/edscreen.png)
 
 
-(c) 2011 - infinity, Brought to you by the [XLC Team](https://github.com/xlcteam), http://xlc-team.info
+(c) 2011 - 2013, Brought to you by the [XLC Team](https://github.com/xlcteam), http://xlc-team.info
