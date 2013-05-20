@@ -939,6 +939,20 @@ def SensorHTCompass(sensor):
 
 
 def SensorHTIRSeeker(sensor, direction, val1, val2, val3, val4, val5):
+    """
+    SensorHTIRSeeker(sensor, direction, val1, val2, val3, val4, val5)
+
+    Read value from the HiTechnic IR sensor which can be used to find the IR
+    ball used in RoboCupJunior Soccer competition.
+
+    :param int sensor: sensor to read from
+    :param int direction: the ball's direction
+    :param int val1: value in the first part
+    :param int val2: value in the second part
+    :param int val3: value in the third part
+    :param int val4: value in the fourth part
+    :param int val5: value in the fifth part
+    """
     pass
 
 
