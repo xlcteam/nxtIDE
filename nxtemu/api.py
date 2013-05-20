@@ -938,6 +938,10 @@ def SensorHTCompass(sensor):
     return robot.sensors[sensor].getValue()
 
 
+def SensorHTIRSeeker(sensor, direction, val1, val2, val3, val4, val5):
+    pass
+
+
 def Random(n=None):
     """
     .. [en]
