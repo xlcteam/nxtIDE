@@ -54,6 +54,13 @@ Sensor: "Sensor(sensor)\n\n    Read value from given sensor.\n\n    int sensor: 
 SensorHTCompass: "SensorHTCompass(sensor)\n\n    Read value from given Compass sensor.\
   \ Returns deviation from north.\n\n    int sensor: sensor we want to read from\n\
   \n    "
+SensorHTIRSeeker: "\n    SensorHTIRSeeker(sensor, direction, val1, val2, val3, val4,\
+  \ val5)\n\n    Read value from the HiTechnic IR sensor which can be used to find\
+  \ the IR\n    ball used in RoboCupJunior Soccer competition.\n\n    int sensor:\
+  \ sensor to read from\n    int direction: the ball's direction\n    int val1: value\
+  \ in the first part\n    int val2: value in the second part\n    int val3: value\
+  \ in the third part\n    int val4: value in the fourth part\n    int val5: value\
+  \ in the fifth part\n    "
 SensorUS: "SensorUS(sensor)\n\n    Read value from given lowspeed sensor (e.g. Ultrasonic).\
   \ The input port\n    has to be configured as lowspeed via :func:`api.Lowspeed`\
   \ function before \n    using this function.\n\n    int sensor: sensor we want to\
