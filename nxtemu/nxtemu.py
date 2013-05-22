@@ -85,8 +85,6 @@ def main():
     clicker.bind(((855, 440), (19, 23)), robot.port3)
     clicker.bind(((915, 440), (19, 23)), robot.port4)
 
-    brick_hidden = False
-
     while running: 
         for event in pygame.event.get(): 
             
@@ -95,8 +93,8 @@ def main():
 
             if event.type == KEYDOWN:
                 if event.key == K_h and KMOD_CTRL:
-                    brick_hidden = not brick_hidden
-                    env.check_brick(brick_hidden)
+                    robot.brick_hidden = not robot.brick_hidden
+                    env.check_brick(robot.brick_hidden)
             
             if event.type == QUIT: 
                 robot.die = True

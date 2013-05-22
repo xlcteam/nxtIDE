@@ -84,6 +84,7 @@ class Robot(NXTBrick):
         self.radius = 21
 
         self.dragged = False
+        self.brick_hidden = False
         self.dragoffset = []
         #self.image = pygame.image.load("./robot.jpg").convert()
         #path = os.path.dirname(os.path.abspath(sys.argv[0]))
@@ -201,8 +202,13 @@ class Robot(NXTBrick):
         return out
 
     def stayIn(self):
-        if self.x > 623:
-            self.x = 623
+        if robot.brick_hidden:
+            if self.x > 936:
+                self.x = 936 
+        else:
+            if self.x > 623:
+                self.x = 623
+
 
         if self.x < 23:
             self.x = 23
