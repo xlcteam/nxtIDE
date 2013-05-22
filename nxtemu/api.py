@@ -528,7 +528,7 @@ def _sine_array_onecycle(hz, peak):
 
 
 def _sine_array(hz, peak, n_samples=200):
-    return resize(sine_array_onecycle(hz, peak), (n_samples,))
+    return resize(_sine_array_onecycle(hz, peak), (n_samples,))
 
 
 def PlayTone(freq, duration):
