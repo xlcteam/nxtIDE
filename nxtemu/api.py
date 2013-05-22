@@ -552,7 +552,7 @@ def PlayTone(freq, duration):
     .. [/sk]
     """
 
-    f = sine_array(freq, 1, duration * 6)
+    f = _sine_array(freq, 1, duration * 6)
     f = array(zip(f, f))
 
     sound = pygame.sndarray.make_sound(f)
