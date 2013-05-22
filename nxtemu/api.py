@@ -520,14 +520,14 @@ def Wait(milisec):
         dieTest()
 
 
-def sine_array_onecycle(hz, peak):
+def _sine_array_onecycle(hz, peak):
     length = 44100 / float(hz)
     omega = pi * 2 / length
     xvalues = arange(int(length)) * omega
     return (peak * sin(xvalues))
 
 
-def sine_array(hz, peak, n_samples=200):
+def _sine_array(hz, peak, n_samples=200):
     return resize(sine_array_onecycle(hz, peak), (n_samples,))
 
 
@@ -585,13 +585,13 @@ def Beep(duration):
     PlayTone(2600, duration)
 
 
-OUT_A = 1
-OUT_B = 2
-OUT_C = 4
+OUT_A = 0
+OUT_B = 1
+OUT_C = 2
 OUT_AB = 3
-OUT_BC = 6
-OUT_AC = 5
-OUT_ABC = 7
+OUT_AC = 4
+OUT_BC = 5
+OUT_ABC = 6
 
 
 def OnFwd(motor, speed):
