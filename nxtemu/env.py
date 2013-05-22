@@ -30,6 +30,9 @@ def write_config():
     yaml.dump(cfg, stream)
     stream.close()
 
+def check_brick(brick_hidden):
+    pass
+
 def init(ports=None):
     bckg = cfg["others"]["background"];
     
