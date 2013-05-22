@@ -420,7 +420,7 @@ def RectOut(x, y, width, height):
     .. [/sk]
     """
 
-    LineOut(x, y, x + width, y)
+    LineOut(x, y, x + width + 1, y)
     LineOut(x, y, x , y - height)
     LineOut(x, y - height, x + width, y - height)
     LineOut(x + width, y, x + width, y - height)
