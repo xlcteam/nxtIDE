@@ -715,7 +715,7 @@ def Float(motor):
     .. [en]
     Float(motor)
 
-    Kill power for the motor.
+    Make the motor float. 
 
     :param int motor: motor we want to stop.
 
@@ -786,7 +786,7 @@ def RotateMotor(motor, speed, angle):
     :param int speed: rýchlosť, ktorou chceme točiť motor od 0 do 100. Záporná 
                       hodnota otočí smer chodu motora.
     :param int angle: počet stupňov pre otáčanie motora. Záporná hodnota otočí 
-                      smer chodu motorra.
+                      smer chodu motora.
     .. [/sk]
     """
 
@@ -807,7 +807,7 @@ def ResetTachoCount(motor):
 
     Reset tachometer counter.
 
-    :param int motor: desired motor output.
+    :param int motor: motor we want to reset.
 
     .. [/en]
     .. [sk]
@@ -930,7 +930,7 @@ def SensorHTCompass(sensor):
     .. [sk]
     SensorHTCompass(sensor)
 
-    Načíta hodnotu z Kompasu. Vrati odchýlku od severu.
+    Načíta hodnotu z kompasu. Vrati odchýlku od severu.
 
     :param int sensor: senzor, z ktorého chceme čítať
     .. [/sk]
