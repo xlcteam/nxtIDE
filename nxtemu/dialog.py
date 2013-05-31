@@ -34,9 +34,18 @@ class BackgroundDialog(gui.Dialog):
         table.tr()
         table.td(save, align=1)
 
+        #save_current = gui.Button('Save current configuration')
+        #save_current.connect(gui.CLICK, self.file_dialog_open, gui.CHANGE)
+        #table.tr()
+        #table.td(save_current)
+
         self.container.add(table, 0, 0)
 
         gui.Dialog.__init__(self, title, self.container)
+
+    def save_current(self, dlg):
+        if dlg.value != '':
+            directory = os.path.dirname(dlg.value)
 
     def build_background_select(self):
         background = gui.Table()
@@ -67,9 +76,12 @@ class BackgroundDialog(gui.Dialog):
         return background
 
     def file_dialog_open(self, arg):
-        d = gui.FileDialog()                                                       
-        d.connect(gui.CHANGE, self.file_dialog_handle, d)                       
-        d.open()   
+        d = gui.FileDialog()         
+        if arg == None:                                              
+            d.connect(gui.CHANGE, self.file_dialog_handle, d)          
+        else:
+            d.connect(gui.CHANGE, self.save_current, d)                       
+        d.open()
 
     def file_dialog_handle(self, dlg):
         if dlg.value: 
