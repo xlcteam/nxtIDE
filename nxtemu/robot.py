@@ -166,7 +166,8 @@ class Robot(NXTBrick):
         env.screen.blit(self.rot_center(self.image, -self.angle),
                 (self.x - 30, self.y - 30))
 
-        env.screen.blit(self.lcd, ((640 + (378/2 - 100)-2, 90), (204, 130)))
+        if not self.brick_hidden:
+            env.screen.blit(self.lcd, ((640 + (378/2 - 100)-2, 90), (204, 130)))
 
         env.app.paint()
         pygame.display.flip()
