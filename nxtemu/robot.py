@@ -2,21 +2,16 @@ from brick import *
 
 from pgu import gui
 
-import env
+import env, imgs
 
-import os
+import os, math
 
-import math
-
-import imgs
 from robothread import *
 
 from dialog import SensorDialog, BackgroundDialog
 from console import ConsoleDialog
 
 from sensors import *
-
-import yaml
 
 def p(path):
     """Nasty monkey patch - shall be removed"""
@@ -533,3 +528,7 @@ class Robot(NXTBrick):
     def port4(self):
         self.port_4.connect(gui.CHANGE, self.port4_return, self.port_4)
         self.open_and_center(self.port_4)    
+
+    def write_config(self, filename):
+        env.write_config(filename)
+

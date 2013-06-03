@@ -27,8 +27,8 @@ stream.close()
 
 ports_backup = None
 
-def write_config():
-    stream = open("./config.yml", "w")
+def write_config(filename = './config.yml'):
+    stream = open(filename, "w")
     yaml.dump(cfg, stream)
     stream.close()
 
