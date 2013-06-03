@@ -34,10 +34,10 @@ class BackgroundDialog(gui.Dialog):
         table.tr()
         table.td(save, align=1)
 
-        #save_current = gui.Button('Save current configuration')
-        #save_current.connect(gui.CLICK, self.file_dialog_open, gui.CHANGE)
-        #table.tr()
-        #table.td(save_current)
+        save_current = gui.Button('Save current configuration')
+        save_current.connect(gui.CLICK, self.file_dialog_open, gui.CHANGE)
+        table.tr()
+        table.td(save_current)
 
         self.container.add(table, 0, 0)
 
@@ -80,6 +80,7 @@ class BackgroundDialog(gui.Dialog):
         if arg == None:                                              
             d.connect(gui.CHANGE, self.file_dialog_handle, d)          
         else:
+            d.input_file.value = 'robot.erc'
             d.connect(gui.CHANGE, self.save_current, d)                       
         d.open()
 
