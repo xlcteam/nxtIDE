@@ -529,9 +529,9 @@ class Robot(NXTBrick):
         self.port_4.connect(gui.CHANGE, self.port4_return, self.port_4)
         self.open_and_center(self.port_4)    
 
-    def write_config(self, filename):
+    def save_config(self, filename):
         env.write_config(filename)
 
-    def read_config(self, filename):
+    def load_config(self, filename):
         env.read_config(filename)
 

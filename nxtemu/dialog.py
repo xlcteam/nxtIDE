@@ -52,12 +52,11 @@ class BackgroundDialog(gui.Dialog):
 
     def save_config(self, dlg):
         if dlg.value != '':
-            directory = os.path.dirname(dlg.value)
+            robot.save_config(dlg.value)
 
     def load_config(self, dlg):
         if dlg.value != '':
-            directory = os.path.dirname(dlg.value)
-
+            robot.load_config(dlg.value)
 
     def build_background_select(self):
         background = gui.Table()
