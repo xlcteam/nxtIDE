@@ -21,16 +21,16 @@ window = pygame.display.set_mode((w + WALL_HEIGHT*2 + 378,h + WALL_HEIGHT*2))
 screen = pygame.display.get_surface() 
 background = pygame.Surface(screen.get_size()).convert()
 
-stream = open("./config.yml", "r")
-cfg = yaml.load(stream)
-stream.close()
-
-ports_backup = None
-
 def write_config(filename = './config.yml'):
     stream = open(filename, "w")
     yaml.dump(cfg, stream)
     stream.close()
+
+def read_config(filename = './config.yml'):
+    stream = open(filename, "r")
+    cfg = yaml.load(stream)
+    stream.close()
+    return cfg
 
 def check_brick(brick_hidden):
     bckg = cfg["others"]["background"];
@@ -69,6 +69,10 @@ def check_brick(brick_hidden):
             pass
         
 
+cfg = read_config()
+
+ports_backup = None
+
 def init(ports=None):
     bckg = cfg["others"]["background"];
     
@@ -106,3 +110,4 @@ def init(ports=None):
             background.blit(img, (3, 3))
         except:
             pass
+
