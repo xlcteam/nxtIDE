@@ -57,7 +57,7 @@ class BackgroundDialog(gui.Dialog):
     def load_config(self, dlg):
         if dlg.value != '':
             robot.load_config(dlg.value)
-
+        
     def build_background_select(self):
         background = gui.Table()
         background.td(gui.Label("Room background:"), 

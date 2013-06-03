@@ -32,7 +32,6 @@ NXTEMU_ASCII = """
 class Robot(NXTBrick):
     proc = None
     die = False
-    inputs = {}
     background = None
     bckg = None
     sensors = {}
@@ -81,15 +80,12 @@ class Robot(NXTBrick):
         self.dragged = False
         self.brick_hidden = False
         self.dragoffset = []
-        #self.image = pygame.image.load("./robot.jpg").convert()
-        #path = os.path.dirname(os.path.abspath(sys.argv[0]))
-        #self.image = pygame.image.load(path + "/robot.png").convert_alpha() # imgs.robot.convert()
         self.image = imgs.robot.convert_alpha()
-        #self.image = pygame.image.load("black_and_blacker.png").convert_alpha()
 
         self.lock = Lock()
         
         self.root = os.path.abspath(os.path.dirname(sys.argv[0]))
+
         # directory with programs to the path
         sys.path.append(self.root + os.sep + '__progs__')
 
@@ -102,10 +98,10 @@ class Robot(NXTBrick):
             #print "booting"
             RoboThread(target=self.boot).start()
         
-        self.sensors = {1: BaseSensor(1),
-                        2: BaseSensor(2),
-                        3: BaseSensor(3),
-                        4: BaseSensor(4)}
+        self.sensors = {1: BaseSensor(None),
+                        2: BaseSensor(None),
+                        3: BaseSensor(None),
+                        4: BaseSensor(None)}
 
         self.ports = {}
 
@@ -408,15 +404,16 @@ class Robot(NXTBrick):
 
     def imgUpdate(self):
         image = imgs.robot.convert_alpha()
-        
-        for x in self.inputs:
-            inp = self.inputs[x]
-            if inp['slot'] != '':
-                dx = inp['slot']*7
-                if inp['slot'] == 3:
+
+        for i in self.sensors:
+            sensor = self.sensors[i]
+            print sensor.slot
+            if sensor.slot != None:
+                dx = sensor.slot * 7
+                if sensor.slot == 3:
                     dx += 1
                 
-                dw = 1 if inp['slot'] == 2 else 0
+                dw = 1 if sensor.slot == 2 else 0
                 pygame.draw.rect(image, (0xfa, 0x70, 0x0d),
                                  (13+dx, 9, 5+dw, 5))
                 
@@ -453,6 +450,7 @@ class Robot(NXTBrick):
         self.paused = False
         out = d.out()
 
+
         if out is not None and os.path.isfile(out):
             robot.background = out
             env.init(self.ports)
@@ -488,8 +486,6 @@ class Robot(NXTBrick):
 
         env.cfg["inputs"][i]["type"] = out["type"]
         env.cfg["inputs"][i]["slot"] = out["slot"]
-
-        robot.inputs[i] = out
 
         self.sensors[i] = sensor_generator(out['type'], out['slot'])
         self.ports[i] = out['slot']
@@ -534,4 +530,3 @@ class Robot(NXTBrick):
 
     def load_config(self, filename):
         env.read_config(filename)
-

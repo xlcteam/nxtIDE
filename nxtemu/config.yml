@@ -1,6 +1,6 @@
 inputs:
-  1: {slot: '', type: ''}
+  1: {slot: 1, type: light}
   2: {slot: 2, type: sonic}
-  3: {slot: '', type: ''}
+  3: {slot: 3, type: light}
   4: {slot: 2, type: light}
-others: {background: /home/xg/work/dev/xlcteam/nxtIDE/nxtemu/floor/brusel.jpg}
+others: {background: /home/xg/work/dev/xlcteam/nxtIDE/nxtemu/floor/pyconpl.jpg}
