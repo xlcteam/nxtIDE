@@ -11,6 +11,8 @@ def p(path):
     return dirname(abspath(sys.argv[0])).replace('library.zip', '') + os.sep \
             + path
 
+SAVE_CONFIG_EVENT = 0xA0
+LOAD_CONFIG_EVENT = 0xA1
 
 class BackgroundDialog(gui.Dialog):
 
@@ -34,18 +36,28 @@ class BackgroundDialog(gui.Dialog):
         table.tr()
         table.td(save, align=1)
 
-        save_current = gui.Button('Save current configuration')
-        save_current.connect(gui.CLICK, self.file_dialog_open, gui.CHANGE)
+        save_config = gui.Button('Save current configuration')
+        save_config.connect(gui.CLICK, self.file_dialog_open, SAVE_CONFIG_EVENT)
+        load_config = gui.Button('Load robot\'s configuration')
+        load_config.connect(gui.CLICK, self.file_dialog_open, LOAD_CONFIG_EVENT)
+ 
         table.tr()
-        table.td(save_current)
+        table.td(save_config)
+        table.tr()
+        table.td(load_config)
 
         self.container.add(table, 0, 0)
 
         gui.Dialog.__init__(self, title, self.container)
 
-    def save_current(self, dlg):
+    def save_config(self, dlg):
         if dlg.value != '':
             directory = os.path.dirname(dlg.value)
+
+    def load_config(self, dlg):
+        if dlg.value != '':
+            directory = os.path.dirname(dlg.value)
+
 
     def build_background_select(self):
         background = gui.Table()
@@ -79,9 +91,11 @@ class BackgroundDialog(gui.Dialog):
         d = gui.FileDialog()         
         if arg == None:                                              
             d.connect(gui.CHANGE, self.file_dialog_handle, d)          
-        else:
+        elif arg == SAVE_CONFIG_EVENT:
             d.input_file.value = 'robot.erc'
-            d.connect(gui.CHANGE, self.save_current, d)                       
+            d.connect(gui.CHANGE, self.save_config, d)                       
+        elif arg == LOAD_CONFIG_EVENT:
+            d.connect(gui.CHANGE, self.load_config, d)
         d.open()
 
     def file_dialog_handle(self, dlg):

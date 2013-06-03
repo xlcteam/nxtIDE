@@ -532,3 +532,6 @@ class Robot(NXTBrick):
     def write_config(self, filename):
         env.write_config(filename)
 
+    def read_config(self, filename):
+        env.read_config(filename)
+
