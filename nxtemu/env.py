@@ -91,8 +91,8 @@ def init(ports=None):
 
     ports_backup = ports
     if ports is not None:
-        for port in ports:
-            if ports[port] is not '':
+        for i, port in ports.iteritems():
+            if port is not '' or port is not None or port != 0:
                 pygame.draw.rect(background, (0, 0, 0), 
                           (735 + 60*(port-1), 463, 26, 34))
                 img = pygame.image.load(p("icons/w_port%d.png" % int(port))).convert()

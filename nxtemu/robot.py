@@ -530,3 +530,9 @@ class Robot(NXTBrick):
 
     def load_config(self, filename):
         env.read_config(filename)
+        for i, inp in env.cfg['inputs'].iteritems():
+            print inp
+            self.sensors[i] = sensor_generator(inp['type'], inp['slot'])
+            self.ports[i] = inp['slot']
+
+
