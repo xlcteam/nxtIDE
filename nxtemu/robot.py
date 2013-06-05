@@ -407,7 +407,6 @@ class Robot(NXTBrick):
 
         for i in self.sensors:
             sensor = self.sensors[i]
-            print sensor.slot
             if sensor.slot != None:
                 dx = sensor.slot * 7
                 if sensor.slot == 3:
@@ -531,8 +530,10 @@ class Robot(NXTBrick):
     def load_config(self, filename):
         env.read_config(filename)
         for i, inp in env.cfg['inputs'].iteritems():
-            print inp
             self.sensors[i] = sensor_generator(inp['type'], inp['slot'])
             self.ports[i] = inp['slot']
 
+        env.init(self.ports)
+
+        
 
