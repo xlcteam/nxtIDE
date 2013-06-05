@@ -34,6 +34,22 @@ def write_config():
 
 def check_brick(brick_hidden):
     bckg = cfg["others"]["background"];
+
+    if bckg:
+        try:
+            img = pygame.image.load(bckg)
+            if img.get_alpha() != None:
+                img = img.convert_alpha()
+            else:
+                img = img.convert()
+            if brick_hidden:
+                img = pygame.transform.scale(img, (960, 480))
+            else:            
+                img = pygame.transform.scale(img, (640, 480))
+            background.blit(img, (3, 3))
+        except:
+            pass
+
     if brick_hidden:
         background.fill((250, 250, 250))
 
@@ -56,21 +72,6 @@ def check_brick(brick_hidden):
                               (735 + 60*(port-1), 463, 26, 34))
                     img = pygame.image.load(p("icons/w_port%d.png" % int(port))).convert()
                     background.blit(img, (735 + 60*int(port-1), 440)) 
-
-    if bckg:
-        try:
-            img = pygame.image.load(bckg)
-            if img.get_alpha() != None:
-                img = img.convert_alpha()
-            else:
-                img = img.convert()
-            if brick_hidden:
-                img = pygame.transform.scale(img, (960, 480))
-            else:            
-                img = pygame.transform.scale(img, (640, 480))
-            background.blit(img, (3, 3))
-        except:
-            pass
         
 
 def init(ports=None):
