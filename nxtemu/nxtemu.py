@@ -85,6 +85,8 @@ def main():
     clicker.bind(((855, 440), (19, 23)), robot.port3)
     clicker.bind(((915, 440), (19, 23)), robot.port4)
 
+    robot.load_config('./config.yml')
+
     while running: 
         for event in pygame.event.get(): 
             
