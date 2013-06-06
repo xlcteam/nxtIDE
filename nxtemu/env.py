@@ -50,8 +50,8 @@ def check_brick():
     background.fill((255, 255, 255))
 
     if robot.brick_hidden:
-        pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (954, 480)))
         pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (960, 486)))
+        pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (954, 480)))
         draw_background()
     else:
         background.blit(imgs.brick.convert(), (640, 0))
