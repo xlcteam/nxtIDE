@@ -218,7 +218,7 @@ class SensorDialog(gui.Dialog):
  
         
         slots.tr()
-        slots.td(gui.Tool(slots_group, gui.Label('None'), value=''))
+        slots.td(gui.Tool(slots_group, gui.Label('None'), value=0))
         
         slots_group.connect(gui.CHANGE, self.slot_change, slots_group)
         
