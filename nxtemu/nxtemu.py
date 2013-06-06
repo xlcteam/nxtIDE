@@ -94,7 +94,7 @@ def main():
             if event.type == KEYDOWN:
                 if event.key == K_h and KMOD_CTRL:
                     robot.brick_hidden = not robot.brick_hidden
-                    env.check_brick(robot.brick_hidden)
+                    env.check_brick()
             
             if event.type == QUIT: 
                 robot.die = True
