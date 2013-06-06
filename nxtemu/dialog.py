@@ -150,7 +150,7 @@ class SensorDialog(gui.Dialog):
         self.pt = {}
         self.pt['img'] = gui.Image(p('icons/w_port%d.png' % int(self.port)))
         
-        self.inp = {'type': None, 'slot': ''}
+        self.inp = {'type': None, 'slot': 0}
         self.pt['sensors'] = self.build_sensors()
 
         self.container.add(self.pt['img'], 30+(60*self.port), 24)
@@ -226,7 +226,7 @@ class SensorDialog(gui.Dialog):
     
     def port_connected(self):
         return self.inp['type'] is not None and \
-                self.inp['slot'] is not ''
+                self.inp['slot'] is not 0
     
     def port_connect_update(self):
         if self.port_connected():
