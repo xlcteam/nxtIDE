@@ -32,9 +32,8 @@ def read_config(filename = './config.yml'):
     stream.close()
     return cfg
 
-def check_brick(brick_hidden):
+def draw_background():
     bckg = cfg["others"]["background"];
-
     if bckg:
         try:
             img = pygame.image.load(bckg)
@@ -42,21 +41,19 @@ def check_brick(brick_hidden):
                 img = img.convert_alpha()
             else:
                 img = img.convert()
-            if brick_hidden:
-                img = pygame.transform.scale(img, (960, 480))
-            else:            
-                img = pygame.transform.scale(img, (640, 480))
+            img = pygame.transform.scale(img, (640, 480))
             background.blit(img, (3, 3))
         except:
             pass
 
-    if brick_hidden:
-        background.fill((250, 250, 250))
+def check_brick():
+    background.fill((255, 255, 255))
 
+    if robot.brick_hidden:
         pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (960, 486)))
         pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (954, 480)))
+        draw_background()
     else:
-        background.fill((250, 250, 250))
         background.blit(imgs.brick.convert(), (640, 0))
         pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
         pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
@@ -73,28 +70,12 @@ def check_brick(brick_hidden):
                     img = pygame.image.load(p("icons/w_port%d.png" % int(i))).convert()
                     background.blit(img, (735 + 60*int(i-1), 437)) 
 
-    if bckg:
-        try:
-            img = pygame.image.load(bckg)
-            if img.get_alpha() != None:
-                img = img.convert_alpha()
-            else:
-                img = img.convert()
-            if brick_hidden:
-                img = pygame.transform.scale(img, (960, 480))
-            else:            
-                img = pygame.transform.scale(img, (640, 480))
-            background.blit(img, (3, 3))
-        except:
-            pass
+        draw_background()
 
 cfg = read_config()
-
 ports_backup = None
 
-def init(ports=None):
-    bckg = cfg["others"]["background"];
-    
+def init(ports=None):   
     background.fill((250, 250, 250))
 
     pygame.display.set_caption("nxtemu")
@@ -117,16 +98,4 @@ def init(ports=None):
                 img = pygame.image.load(p("icons/w_port%d.png" % int(i))).convert()
                 background.blit(img, (735 + 60*int(i-1), 437))    
 
-    if bckg:
-        try:
-            img = pygame.image.load(bckg)
-            if img.get_alpha() != None:
-                img = img.convert_alpha()
-            else:
-                img = img.convert()
-            
-            img = pygame.transform.scale(img, (640, 480))
-            background.blit(img, (3, 3))
-        except:
-            pass
-
+    draw_background()
