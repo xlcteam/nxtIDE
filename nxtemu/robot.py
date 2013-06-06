@@ -111,6 +111,8 @@ class Robot(NXTBrick):
         self.port_2 = SensorDialog(port=2)
         self.port_3 = SensorDialog(port=3)
         self.port_4 = SensorDialog(port=4)
+
+        self.port_dialogs = [self.port_1, self.port_2, self.port_3, self.port_4]
         
         self.console = ConsoleDialog(init_code='from api import *', 
                         init_text= 4*'\n' + 
@@ -407,7 +409,7 @@ class Robot(NXTBrick):
 
         for i in self.sensors:
             sensor = self.sensors[i]
-            if sensor.slot != None:
+            if sensor.slot != None and sensor.slot != 0:
                 dx = sensor.slot * 7
                 if sensor.slot == 3:
                     dx += 1
@@ -499,6 +501,7 @@ class Robot(NXTBrick):
     def port1(self):
         self.port_1.connect(gui.CHANGE, self.port1_return, self.port_1)
         self.open_and_center(self.port_1)
+        self.port_1.port_connect_update()
 
     # port 2
     def port2_return(self, d):
@@ -507,6 +510,7 @@ class Robot(NXTBrick):
     def port2(self):
         self.port_2.connect(gui.CHANGE, self.port2_return, self.port_2)
         self.open_and_center(self.port_2)
+        self.port_2.port_connect_update()
 
     # port 3
     def port3_return(self, d):
@@ -515,6 +519,7 @@ class Robot(NXTBrick):
     def port3(self):
         self.port_3.connect(gui.CHANGE, self.port3_return, self.port_3)
         self.open_and_center(self.port_3)
+        self.port_3.port_connect_update()
 
     # port 4
     def port4_return(self, d):
@@ -523,6 +528,7 @@ class Robot(NXTBrick):
     def port4(self):
         self.port_4.connect(gui.CHANGE, self.port4_return, self.port_4)
         self.open_and_center(self.port_4)    
+        self.port_4.port_connect_update()
 
     def save_config(self, filename):
         env.write_config(filename)
@@ -533,7 +539,11 @@ class Robot(NXTBrick):
             self.sensors[i] = sensor_generator(inp['type'], inp['slot'])
             self.ports[i] = inp['slot']
 
+            self.port_dialogs[i - 1].inp = inp
+            self.port_dialogs[i - 1].build_slots()
+
         env.init(self.ports)
+        robot.imgUpdate()
 
         
 
