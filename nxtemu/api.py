@@ -585,13 +585,13 @@ def Beep(duration):
     PlayTone(2600, duration)
 
 
-OUT_A = 0
-OUT_B = 1
-OUT_C = 2
+OUT_A = 1
+OUT_B = 2
+OUT_C = 4
 OUT_AB = 3
-OUT_AC = 4
-OUT_BC = 5
-OUT_ABC = 6
+OUT_AC = 5
+OUT_BC = 6
+OUT_ABC = 7
 
 
 def OnFwd(motor, speed):
