@@ -216,7 +216,7 @@ LCD_LINE7 = 16
 LCD_LINE8 = 8
 
 
-def TextOut(x, y, text):
+def TextOut(x, y, text, clear=False):
     """
     .. [en]
     TextOut(x, y, text)
@@ -239,12 +239,15 @@ def TextOut(x, y, text):
     .. [/sk]
     """
 
+    if clear:
+        ClearScreen()
+
     for char in list(text):
         _printChar(x, y, char)
         x += 6
 
 
-def NumOut(x, y, num):
+def NumOut(x, y, num, clear=False):
     """
     .. [en]
     NumOut(x, y, num)
@@ -267,7 +270,7 @@ def NumOut(x, y, num):
     """
 
     num = str(num)
-    TextOut(x, y, num)
+    TextOut(x, y, num, clear)
 
 # TODO
 
