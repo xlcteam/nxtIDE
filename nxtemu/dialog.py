@@ -262,7 +262,7 @@ class SensorDialog(gui.Dialog):
     
     def slot_change(self, g):
         
-        if g.value != '':
+        if g.value != 0 and g.value in self.slots:
             self.slots.remove(g.value)
         else:
             self.slots.append(self.inp['slot'])
