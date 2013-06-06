@@ -502,6 +502,7 @@ class Robot(NXTBrick):
         self.port_1.connect(gui.CHANGE, self.port1_return, self.port_1)
         self.open_and_center(self.port_1)
         self.port_1.port_connect_update()
+        #self.port_1.pt['sensors']._rows[2][0]['widget'].widget.pcls = 'down'
 
     # port 2
     def port2_return(self, d):

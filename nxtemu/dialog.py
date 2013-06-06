@@ -150,11 +150,11 @@ class SensorDialog(gui.Dialog):
         self.pt = {}
         self.pt['img'] = gui.Image(p('icons/w_port%d.png' % int(self.port)))
         
+        self.inp = {'type': None, 'slot': ''}
         self.pt['sensors'] = self.build_sensors()
 
         self.container.add(self.pt['img'], 30+(60*self.port), 24)
 
-        self.inp = {'type': None, 'slot': ''}
 
     def change(self):
         # changing the image
@@ -174,7 +174,7 @@ class SensorDialog(gui.Dialog):
         self.box.widget = table
 
     def build_sensors(self):
-        sensors_group = gui.Group(value='')
+        sensors_group = gui.Group(value=self.inp['type'])
         sensors = gui.Table()
         sensors.tr()
         sensors.td(gui.Tool(sensors_group, 
@@ -237,6 +237,23 @@ class SensorDialog(gui.Dialog):
             pygame.draw.rect(self.sensors_img.value, (0xff, 0xff, 0xff), 
                     (28+(60*self.port), 51, 26, 34))
                     
+        if self.inp['type'] is not None:
+           #self.pt['sensors']._rows[1][0]['widget'].widget.pcls = ''
+           #self.pt['sensors']._rows[2][0]['widget'].widget.pcls = ''
+           #self.pt['sensors']._rows[3][0]['widget'].widget.pcls = ''
+           #self.pt['sensors']._rows[4][0]['widget'].widget.pcls = ''
+
+            if self.inp['type'] == 'light':
+                self.pt['sensors']._rows[0][0]['widget'].widget.pcls = 'down'
+            elif self.inp['type'] == 'ultrasonic':
+                self.pt['sensors']._rows[1][0]['widget'].widget.pcls = 'down'
+            elif self.inp['type'] == 'touch':
+                self.pt['sensors']._rows[2][0]['widget'].widget.pcls = 'down'
+            elif self.inp['type'] == 'compass':
+                self.pt['sensors']._rows[3][0]['widget'].widget.pcls = 'down'
+            else:
+                self.pt['sensors']._rows[4][0]['widget'].widget.pcls = 'down'
+
         self.container.repaint()
     
     def sensor_change(self, g):
