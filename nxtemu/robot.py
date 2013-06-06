@@ -535,7 +535,7 @@ class Robot(NXTBrick):
         env.write_config(filename)
 
     def load_config(self, filename):
-        env.read_config(filename)
+        env.cfg = env.read_config(filename)
         for i, inp in env.cfg['inputs'].iteritems():
             self.sensors[i] = sensor_generator(inp['type'], inp['slot'])
             self.ports[i] = inp['slot']
@@ -545,6 +545,8 @@ class Robot(NXTBrick):
 
         env.init(self.ports)
         robot.imgUpdate()
+
+        self.save_config('./config.yml')
 
         
 
