@@ -34,6 +34,22 @@ def read_config(filename = './config.yml'):
 
 def check_brick(brick_hidden):
     bckg = cfg["others"]["background"];
+
+    if bckg:
+        try:
+            img = pygame.image.load(bckg)
+            if img.get_alpha() != None:
+                img = img.convert_alpha()
+            else:
+                img = img.convert()
+            if brick_hidden:
+                img = pygame.transform.scale(img, (960, 480))
+            else:            
+                img = pygame.transform.scale(img, (640, 480))
+            background.blit(img, (3, 3))
+        except:
+            pass
+
     if brick_hidden:
         background.fill((250, 250, 250))
 
@@ -44,6 +60,10 @@ def check_brick(brick_hidden):
         background.blit(imgs.brick.convert(), (640, 0))
         pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
         pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (640, 480)))
+
+        #draw output cables
+        pygame.draw.rect(background, pygame.Color("black"), (728, 0, 26, 29))
+        pygame.draw.rect(background, pygame.Color("black"), (788, 0, 26, 29))
 
         if ports_backup is not None:
             for i, port in ports_backup.iteritems():
@@ -67,7 +87,6 @@ def check_brick(brick_hidden):
             background.blit(img, (3, 3))
         except:
             pass
-        
 
 cfg = read_config()
 
