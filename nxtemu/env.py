@@ -49,9 +49,9 @@ def check_brick(brick_hidden):
             for i, port in ports_backup.iteritems():
                 if port is not '' and port != 0 and port is not None:
                     pygame.draw.rect(background, (0, 0, 0), 
-                              (735 + 60*(port-1), 463, 26, 34))
-                    img = pygame.image.load(p("icons/w_port%d.png" % int(port))).convert()
-                    background.blit(img, (735 + 60*int(port-1), 440)) 
+                              (735 + 60*(i-1), 463, 26, 34))
+                    img = pygame.image.load(p("icons/w_port%d.png" % int(i))).convert()
+                    background.blit(img, (735 + 60*int(i-1), 437)) 
 
     if bckg:
         try:
@@ -94,9 +94,9 @@ def init(ports=None):
         for i, port in ports.iteritems():
             if port is not '' and port is not None and port != 0:
                 pygame.draw.rect(background, (0, 0, 0), 
-                          (735 + 60*(port-1), 463, 26, 34))
-                img = pygame.image.load(p("icons/w_port%d.png" % int(port))).convert()
-                background.blit(img, (735 + 60*int(port-1), 440))    
+                          (735 + 60*(i-1), 463, 26, 34))
+                img = pygame.image.load(p("icons/w_port%d.png" % int(i))).convert()
+                background.blit(img, (735 + 60*int(i-1), 437))    
 
     if bckg:
         try:

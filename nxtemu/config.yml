@@ -2,5 +2,5 @@ inputs:
   1: {slot: 1, type: light}
   2: {slot: 3, type: light}
   3: {slot: 0, type: None}
-  4: {slot: 0, type: None}
+  4: {slot: 2, type: light}
 others: {background: /home/xg/work/dev/xlcteam/nxtIDE/nxtemu/floor/pyconpl.jpg}
