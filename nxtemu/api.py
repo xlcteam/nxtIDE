@@ -216,6 +216,27 @@ LCD_LINE7 = 16
 LCD_LINE8 = 8
 
 
+def ClearScreen():
+    """
+    .. [en]
+    ClearScreen()
+
+    Clear the screen.
+
+    .. [/en]
+    .. [sk]
+    ClearScreen()
+
+    Vyčistí obrazovku.
+    .. [/sk]
+    """
+    screenTest()
+
+    with robot.lock:
+        pygame.draw.rect(robot.lcd, pygame.Color(0x43, 0x6c, 0x30),
+                        ((0, 0), (204, 130)))
+
+
 def TextOut(x, y, text, clear=False):
     """
     .. [en]
@@ -428,26 +449,6 @@ def RectOut(x, y, width, height):
     LineOut(x, y - height, x + width, y - height)
     LineOut(x + width, y, x + width, y - height)
 
-
-def ClearScreen():
-    """
-    .. [en]
-    ClearScreen()
-
-    Clear the screen.
-
-    .. [/en]
-    .. [sk]
-    ClearScreen()
-
-    Vyčistí obrazovku.
-    .. [/sk]
-    """
-    screenTest()
-
-    with robot.lock:
-        pygame.draw.rect(robot.lcd, pygame.Color(0x43, 0x6c, 0x30),
-                        ((0, 0), (204, 130)))
 
 
 def ResetScreen():
