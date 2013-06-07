@@ -1,6 +1,6 @@
 inputs:
-  1: {slot: 0, type: ''}
-  2: {slot: 2, type: touch}
-  3: {slot: 0, type: None}
-  4: {slot: 0, type: None}
+  1: {slot: 2, type: sonic}
+  2: {slot: 1, type: sonic}
+  3: {slot: 1, type: light}
+  4: {slot: 3, type: touch}
 others: {background: /home/xg/work/dev/xlcteam/nxtIDE/nxtemu/floor/pyconpl.jpg}
