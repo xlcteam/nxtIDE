@@ -1,0 +1,614 @@
+running py2exe
+creating C:\dev\xlc-team\nxtIDE\nxted\build
+creating C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32
+creating C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe
+creating C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\collect-2.6
+creating C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\bundle-2.6
+creating C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp
+creating C:\dev\xlc-team\nxtIDE\build\nxted
+*** searching for required modules ***
+*** parsing results ***
+creating python loader for extension 'wx._misc_' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_misc_.pyd -> wx._misc_.pyd)
+creating python loader for extension 'wx._stc' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_stc.pyd -> wx._stc.pyd)
+creating python loader for extension '_ctypes' (C:\Python26\DLLs\_ctypes.pyd -> _ctypes.pyd)
+creating python loader for extension 'wx._html' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_html.pyd -> wx._html.pyd)
+creating python loader for extension 'unicodedata' (C:\Python26\DLLs\unicodedata.pyd -> unicodedata.pyd)
+creating python loader for extension '_yaml' (C:\Python26\lib\site-packages\_yaml.pyd -> _yaml.pyd)
+creating python loader for extension 'select' (C:\Python26\DLLs\select.pyd -> select.pyd)
+creating python loader for extension 'wx._aui' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_aui.pyd -> wx._aui.pyd)
+creating python loader for extension 'wx._windows_' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_windows_.pyd -> wx._windows_.pyd)
+creating python loader for extension 'wx._core_' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_core_.pyd -> wx._core_.pyd)
+creating python loader for extension 'wx._gdi_' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_gdi_.pyd -> wx._gdi_.pyd)
+creating python loader for extension 'wx._controls_' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_controls_.pyd -> wx._controls_.pyd)
+creating python loader for extension 'bz2' (C:\Python26\DLLs\bz2.pyd -> bz2.pyd)
+*** finding dlls needed ***
+*** create binaries ***
+*** byte compile python files ***
+writing byte-compilation script 'c:\users\aoa169~1\appdata\local\temp\tmpvyh0ly.py'
+C:\Python26\python.exe -OO c:\users\aoa169~1\appdata\local\temp\tmpvyh0ly.py
+byte-compiling C:\Python26\lib\ConfigParser.py to ConfigParser.pyo
+byte-compiling C:\Python26\lib\StringIO.py to StringIO.pyo
+byte-compiling C:\Python26\lib\UserDict.py to UserDict.pyo
+byte-compiling C:\Python26\lib\__future__.py to __future__.pyo
+byte-compiling C:\Python26\lib\_abcoll.py to _abcoll.pyo
+byte-compiling C:\Python26\lib\_strptime.py to _strptime.pyo
+byte-compiling C:\Python26\lib\_threading_local.py to _threading_local.pyo
+byte-compiling C:\Python26\lib\abc.py to abc.pyo
+byte-compiling C:\Python26\lib\atexit.py to atexit.pyo
+byte-compiling C:\Python26\lib\base64.py to base64.pyo
+byte-compiling C:\Python26\lib\bdb.py to bdb.pyo
+byte-compiling C:\Python26\lib\bisect.py to bisect.pyo
+byte-compiling C:\Python26\lib\calendar.py to calendar.pyo
+byte-compiling C:\Python26\lib\cmd.py to cmd.pyo
+byte-compiling C:\Python26\lib\codecs.py to codecs.pyo
+byte-compiling C:\Python26\lib\collections.py to collections.pyo
+byte-compiling C:\Python26\lib\compiler\__init__.py to compiler\__init__.pyo
+byte-compiling C:\Python26\lib\compiler\ast.py to compiler\ast.pyo
+byte-compiling C:\Python26\lib\compiler\consts.py to compiler\consts.pyo
+byte-compiling C:\Python26\lib\compiler\future.py to compiler\future.pyo
+byte-compiling C:\Python26\lib\compiler\misc.py to compiler\misc.pyo
+byte-compiling C:\Python26\lib\compiler\pyassem.py to compiler\pyassem.pyo
+byte-compiling C:\Python26\lib\compiler\pycodegen.py to compiler\pycodegen.pyo
+byte-compiling C:\Python26\lib\compiler\symbols.py to compiler\symbols.pyo
+byte-compiling C:\Python26\lib\compiler\syntax.py to compiler\syntax.pyo
+byte-compiling C:\Python26\lib\compiler\transformer.py to compiler\transformer.pyo
+byte-compiling C:\Python26\lib\compiler\visitor.py to compiler\visitor.pyo
+byte-compiling C:\Python26\lib\copy.py to copy.pyo
+byte-compiling C:\Python26\lib\copy_reg.py to copy_reg.pyo
+byte-compiling C:\Python26\lib\ctypes\__init__.py to ctypes\__init__.pyo
+byte-compiling C:\Python26\lib\ctypes\_endian.py to ctypes\_endian.pyo
+byte-compiling C:\Python26\lib\difflib.py to difflib.pyo
+byte-compiling C:\Python26\lib\dis.py to dis.pyo
+byte-compiling C:\Python26\lib\doctest.py to doctest.pyo
+byte-compiling C:\Python26\lib\dummy_thread.py to dummy_thread.pyo
+byte-compiling C:\Python26\lib\encodings\__init__.py to encodings\__init__.pyo
+byte-compiling C:\Python26\lib\encodings\aliases.py to encodings\aliases.pyo
+byte-compiling C:\Python26\lib\encodings\ascii.py to encodings\ascii.pyo
+byte-compiling C:\Python26\lib\encodings\base64_codec.py to encodings\base64_codec.pyo
+byte-compiling C:\Python26\lib\encodings\big5.py to encodings\big5.pyo
+byte-compiling C:\Python26\lib\encodings\big5hkscs.py to encodings\big5hkscs.pyo
+byte-compiling C:\Python26\lib\encodings\bz2_codec.py to encodings\bz2_codec.pyo
+byte-compiling C:\Python26\lib\encodings\charmap.py to encodings\charmap.pyo
+byte-compiling C:\Python26\lib\encodings\cp037.py to encodings\cp037.pyo
+byte-compiling C:\Python26\lib\encodings\cp1006.py to encodings\cp1006.pyo
+byte-compiling C:\Python26\lib\encodings\cp1026.py to encodings\cp1026.pyo
+byte-compiling C:\Python26\lib\encodings\cp1140.py to encodings\cp1140.pyo
+byte-compiling C:\Python26\lib\encodings\cp1250.py to encodings\cp1250.pyo
+byte-compiling C:\Python26\lib\encodings\cp1251.py to encodings\cp1251.pyo
+byte-compiling C:\Python26\lib\encodings\cp1252.py to encodings\cp1252.pyo
+byte-compiling C:\Python26\lib\encodings\cp1253.py to encodings\cp1253.pyo
+byte-compiling C:\Python26\lib\encodings\cp1254.py to encodings\cp1254.pyo
+byte-compiling C:\Python26\lib\encodings\cp1255.py to encodings\cp1255.pyo
+byte-compiling C:\Python26\lib\encodings\cp1256.py to encodings\cp1256.pyo
+byte-compiling C:\Python26\lib\encodings\cp1257.py to encodings\cp1257.pyo
+byte-compiling C:\Python26\lib\encodings\cp1258.py to encodings\cp1258.pyo
+byte-compiling C:\Python26\lib\encodings\cp424.py to encodings\cp424.pyo
+byte-compiling C:\Python26\lib\encodings\cp437.py to encodings\cp437.pyo
+byte-compiling C:\Python26\lib\encodings\cp500.py to encodings\cp500.pyo
+byte-compiling C:\Python26\lib\encodings\cp737.py to encodings\cp737.pyo
+byte-compiling C:\Python26\lib\encodings\cp775.py to encodings\cp775.pyo
+byte-compiling C:\Python26\lib\encodings\cp850.py to encodings\cp850.pyo
+byte-compiling C:\Python26\lib\encodings\cp852.py to encodings\cp852.pyo
+byte-compiling C:\Python26\lib\encodings\cp855.py to encodings\cp855.pyo
+byte-compiling C:\Python26\lib\encodings\cp856.py to encodings\cp856.pyo
+byte-compiling C:\Python26\lib\encodings\cp857.py to encodings\cp857.pyo
+byte-compiling C:\Python26\lib\encodings\cp860.py to encodings\cp860.pyo
+byte-compiling C:\Python26\lib\encodings\cp861.py to encodings\cp861.pyo
+byte-compiling C:\Python26\lib\encodings\cp862.py to encodings\cp862.pyo
+byte-compiling C:\Python26\lib\encodings\cp863.py to encodings\cp863.pyo
+byte-compiling C:\Python26\lib\encodings\cp864.py to encodings\cp864.pyo
+byte-compiling C:\Python26\lib\encodings\cp865.py to encodings\cp865.pyo
+byte-compiling C:\Python26\lib\encodings\cp866.py to encodings\cp866.pyo
+byte-compiling C:\Python26\lib\encodings\cp869.py to encodings\cp869.pyo
+byte-compiling C:\Python26\lib\encodings\cp874.py to encodings\cp874.pyo
+byte-compiling C:\Python26\lib\encodings\cp875.py to encodings\cp875.pyo
+byte-compiling C:\Python26\lib\encodings\cp932.py to encodings\cp932.pyo
+byte-compiling C:\Python26\lib\encodings\cp949.py to encodings\cp949.pyo
+byte-compiling C:\Python26\lib\encodings\cp950.py to encodings\cp950.pyo
+byte-compiling C:\Python26\lib\encodings\euc_jis_2004.py to encodings\euc_jis_2004.pyo
+byte-compiling C:\Python26\lib\encodings\euc_jisx0213.py to encodings\euc_jisx0213.pyo
+byte-compiling C:\Python26\lib\encodings\euc_jp.py to encodings\euc_jp.pyo
+byte-compiling C:\Python26\lib\encodings\euc_kr.py to encodings\euc_kr.pyo
+byte-compiling C:\Python26\lib\encodings\gb18030.py to encodings\gb18030.pyo
+byte-compiling C:\Python26\lib\encodings\gb2312.py to encodings\gb2312.pyo
+byte-compiling C:\Python26\lib\encodings\gbk.py to encodings\gbk.pyo
+byte-compiling C:\Python26\lib\encodings\hex_codec.py to encodings\hex_codec.pyo
+byte-compiling C:\Python26\lib\encodings\hp_roman8.py to encodings\hp_roman8.pyo
+byte-compiling C:\Python26\lib\encodings\hz.py to encodings\hz.pyo
+byte-compiling C:\Python26\lib\encodings\idna.py to encodings\idna.pyo
+byte-compiling C:\Python26\lib\encodings\iso2022_jp.py to encodings\iso2022_jp.pyo
+byte-compiling C:\Python26\lib\encodings\iso2022_jp_1.py to encodings\iso2022_jp_1.pyo
+byte-compiling C:\Python26\lib\encodings\iso2022_jp_2.py to encodings\iso2022_jp_2.pyo
+byte-compiling C:\Python26\lib\encodings\iso2022_jp_2004.py to encodings\iso2022_jp_2004.pyo
+byte-compiling C:\Python26\lib\encodings\iso2022_jp_3.py to encodings\iso2022_jp_3.pyo
+byte-compiling C:\Python26\lib\encodings\iso2022_jp_ext.py to encodings\iso2022_jp_ext.pyo
+byte-compiling C:\Python26\lib\encodings\iso2022_kr.py to encodings\iso2022_kr.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_1.py to encodings\iso8859_1.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_10.py to encodings\iso8859_10.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_11.py to encodings\iso8859_11.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_13.py to encodings\iso8859_13.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_14.py to encodings\iso8859_14.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_15.py to encodings\iso8859_15.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_16.py to encodings\iso8859_16.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_2.py to encodings\iso8859_2.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_3.py to encodings\iso8859_3.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_4.py to encodings\iso8859_4.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_5.py to encodings\iso8859_5.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_6.py to encodings\iso8859_6.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_7.py to encodings\iso8859_7.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_8.py to encodings\iso8859_8.pyo
+byte-compiling C:\Python26\lib\encodings\iso8859_9.py to encodings\iso8859_9.pyo
+byte-compiling C:\Python26\lib\encodings\johab.py to encodings\johab.pyo
+byte-compiling C:\Python26\lib\encodings\koi8_r.py to encodings\koi8_r.pyo
+byte-compiling C:\Python26\lib\encodings\koi8_u.py to encodings\koi8_u.pyo
+byte-compiling C:\Python26\lib\encodings\latin_1.py to encodings\latin_1.pyo
+byte-compiling C:\Python26\lib\encodings\mac_arabic.py to encodings\mac_arabic.pyo
+byte-compiling C:\Python26\lib\encodings\mac_centeuro.py to encodings\mac_centeuro.pyo
+byte-compiling C:\Python26\lib\encodings\mac_croatian.py to encodings\mac_croatian.pyo
+byte-compiling C:\Python26\lib\encodings\mac_cyrillic.py to encodings\mac_cyrillic.pyo
+byte-compiling C:\Python26\lib\encodings\mac_farsi.py to encodings\mac_farsi.pyo
+byte-compiling C:\Python26\lib\encodings\mac_greek.py to encodings\mac_greek.pyo
+byte-compiling C:\Python26\lib\encodings\mac_iceland.py to encodings\mac_iceland.pyo
+byte-compiling C:\Python26\lib\encodings\mac_latin2.py to encodings\mac_latin2.pyo
+byte-compiling C:\Python26\lib\encodings\mac_roman.py to encodings\mac_roman.pyo
+byte-compiling C:\Python26\lib\encodings\mac_romanian.py to encodings\mac_romanian.pyo
+byte-compiling C:\Python26\lib\encodings\mac_turkish.py to encodings\mac_turkish.pyo
+byte-compiling C:\Python26\lib\encodings\mbcs.py to encodings\mbcs.pyo
+byte-compiling C:\Python26\lib\encodings\palmos.py to encodings\palmos.pyo
+byte-compiling C:\Python26\lib\encodings\ptcp154.py to encodings\ptcp154.pyo
+byte-compiling C:\Python26\lib\encodings\punycode.py to encodings\punycode.pyo
+byte-compiling C:\Python26\lib\encodings\quopri_codec.py to encodings\quopri_codec.pyo
+byte-compiling C:\Python26\lib\encodings\raw_unicode_escape.py to encodings\raw_unicode_escape.pyo
+byte-compiling C:\Python26\lib\encodings\rot_13.py to encodings\rot_13.pyo
+byte-compiling C:\Python26\lib\encodings\shift_jis.py to encodings\shift_jis.pyo
+byte-compiling C:\Python26\lib\encodings\shift_jis_2004.py to encodings\shift_jis_2004.pyo
+byte-compiling C:\Python26\lib\encodings\shift_jisx0213.py to encodings\shift_jisx0213.pyo
+byte-compiling C:\Python26\lib\encodings\string_escape.py to encodings\string_escape.pyo
+byte-compiling C:\Python26\lib\encodings\tis_620.py to encodings\tis_620.pyo
+byte-compiling C:\Python26\lib\encodings\undefined.py to encodings\undefined.pyo
+byte-compiling C:\Python26\lib\encodings\unicode_escape.py to encodings\unicode_escape.pyo
+byte-compiling C:\Python26\lib\encodings\unicode_internal.py to encodings\unicode_internal.pyo
+byte-compiling C:\Python26\lib\encodings\utf_16.py to encodings\utf_16.pyo
+byte-compiling C:\Python26\lib\encodings\utf_16_be.py to encodings\utf_16_be.pyo
+byte-compiling C:\Python26\lib\encodings\utf_16_le.py to encodings\utf_16_le.pyo
+byte-compiling C:\Python26\lib\encodings\utf_32.py to encodings\utf_32.pyo
+byte-compiling C:\Python26\lib\encodings\utf_32_be.py to encodings\utf_32_be.pyo
+byte-compiling C:\Python26\lib\encodings\utf_32_le.py to encodings\utf_32_le.pyo
+byte-compiling C:\Python26\lib\encodings\utf_7.py to encodings\utf_7.pyo
+byte-compiling C:\Python26\lib\encodings\utf_8.py to encodings\utf_8.pyo
+byte-compiling C:\Python26\lib\encodings\utf_8_sig.py to encodings\utf_8_sig.pyo
+byte-compiling C:\Python26\lib\encodings\uu_codec.py to encodings\uu_codec.pyo
+byte-compiling C:\Python26\lib\encodings\zlib_codec.py to encodings\zlib_codec.pyo
+byte-compiling C:\Python26\lib\functools.py to functools.pyo
+byte-compiling C:\Python26\lib\genericpath.py to genericpath.pyo
+byte-compiling C:\Python26\lib\getopt.py to getopt.pyo
+byte-compiling C:\Python26\lib\gettext.py to gettext.pyo
+byte-compiling C:\Python26\lib\heapq.py to heapq.pyo
+byte-compiling C:\Python26\lib\inspect.py to inspect.pyo
+byte-compiling C:\Python26\lib\keyword.py to keyword.pyo
+byte-compiling C:\Python26\lib\linecache.py to linecache.pyo
+byte-compiling C:\Python26\lib\locale.py to locale.pyo
+byte-compiling C:\Python26\lib\new.py to new.pyo
+byte-compiling C:\Python26\lib\ntpath.py to ntpath.pyo
+byte-compiling C:\Python26\lib\opcode.py to opcode.pyo
+byte-compiling C:\Python26\lib\optparse.py to optparse.pyo
+byte-compiling C:\Python26\lib\os.py to os.pyo
+byte-compiling C:\Python26\lib\os2emxpath.py to os2emxpath.pyo
+byte-compiling C:\Python26\lib\pdb.py to pdb.pyo
+byte-compiling C:\Python26\lib\pickle.py to pickle.pyo
+byte-compiling C:\Python26\lib\posixpath.py to posixpath.pyo
+byte-compiling C:\Python26\lib\pprint.py to pprint.pyo
+byte-compiling C:\Python26\lib\quopri.py to quopri.pyo
+byte-compiling C:\Python26\lib\random.py to random.pyo
+byte-compiling C:\Python26\lib\re.py to re.pyo
+byte-compiling C:\Python26\lib\repr.py to repr.pyo
+byte-compiling C:\Python26\lib\shlex.py to shlex.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\__init__.py to wx\__init__.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\__version__.py to wx\__version__.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_controls.py to wx\_controls.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_core.py to wx\_core.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_gdi.py to wx\_gdi.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_misc.py to wx\_misc.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_windows.py to wx\_windows.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\aui.py to wx\aui.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\html.py to wx\html.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\lib\__init__.py to wx\lib\__init__.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\lib\newevent.py to wx\lib\newevent.pyo
+byte-compiling C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\stc.py to wx\stc.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\__init__.py to yaml\__init__.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\composer.py to yaml\composer.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\constructor.py to yaml\constructor.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\cyaml.py to yaml\cyaml.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\dumper.py to yaml\dumper.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\emitter.py to yaml\emitter.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\error.py to yaml\error.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\events.py to yaml\events.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\loader.py to yaml\loader.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\nodes.py to yaml\nodes.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\parser.py to yaml\parser.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\reader.py to yaml\reader.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\representer.py to yaml\representer.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\resolver.py to yaml\resolver.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\scanner.py to yaml\scanner.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\serializer.py to yaml\serializer.pyo
+byte-compiling C:\Python26\lib\site-packages\yaml\tokens.py to yaml\tokens.pyo
+byte-compiling C:\Python26\lib\sre.py to sre.pyo
+byte-compiling C:\Python26\lib\sre_compile.py to sre_compile.pyo
+byte-compiling C:\Python26\lib\sre_constants.py to sre_constants.pyo
+byte-compiling C:\Python26\lib\sre_parse.py to sre_parse.pyo
+byte-compiling C:\Python26\lib\stat.py to stat.pyo
+byte-compiling C:\Python26\lib\string.py to string.pyo
+byte-compiling C:\Python26\lib\stringprep.py to stringprep.pyo
+byte-compiling C:\Python26\lib\struct.py to struct.pyo
+byte-compiling C:\Python26\lib\subprocess.py to subprocess.pyo
+byte-compiling C:\Python26\lib\symbol.py to symbol.pyo
+byte-compiling C:\Python26\lib\symtable.py to symtable.pyo
+byte-compiling C:\Python26\lib\tempfile.py to tempfile.pyo
+byte-compiling C:\Python26\lib\textwrap.py to textwrap.pyo
+byte-compiling C:\Python26\lib\threading.py to threading.pyo
+byte-compiling C:\Python26\lib\token.py to token.pyo
+byte-compiling C:\Python26\lib\tokenize.py to tokenize.pyo
+byte-compiling C:\Python26\lib\traceback.py to traceback.pyo
+byte-compiling C:\Python26\lib\types.py to types.pyo
+byte-compiling C:\Python26\lib\unittest.py to unittest.pyo
+byte-compiling C:\Python26\lib\warnings.py to warnings.pyo
+byte-compiling C:\Python26\lib\weakref.py to weakref.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\_ctypes.py to _ctypes.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\_yaml.py to _yaml.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\bz2.py to bz2.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\select.py to select.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\unicodedata.py to unicodedata.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._aui.py to wx\_aui.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._controls_.py to wx\_controls_.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._core_.py to wx\_core_.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._gdi_.py to wx\_gdi_.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._html.py to wx\_html.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._misc_.py to wx\_misc_.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._stc.py to wx\_stc.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._windows_.py to wx\_windows_.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\pycheck.py to pycheck.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\pynxc\__init__.py to pynxc\__init__.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\pynxc\ast_template.py to pynxc\ast_template.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\pynxc\definitions.py to pynxc\definitions.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\pynxc\first_pass.py to pynxc\first_pass.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\pynxc\pynxc.py to pynxc\pynxc.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\pynxc\second_pass.py to pynxc\second_pass.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\pystc.py to pystc.pyo
+removing c:\users\aoa169~1\appdata\local\temp\tmpvyh0ly.py
+*** copy extensions ***
+copying C:\Python26\DLLs\_ctypes.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\DLLs\bz2.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\DLLs\select.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\DLLs\unicodedata.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\lib\site-packages\_yaml.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_aui.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted\wx._aui.pyd
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_controls_.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted\wx._controls_.pyd
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_core_.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted\wx._core_.pyd
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_gdi_.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted\wx._gdi_.pyd
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_html.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted\wx._html.pyd
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_misc_.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted\wx._misc_.pyd
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_stc.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted\wx._stc.pyd
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_windows_.pyd -> C:\dev\xlc-team\nxtIDE\build\nxted\wx._windows_.pyd
+*** copy dlls ***
+copying C:\Python26\python26.dll -> C:\dev\xlc-team\nxtIDE\build\nxted
+setting sys.winver for 'C:\dev\xlc-team\nxtIDE\build\nxted\python26.dll' to 'py2exe'
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\wxbase28h_vc.dll -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\wxmsw28h_adv_vc.dll -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\wxmsw28h_stc_vc.dll -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\w9xpopen.exe -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\wxmsw28h_core_vc.dll -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\wxmsw28h_html_vc.dll -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\wxmsw28h_aui_vc.dll -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\wxbase28h_net_vc.dll -> C:\dev\xlc-team\nxtIDE\build\nxted
+*** copy data files ***
+---------------------------------------- 
+     nxted generated 
+---------------------------------------- 
+running py2exe
+*** searching for required modules ***
+*** parsing results ***
+creating python loader for extension 'wx._misc_' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_misc_.pyd -> wx._misc_.pyd)
+creating python loader for extension 'wx._stc' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_stc.pyd -> wx._stc.pyd)
+creating python loader for extension '_ctypes' (C:\Python26\DLLs\_ctypes.pyd -> _ctypes.pyd)
+creating python loader for extension 'wx._html' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_html.pyd -> wx._html.pyd)
+creating python loader for extension 'unicodedata' (C:\Python26\DLLs\unicodedata.pyd -> unicodedata.pyd)
+creating python loader for extension '_yaml' (C:\Python26\lib\site-packages\_yaml.pyd -> _yaml.pyd)
+creating python loader for extension 'select' (C:\Python26\DLLs\select.pyd -> select.pyd)
+creating python loader for extension 'wx._aui' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_aui.pyd -> wx._aui.pyd)
+creating python loader for extension 'wx._windows_' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_windows_.pyd -> wx._windows_.pyd)
+creating python loader for extension 'wx._core_' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_core_.pyd -> wx._core_.pyd)
+creating python loader for extension 'wx._gdi_' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_gdi_.pyd -> wx._gdi_.pyd)
+creating python loader for extension 'wx._controls_' (C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_controls_.pyd -> wx._controls_.pyd)
+creating python loader for extension 'bz2' (C:\Python26\DLLs\bz2.pyd -> bz2.pyd)
+*** finding dlls needed ***
+*** create binaries ***
+*** byte compile python files ***
+writing byte-compilation script 'c:\users\aoa169~1\appdata\local\temp\tmpqdus05.py'
+C:\Python26\python.exe -OO c:\users\aoa169~1\appdata\local\temp\tmpqdus05.py
+skipping byte-compilation of C:\Python26\lib\ConfigParser.py to ConfigParser.pyo
+skipping byte-compilation of C:\Python26\lib\StringIO.py to StringIO.pyo
+skipping byte-compilation of C:\Python26\lib\UserDict.py to UserDict.pyo
+skipping byte-compilation of C:\Python26\lib\__future__.py to __future__.pyo
+skipping byte-compilation of C:\Python26\lib\_abcoll.py to _abcoll.pyo
+skipping byte-compilation of C:\Python26\lib\_strptime.py to _strptime.pyo
+skipping byte-compilation of C:\Python26\lib\_threading_local.py to _threading_local.pyo
+skipping byte-compilation of C:\Python26\lib\abc.py to abc.pyo
+skipping byte-compilation of C:\Python26\lib\atexit.py to atexit.pyo
+skipping byte-compilation of C:\Python26\lib\base64.py to base64.pyo
+skipping byte-compilation of C:\Python26\lib\bdb.py to bdb.pyo
+skipping byte-compilation of C:\Python26\lib\bisect.py to bisect.pyo
+skipping byte-compilation of C:\Python26\lib\calendar.py to calendar.pyo
+skipping byte-compilation of C:\Python26\lib\cmd.py to cmd.pyo
+skipping byte-compilation of C:\Python26\lib\codecs.py to codecs.pyo
+skipping byte-compilation of C:\Python26\lib\collections.py to collections.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\__init__.py to compiler\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\ast.py to compiler\ast.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\consts.py to compiler\consts.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\future.py to compiler\future.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\misc.py to compiler\misc.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\pyassem.py to compiler\pyassem.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\pycodegen.py to compiler\pycodegen.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\symbols.py to compiler\symbols.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\syntax.py to compiler\syntax.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\transformer.py to compiler\transformer.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\visitor.py to compiler\visitor.pyo
+skipping byte-compilation of C:\Python26\lib\copy.py to copy.pyo
+skipping byte-compilation of C:\Python26\lib\copy_reg.py to copy_reg.pyo
+skipping byte-compilation of C:\Python26\lib\ctypes\__init__.py to ctypes\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\ctypes\_endian.py to ctypes\_endian.pyo
+skipping byte-compilation of C:\Python26\lib\difflib.py to difflib.pyo
+skipping byte-compilation of C:\Python26\lib\dis.py to dis.pyo
+skipping byte-compilation of C:\Python26\lib\doctest.py to doctest.pyo
+skipping byte-compilation of C:\Python26\lib\dummy_thread.py to dummy_thread.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\__init__.py to encodings\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\aliases.py to encodings\aliases.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\ascii.py to encodings\ascii.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\base64_codec.py to encodings\base64_codec.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\big5.py to encodings\big5.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\big5hkscs.py to encodings\big5hkscs.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\bz2_codec.py to encodings\bz2_codec.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\charmap.py to encodings\charmap.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp037.py to encodings\cp037.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1006.py to encodings\cp1006.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1026.py to encodings\cp1026.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1140.py to encodings\cp1140.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1250.py to encodings\cp1250.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1251.py to encodings\cp1251.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1252.py to encodings\cp1252.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1253.py to encodings\cp1253.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1254.py to encodings\cp1254.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1255.py to encodings\cp1255.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1256.py to encodings\cp1256.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1257.py to encodings\cp1257.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1258.py to encodings\cp1258.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp424.py to encodings\cp424.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp437.py to encodings\cp437.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp500.py to encodings\cp500.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp737.py to encodings\cp737.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp775.py to encodings\cp775.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp850.py to encodings\cp850.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp852.py to encodings\cp852.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp855.py to encodings\cp855.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp856.py to encodings\cp856.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp857.py to encodings\cp857.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp860.py to encodings\cp860.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp861.py to encodings\cp861.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp862.py to encodings\cp862.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp863.py to encodings\cp863.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp864.py to encodings\cp864.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp865.py to encodings\cp865.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp866.py to encodings\cp866.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp869.py to encodings\cp869.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp874.py to encodings\cp874.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp875.py to encodings\cp875.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp932.py to encodings\cp932.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp949.py to encodings\cp949.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp950.py to encodings\cp950.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\euc_jis_2004.py to encodings\euc_jis_2004.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\euc_jisx0213.py to encodings\euc_jisx0213.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\euc_jp.py to encodings\euc_jp.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\euc_kr.py to encodings\euc_kr.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\gb18030.py to encodings\gb18030.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\gb2312.py to encodings\gb2312.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\gbk.py to encodings\gbk.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\hex_codec.py to encodings\hex_codec.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\hp_roman8.py to encodings\hp_roman8.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\hz.py to encodings\hz.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\idna.py to encodings\idna.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp.py to encodings\iso2022_jp.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp_1.py to encodings\iso2022_jp_1.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp_2.py to encodings\iso2022_jp_2.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp_2004.py to encodings\iso2022_jp_2004.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp_3.py to encodings\iso2022_jp_3.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp_ext.py to encodings\iso2022_jp_ext.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_kr.py to encodings\iso2022_kr.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_1.py to encodings\iso8859_1.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_10.py to encodings\iso8859_10.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_11.py to encodings\iso8859_11.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_13.py to encodings\iso8859_13.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_14.py to encodings\iso8859_14.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_15.py to encodings\iso8859_15.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_16.py to encodings\iso8859_16.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_2.py to encodings\iso8859_2.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_3.py to encodings\iso8859_3.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_4.py to encodings\iso8859_4.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_5.py to encodings\iso8859_5.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_6.py to encodings\iso8859_6.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_7.py to encodings\iso8859_7.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_8.py to encodings\iso8859_8.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_9.py to encodings\iso8859_9.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\johab.py to encodings\johab.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\koi8_r.py to encodings\koi8_r.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\koi8_u.py to encodings\koi8_u.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\latin_1.py to encodings\latin_1.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_arabic.py to encodings\mac_arabic.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_centeuro.py to encodings\mac_centeuro.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_croatian.py to encodings\mac_croatian.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_cyrillic.py to encodings\mac_cyrillic.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_farsi.py to encodings\mac_farsi.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_greek.py to encodings\mac_greek.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_iceland.py to encodings\mac_iceland.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_latin2.py to encodings\mac_latin2.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_roman.py to encodings\mac_roman.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_romanian.py to encodings\mac_romanian.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_turkish.py to encodings\mac_turkish.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mbcs.py to encodings\mbcs.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\palmos.py to encodings\palmos.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\ptcp154.py to encodings\ptcp154.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\punycode.py to encodings\punycode.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\quopri_codec.py to encodings\quopri_codec.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\raw_unicode_escape.py to encodings\raw_unicode_escape.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\rot_13.py to encodings\rot_13.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\shift_jis.py to encodings\shift_jis.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\shift_jis_2004.py to encodings\shift_jis_2004.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\shift_jisx0213.py to encodings\shift_jisx0213.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\string_escape.py to encodings\string_escape.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\tis_620.py to encodings\tis_620.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\undefined.py to encodings\undefined.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\unicode_escape.py to encodings\unicode_escape.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\unicode_internal.py to encodings\unicode_internal.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_16.py to encodings\utf_16.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_16_be.py to encodings\utf_16_be.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_16_le.py to encodings\utf_16_le.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_32.py to encodings\utf_32.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_32_be.py to encodings\utf_32_be.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_32_le.py to encodings\utf_32_le.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_7.py to encodings\utf_7.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_8.py to encodings\utf_8.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_8_sig.py to encodings\utf_8_sig.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\uu_codec.py to encodings\uu_codec.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\zlib_codec.py to encodings\zlib_codec.pyo
+skipping byte-compilation of C:\Python26\lib\functools.py to functools.pyo
+skipping byte-compilation of C:\Python26\lib\genericpath.py to genericpath.pyo
+skipping byte-compilation of C:\Python26\lib\getopt.py to getopt.pyo
+skipping byte-compilation of C:\Python26\lib\gettext.py to gettext.pyo
+skipping byte-compilation of C:\Python26\lib\heapq.py to heapq.pyo
+skipping byte-compilation of C:\Python26\lib\inspect.py to inspect.pyo
+skipping byte-compilation of C:\Python26\lib\keyword.py to keyword.pyo
+skipping byte-compilation of C:\Python26\lib\linecache.py to linecache.pyo
+skipping byte-compilation of C:\Python26\lib\locale.py to locale.pyo
+skipping byte-compilation of C:\Python26\lib\new.py to new.pyo
+skipping byte-compilation of C:\Python26\lib\ntpath.py to ntpath.pyo
+skipping byte-compilation of C:\Python26\lib\opcode.py to opcode.pyo
+skipping byte-compilation of C:\Python26\lib\optparse.py to optparse.pyo
+skipping byte-compilation of C:\Python26\lib\os.py to os.pyo
+skipping byte-compilation of C:\Python26\lib\os2emxpath.py to os2emxpath.pyo
+skipping byte-compilation of C:\Python26\lib\pdb.py to pdb.pyo
+skipping byte-compilation of C:\Python26\lib\pickle.py to pickle.pyo
+skipping byte-compilation of C:\Python26\lib\posixpath.py to posixpath.pyo
+skipping byte-compilation of C:\Python26\lib\pprint.py to pprint.pyo
+skipping byte-compilation of C:\Python26\lib\quopri.py to quopri.pyo
+skipping byte-compilation of C:\Python26\lib\random.py to random.pyo
+skipping byte-compilation of C:\Python26\lib\re.py to re.pyo
+skipping byte-compilation of C:\Python26\lib\repr.py to repr.pyo
+skipping byte-compilation of C:\Python26\lib\shlex.py to shlex.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\__init__.py to wx\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\__version__.py to wx\__version__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_controls.py to wx\_controls.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_core.py to wx\_core.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_gdi.py to wx\_gdi.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_misc.py to wx\_misc.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\_windows.py to wx\_windows.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\aui.py to wx\aui.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\html.py to wx\html.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\lib\__init__.py to wx\lib\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\lib\newevent.py to wx\lib\newevent.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\stc.py to wx\stc.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\__init__.py to yaml\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\composer.py to yaml\composer.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\constructor.py to yaml\constructor.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\cyaml.py to yaml\cyaml.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\dumper.py to yaml\dumper.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\emitter.py to yaml\emitter.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\error.py to yaml\error.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\events.py to yaml\events.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\loader.py to yaml\loader.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\nodes.py to yaml\nodes.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\parser.py to yaml\parser.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\reader.py to yaml\reader.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\representer.py to yaml\representer.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\resolver.py to yaml\resolver.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\scanner.py to yaml\scanner.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\serializer.py to yaml\serializer.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\tokens.py to yaml\tokens.pyo
+skipping byte-compilation of C:\Python26\lib\sre.py to sre.pyo
+skipping byte-compilation of C:\Python26\lib\sre_compile.py to sre_compile.pyo
+skipping byte-compilation of C:\Python26\lib\sre_constants.py to sre_constants.pyo
+skipping byte-compilation of C:\Python26\lib\sre_parse.py to sre_parse.pyo
+skipping byte-compilation of C:\Python26\lib\stat.py to stat.pyo
+skipping byte-compilation of C:\Python26\lib\string.py to string.pyo
+skipping byte-compilation of C:\Python26\lib\stringprep.py to stringprep.pyo
+skipping byte-compilation of C:\Python26\lib\struct.py to struct.pyo
+skipping byte-compilation of C:\Python26\lib\subprocess.py to subprocess.pyo
+skipping byte-compilation of C:\Python26\lib\symbol.py to symbol.pyo
+skipping byte-compilation of C:\Python26\lib\symtable.py to symtable.pyo
+skipping byte-compilation of C:\Python26\lib\tempfile.py to tempfile.pyo
+skipping byte-compilation of C:\Python26\lib\textwrap.py to textwrap.pyo
+skipping byte-compilation of C:\Python26\lib\threading.py to threading.pyo
+skipping byte-compilation of C:\Python26\lib\token.py to token.pyo
+skipping byte-compilation of C:\Python26\lib\tokenize.py to tokenize.pyo
+skipping byte-compilation of C:\Python26\lib\traceback.py to traceback.pyo
+skipping byte-compilation of C:\Python26\lib\types.py to types.pyo
+skipping byte-compilation of C:\Python26\lib\unittest.py to unittest.pyo
+skipping byte-compilation of C:\Python26\lib\warnings.py to warnings.pyo
+skipping byte-compilation of C:\Python26\lib\weakref.py to weakref.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\_ctypes.py to _ctypes.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\_yaml.py to _yaml.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\bz2.py to bz2.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\select.py to select.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\unicodedata.py to unicodedata.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._aui.py to wx\_aui.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._controls_.py to wx\_controls_.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._core_.py to wx\_core_.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._gdi_.py to wx\_gdi_.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._html.py to wx\_html.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._misc_.py to wx\_misc_.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._stc.py to wx\_stc.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxted\build\bdist.win32\winexe\temp\wx._windows_.py to wx\_windows_.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxted\pycheck.py to pycheck.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxted\pynxc\__init__.py to pynxc\__init__.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxted\pynxc\ast_template.py to pynxc\ast_template.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxted\pynxc\definitions.py to pynxc\definitions.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxted\pynxc\first_pass.py to pynxc\first_pass.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxted\pynxc\pynxc.py to pynxc\pynxc.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxted\pynxc\second_pass.py to pynxc\second_pass.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxted\pystc.py to pystc.pyo
+removing c:\users\aoa169~1\appdata\local\temp\tmpqdus05.py
+*** copy extensions ***
+*** copy dlls ***
+*** copy data files ***
+copying config.yml -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying help.yml -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying dlls\gdiplus.dll -> C:\dev\xlc-team\nxtIDE\build\nxted
+copying dlls\MSVCP90.dll -> C:\dev\xlc-team\nxtIDE\build\nxted
+creating C:\dev\xlc-team\nxtIDE\build\nxted\pynxc
+creating C:\dev\xlc-team\nxtIDE\build\nxted\pynxc\nxc
+creating C:\dev\xlc-team\nxtIDE\build\nxted\pynxc\nxc\win32
+copying pynxc\nxc\win32\nbc.exe -> C:\dev\xlc-team\nxtIDE\build\nxted\pynxc\nxc\win32
+copying pynxc\MyDefs.h -> C:\dev\xlc-team\nxtIDE\build\nxted\pynxc
+copying C:\Python26\lib\site-packages\py2exe\run_w.exe -> C:\dev\xlc-team\nxtIDE\build\nxted\nxted.exe
+
+*** binary dependencies ***
+Your executable(s) also depend on these dlls which are not included,
+you may or may not need to distribute them.
+
+Make sure you have the license if you distribute any of them, and
+make sure you don't distribute files belonging to the operating system.
+
+   OLEAUT32.dll - C:\Windows\system32\OLEAUT32.dll
+   USER32.dll - C:\Windows\system32\USER32.dll
+   SHELL32.dll - C:\Windows\system32\SHELL32.dll
+   KERNEL32.dll - C:\Windows\system32\KERNEL32.dll
+   COMDLG32.dll - C:\Windows\system32\COMDLG32.dll
+   WSOCK32.dll - C:\Windows\system32\WSOCK32.dll
+   COMCTL32.dll - C:\Windows\system32\COMCTL32.dll
+   ADVAPI32.dll - C:\Windows\system32\ADVAPI32.dll
+   gdiplus.dll - C:\Python26\lib\site-packages\wx-2.8-msw-ansi\wx\gdiplus.dll
+   WINSPOOL.DRV - C:\Windows\system32\WINSPOOL.DRV
+   GDI32.dll - C:\Windows\system32\GDI32.dll
+   WINMM.dll - C:\Windows\system32\WINMM.dll
+   ole32.dll - C:\Windows\system32\ole32.dll
+   RPCRT4.dll - C:\Windows\system32\RPCRT4.dll
+---------------------------------------- 
+     nxted generated 
+---------------------------------------- 
