@@ -33,7 +33,7 @@ def read_config(filename = './config.yml'):
     return cfg
 
 def draw_background():
-    bckg = cfg["others"]["background"];
+    bckg = cfg["others"]["background"]
     if bckg:
         try:
             img = pygame.image.load(bckg)

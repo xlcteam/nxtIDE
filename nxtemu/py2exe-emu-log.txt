@@ -1,0 +1,934 @@
+running py2exe
+*** searching for required modules ***
+*** parsing results ***
+creating python loader for extension 'numpy.core.umath' (C:\Python26\lib\site-packages\numpy\core\umath.pyd -> numpy.core.umath.pyd)
+creating python loader for extension 'numpy.fft.fftpack_lite' (C:\Python26\lib\site-packages\numpy\fft\fftpack_lite.pyd -> numpy.fft.fftpack_lite.pyd)
+creating python loader for extension 'pygame.overlay' (C:\Python26\lib\site-packages\pygame\overlay.pyd -> pygame.overlay.pyd)
+creating python loader for extension 'numpy.lib._compiled_base' (C:\Python26\lib\site-packages\numpy\lib\_compiled_base.pyd -> numpy.lib._compiled_base.pyd)
+creating python loader for extension '_ctypes' (C:\Python26\DLLs\_ctypes.pyd -> _ctypes.pyd)
+creating python loader for extension 'pygame.pixelarray' (C:\Python26\lib\site-packages\pygame\pixelarray.pyd -> pygame.pixelarray.pyd)
+creating python loader for extension 'pygame.surface' (C:\Python26\lib\site-packages\pygame\surface.pyd -> pygame.surface.pyd)
+creating python loader for extension 'pygame.key' (C:\Python26\lib\site-packages\pygame\key.pyd -> pygame.key.pyd)
+creating python loader for extension 'pygame.mouse' (C:\Python26\lib\site-packages\pygame\mouse.pyd -> pygame.mouse.pyd)
+creating python loader for extension 'unicodedata' (C:\Python26\DLLs\unicodedata.pyd -> unicodedata.pyd)
+creating python loader for extension 'pygame._numericsndarray' (C:\Python26\lib\site-packages\pygame\_numericsndarray.pyd -> pygame._numericsndarray.pyd)
+creating python loader for extension 'pygame.draw' (C:\Python26\lib\site-packages\pygame\draw.pyd -> pygame.draw.pyd)
+creating python loader for extension 'pygame._camera' (C:\Python26\lib\site-packages\pygame\_camera.pyd -> pygame._camera.pyd)
+creating python loader for extension 'numpy.core.scalarmath' (C:\Python26\lib\site-packages\numpy\core\scalarmath.pyd -> numpy.core.scalarmath.pyd)
+creating python loader for extension 'pygame.rect' (C:\Python26\lib\site-packages\pygame\rect.pyd -> pygame.rect.pyd)
+creating python loader for extension 'pygame.imageext' (C:\Python26\lib\site-packages\pygame\imageext.pyd -> pygame.imageext.pyd)
+creating python loader for extension 'pygame.event' (C:\Python26\lib\site-packages\pygame\event.pyd -> pygame.event.pyd)
+creating python loader for extension 'pygame.cdrom' (C:\Python26\lib\site-packages\pygame\cdrom.pyd -> pygame.cdrom.pyd)
+creating python loader for extension '_hashlib' (C:\Python26\DLLs\_hashlib.pyd -> _hashlib.pyd)
+creating python loader for extension 'bz2' (C:\Python26\DLLs\bz2.pyd -> bz2.pyd)
+creating python loader for extension '_ssl' (C:\Python26\DLLs\_ssl.pyd -> _ssl.pyd)
+creating python loader for extension 'pygame.bufferproxy' (C:\Python26\lib\site-packages\pygame\bufferproxy.pyd -> pygame.bufferproxy.pyd)
+creating python loader for extension 'pygame.display' (C:\Python26\lib\site-packages\pygame\display.pyd -> pygame.display.pyd)
+creating python loader for extension 'pygame.transform' (C:\Python26\lib\site-packages\pygame\transform.pyd -> pygame.transform.pyd)
+creating python loader for extension 'pygame._arraysurfarray' (C:\Python26\lib\site-packages\pygame\_arraysurfarray.pyd -> pygame._arraysurfarray.pyd)
+creating python loader for extension 'numpy.random.mtrand' (C:\Python26\lib\site-packages\numpy\random\mtrand.pyd -> numpy.random.mtrand.pyd)
+creating python loader for extension 'pygame.surflock' (C:\Python26\lib\site-packages\pygame\surflock.pyd -> pygame.surflock.pyd)
+creating python loader for extension 'pygame.image' (C:\Python26\lib\site-packages\pygame\image.pyd -> pygame.image.pyd)
+creating python loader for extension 'pygame.joystick' (C:\Python26\lib\site-packages\pygame\joystick.pyd -> pygame.joystick.pyd)
+creating python loader for extension 'pygame.mask' (C:\Python26\lib\site-packages\pygame\mask.pyd -> pygame.mask.pyd)
+creating python loader for extension 'pygame.scrap' (C:\Python26\lib\site-packages\pygame\scrap.pyd -> pygame.scrap.pyd)
+creating python loader for extension 'vidcap' (C:\Python26\DLLs\vidcap.pyd -> vidcap.pyd)
+creating python loader for extension 'numpy.core._sort' (C:\Python26\lib\site-packages\numpy\core\_sort.pyd -> numpy.core._sort.pyd)
+creating python loader for extension 'pygame.pypm' (C:\Python26\lib\site-packages\pygame\pypm.pyd -> pygame.pypm.pyd)
+creating python loader for extension 'pygame.gfxdraw' (C:\Python26\lib\site-packages\pygame\gfxdraw.pyd -> pygame.gfxdraw.pyd)
+creating python loader for extension 'pygame.fastevent' (C:\Python26\lib\site-packages\pygame\fastevent.pyd -> pygame.fastevent.pyd)
+creating python loader for extension 'pygame.mixer' (C:\Python26\lib\site-packages\pygame\mixer.pyd -> pygame.mixer.pyd)
+creating python loader for extension 'pyexpat' (C:\Python26\DLLs\pyexpat.pyd -> pyexpat.pyd)
+creating python loader for extension 'numpy.core._dotblas' (C:\Python26\lib\site-packages\numpy\core\_dotblas.pyd -> numpy.core._dotblas.pyd)
+creating python loader for extension '_yaml' (C:\Python26\lib\site-packages\_yaml.pyd -> _yaml.pyd)
+creating python loader for extension 'pygame.font' (C:\Python26\lib\site-packages\pygame\font.pyd -> pygame.font.pyd)
+creating python loader for extension 'pygame._numericsurfarray' (C:\Python26\lib\site-packages\pygame\_numericsurfarray.pyd -> pygame._numericsurfarray.pyd)
+creating python loader for extension 'numpy.core.multiarray' (C:\Python26\lib\site-packages\numpy\core\multiarray.pyd -> numpy.core.multiarray.pyd)
+creating python loader for extension 'pygame.color' (C:\Python26\lib\site-packages\pygame\color.pyd -> pygame.color.pyd)
+creating python loader for extension '_multiprocessing' (C:\Python26\DLLs\_multiprocessing.pyd -> _multiprocessing.pyd)
+creating python loader for extension 'select' (C:\Python26\DLLs\select.pyd -> select.pyd)
+creating python loader for extension 'pygame.movie' (C:\Python26\lib\site-packages\pygame\movie.pyd -> pygame.movie.pyd)
+creating python loader for extension 'numpy.linalg.lapack_lite' (C:\Python26\lib\site-packages\numpy\linalg\lapack_lite.pyd -> numpy.linalg.lapack_lite.pyd)
+creating python loader for extension 'pygame.base' (C:\Python26\lib\site-packages\pygame\base.pyd -> pygame.base.pyd)
+creating python loader for extension '_socket' (C:\Python26\DLLs\_socket.pyd -> _socket.pyd)
+creating python loader for extension 'pygame.time' (C:\Python26\lib\site-packages\pygame\time.pyd -> pygame.time.pyd)
+creating python loader for extension 'pygame.rwobject' (C:\Python26\lib\site-packages\pygame\rwobject.pyd -> pygame.rwobject.pyd)
+creating python loader for extension 'pygame.mixer_music' (C:\Python26\lib\site-packages\pygame\mixer_music.pyd -> pygame.mixer_music.pyd)
+creating python loader for extension 'pygame.constants' (C:\Python26\lib\site-packages\pygame\constants.pyd -> pygame.constants.pyd)
+*** finding dlls needed ***
+*** create binaries ***
+*** byte compile python files ***
+writing byte-compilation script 'c:\users\aoa169~1\appdata\local\temp\tmp1xezvq.py'
+C:\Python26\python.exe -OO c:\users\aoa169~1\appdata\local\temp\tmp1xezvq.py
+skipping byte-compilation of C:\Python26\lib\BaseHTTPServer.py to BaseHTTPServer.pyo
+skipping byte-compilation of C:\Python26\lib\ConfigParser.py to ConfigParser.pyo
+skipping byte-compilation of C:\Python26\lib\Queue.py to Queue.pyo
+skipping byte-compilation of C:\Python26\lib\SocketServer.py to SocketServer.pyo
+skipping byte-compilation of C:\Python26\lib\StringIO.py to StringIO.pyo
+skipping byte-compilation of C:\Python26\lib\UserDict.py to UserDict.pyo
+skipping byte-compilation of C:\Python26\lib\_LWPCookieJar.py to _LWPCookieJar.pyo
+skipping byte-compilation of C:\Python26\lib\_MozillaCookieJar.py to _MozillaCookieJar.pyo
+skipping byte-compilation of C:\Python26\lib\__future__.py to __future__.pyo
+skipping byte-compilation of C:\Python26\lib\_abcoll.py to _abcoll.pyo
+skipping byte-compilation of C:\Python26\lib\_strptime.py to _strptime.pyo
+skipping byte-compilation of C:\Python26\lib\_threading_local.py to _threading_local.pyo
+skipping byte-compilation of C:\Python26\lib\abc.py to abc.pyo
+skipping byte-compilation of C:\Python26\lib\ast.py to ast.pyo
+skipping byte-compilation of C:\Python26\lib\atexit.py to atexit.pyo
+skipping byte-compilation of C:\Python26\lib\base64.py to base64.pyo
+skipping byte-compilation of C:\Python26\lib\bdb.py to bdb.pyo
+skipping byte-compilation of C:\Python26\lib\bisect.py to bisect.pyo
+skipping byte-compilation of C:\Python26\lib\calendar.py to calendar.pyo
+skipping byte-compilation of C:\Python26\lib\cmd.py to cmd.pyo
+skipping byte-compilation of C:\Python26\lib\codecs.py to codecs.pyo
+skipping byte-compilation of C:\Python26\lib\collections.py to collections.pyo
+skipping byte-compilation of C:\Python26\lib\commands.py to commands.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\__init__.py to compiler\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\ast.py to compiler\ast.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\consts.py to compiler\consts.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\future.py to compiler\future.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\misc.py to compiler\misc.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\pyassem.py to compiler\pyassem.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\pycodegen.py to compiler\pycodegen.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\symbols.py to compiler\symbols.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\syntax.py to compiler\syntax.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\transformer.py to compiler\transformer.pyo
+skipping byte-compilation of C:\Python26\lib\compiler\visitor.py to compiler\visitor.pyo
+skipping byte-compilation of C:\Python26\lib\cookielib.py to cookielib.pyo
+skipping byte-compilation of C:\Python26\lib\copy.py to copy.pyo
+skipping byte-compilation of C:\Python26\lib\copy_reg.py to copy_reg.pyo
+skipping byte-compilation of C:\Python26\lib\ctypes\__init__.py to ctypes\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\ctypes\_endian.py to ctypes\_endian.pyo
+skipping byte-compilation of C:\Python26\lib\ctypes\macholib\__init__.py to ctypes\macholib\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\ctypes\macholib\dyld.py to ctypes\macholib\dyld.pyo
+skipping byte-compilation of C:\Python26\lib\ctypes\macholib\dylib.py to ctypes\macholib\dylib.pyo
+skipping byte-compilation of C:\Python26\lib\ctypes\macholib\framework.py to ctypes\macholib\framework.pyo
+skipping byte-compilation of C:\Python26\lib\ctypes\util.py to ctypes\util.pyo
+skipping byte-compilation of C:\Python26\lib\ctypes\wintypes.py to ctypes\wintypes.pyo
+skipping byte-compilation of C:\Python26\lib\difflib.py to difflib.pyo
+skipping byte-compilation of C:\Python26\lib\dis.py to dis.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\__init__.py to distutils\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\archive_util.py to distutils\archive_util.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\ccompiler.py to distutils\ccompiler.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\cmd.py to distutils\cmd.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\__init__.py to distutils\command\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\bdist.py to distutils\command\bdist.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\bdist_rpm.py to distutils\command\bdist_rpm.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\build.py to distutils\command\build.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\build_clib.py to distutils\command\build_clib.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\build_ext.py to distutils\command\build_ext.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\build_py.py to distutils\command\build_py.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\build_scripts.py to distutils\command\build_scripts.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\config.py to distutils\command\config.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\install.py to distutils\command\install.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\install_data.py to distutils\command\install_data.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\install_headers.py to distutils\command\install_headers.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\install_lib.py to distutils\command\install_lib.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\command\sdist.py to distutils\command\sdist.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\config.py to distutils\config.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\core.py to distutils\core.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\cygwinccompiler.py to distutils\cygwinccompiler.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\debug.py to distutils\debug.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\dep_util.py to distutils\dep_util.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\dir_util.py to distutils\dir_util.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\dist.py to distutils\dist.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\errors.py to distutils\errors.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\extension.py to distutils\extension.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\fancy_getopt.py to distutils\fancy_getopt.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\file_util.py to distutils\file_util.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\filelist.py to distutils\filelist.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\log.py to distutils\log.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\msvc9compiler.py to distutils\msvc9compiler.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\msvccompiler.py to distutils\msvccompiler.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\spawn.py to distutils\spawn.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\sysconfig.py to distutils\sysconfig.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\text_file.py to distutils\text_file.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\unixccompiler.py to distutils\unixccompiler.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\util.py to distutils\util.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\version.py to distutils\version.pyo
+skipping byte-compilation of C:\Python26\lib\distutils\versionpredicate.py to distutils\versionpredicate.pyo
+skipping byte-compilation of C:\Python26\lib\doctest.py to doctest.pyo
+skipping byte-compilation of C:\Python26\lib\dummy_thread.py to dummy_thread.pyo
+skipping byte-compilation of C:\Python26\lib\dummy_threading.py to dummy_threading.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\__init__.py to encodings\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\aliases.py to encodings\aliases.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\ascii.py to encodings\ascii.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\base64_codec.py to encodings\base64_codec.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\big5.py to encodings\big5.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\big5hkscs.py to encodings\big5hkscs.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\bz2_codec.py to encodings\bz2_codec.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\charmap.py to encodings\charmap.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp037.py to encodings\cp037.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1006.py to encodings\cp1006.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1026.py to encodings\cp1026.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1140.py to encodings\cp1140.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1250.py to encodings\cp1250.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1251.py to encodings\cp1251.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1252.py to encodings\cp1252.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1253.py to encodings\cp1253.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1254.py to encodings\cp1254.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1255.py to encodings\cp1255.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1256.py to encodings\cp1256.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1257.py to encodings\cp1257.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp1258.py to encodings\cp1258.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp424.py to encodings\cp424.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp437.py to encodings\cp437.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp500.py to encodings\cp500.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp737.py to encodings\cp737.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp775.py to encodings\cp775.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp850.py to encodings\cp850.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp852.py to encodings\cp852.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp855.py to encodings\cp855.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp856.py to encodings\cp856.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp857.py to encodings\cp857.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp860.py to encodings\cp860.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp861.py to encodings\cp861.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp862.py to encodings\cp862.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp863.py to encodings\cp863.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp864.py to encodings\cp864.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp865.py to encodings\cp865.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp866.py to encodings\cp866.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp869.py to encodings\cp869.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp874.py to encodings\cp874.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp875.py to encodings\cp875.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp932.py to encodings\cp932.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp949.py to encodings\cp949.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\cp950.py to encodings\cp950.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\euc_jis_2004.py to encodings\euc_jis_2004.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\euc_jisx0213.py to encodings\euc_jisx0213.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\euc_jp.py to encodings\euc_jp.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\euc_kr.py to encodings\euc_kr.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\gb18030.py to encodings\gb18030.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\gb2312.py to encodings\gb2312.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\gbk.py to encodings\gbk.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\hex_codec.py to encodings\hex_codec.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\hp_roman8.py to encodings\hp_roman8.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\hz.py to encodings\hz.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\idna.py to encodings\idna.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp.py to encodings\iso2022_jp.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp_1.py to encodings\iso2022_jp_1.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp_2.py to encodings\iso2022_jp_2.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp_2004.py to encodings\iso2022_jp_2004.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp_3.py to encodings\iso2022_jp_3.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_jp_ext.py to encodings\iso2022_jp_ext.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso2022_kr.py to encodings\iso2022_kr.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_1.py to encodings\iso8859_1.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_10.py to encodings\iso8859_10.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_11.py to encodings\iso8859_11.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_13.py to encodings\iso8859_13.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_14.py to encodings\iso8859_14.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_15.py to encodings\iso8859_15.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_16.py to encodings\iso8859_16.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_2.py to encodings\iso8859_2.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_3.py to encodings\iso8859_3.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_4.py to encodings\iso8859_4.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_5.py to encodings\iso8859_5.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_6.py to encodings\iso8859_6.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_7.py to encodings\iso8859_7.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_8.py to encodings\iso8859_8.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\iso8859_9.py to encodings\iso8859_9.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\johab.py to encodings\johab.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\koi8_r.py to encodings\koi8_r.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\koi8_u.py to encodings\koi8_u.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\latin_1.py to encodings\latin_1.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_arabic.py to encodings\mac_arabic.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_centeuro.py to encodings\mac_centeuro.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_croatian.py to encodings\mac_croatian.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_cyrillic.py to encodings\mac_cyrillic.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_farsi.py to encodings\mac_farsi.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_greek.py to encodings\mac_greek.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_iceland.py to encodings\mac_iceland.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_latin2.py to encodings\mac_latin2.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_roman.py to encodings\mac_roman.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_romanian.py to encodings\mac_romanian.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mac_turkish.py to encodings\mac_turkish.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\mbcs.py to encodings\mbcs.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\palmos.py to encodings\palmos.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\ptcp154.py to encodings\ptcp154.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\punycode.py to encodings\punycode.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\quopri_codec.py to encodings\quopri_codec.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\raw_unicode_escape.py to encodings\raw_unicode_escape.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\rot_13.py to encodings\rot_13.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\shift_jis.py to encodings\shift_jis.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\shift_jis_2004.py to encodings\shift_jis_2004.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\shift_jisx0213.py to encodings\shift_jisx0213.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\string_escape.py to encodings\string_escape.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\tis_620.py to encodings\tis_620.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\undefined.py to encodings\undefined.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\unicode_escape.py to encodings\unicode_escape.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\unicode_internal.py to encodings\unicode_internal.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_16.py to encodings\utf_16.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_16_be.py to encodings\utf_16_be.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_16_le.py to encodings\utf_16_le.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_32.py to encodings\utf_32.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_32_be.py to encodings\utf_32_be.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_32_le.py to encodings\utf_32_le.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_7.py to encodings\utf_7.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_8.py to encodings\utf_8.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\utf_8_sig.py to encodings\utf_8_sig.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\uu_codec.py to encodings\uu_codec.pyo
+skipping byte-compilation of C:\Python26\lib\encodings\zlib_codec.py to encodings\zlib_codec.pyo
+skipping byte-compilation of C:\Python26\lib\fileinput.py to fileinput.pyo
+skipping byte-compilation of C:\Python26\lib\fnmatch.py to fnmatch.pyo
+skipping byte-compilation of C:\Python26\lib\formatter.py to formatter.pyo
+skipping byte-compilation of C:\Python26\lib\ftplib.py to ftplib.pyo
+skipping byte-compilation of C:\Python26\lib\functools.py to functools.pyo
+skipping byte-compilation of C:\Python26\lib\genericpath.py to genericpath.pyo
+skipping byte-compilation of C:\Python26\lib\getopt.py to getopt.pyo
+skipping byte-compilation of C:\Python26\lib\getpass.py to getpass.pyo
+skipping byte-compilation of C:\Python26\lib\gettext.py to gettext.pyo
+skipping byte-compilation of C:\Python26\lib\glob.py to glob.pyo
+skipping byte-compilation of C:\Python26\lib\gzip.py to gzip.pyo
+skipping byte-compilation of C:\Python26\lib\hashlib.py to hashlib.pyo
+skipping byte-compilation of C:\Python26\lib\heapq.py to heapq.pyo
+skipping byte-compilation of C:\Python26\lib\hmac.py to hmac.pyo
+skipping byte-compilation of C:\Python26\lib\htmlentitydefs.py to htmlentitydefs.pyo
+skipping byte-compilation of C:\Python26\lib\htmllib.py to htmllib.pyo
+skipping byte-compilation of C:\Python26\lib\httplib.py to httplib.pyo
+skipping byte-compilation of C:\Python26\lib\inspect.py to inspect.pyo
+skipping byte-compilation of C:\Python26\lib\io.py to io.pyo
+skipping byte-compilation of C:\Python26\lib\keyword.py to keyword.pyo
+skipping byte-compilation of C:\Python26\lib\linecache.py to linecache.pyo
+skipping byte-compilation of C:\Python26\lib\locale.py to locale.pyo
+skipping byte-compilation of C:\Python26\lib\logging\__init__.py to logging\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\macurl2path.py to macurl2path.pyo
+skipping byte-compilation of C:\Python26\lib\markupbase.py to markupbase.pyo
+skipping byte-compilation of C:\Python26\lib\md5.py to md5.pyo
+skipping byte-compilation of C:\Python26\lib\mimetools.py to mimetools.pyo
+skipping byte-compilation of C:\Python26\lib\mimetypes.py to mimetypes.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\__init__.py to multiprocessing\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\connection.py to multiprocessing\connection.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\dummy\__init__.py to multiprocessing\dummy\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\dummy\connection.py to multiprocessing\dummy\connection.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\forking.py to multiprocessing\forking.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\heap.py to multiprocessing\heap.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\managers.py to multiprocessing\managers.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\pool.py to multiprocessing\pool.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\process.py to multiprocessing\process.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\queues.py to multiprocessing\queues.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\reduction.py to multiprocessing\reduction.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\sharedctypes.py to multiprocessing\sharedctypes.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\synchronize.py to multiprocessing\synchronize.pyo
+skipping byte-compilation of C:\Python26\lib\multiprocessing\util.py to multiprocessing\util.pyo
+skipping byte-compilation of C:\Python26\lib\new.py to new.pyo
+skipping byte-compilation of C:\Python26\lib\ntpath.py to ntpath.pyo
+skipping byte-compilation of C:\Python26\lib\nturl2path.py to nturl2path.pyo
+skipping byte-compilation of C:\Python26\lib\opcode.py to opcode.pyo
+skipping byte-compilation of C:\Python26\lib\optparse.py to optparse.pyo
+skipping byte-compilation of C:\Python26\lib\os.py to os.pyo
+skipping byte-compilation of C:\Python26\lib\os2emxpath.py to os2emxpath.pyo
+skipping byte-compilation of C:\Python26\lib\pdb.py to pdb.pyo
+skipping byte-compilation of C:\Python26\lib\pickle.py to pickle.pyo
+skipping byte-compilation of C:\Python26\lib\pkgutil.py to pkgutil.pyo
+skipping byte-compilation of C:\Python26\lib\platform.py to platform.pyo
+skipping byte-compilation of C:\Python26\lib\posixpath.py to posixpath.pyo
+skipping byte-compilation of C:\Python26\lib\pprint.py to pprint.pyo
+skipping byte-compilation of C:\Python26\lib\py_compile.py to py_compile.pyo
+skipping byte-compilation of C:\Python26\lib\pydoc.py to pydoc.pyo
+skipping byte-compilation of C:\Python26\lib\pydoc_topics.py to pydoc_topics.pyo
+skipping byte-compilation of C:\Python26\lib\quopri.py to quopri.pyo
+skipping byte-compilation of C:\Python26\lib\random.py to random.pyo
+skipping byte-compilation of C:\Python26\lib\re.py to re.pyo
+skipping byte-compilation of C:\Python26\lib\repr.py to repr.pyo
+skipping byte-compilation of C:\Python26\lib\rfc822.py to rfc822.pyo
+skipping byte-compilation of C:\Python26\lib\sets.py to sets.pyo
+skipping byte-compilation of C:\Python26\lib\sgmllib.py to sgmllib.pyo
+skipping byte-compilation of C:\Python26\lib\shlex.py to shlex.pyo
+skipping byte-compilation of C:\Python26\lib\shutil.py to shutil.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GLU\__init__.py to OpenGL\GLU\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GLU\glunurbs.py to OpenGL\GLU\glunurbs.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GLU\glustruct.py to OpenGL\GLU\glustruct.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GLU\projection.py to OpenGL\GLU\projection.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GLU\quadrics.py to OpenGL\GLU\quadrics.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GLU\tess.py to OpenGL\GLU\tess.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\ARB\__init__.py to OpenGL\GL\ARB\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\ARB\shader_objects.py to OpenGL\GL\ARB\shader_objects.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_1_2.py to OpenGL\GL\VERSION\GL_1_2.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_1_2_images.py to OpenGL\GL\VERSION\GL_1_2_images.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_1_3.py to OpenGL\GL\VERSION\GL_1_3.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_1_3_images.py to OpenGL\GL\VERSION\GL_1_3_images.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_1_4.py to OpenGL\GL\VERSION\GL_1_4.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_1_5.py to OpenGL\GL\VERSION\GL_1_5.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_2_0.py to OpenGL\GL\VERSION\GL_2_0.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_2_1.py to OpenGL\GL\VERSION\GL_2_1.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_3_0.py to OpenGL\GL\VERSION\GL_3_0.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_3_1.py to OpenGL\GL\VERSION\GL_3_1.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\GL_3_2.py to OpenGL\GL\VERSION\GL_3_2.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\VERSION\__init__.py to OpenGL\GL\VERSION\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\__init__.py to OpenGL\GL\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\exceptional.py to OpenGL\GL\exceptional.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\feedback.py to OpenGL\GL\feedback.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\glget.py to OpenGL\GL\glget.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\images.py to OpenGL\GL\images.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\pointers.py to OpenGL\GL\pointers.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\GL\selection.py to OpenGL\GL\selection.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\__init__.py to OpenGL\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\acceleratesupport.py to OpenGL\acceleratesupport.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\arrays\__init__.py to OpenGL\arrays\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\arrays\arraydatatype.py to OpenGL\arrays\arraydatatype.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\arrays\arrayhelpers.py to OpenGL\arrays\arrayhelpers.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\arrays\formathandler.py to OpenGL\arrays\formathandler.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\constant.py to OpenGL\constant.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\constants.py to OpenGL\constants.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\contextdata.py to OpenGL\contextdata.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\converters.py to OpenGL\converters.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\error.py to OpenGL\error.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\extensions.py to OpenGL\extensions.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\images.py to OpenGL\images.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\latebind.py to OpenGL\latebind.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\lazywrapper.py to OpenGL\lazywrapper.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\logs.py to OpenGL\logs.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\platform\__init__.py to OpenGL\platform\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\plugins.py to OpenGL\plugins.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GLU\__init__.py to OpenGL\raw\GLU\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GLU\annotations.py to OpenGL\raw\GLU\annotations.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GLU\constants.py to OpenGL\raw\GLU\constants.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\ARB\__init__.py to OpenGL\raw\GL\ARB\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\ARB\imaging.py to OpenGL\raw\GL\ARB\imaging.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\ARB\imaging_DEPRECATED.py to OpenGL\raw\GL\ARB\imaging_DEPRECATED.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\ARB\shader_objects.py to OpenGL\raw\GL\ARB\shader_objects.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_1_2.py to OpenGL\raw\GL\VERSION\GL_1_2.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_1_2_DEPRECATED.py to OpenGL\raw\GL\VERSION\GL_1_2_DEPRECATED.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_1_3.py to OpenGL\raw\GL\VERSION\GL_1_3.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_1_3_DEPRECATED.py to OpenGL\raw\GL\VERSION\GL_1_3_DEPRECATED.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_1_4.py to OpenGL\raw\GL\VERSION\GL_1_4.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_1_4_DEPRECATED.py to OpenGL\raw\GL\VERSION\GL_1_4_DEPRECATED.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_1_5.py to OpenGL\raw\GL\VERSION\GL_1_5.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_1_5_DEPRECATED.py to OpenGL\raw\GL\VERSION\GL_1_5_DEPRECATED.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_2_0.py to OpenGL\raw\GL\VERSION\GL_2_0.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_2_0_DEPRECATED.py to OpenGL\raw\GL\VERSION\GL_2_0_DEPRECATED.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_2_1.py to OpenGL\raw\GL\VERSION\GL_2_1.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_2_1_DEPRECATED.py to OpenGL\raw\GL\VERSION\GL_2_1_DEPRECATED.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_3_0.py to OpenGL\raw\GL\VERSION\GL_3_0.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_3_0_DEPRECATED.py to OpenGL\raw\GL\VERSION\GL_3_0_DEPRECATED.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_3_1.py to OpenGL\raw\GL\VERSION\GL_3_1.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\GL_3_2.py to OpenGL\raw\GL\VERSION\GL_3_2.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\VERSION\__init__.py to OpenGL\raw\GL\VERSION\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\__init__.py to OpenGL\raw\GL\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\annotations.py to OpenGL\raw\GL\annotations.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\GL\constants.py to OpenGL\raw\GL\constants.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\raw\__init__.py to OpenGL\raw\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\version.py to OpenGL\version.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\OpenGL\wrapper.py to OpenGL\wrapper.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Builtin.py to Pyrex\Compiler\Builtin.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\CmdLine.py to Pyrex\Compiler\CmdLine.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Code.py to Pyrex\Compiler\Code.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\DebugFlags.py to Pyrex\Compiler\DebugFlags.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Errors.py to Pyrex\Compiler\Errors.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\ExprNodes.py to Pyrex\Compiler\ExprNodes.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Lexicon.py to Pyrex\Compiler\Lexicon.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Main.py to Pyrex\Compiler\Main.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\ModuleNode.py to Pyrex\Compiler\ModuleNode.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Naming.py to Pyrex\Compiler\Naming.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Nodes.py to Pyrex\Compiler\Nodes.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Options.py to Pyrex\Compiler\Options.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Parsing.py to Pyrex\Compiler\Parsing.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\PyrexTypes.py to Pyrex\Compiler\PyrexTypes.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Scanning.py to Pyrex\Compiler\Scanning.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Symtab.py to Pyrex\Compiler\Symtab.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\TypeSlots.py to Pyrex\Compiler\TypeSlots.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\Version.py to Pyrex\Compiler\Version.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Compiler\__init__.py to Pyrex\Compiler\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Debugging.py to Pyrex\Debugging.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Distutils\__init__.py to Pyrex\Distutils\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Distutils\build_ext.py to Pyrex\Distutils\build_ext.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Distutils\extension.py to Pyrex\Distutils\extension.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Mac\DarwinSystem.py to Pyrex\Mac\DarwinSystem.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Mac\MacSystem.py to Pyrex\Mac\MacSystem.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Mac\TS_Misc_Suite.py to Pyrex\Mac\TS_Misc_Suite.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Mac\__init__.py to Pyrex\Mac\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Plex\Actions.py to Pyrex\Plex\Actions.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Plex\DFA.py to Pyrex\Plex\DFA.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Plex\Errors.py to Pyrex\Plex\Errors.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Plex\Lexicons.py to Pyrex\Plex\Lexicons.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Plex\Machines.py to Pyrex\Plex\Machines.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Plex\Regexps.py to Pyrex\Plex\Regexps.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Plex\Scanners.py to Pyrex\Plex\Scanners.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Plex\Timing.py to Pyrex\Plex\Timing.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Plex\Transitions.py to Pyrex\Plex\Transitions.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Plex\__init__.py to Pyrex\Plex\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\Utils.py to Pyrex\Utils.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\Pyrex\__init__.py to Pyrex\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\__config__.py to numpy\__config__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\__init__.py to numpy\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\_import_tools.py to numpy\_import_tools.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\add_newdocs.py to numpy\add_newdocs.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\compat\__init__.py to numpy\compat\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\compat\_inspect.py to numpy\compat\_inspect.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\compat\py3k.py to numpy\compat\py3k.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\__init__.py to numpy\core\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\_internal.py to numpy\core\_internal.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\arrayprint.py to numpy\core\arrayprint.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\defchararray.py to numpy\core\defchararray.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\fromnumeric.py to numpy\core\fromnumeric.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\function_base.py to numpy\core\function_base.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\getlimits.py to numpy\core\getlimits.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\info.py to numpy\core\info.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\machar.py to numpy\core\machar.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\memmap.py to numpy\core\memmap.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\numeric.py to numpy\core\numeric.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\numerictypes.py to numpy\core\numerictypes.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\records.py to numpy\core\records.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\core\shape_base.py to numpy\core\shape_base.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\ctypeslib.py to numpy\ctypeslib.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\__config__.py to numpy\distutils\__config__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\__init__.py to numpy\distutils\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\__version__.py to numpy\distutils\__version__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\ccompiler.py to numpy\distutils\ccompiler.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\__init__.py to numpy\distutils\command\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\autodist.py to numpy\distutils\command\autodist.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\bdist_rpm.py to numpy\distutils\command\bdist_rpm.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\build.py to numpy\distutils\command\build.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\build_clib.py to numpy\distutils\command\build_clib.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\build_ext.py to numpy\distutils\command\build_ext.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\build_py.py to numpy\distutils\command\build_py.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\build_scripts.py to numpy\distutils\command\build_scripts.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\build_src.py to numpy\distutils\command\build_src.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\config.py to numpy\distutils\command\config.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\config_compiler.py to numpy\distutils\command\config_compiler.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\develop.py to numpy\distutils\command\develop.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\egg_info.py to numpy\distutils\command\egg_info.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\install.py to numpy\distutils\command\install.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\install_clib.py to numpy\distutils\command\install_clib.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\install_data.py to numpy\distutils\command\install_data.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\install_headers.py to numpy\distutils\command\install_headers.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\scons.py to numpy\distutils\command\scons.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\command\sdist.py to numpy\distutils\command\sdist.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\compat.py to numpy\distutils\compat.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\conv_template.py to numpy\distutils\conv_template.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\core.py to numpy\distutils\core.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\cpuinfo.py to numpy\distutils\cpuinfo.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\environment.py to numpy\distutils\environment.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\exec_command.py to numpy\distutils\exec_command.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\extension.py to numpy\distutils\extension.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\fcompiler\__init__.py to numpy\distutils\fcompiler\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\from_template.py to numpy\distutils\from_template.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\info.py to numpy\distutils\info.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\interactive.py to numpy\distutils\interactive.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\lib2def.py to numpy\distutils\lib2def.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\log.py to numpy\distutils\log.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\mingw32ccompiler.py to numpy\distutils\mingw32ccompiler.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\misc_util.py to numpy\distutils\misc_util.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\npy_pkg_config.py to numpy\distutils\npy_pkg_config.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\numpy_distribution.py to numpy\distutils\numpy_distribution.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\system_info.py to numpy\distutils\system_info.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\distutils\unixccompiler.py to numpy\distutils\unixccompiler.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\dual.py to numpy\dual.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\__init__.py to numpy\f2py\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\__version__.py to numpy\f2py\__version__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\auxfuncs.py to numpy\f2py\auxfuncs.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\capi_maps.py to numpy\f2py\capi_maps.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\cb_rules.py to numpy\f2py\cb_rules.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\cfuncs.py to numpy\f2py\cfuncs.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\common_rules.py to numpy\f2py\common_rules.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\crackfortran.py to numpy\f2py\crackfortran.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\diagnose.py to numpy\f2py\diagnose.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\f2py2e.py to numpy\f2py\f2py2e.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\f2py_testing.py to numpy\f2py\f2py_testing.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\f90mod_rules.py to numpy\f2py\f90mod_rules.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\func2subr.py to numpy\f2py\func2subr.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\info.py to numpy\f2py\info.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\rules.py to numpy\f2py\rules.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\f2py\use_rules.py to numpy\f2py\use_rules.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\fft\__init__.py to numpy\fft\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\fft\fftpack.py to numpy\fft\fftpack.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\fft\helper.py to numpy\fft\helper.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\fft\info.py to numpy\fft\info.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\__init__.py to numpy\lib\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\_datasource.py to numpy\lib\_datasource.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\_iotools.py to numpy\lib\_iotools.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\arraysetops.py to numpy\lib\arraysetops.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\arrayterator.py to numpy\lib\arrayterator.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\financial.py to numpy\lib\financial.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\format.py to numpy\lib\format.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\function_base.py to numpy\lib\function_base.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\index_tricks.py to numpy\lib\index_tricks.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\info.py to numpy\lib\info.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\npyio.py to numpy\lib\npyio.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\polynomial.py to numpy\lib\polynomial.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\scimath.py to numpy\lib\scimath.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\shape_base.py to numpy\lib\shape_base.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\stride_tricks.py to numpy\lib\stride_tricks.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\twodim_base.py to numpy\lib\twodim_base.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\type_check.py to numpy\lib\type_check.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\ufunclike.py to numpy\lib\ufunclike.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\lib\utils.py to numpy\lib\utils.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\linalg\__init__.py to numpy\linalg\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\linalg\info.py to numpy\linalg\info.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\linalg\linalg.py to numpy\linalg\linalg.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\ma\__init__.py to numpy\ma\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\ma\core.py to numpy\ma\core.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\ma\extras.py to numpy\ma\extras.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\ma\mrecords.py to numpy\ma\mrecords.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\matrixlib\__init__.py to numpy\matrixlib\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\matrixlib\defmatrix.py to numpy\matrixlib\defmatrix.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\numarray\__init__.py to numpy\numarray\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\numarray\compat.py to numpy\numarray\compat.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\numarray\functions.py to numpy\numarray\functions.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\numarray\numerictypes.py to numpy\numarray\numerictypes.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\numarray\session.py to numpy\numarray\session.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\numarray\ufuncs.py to numpy\numarray\ufuncs.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\numarray\util.py to numpy\numarray\util.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\polynomial\__init__.py to numpy\polynomial\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\polynomial\chebyshev.py to numpy\polynomial\chebyshev.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\polynomial\hermite.py to numpy\polynomial\hermite.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\polynomial\hermite_e.py to numpy\polynomial\hermite_e.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\polynomial\laguerre.py to numpy\polynomial\laguerre.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\polynomial\legendre.py to numpy\polynomial\legendre.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\polynomial\polynomial.py to numpy\polynomial\polynomial.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\polynomial\polytemplate.py to numpy\polynomial\polytemplate.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\polynomial\polyutils.py to numpy\polynomial\polyutils.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\random\__init__.py to numpy\random\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\random\info.py to numpy\random\info.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\testing\__init__.py to numpy\testing\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\testing\decorators.py to numpy\testing\decorators.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\testing\noseclasses.py to numpy\testing\noseclasses.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\testing\nosetester.py to numpy\testing\nosetester.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\testing\numpytest.py to numpy\testing\numpytest.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\testing\utils.py to numpy\testing\utils.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\numpy\version.py to numpy\version.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\__init__.py to pgu\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\__init__.py to pgu\gui\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\app.py to pgu\gui\app.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\area.py to pgu\gui\area.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\basic.py to pgu\gui\basic.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\button.py to pgu\gui\button.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\const.py to pgu\gui\const.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\container.py to pgu\gui\container.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\deprecated.py to pgu\gui\deprecated.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\dialog.py to pgu\gui\dialog.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\document.py to pgu\gui\document.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\errors.py to pgu\gui\errors.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\form.py to pgu\gui\form.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\group.py to pgu\gui\group.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\input.py to pgu\gui\input.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\keysym.py to pgu\gui\keysym.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\layout.py to pgu\gui\layout.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\menus.py to pgu\gui\menus.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\misc.py to pgu\gui\misc.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\pguglobals.py to pgu\gui\pguglobals.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\select.py to pgu\gui\select.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\slider.py to pgu\gui\slider.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\style.py to pgu\gui\style.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\surface.py to pgu\gui\surface.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\table.py to pgu\gui\table.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\textarea.py to pgu\gui\textarea.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\theme.py to pgu\gui\theme.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\gui\widget.py to pgu\gui\widget.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pgu\html.py to pgu\html.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pkg_resources.py to pkg_resources.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\__init__.py to pygame\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\_camera_opencv_highgui.py to pygame\_camera_opencv_highgui.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\_camera_vidcapture.py to pygame\_camera_vidcapture.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\_numpysndarray.py to pygame\_numpysndarray.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\_numpysurfarray.py to pygame\_numpysurfarray.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\camera.py to pygame\camera.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\colordict.py to pygame\colordict.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\compat.py to pygame\compat.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\cursors.py to pygame\cursors.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\docs\__init__.py to pygame\docs\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\docs\__main__.py to pygame\docs\__main__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\__init__.py to pygame\examples\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\aacircle.py to pygame\examples\aacircle.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\aliens.py to pygame\examples\aliens.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\arraydemo.py to pygame\examples\arraydemo.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\blend_fill.py to pygame\examples\blend_fill.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\blit_blends.py to pygame\examples\blit_blends.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\camera.py to pygame\examples\camera.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\chimp.py to pygame\examples\chimp.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\cursors.py to pygame\examples\cursors.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\eventlist.py to pygame\examples\eventlist.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\fastevents.py to pygame\examples\fastevents.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\fonty.py to pygame\examples\fonty.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\glcube.py to pygame\examples\glcube.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\headless_no_windows_needed.py to pygame\examples\headless_no_windows_needed.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\liquid.py to pygame\examples\liquid.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\mask.py to pygame\examples\mask.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\midi.py to pygame\examples\midi.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\moveit.py to pygame\examples\moveit.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\movieplayer.py to pygame\examples\movieplayer.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\oldalien.py to pygame\examples\oldalien.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\overlay.py to pygame\examples\overlay.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\pixelarray.py to pygame\examples\pixelarray.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\scaletest.py to pygame\examples\scaletest.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\scrap_clipboard.py to pygame\examples\scrap_clipboard.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\scroll.py to pygame\examples\scroll.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\sound.py to pygame\examples\sound.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\sound_array_demos.py to pygame\examples\sound_array_demos.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\stars.py to pygame\examples\stars.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\testsprite.py to pygame\examples\testsprite.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\examples\vgrade.py to pygame\examples\vgrade.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\gp2x\__init__.py to pygame\gp2x\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\gp2x\constants.py to pygame\gp2x\constants.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\gp2x\locals.py to pygame\gp2x\locals.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\locals.py to pygame\locals.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\mac_scrap.py to pygame\mac_scrap.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\macosx.py to pygame\macosx.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\midi.py to pygame\midi.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\pkgdata.py to pygame\pkgdata.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\sndarray.py to pygame\sndarray.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\sprite.py to pygame\sprite.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\surfarray.py to pygame\surfarray.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\sysfont.py to pygame\sysfont.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\__init__.py to pygame\tests\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\__main__.py to pygame\tests\__main__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\base_test.py to pygame\tests\base_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\blit_test.py to pygame\tests\blit_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\bufferproxy_test.py to pygame\tests\bufferproxy_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\cdrom_tags.py to pygame\tests\cdrom_tags.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\cdrom_test.py to pygame\tests\cdrom_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\color_test.py to pygame\tests\color_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\cursors_test.py to pygame\tests\cursors_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\display_test.py to pygame\tests\display_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\draw_test.py to pygame\tests\draw_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\event_test.py to pygame\tests\event_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\fastevent_test.py to pygame\tests\fastevent_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\font_test.py to pygame\tests\font_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\gfxdraw_test.py to pygame\tests\gfxdraw_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\image__save_gl_surface_test.py to pygame\tests\image__save_gl_surface_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\image_test.py to pygame\tests\image_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\joystick_test.py to pygame\tests\joystick_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\key_test.py to pygame\tests\key_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\mask_test.py to pygame\tests\mask_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\midi_test.py to pygame\tests\midi_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\mixer_music_test.py to pygame\tests\mixer_music_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\mixer_test.py to pygame\tests\mixer_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\mouse_test.py to pygame\tests\mouse_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\movie_tags.py to pygame\tests\movie_tags.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\movie_test.py to pygame\tests\movie_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\overlay_test.py to pygame\tests\overlay_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\pixelarray_test.py to pygame\tests\pixelarray_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\rect_test.py to pygame\tests\rect_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\__init__.py to pygame\tests\run_tests__tests\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\all_ok\__init__.py to pygame\tests\run_tests__tests\all_ok\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\all_ok\fake_2_test.py to pygame\tests\run_tests__tests\all_ok\fake_2_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\all_ok\fake_3_test.py to pygame\tests\run_tests__tests\all_ok\fake_3_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\all_ok\fake_4_test.py to pygame\tests\run_tests__tests\all_ok\fake_4_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\all_ok\fake_5_test.py to pygame\tests\run_tests__tests\all_ok\fake_5_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\all_ok\fake_6_test.py to pygame\tests\run_tests__tests\all_ok\fake_6_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\all_ok\no_assertions__ret_code_of_1__test.py to pygame\tests\run_tests__tests\all_ok\no_assertions__ret_code_of_1__test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\all_ok\zero_tests_test.py to pygame\tests\run_tests__tests\all_ok\zero_tests_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\everything\__init__.py to pygame\tests\run_tests__tests\everything\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\everything\fake_2_test.py to pygame\tests\run_tests__tests\everything\fake_2_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\everything\incomplete_todo_test.py to pygame\tests\run_tests__tests\everything\incomplete_todo_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\everything\magic_tag_test.py to pygame\tests\run_tests__tests\everything\magic_tag_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\everything\sleep_test.py to pygame\tests\run_tests__tests\everything\sleep_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\exclude\__init__.py to pygame\tests\run_tests__tests\exclude\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\exclude\fake_2_test.py to pygame\tests\run_tests__tests\exclude\fake_2_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\exclude\invisible_tag_test.py to pygame\tests\run_tests__tests\exclude\invisible_tag_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\exclude\magic_tag_test.py to pygame\tests\run_tests__tests\exclude\magic_tag_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\failures1\__init__.py to pygame\tests\run_tests__tests\failures1\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\failures1\fake_2_test.py to pygame\tests\run_tests__tests\failures1\fake_2_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\failures1\fake_3_test.py to pygame\tests\run_tests__tests\failures1\fake_3_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\failures1\fake_4_test.py to pygame\tests\run_tests__tests\failures1\fake_4_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\incomplete\__init__.py to pygame\tests\run_tests__tests\incomplete\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\incomplete\fake_2_test.py to pygame\tests\run_tests__tests\incomplete\fake_2_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\incomplete\fake_3_test.py to pygame\tests\run_tests__tests\incomplete\fake_3_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\incomplete_todo\__init__.py to pygame\tests\run_tests__tests\incomplete_todo\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\incomplete_todo\fake_2_test.py to pygame\tests\run_tests__tests\incomplete_todo\fake_2_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\incomplete_todo\fake_3_test.py to pygame\tests\run_tests__tests\incomplete_todo\fake_3_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\infinite_loop\__init__.py to pygame\tests\run_tests__tests\infinite_loop\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\infinite_loop\fake_1_test.py to pygame\tests\run_tests__tests\infinite_loop\fake_1_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\infinite_loop\fake_2_test.py to pygame\tests\run_tests__tests\infinite_loop\fake_2_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\print_stderr\__init__.py to pygame\tests\run_tests__tests\print_stderr\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\print_stderr\fake_2_test.py to pygame\tests\run_tests__tests\print_stderr\fake_2_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\print_stderr\fake_3_test.py to pygame\tests\run_tests__tests\print_stderr\fake_3_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\print_stderr\fake_4_test.py to pygame\tests\run_tests__tests\print_stderr\fake_4_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\print_stdout\__init__.py to pygame\tests\run_tests__tests\print_stdout\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\print_stdout\fake_2_test.py to pygame\tests\run_tests__tests\print_stdout\fake_2_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\print_stdout\fake_3_test.py to pygame\tests\run_tests__tests\print_stdout\fake_3_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\print_stdout\fake_4_test.py to pygame\tests\run_tests__tests\print_stdout\fake_4_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\run_tests__test.py to pygame\tests\run_tests__tests\run_tests__test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\timeout\__init__.py to pygame\tests\run_tests__tests\timeout\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\timeout\fake_2_test.py to pygame\tests\run_tests__tests\timeout\fake_2_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\run_tests__tests\timeout\sleep_test.py to pygame\tests\run_tests__tests\timeout\sleep_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\scrap_tags.py to pygame\tests\scrap_tags.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\scrap_test.py to pygame\tests\scrap_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\sndarray_tags.py to pygame\tests\sndarray_tags.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\sndarray_test.py to pygame\tests\sndarray_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\sprite_test.py to pygame\tests\sprite_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\surface_test.py to pygame\tests\surface_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\surfarray_tags.py to pygame\tests\surfarray_tags.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\surfarray_test.py to pygame\tests\surfarray_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\surflock_test.py to pygame\tests\surflock_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\sysfont_test.py to pygame\tests\sysfont_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\test_test_.py to pygame\tests\test_test_.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\test_utils\__init__.py to pygame\tests\test_utils\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\test_utils\async_sub.py to pygame\tests\test_utils\async_sub.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\test_utils\run_tests.py to pygame\tests\test_utils\run_tests.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\test_utils\test_runner.py to pygame\tests\test_utils\test_runner.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\test_utils\unittest.py to pygame\tests\test_utils\unittest.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\test_utils\unittest_patch.py to pygame\tests\test_utils\unittest_patch.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\threads_tags.py to pygame\tests\threads_tags.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\threads_test.py to pygame\tests\threads_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\time_test.py to pygame\tests\time_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\tests\transform_test.py to pygame\tests\transform_test.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\threads\Py25Queue.py to pygame\threads\Py25Queue.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\threads\__init__.py to pygame\threads\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\pygame\version.py to pygame\version.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\__init__.py to setuptools\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\archive_util.py to setuptools\archive_util.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\command\__init__.py to setuptools\command\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\command\bdist_egg.py to setuptools\command\bdist_egg.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\command\bdist_rpm.py to setuptools\command\bdist_rpm.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\command\develop.py to setuptools\command\develop.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\command\easy_install.py to setuptools\command\easy_install.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\command\egg_info.py to setuptools\command\egg_info.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\command\install.py to setuptools\command\install.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\command\install_lib.py to setuptools\command\install_lib.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\command\sdist.py to setuptools\command\sdist.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\command\setopt.py to setuptools\command\setopt.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\depends.py to setuptools\depends.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\dist.py to setuptools\dist.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\extension.py to setuptools\extension.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\package_index.py to setuptools\package_index.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\setuptools\sandbox.py to setuptools\sandbox.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\__init__.py to yaml\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\composer.py to yaml\composer.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\constructor.py to yaml\constructor.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\cyaml.py to yaml\cyaml.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\dumper.py to yaml\dumper.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\emitter.py to yaml\emitter.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\error.py to yaml\error.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\events.py to yaml\events.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\loader.py to yaml\loader.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\nodes.py to yaml\nodes.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\parser.py to yaml\parser.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\reader.py to yaml\reader.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\representer.py to yaml\representer.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\resolver.py to yaml\resolver.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\scanner.py to yaml\scanner.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\serializer.py to yaml\serializer.pyo
+skipping byte-compilation of C:\Python26\lib\site-packages\yaml\tokens.py to yaml\tokens.pyo
+skipping byte-compilation of C:\Python26\lib\site.py to site.pyo
+skipping byte-compilation of C:\Python26\lib\socket.py to socket.pyo
+skipping byte-compilation of C:\Python26\lib\sre.py to sre.pyo
+skipping byte-compilation of C:\Python26\lib\sre_compile.py to sre_compile.pyo
+skipping byte-compilation of C:\Python26\lib\sre_constants.py to sre_constants.pyo
+skipping byte-compilation of C:\Python26\lib\sre_parse.py to sre_parse.pyo
+skipping byte-compilation of C:\Python26\lib\ssl.py to ssl.pyo
+skipping byte-compilation of C:\Python26\lib\stat.py to stat.pyo
+skipping byte-compilation of C:\Python26\lib\string.py to string.pyo
+skipping byte-compilation of C:\Python26\lib\stringprep.py to stringprep.pyo
+skipping byte-compilation of C:\Python26\lib\struct.py to struct.pyo
+skipping byte-compilation of C:\Python26\lib\subprocess.py to subprocess.pyo
+skipping byte-compilation of C:\Python26\lib\symbol.py to symbol.pyo
+skipping byte-compilation of C:\Python26\lib\symtable.py to symtable.pyo
+skipping byte-compilation of C:\Python26\lib\tarfile.py to tarfile.pyo
+skipping byte-compilation of C:\Python26\lib\tempfile.py to tempfile.pyo
+skipping byte-compilation of C:\Python26\lib\test\__init__.py to test\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\textwrap.py to textwrap.pyo
+skipping byte-compilation of C:\Python26\lib\threading.py to threading.pyo
+skipping byte-compilation of C:\Python26\lib\token.py to token.pyo
+skipping byte-compilation of C:\Python26\lib\tokenize.py to tokenize.pyo
+skipping byte-compilation of C:\Python26\lib\traceback.py to traceback.pyo
+skipping byte-compilation of C:\Python26\lib\tty.py to tty.pyo
+skipping byte-compilation of C:\Python26\lib\types.py to types.pyo
+skipping byte-compilation of C:\Python26\lib\unittest.py to unittest.pyo
+skipping byte-compilation of C:\Python26\lib\urllib.py to urllib.pyo
+skipping byte-compilation of C:\Python26\lib\urllib2.py to urllib2.pyo
+skipping byte-compilation of C:\Python26\lib\urlparse.py to urlparse.pyo
+skipping byte-compilation of C:\Python26\lib\uu.py to uu.pyo
+skipping byte-compilation of C:\Python26\lib\warnings.py to warnings.pyo
+skipping byte-compilation of C:\Python26\lib\weakref.py to weakref.pyo
+skipping byte-compilation of C:\Python26\lib\webbrowser.py to webbrowser.pyo
+skipping byte-compilation of C:\Python26\lib\xml\__init__.py to xml\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\xml\parsers\__init__.py to xml\parsers\__init__.pyo
+skipping byte-compilation of C:\Python26\lib\xml\parsers\expat.py to xml\parsers\expat.pyo
+skipping byte-compilation of C:\Python26\lib\xmllib.py to xmllib.pyo
+skipping byte-compilation of C:\Python26\lib\xmlrpclib.py to xmlrpclib.pyo
+skipping byte-compilation of C:\Python26\lib\zipfile.py to zipfile.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxtemu\api.py to api.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxtemu\brick.py to brick.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\_ctypes.py to _ctypes.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\_hashlib.py to _hashlib.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\_multiprocessing.py to _multiprocessing.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\_socket.py to _socket.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\_ssl.py to _ssl.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\_yaml.py to _yaml.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\bz2.py to bz2.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\numpy.core._dotblas.py to numpy\core\_dotblas.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\numpy.core._sort.py to numpy\core\_sort.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\numpy.core.multiarray.py to numpy\core\multiarray.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\numpy.core.scalarmath.py to numpy\core\scalarmath.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\numpy.core.umath.py to numpy\core\umath.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\numpy.fft.fftpack_lite.py to numpy\fft\fftpack_lite.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\numpy.lib._compiled_base.py to numpy\lib\_compiled_base.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\numpy.linalg.lapack_lite.py to numpy\linalg\lapack_lite.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\numpy.random.mtrand.py to numpy\random\mtrand.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pyexpat.py to pyexpat.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame._arraysurfarray.py to pygame\_arraysurfarray.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame._camera.py to pygame\_camera.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame._numericsndarray.py to pygame\_numericsndarray.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame._numericsurfarray.py to pygame\_numericsurfarray.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.base.py to pygame\base.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.bufferproxy.py to pygame\bufferproxy.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.cdrom.py to pygame\cdrom.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.color.py to pygame\color.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.constants.py to pygame\constants.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.display.py to pygame\display.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.draw.py to pygame\draw.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.event.py to pygame\event.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.fastevent.py to pygame\fastevent.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.font.py to pygame\font.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.gfxdraw.py to pygame\gfxdraw.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.image.py to pygame\image.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.imageext.py to pygame\imageext.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.joystick.py to pygame\joystick.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.key.py to pygame\key.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.mask.py to pygame\mask.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.mixer.py to pygame\mixer.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.mixer_music.py to pygame\mixer_music.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.mouse.py to pygame\mouse.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.movie.py to pygame\movie.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.overlay.py to pygame\overlay.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.pixelarray.py to pygame\pixelarray.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.pypm.py to pygame\pypm.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.rect.py to pygame\rect.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.rwobject.py to pygame\rwobject.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.scrap.py to pygame\scrap.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.surface.py to pygame\surface.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.surflock.py to pygame\surflock.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.time.py to pygame\time.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\pygame.transform.py to pygame\transform.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\select.py to select.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\unicodedata.py to unicodedata.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\build\bdist.win32\winexe\temp\vidcap.py to vidcap.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxtemu\clicker.py to clicker.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxtemu\console.py to console.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxtemu\dialog.py to dialog.pyo
+byte-compiling C:\dev\xlc-team\nxtIDE\nxtemu\env.py to env.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxtemu\imgs.py to imgs.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxtemu\robot.py to robot.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxtemu\robothread.py to robothread.pyo
+skipping byte-compilation of C:\dev\xlc-team\nxtIDE\nxtemu\sensors.py to sensors.pyo
+removing c:\users\aoa169~1\appdata\local\temp\tmp1xezvq.py
+*** copy extensions ***
+*** copy dlls ***
+*** copy data files ***
+copying C:\Python26\lib\site-packages\py2exe\run_w.exe -> C:\dev\xlc-team\nxtIDE\build\nxtemu\nxtemu.exe
+The following modules appear to be missing
+['AppKit', 'Foundation', 'Numeric', 'OpenGL.platform.GL', 'OpenGL.platform.GLU', 'OpenGL.platform.PLATFORM', 'OpenGL.platform.createBaseFunction', 'OpenGL_accelerate', 'OpenGL_accelerate.arraydatatype', 'OpenGL_accelerate.errorchecker', 'OpenGL_accelerate.latebind', 'OpenGL_accelerate.wrapper', 'RandomArray', 'StdSuites.Standard_Suite', '__svn_version__', 'aetools', 'configparser', 'copyreg', 'core.abs', 'core.max', 'core.min', 'core.round', 'dummy.Process', 'email.utils', 'fcompiler.FCompiler', 'fcompiler.show_fcompilers', 'html.parser', 'nose', 'nose.plugins', 'nose.plugins.base', 'nose.plugins.builtin', 'nose.plugins.errorclass', 'nose.tools', 'nose.util', 'numarray', 'numpy_distutils', 'numpy_distutils.command.build_flib', 'numpy_distutils.command.cpuinfo', 'numpy_distutils.cpuinfo', 'numpy_distutils.fcompiler', 'numscons', 'numscons.core.utils', 'opencv', 'psyco', 'queue', 'scipy', 'sitecustomize', 'test.__main__', 'test.event_test', 'test.test_utils', 'test.test_utils.async_sub', 'test.test_utils.run_tests', 'test.test_utils.test_runner', 'test.test_utils.unittest_patch', 'testing.Tester', 'urllib.parse', 'usercustomize', 'win32api', 'win32con', 'win32file', 'win32pdh', 'win32pipe', 'winreg', 'numpy.absolute', 'numpy.arccos', 'numpy.arccosh', 'numpy.arcsin', 'numpy.arcsinh', 'numpy.arctan', 'numpy.arctanh', 'numpy.bitwise_and', 'numpy.bitwise_or', 'numpy.bitwise_xor', 'numpy.bool_', 'numpy.ceil', 'numpy.conjugate', 'numpy.core.absolute', 'numpy.core.add', 'numpy.core.cdouble', 'numpy.core.complexfloating', 'numpy.core.conjugate', 'numpy.core.csingle', 'numpy.core.double', 'numpy.core.exp', 'numpy.core.float64', 'numpy.core.float_', 'numpy.core.inexact', 'numpy.core.intc', 'numpy.core.integer', 'numpy.core.isfinite', 'numpy.core.isinf', 'numpy.core.isnan', 'numpy.core.log', 'numpy.core.maximum', 'numpy.core.multiply', 'numpy.core.number', 'numpy.core.signbit', 'numpy.core.single', 'numpy.core.sqrt', 'numpy.cosh', 'numpy.divide', 'numpy.e', 'numpy.fabs', 'numpy.float64', 'numpy.floor', 'numpy.floor_divide', 'numpy.fmod', 'numpy.greater', 'numpy.hypot', 'numpy.int16', 'numpy.int32', 'numpy.int8', 'numpy.invert', 'numpy.left_shift', 'numpy.less', 'numpy.log', 'numpy.logical_and', 'numpy.logical_not', 'numpy.logical_or', 'numpy.logical_xor', 'numpy.maximum', 'numpy.minimum', 'numpy.negative', 'numpy.not_equal', 'numpy.power', 'numpy.remainder', 'numpy.right_shift', 'numpy.sign', 'numpy.sinh', 'numpy.tan', 'numpy.tanh', 'numpy.true_divide', 'numpy.uint16', 'numpy.uint32', 'numpy.uint64', 'pygame.sdlmain_osx']
+
+*** binary dependencies ***
+Your executable(s) also depend on these dlls which are not included,
+you may or may not need to distribute them.
+
+Make sure you have the license if you distribute any of them, and
+make sure you don't distribute files belonging to the operating system.
+
+   OLEAUT32.dll - C:\Windows\system32\OLEAUT32.dll
+   USER32.dll - C:\Windows\system32\USER32.dll
+   SHELL32.dll - C:\Windows\system32\SHELL32.dll
+   KERNEL32.dll - C:\Windows\system32\KERNEL32.dll
+   WINMM.DLL - C:\Windows\system32\WINMM.DLL
+   WSOCK32.dll - C:\Windows\system32\WSOCK32.dll
+   ADVAPI32.DLL - C:\Windows\system32\ADVAPI32.DLL
+   msvcrt.dll - C:\Windows\system32\msvcrt.dll
+   WS2_32.DLL - C:\Windows\system32\WS2_32.DLL
+   GDI32.dll - C:\Windows\system32\GDI32.dll
+   ole32.dll - C:\Windows\system32\ole32.dll
+   umath.pyd - C:\Python26\lib\site-packages\numpy\core\umath.pyd
+---------------------------------------- 
+     nxtemu generated 
+---------------------------------------- 
