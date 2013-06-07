@@ -2,7 +2,7 @@ from distutils.core import setup
 import os, glob, fnmatch
 import py2exe
  
-data_files = ['api.py', 'config.ini']
+data_files = ['api.py', 'config.yml']
 #data_files.append('theme/default/*.*')
 #data_files.append(('floor/line1.jpg', 'floor/line1.jpg'))
 
