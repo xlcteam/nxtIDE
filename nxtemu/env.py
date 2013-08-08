@@ -33,7 +33,7 @@ def read_config(filename = './config.yml'):
     return cfg
 
 def draw_background():
-    bckg = cfg["others"]["background"];
+    bckg = cfg["others"]["background"]
     if bckg:
         try:
             img = pygame.image.load(bckg)
@@ -52,7 +52,6 @@ def check_brick():
     if robot.brick_hidden:
         pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (960, 486)))
         pygame.draw.rect(background, pygame.Color("white"), ((3, 3), (954, 480)))
-        draw_background()
     else:
         background.blit(imgs.brick.convert(), (640, 0))
         pygame.draw.rect(background, pygame.Color("gray"), ((0, 0), (646, 486)))
@@ -70,7 +69,7 @@ def check_brick():
                     img = pygame.image.load(p("icons/w_port%d.png" % int(i))).convert()
                     background.blit(img, (735 + 60*int(i-1), 437)) 
 
-        draw_background()
+    draw_background()
 
 cfg = read_config()
 ports_backup = None
