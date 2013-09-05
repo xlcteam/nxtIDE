@@ -697,8 +697,10 @@ class PythonSidebar(wx.Panel):
             # in case only the function call is selected
             if indent not in text.split('\n')[0]:
 
+                strip = text[0:(len(text)-len(text.lstrip()))]
+
                 # adding indent before selected line, there is not any
-                text = indent + text
+                text = indent + text.lstrip()
                 text = text.split('\n')
                 x = 0
                 for line in text:
@@ -706,8 +708,9 @@ class PythonSidebar(wx.Panel):
                     x += 1
                 text = '\n'.join(text)
 
-                editor.ReplaceSelection('while True:\n' + text )
-                editor.SetSelection(selection[0] + 6, selection[0] + 10)
+                editor.ReplaceSelection(strip + 'while True:\n' + text )
+                editor.SetSelection(selection[0] + len(strip) + 6, 
+                                    selection[0] + len(strip) + 10)
 
             else:
                 text = text.split('\n')
