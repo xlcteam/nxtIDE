@@ -351,8 +351,8 @@ class PythonSTC(stc.StyledTextCtrl):
                #kw.append("__init__?3")
                #kw.append("zzaaaaa?2")
                #kw.append("zzbaaaa?2")
-                kw.append("this_is_a_longer_value")
-                kw.append("this_is_a_much_much_much_much_much_much_much_longer_value")
+               #kw.append("this_is_a_longer_value")
+               #kw.append("this_is_a_much_much_much_much_much_much_much_longer_value")
 
                 kw.sort()  # Python sorts are case sensitive
                 self.AutoCompSetIgnoreCase(False)  # so this needs to match
