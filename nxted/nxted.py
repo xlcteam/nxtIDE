@@ -273,6 +273,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
     def onCompile(self, event):
         self.onSave(event=None)
         self.parent.hideMsg()
+        if self.path == '':
+            return
 
         check = pycheck.PyCheck()
         check.check(self.parent.cfg['nxtemudir'] + "/api.py")
