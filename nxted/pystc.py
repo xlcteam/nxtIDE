@@ -662,7 +662,20 @@ class PythonSidebar(wx.Panel):
 
     def label_func_clicked(self, event):
         editor = self.get_active_child_editor()
-
+        selection = editor.GetSelection()
+        # if there is nothing selected
+        if selection[0] == selection[1]:
+            cur_line = editor.GetCurLine()
+            line_num = editor.GetCurrentLine()
+            indent = editor.GetLineIndentation(line_num - 1) * ' '
+ 
+            # if we are on an empty line
+            if cur_line[1] == 0:
+                editor.AddText(indent + 'def fn():\n')
+                editor.AddText(indent + editor.GetIndent() * ' ' + 'pass')
+                editor.SetSelection(selection[0] + len(indent) + 4, 
+                                    selection[0] + len(indent) + 6)
+ 
     def label_while_clicked(self, event):
         editor = self.get_active_child_editor()
         selection = editor.GetSelection()
