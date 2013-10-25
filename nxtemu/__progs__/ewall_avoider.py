@@ -13,4 +13,4 @@ def main():
         else:
             OnFwd(OUT_AB, 80)
        
-        ticker()#lfixed
+	ticker()#lfixed

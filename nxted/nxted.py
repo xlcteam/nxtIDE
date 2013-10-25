@@ -490,10 +490,8 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.Bind(wx.aui.EVT_AUINOTEBOOK_PAGE_CHANGING, self.tabChanged)
         self.Bind(wx.EVT_CLOSE, self.OnQuit)
 
-        self._mgr.AddPane(PythonSidebar(self),
-                         wx.aui.AuiPaneInfo().Name("sidebar").
-                         TopDockable(False).BottomDockable(False).
-                         Caption('Sidebar').Right().PaneBorder(False))
+        self.python_sidebar = PythonSidebar(self)
+        self.showSidebar(None)
 
         self.OnNewChild(None)
 
@@ -547,6 +545,9 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.Bind(wx.EVT_MENU, self.Prev, item)
 
         self.menu.AppendSeparator()
+        item = self.menu.Append(-1, "Show sidebar")
+        self.Bind(wx.EVT_MENU, self.showSidebar, item)
+        self.menu.AppendSeparator()
         item = self.menu.Append(-1, "Preferences")
         self.Bind(wx.EVT_MENU, self.onPreferences, item)
         self.menu.AppendSeparator()
@@ -596,6 +597,14 @@ class Editor(wx.aui.AuiMDIParentFrame):
                 return
 
         self.Destroy()
+
+    def showSidebar(self, evt):
+        #if not (self.python_sidebar.IsShown()):
+            self._mgr.AddPane(self.python_sidebar,
+                     wx.aui.AuiPaneInfo().Name("sidebar").
+                     TopDockable(False).BottomDockable(False).
+                     Caption('Sidebar').Right().PaneBorder(False))
+            self._mgr.Update()
 
     def onPreferences(self, evt):
         pref = PreferencesDialog(self, -1, 'Preferences')
