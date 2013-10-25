@@ -4,7 +4,7 @@ nxtIDE
 *All you need to play with Lego Mindstorms NXT and Python*
 
 
-nxtIDE contains
+nxtIDE contains two separate applications:
 
 * nxted  -> for editing, compiling, running, and downloading your code
 * nxtemu -> for emulating Lego Mindstorms NXT Robot
