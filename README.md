@@ -10,7 +10,7 @@ nxtIDE contains two separate applications:
 * nxtemu -> for emulating Lego Mindstorms NXT Robot
 
 
-You can download latest version from [here](https://github.com/xlcteam/nxtIDE/downloads)
+You can download latest version [here](https://github.com/xlcteam/nxtIDE/downloads)
 
 nxtemu
 ------
