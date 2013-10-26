@@ -599,7 +599,10 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.Destroy()
 
     def showSidebar(self, evt):
-        #if not (self.python_sidebar.IsShown()):
+        # sidebar should only be shown (which in this case means created) if
+        # there is none present at the moment. Otherwise undefined behaviour
+        # will occur
+        if not (self.python_sidebar.IsShown()):
             self._mgr.AddPane(self.python_sidebar,
                      wx.aui.AuiPaneInfo().Name("sidebar").
                      TopDockable(False).BottomDockable(False).
