@@ -491,7 +491,7 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.Bind(wx.EVT_CLOSE, self.OnQuit)
 
         self.python_sidebar = PythonSidebar(self)
-        self.showSidebar(None)
+        self.showSidebar(None, startup_run = True)
 
         self.OnNewChild(None)
 
@@ -598,16 +598,24 @@ class Editor(wx.aui.AuiMDIParentFrame):
 
         self.Destroy()
 
-    def showSidebar(self, evt):
+    def showSidebar(self, evt, startup_run = False):
         # sidebar should only be shown (which in this case means created) if
         # there is none present at the moment. Otherwise undefined behaviour
         # will occur
-        if not (self.python_sidebar.IsShown()):
+        if startup_run:
             self._mgr.AddPane(self.python_sidebar,
                      wx.aui.AuiPaneInfo().Name("sidebar").
                      TopDockable(False).BottomDockable(False).
                      Caption('Sidebar').Right().PaneBorder(False))
             self._mgr.Update()
+        else:
+            if not (self.python_sidebar.IsShown()):
+                self._mgr.AddPane(self.python_sidebar,
+                         wx.aui.AuiPaneInfo().Name("sidebar").
+                         TopDockable(False).BottomDockable(False).
+                         Caption('Sidebar').Right().PaneBorder(False))
+                self._mgr.Update()
+ 
 
     def onPreferences(self, evt):
         pref = PreferencesDialog(self, -1, 'Preferences')
