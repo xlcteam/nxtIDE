@@ -94,9 +94,12 @@ def main():
                 clicker.process(pygame.mouse.get_pos())
 
             if event.type == KEYDOWN:
-                if event.key == K_h and KMOD_CTRL:
-                    robot.brick_hidden = not robot.brick_hidden
-                    env.check_brick()
+                if KMOD_CTRL:
+                    if event.key == K_h:
+                        robot.brick_hidden = not robot.brick_hidden
+                        env.check_brick()
+                    if event.key == K_d:
+                        robot.background_dialog()
             
             if event.type == QUIT: 
                 robot.die = True
