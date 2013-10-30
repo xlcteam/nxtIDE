@@ -611,10 +611,11 @@ class Editor(wx.aui.AuiMDIParentFrame):
             self._mgr.Update()
         else:
             if not (self.python_sidebar.IsShown()):
-                self._mgr.AddPane(self.python_sidebar,
-                         wx.aui.AuiPaneInfo().Name("sidebar").
-                         TopDockable(False).BottomDockable(False).
-                         Caption('Sidebar').Right().PaneBorder(False))
+                #self._mgr.AddPane(self.python_sidebar,
+                #         wx.aui.AuiPaneInfo().Name("sidebar").
+                #         TopDockable(False).BottomDockable(False).
+                #         Caption('Sidebar').Right().PaneBorder(False))
+                self._mgr.GetPane(self.python_sidebar).Show()
                 self._mgr.Update()
  
 
