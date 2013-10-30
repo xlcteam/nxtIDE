@@ -599,10 +599,11 @@ class Editor(wx.aui.AuiMDIParentFrame):
         self.Destroy()
 
     def showSidebar(self, evt, startup_run = False):
-        # sidebar should only be shown (which in this case means created) if
-        # there is none present at the moment. Otherwise undefined behaviour
-        # will occur. Also, calling self.python_sidebar.IsShown() before the
-        # sidebar is added will cause undefined behaviour, hence this solution.
+        """Shows the sidebar.
+        
+        In case there the startup_run argument is set to True the sidebar is
+        created."""
+
         if startup_run:
             self._mgr.AddPane(self.python_sidebar,
                      wx.aui.AuiPaneInfo().Name("sidebar").
@@ -611,10 +612,6 @@ class Editor(wx.aui.AuiMDIParentFrame):
             self._mgr.Update()
         else:
             if not (self.python_sidebar.IsShown()):
-                #self._mgr.AddPane(self.python_sidebar,
-                #         wx.aui.AuiPaneInfo().Name("sidebar").
-                #         TopDockable(False).BottomDockable(False).
-                #         Caption('Sidebar').Right().PaneBorder(False))
                 self._mgr.GetPane(self.python_sidebar).Show()
                 self._mgr.Update()
  
