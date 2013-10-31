@@ -1082,6 +1082,29 @@ def set_sensors(port1, port2, port3, port4):
 
     return True
 
+def random(n=None):
+    """
+    .. [en]
+    random(n = 0)
+
+    Returns a random number
+
+    :param int n: the maximal value this function should return
+
+    .. [/en]
+    .. [sk]
+    random(n = 0)
+
+    Vráti náhodné číslo
+
+    :param int n: najväčšia hodnota , ktorú má táto funkcia vrátiť.
+    .. [/sk]
+    """
+
+    return Random(n)
+
+
+
 
 __clock__ = pygame.time.Clock()
 
