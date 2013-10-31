@@ -236,6 +236,8 @@ def ClearScreen():
         pygame.draw.rect(robot.lcd, pygame.Color(0x43, 0x6c, 0x30),
                         ((0, 0), (204, 130)))
 
+    robot._cur_lcd_line = 8
+
 
 def clear_screen():
     """
@@ -313,6 +315,21 @@ def NumOut(x, y, num, clear=False):
 
 # TODO
 
+def lcd_print(text):
+    lines = text.split('\n')
+    for line in lines:
+        print robot._cur_lcd_line,
+        if robot._cur_lcd_line == 8:
+            clear_screen()
+            robot._cur_lcd_line = 0
+        else:
+            robot._cur_lcd_line += 1
+
+        print robot._cur_lcd_line,
+
+        line_position = 64 - robot._cur_lcd_line* 8
+        print line_position
+        TextOut(0, line_position, line)
 
 def LineOut(x0, y0, x1, y1):
     """

@@ -93,6 +93,8 @@ class Robot(NXTBrick):
         self.lcd = pygame.Surface((204, 130))
         pygame.draw.rect(self.lcd, pygame.Color(0x43, 0x6c, 0x30),
             ((0, 0), (204, 130)))
+        
+        self._cur_lcd_line = 8
 
         if wboot:
             #print "booting"
