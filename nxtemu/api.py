@@ -904,6 +904,36 @@ def RotateMotor(motor, speed, angle):
 
     Off(motor)
 
+def rotate_motor(motor, speed, angle):
+    """
+    .. [en]
+    rotate_motor(motor, speed, angle)
+
+    Rotate motor in specified direction at specified speed for the specified
+    number of degrees.
+
+    :param int motor: motor we want to rotate
+    :param int speed: speed we want to run the motor at, from 0 to 100. 
+                      Negative value reverses direction.
+    :param int angle: number of degrees we want to rotate the motor. Negative 
+                      value reverses direction.
+
+    .. [/en]
+    .. [sk]
+    rotate_motor(motor, rýchlosť, uhol)
+
+    Otočí motor v danom smere danou rýchlosťou a o istý počet stupňov. 
+
+    :param int motor: motor, ktorý chceme točiť
+    :param int speed: rýchlosť, ktorou chceme točiť motor od 0 do 100. Záporná 
+                      hodnota otočí smer chodu motora.
+    :param int angle: počet stupňov pre otáčanie motora. Záporná hodnota otočí 
+                      smer chodu motora.
+    .. [/sk]
+    """
+
+    return RotateMotor(motor, speed, angle)
+
 
 def ResetTachoCount(motor):
     """
