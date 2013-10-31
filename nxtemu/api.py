@@ -735,7 +735,7 @@ def Float(motor):
     return Off(motor)
 
 
-def off(motor):
+def off(motor=None):
     """
     .. [en]
     off(motor)
@@ -754,7 +754,10 @@ def off(motor):
     .. [/sk]
     """
 
-    return Off(motor)
+    if motor is None:
+        return Off(OUT_ABC)
+    else:
+        return Off(motor)
 
 
 def MotorTachoCount(motor):
