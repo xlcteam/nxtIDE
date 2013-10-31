@@ -445,10 +445,9 @@ def RectOut(x, y, width, height):
     """
 
     LineOut(x, y, x + width + 1, y)
-    LineOut(x, y, x , y - height)
+    LineOut(x, y, x, y - height)
     LineOut(x, y - height, x + width, y - height)
     LineOut(x + width, y, x + width, y - height)
-
 
 
 def ResetScreen():
@@ -616,8 +615,8 @@ def OnFwd(motor, speed):
     Nastaví motor tak, aby sa pohyboval vpred a spustí ho
 
     :param int motor: motor, ktorý chceme spustiť.
-    :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. 
-                         Záporná rýchlosť zmení smer chodu motora.
+    :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do
+                         100. Záporná rýchlosť zmení smer chodu motora.
     .. [/sk]
     """
 
@@ -775,8 +774,8 @@ def RotateMotor(motor, speed, angle):
     number of degrees.
 
     :param int motor: motor we want to rotate
-    :param int speed: speed we want to run the motor at, from 0 to 100. Negative 
-                      value reverses direction.
+    :param int speed: speed we want to run the motor at, from 0 to 100. 
+                      Negative value reverses direction.
     :param int angle: number of degrees we want to rotate the motor. Negative 
                       value reverses direction.
 
@@ -912,7 +911,8 @@ def SensorUS(sensor):
     SensorUS(sensor)
 
     Načíta hodnotu z lowspeed sensoru (e.g. Ultrasonic). Input port
-    by mal byť pred použitím nastavený ako lowspeed funkciou :func:`api.Lowspeed.
+    by mal byť pred použitím nastavený ako lowspeed funkciou 
+    :func:`api.Lowspeed.
 
     :param int sensor: senzor, z ktorého chceme načítať hodnotu
     .. [/sk]
@@ -1024,8 +1024,8 @@ def on_fwd(motor, speed):
     Nastaví motor tak, aby sa pohyboval vpred a spustí ho
 
     :param int motor: motor, ktorý chceme spustiť.
-    :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 100. 
-                         Záporná rýchlosť zmení smer chodu motora.
+    :param int rychlost: Rýchlosť, ktorou chceme poslať robota dopredu od 0 do 
+                         100. Záporná rýchlosť zmení smer chodu motora.
 
     .. [/sk]
     """
@@ -1082,6 +1082,7 @@ def set_sensors(port1, port2, port3, port4):
 
     return True
 
+
 def random(n=None):
     """
     .. [en]
@@ -1102,8 +1103,6 @@ def random(n=None):
     """
 
     return Random(n)
-
-
 
 
 __clock__ = pygame.time.Clock()
