@@ -600,6 +600,28 @@ def Wait(milisec):
         dieTest()
 
 
+def wait(milisec):
+    """
+    .. [en]
+    wait(milisec)
+
+    Waits for given number of miliseconds.
+
+    :param int milisec: number of miliseconds
+
+    .. [/en]
+    .. [sk]
+    wait(milisekundy)
+
+    Počká na daný čas v milisekundách.
+
+    :param int milisec: číslo v milisekundách.
+    .. [/sk]
+    """
+
+    return Wait(milisec)
+
+
 def _sine_array_onecycle(hz, peak):
     length = 44100 / float(hz)
     omega = pi * 2 / length
