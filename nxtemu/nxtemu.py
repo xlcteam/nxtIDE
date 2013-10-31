@@ -100,6 +100,8 @@ def main():
                         env.check_brick()
                     if event.key == K_d:
                         robot.background_dialog()
+                    if event.key == K_c:
+                        robot.onConsole()
             
             if event.type == QUIT: 
                 robot.die = True

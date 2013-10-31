@@ -237,6 +237,24 @@ def ClearScreen():
                         ((0, 0), (204, 130)))
 
 
+def clear_screen():
+    """
+    .. [en]
+    clear_screen()
+
+    Clear the screen.
+
+    .. [/en]
+    .. [sk]
+    clear_screen()
+
+    Vyčistí obrazovku.
+    .. [/sk]
+    """
+
+    ClearScreen()
+
+
 def TextOut(x, y, text, clear=False):
     """
     .. [en]
@@ -1088,7 +1106,7 @@ def set_sensor(port, type):
     """
     .. [en]
     set_sensor(port, type) 
-    
+
     Sets the port to a given type. 
     .. [/en]
 
