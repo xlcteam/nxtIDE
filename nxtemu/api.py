@@ -316,6 +316,30 @@ def NumOut(x, y, num, clear=False):
 # TODO
 
 def lcd_print(text):
+    """
+    .. [en]
+    lcd_print(text)
+
+    Print one or multiple lines of text on the LCD screen. Every line can have
+    at most 16 characters -- others will be omitted. 
+    
+    Lines are separated in text by the newline sign (\\n). Every line is printed
+    separately. 
+
+    :param string text: text to be printed on the LCD screen
+    .. [/en]
+    .. [sk]
+    lcd_print(text)
+
+    Vypíše jeden alebo viac riadkov textu na LCD obrazovku. Na jeden riadok
+    vypíše najviac 16 znakov -- ostatné budú ignorované. 
+
+    Riadky sú v texte oddelené znakom nového riadku (\\n). Každý riadok je
+    vypísaný samostatne. 
+    
+    :param string text: text, ktorý sa má vypísať na LCD obrazovku
+    .. [/sk]
+    """
     lines = text.split('\n')
     for line in lines:
         print robot._cur_lcd_line,
