@@ -735,6 +735,28 @@ def Float(motor):
     return Off(motor)
 
 
+def off(motor):
+    """
+    .. [en]
+    off(motor)
+
+    Turn the motor off (with break).
+
+    :param int motor: motor we want to stop.
+
+    .. [/en]
+    .. [sk]
+    off(motor)
+
+    Vypne motor (a zabrzdí).
+
+    :param int motor: motor, ktorý chceme zastaviť.
+    .. [/sk]
+    """
+
+    return Off(motor)
+
+
 def MotorTachoCount(motor):
     """
     .. [en]
