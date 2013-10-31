@@ -529,6 +529,24 @@ def ResetScreen():
         scr_runner.start()
 
 
+def lcd_reset():
+    """
+    .. [en]
+    lcd_reset()
+
+    Return the screen to Running... state.
+
+    .. [/en]
+    .. [sk]
+    lcd_reset()
+
+    Vráti obrazovku do stavu Running... .
+    .. [/sk]
+    """
+
+    ResetScreen()
+ 
+
 def ClearLine(line):
     """
     .. [en]
