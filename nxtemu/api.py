@@ -239,16 +239,16 @@ def ClearScreen():
     robot._cur_lcd_line = 8
 
 
-def clear_screen():
+def lcd_clear():
     """
     .. [en]
-    clear_screen()
+    lcd_clear()
 
     Clear the screen.
 
     .. [/en]
     .. [sk]
-    clear_screen()
+    lcd_clear()
 
     Vyčistí obrazovku.
     .. [/sk]
@@ -344,7 +344,7 @@ def lcd_print(text):
     for line in lines:
         print robot._cur_lcd_line,
         if robot._cur_lcd_line == 8:
-            clear_screen()
+            lcd_clear()
             robot._cur_lcd_line = 0
         else:
             robot._cur_lcd_line += 1
