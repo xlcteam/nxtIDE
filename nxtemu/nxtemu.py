@@ -94,7 +94,7 @@ def main():
                 clicker.process(pygame.mouse.get_pos())
 
             if event.type == KEYDOWN:
-                if KMOD_CTRL:
+                if event.mod & KMOD_CTRL:
                     if event.key == K_h:
                         robot.brick_hidden = not robot.brick_hidden
                         env.check_brick()
