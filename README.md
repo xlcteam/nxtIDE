@@ -29,4 +29,17 @@ Dependencies
 - pygame
 - pynxc
 
+Installation
+------------
+
+First of all, make sure you have all dependencies available on your system.
+
+Then clone this repository by running:
+
+    git clone https://github.com/xlcteam/nxtIDE.git
+
+
+You can then try to run `nxtemu/nxtemu.py` and `nxted/nxted.py`.
+
+
 (c) 2011 - 2013, Brought to you by the [XLC Team](https://github.com/xlcteam), http://xlc-team.info
