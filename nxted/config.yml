@@ -1,6 +1,1 @@
-inputs:
-  1: {slot: 0, type: ''}
-  2: {slot: 0, type: ''}
-  3: {slot: 0, type: ''}
-  4: {slot: 0, type: ''}
-others: {background: ''}
+nxtemudir: ../nxtemu

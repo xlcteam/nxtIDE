@@ -59,7 +59,7 @@ def main():
         def runner():
             robot.screen_y = 3
             robot.scrout()
-            Wait(800)
+            pygame.time.delay(800)
             robot.onCenter()
 
         RoboThread(target=runner).start()
