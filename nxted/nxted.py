@@ -350,6 +350,7 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
     def runner(self):
         c = self.emuproc.communicate()
+        print c[1]
 
     def onDownloadRun(self, event):
         self.onCompile(event=None)

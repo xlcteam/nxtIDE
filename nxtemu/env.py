@@ -27,7 +27,7 @@ def write_config(filename = './config.yml'):
     stream.close()
 
 def read_config(filename = './config.yml'):
-    stream = open(filename, "r")
+    stream = open(p(filename), "r")
     cfg = yaml.load(stream)
     stream.close()
     return cfg
