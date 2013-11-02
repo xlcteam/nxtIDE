@@ -336,9 +336,11 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
             self.emuproc = None
 
-        # run an exe application if on Windows, otherwise py script
-        extension = 'exe' if hasattr(sys, 'frozen') else 'py'
-        nxtemu = "%s/nxtemu.%s" % (self.parent.cfg["nxtemudir"], extension)
+        # run an exe application if this is a Windows build, otherwise py
+        # script
+
+        extension = 'exe' if hasattr(sys, 'frozen') else 'py' nxtemu =
+        "%s/nxtemu.%s" % (self.parent.cfg["nxtemudir"], extension)
 
         self.emuproc = subprocess.Popen([nxtemu,
                                          self.filename.replace('.py', '')],
@@ -350,7 +352,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
 
     def runner(self):
         c = self.emuproc.communicate()
-        print c[1]
+        if c[1] != '':
+            print c[1]
 
     def onDownloadRun(self, event):
         self.onCompile(event=None)
