@@ -592,24 +592,33 @@ class PythonSidebar(wx.Panel):
  
 
 
-        vbox.Add(self.label_flow, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+        vbox1 = wx.BoxSizer(wx.VERTICAL) 
+        vbox1.Add(self.label_flow, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
-        vbox.Add(self.label_if, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+        vbox1.Add(self.label_if, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
-        vbox.Add(self.label_for, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+        vbox1.Add(self.label_for, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
-        vbox.Add(self.label_while, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+        vbox1.Add(self.label_while, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
-        vbox.Add(self.label_func, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+        vbox1.Add(self.label_func, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
         
-        vbox.Add(self.label_lcd, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+        vbox2 = wx.BoxSizer(wx.VERTICAL) 
+        vbox2.Add(self.label_lcd, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
-        vbox.Add(self.label_print, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+        vbox2.Add(self.label_print, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
-        vbox.Add(self.label_clear, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+        vbox2.Add(self.label_clear, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
-        vbox.Add(self.label_reset, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+        vbox2.Add(self.label_reset, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+
+        hbox1 = wx.BoxSizer(wx.HORIZONTAL)
+        hbox1.Add(vbox1, flag=wx.ALIGN_TOP| wx.LEFT, proportion=0, border=0)
+        hbox1.Add(vbox2, flag=wx.ALIGN_TOP| wx.LEFT, proportion=0, border=5)
+
+        vbox.Add(hbox1, flag=wx.EXPAND | wx.ALIGN_BOTTOM, proportion=1,
                 border=5)
  
         self.html = wx.html.HtmlWindow(self)
