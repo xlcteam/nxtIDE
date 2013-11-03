@@ -339,8 +339,8 @@ class PYSTCChild(wx.aui.AuiMDIChildFrame):
         # run an exe application if this is a Windows build, otherwise py
         # script
 
-        extension = 'exe' if hasattr(sys, 'frozen') else 'py' nxtemu =
-        "%s/nxtemu.%s" % (self.parent.cfg["nxtemudir"], extension)
+        extension = 'exe' if hasattr(sys, 'frozen') else 'py' 
+        nxtemu = "%s/nxtemu.%s" % (self.parent.cfg["nxtemudir"], extension)
 
         self.emuproc = subprocess.Popen([nxtemu,
                                          self.filename.replace('.py', '')],

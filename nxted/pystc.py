@@ -583,6 +583,14 @@ class PythonSidebar(wx.Panel):
         self.label_while.Bind(wx.EVT_HYPERLINK, self.label_while_clicked)
         self.label_func.Bind(wx.EVT_HYPERLINK, self.label_func_clicked)
 
+        self.label_lcd = self.create_button('LCD', font_size=16,
+                normal_color='#111', hover_color='#222') 
+
+        self.label_print = self.create_button('lcd_print')
+        self.label_clear = self.create_button('lcd_clear')
+        self.label_reset = self.create_button('lcd_reset')
+ 
+
 
         vbox.Add(self.label_flow, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
@@ -595,6 +603,15 @@ class PythonSidebar(wx.Panel):
         vbox.Add(self.label_func, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
         
+        vbox.Add(self.label_lcd, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+        vbox.Add(self.label_print, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+        vbox.Add(self.label_clear, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+        vbox.Add(self.label_reset, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+ 
         self.html = wx.html.HtmlWindow(self)
         vbox.Add(self.html, flag=wx.EXPAND | wx.ALIGN_BOTTOM, proportion=1,
                 border=5)
