@@ -813,11 +813,14 @@ class PythonSidebar(wx.Panel):
             if cur_line[1] == 0:
                 line_num = editor.GetCurrentLine()
                 indent = editor.GetLineIndentation(line_num - 1) * ' '
- 
-                editor.AddText(indent + 'lcd_print()')
-                editor.SetSelection(selection[0] + 10 + len(indent),
-                                    selection[1] + 10 + len(indent))
+            else:
+                line_num = editor.GetCurrentLine()
+                indent = '\n' + editor.GetLineIndentation(line_num) * ' '
 
+            editor.AddText(indent + 'lcd_print()')
+            editor.SetSelection(selection[0] + 10 + len(indent),
+                                selection[1] + 10 + len(indent))
+ 
 
 
     def create_button(self, label, font_size=12, normal_color='#888',
