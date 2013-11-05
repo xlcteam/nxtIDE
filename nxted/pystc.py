@@ -589,9 +589,9 @@ class PythonSidebar(wx.Panel):
         self.label_print = self.create_button('lcd_print')
         self.label_clear = self.create_button('lcd_clear')
         self.label_reset = self.create_button('lcd_reset')
+
+        self.label_print.Bind(wx.EVT_HYPERLINK, self.label_print_clicked)
  
-
-
         vbox1 = wx.BoxSizer(wx.VERTICAL) 
         vbox1.Add(self.label_flow, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
@@ -801,6 +801,22 @@ class PythonSidebar(wx.Panel):
                 editor.SetSelection(selection[0] + 15 + len(indent), 
                         selection[0] + 17 + len(indent))
 
+
+    def label_print_clicked(self, event):
+        editor = self.get_active_child_editor()
+        selection = editor.GetSelection()
+
+        if selection[0] == selection[1]:
+
+            cur_line = editor.GetCurLine()
+            # empty line
+            if cur_line[1] == 0:
+                line_num = editor.GetCurrentLine()
+                indent = editor.GetLineIndentation(line_num - 1) * ' '
+ 
+                editor.AddText(indent + 'lcd_print()')
+                editor.SetSelection(selection[0] + 10 + len(indent),
+                                    selection[1] + 10 + len(indent))
 
 
 
