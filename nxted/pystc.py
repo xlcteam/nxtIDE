@@ -802,7 +802,12 @@ class PythonSidebar(wx.Panel):
                         selection[0] + 17 + len(indent))
 
 
+    
     def label_print_clicked(self, event):
+        self.insert_sidebar_text('lcd_print()');
+
+
+    def insert_sidebar_text(self, text):
         editor = self.get_active_child_editor()
         selection = editor.GetSelection()
 
@@ -817,12 +822,10 @@ class PythonSidebar(wx.Panel):
                 line_num = editor.GetCurrentLine()
                 indent = '\n' + editor.GetLineIndentation(line_num) * ' '
 
-            editor.AddText(indent + 'lcd_print()')
-            editor.SetSelection(selection[0] + 10 + len(indent),
-                                selection[1] + 10 + len(indent))
+            editor.AddText(indent + text)
+            editor.SetSelection(selection[0] + len(text) - 1 + len(indent),
+                                selection[1] + len(text) - 1 + len(indent))
  
-
-
     def create_button(self, label, font_size=12, normal_color='#888',
             hover_color='#aaa'):
         btn = wx.HyperlinkCtrl(self, id=-1, url='', label=label)
