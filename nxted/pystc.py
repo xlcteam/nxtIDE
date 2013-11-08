@@ -806,7 +806,7 @@ class PythonSidebar(wx.Panel):
 
     
     def label_print_clicked(self, event):
-        self.insert_sidebar_text('lcd_print()')
+        self.insert_sidebar_text('lcd_print()', caret_pos=-1)
 
     def label_clear_clicked(self, event):
         self.insert_sidebar_text('lcd_clear()')
@@ -814,7 +814,7 @@ class PythonSidebar(wx.Panel):
     def label_reset_clicked(self, event):
         self.insert_sidebar_text('lcd_reset()')
 
-    def insert_sidebar_text(self, text):
+    def insert_sidebar_text(self, text, caret_pos=0):
         editor = self.get_active_child_editor()
         selection = editor.GetSelection()
 
@@ -830,8 +830,8 @@ class PythonSidebar(wx.Panel):
                 indent = '\n' + editor.GetLineIndentation(line_num) * ' '
 
             editor.AddText(indent + text)
-            editor.SetSelection(selection[0] + len(text) - 1 + len(indent),
-                                selection[1] + len(text) - 1 + len(indent))
+            editor.SetSelection(selection[0] + len(text) - caret_pos + len(indent),
+                                selection[1] + len(text) - caret_pos + len(indent))
  
     def create_button(self, label, font_size=12, normal_color='#888',
             hover_color='#aaa'):
