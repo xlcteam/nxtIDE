@@ -591,6 +591,8 @@ class PythonSidebar(wx.Panel):
         self.label_reset = self.create_button('lcd_reset')
 
         self.label_print.Bind(wx.EVT_HYPERLINK, self.label_print_clicked)
+        self.label_clear.Bind(wx.EVT_HYPERLINK, self.label_clear_clicked)
+        self.label_reset.Bind(wx.EVT_HYPERLINK, self.label_reset_clicked)
  
         vbox1 = wx.BoxSizer(wx.VERTICAL) 
         vbox1.Add(self.label_flow, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
@@ -804,8 +806,13 @@ class PythonSidebar(wx.Panel):
 
     
     def label_print_clicked(self, event):
-        self.insert_sidebar_text('lcd_print()');
+        self.insert_sidebar_text('lcd_print()')
 
+    def label_clear_clicked(self, event):
+        self.insert_sidebar_text('lcd_clear()')
+
+    def label_reset_clicked(self, event):
+        self.insert_sidebar_text('lcd_reset()')
 
     def insert_sidebar_text(self, text):
         editor = self.get_active_child_editor()
