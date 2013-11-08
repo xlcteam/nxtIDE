@@ -806,6 +806,7 @@ class PythonSidebar(wx.Panel):
 
     
     def label_print_clicked(self, event):
+        # so that the caret will be placed between the bractets
         self.insert_sidebar_text('lcd_print()', caret_pos=-1)
 
     def label_clear_clicked(self, event):
