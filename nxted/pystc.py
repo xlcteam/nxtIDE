@@ -833,7 +833,13 @@ class PythonSidebar(wx.Panel):
             editor.AddText(indent + text)
             editor.SetSelection(selection[0] + len(text) + caret_pos + len(indent),
                                 selection[1] + len(text) + caret_pos + len(indent))
- 
+
+        else:
+            selected_text = editor.GetSelectedText()
+            parts = text.split('(')
+            editor.ReplaceSelection(parts[0] + '(' + selected_text + parts[1])
+
+
     def create_button(self, label, font_size=12, normal_color='#888',
             hover_color='#aaa'):
         btn = wx.HyperlinkCtrl(self, id=-1, url='', label=label)
