@@ -831,8 +831,8 @@ class PythonSidebar(wx.Panel):
                 indent = '\n' + editor.GetLineIndentation(line_num) * ' '
 
             editor.AddText(indent + text)
-            editor.SetSelection(selection[0] + len(text) - caret_pos + len(indent),
-                                selection[1] + len(text) - caret_pos + len(indent))
+            editor.SetSelection(selection[0] + len(text) + caret_pos + len(indent),
+                                selection[1] + len(text) + caret_pos + len(indent))
  
     def create_button(self, label, font_size=12, normal_color='#888',
             hover_color='#aaa'):
