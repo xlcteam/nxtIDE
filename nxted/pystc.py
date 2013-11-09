@@ -590,6 +590,13 @@ class PythonSidebar(wx.Panel):
         self.label_clear = self.create_button('lcd_clear')
         self.label_reset = self.create_button('lcd_reset')
 
+        self.label_move = self.create_button('Move', font_size=16,
+                normal_color='#111', hover_color='#222') 
+
+        self.label_on_fwd = self.create_button('on_fwd')
+        self.label_on_rev = self.create_button('on_rev')
+        self.label_off = self.create_button('off')
+
         self.label_print.Bind(wx.EVT_HYPERLINK, self.label_print_clicked)
         self.label_clear.Bind(wx.EVT_HYPERLINK, self.label_clear_clicked)
         self.label_reset.Bind(wx.EVT_HYPERLINK, self.label_reset_clicked)
@@ -615,6 +622,16 @@ class PythonSidebar(wx.Panel):
                 border=5)
         vbox2.Add(self.label_reset, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
                 border=5)
+
+        vbox2.Add(self.label_move, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+        vbox2.Add(self.label_on_fwd, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+        vbox2.Add(self.label_on_rev, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+        vbox2.Add(self.label_off, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
+                border=5)
+
 
         hbox1 = wx.BoxSizer(wx.HORIZONTAL)
         hbox1.Add(vbox1, flag=wx.ALIGN_TOP| wx.LEFT, proportion=0, border=0)
