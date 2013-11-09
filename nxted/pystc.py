@@ -838,6 +838,9 @@ class PythonSidebar(wx.Panel):
             selected_text = editor.GetSelectedText()
             parts = text.split('(')
             editor.ReplaceSelection(parts[0] + '(' + selected_text + parts[1])
+            editor.SetSelection(selection[0] + len(parts[0]) + 1,
+                                selection[0] + len(parts[0]) + 1 +
+                                len(selected_text))
 
 
     def create_button(self, label, font_size=12, normal_color='#888',
