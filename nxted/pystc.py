@@ -309,9 +309,10 @@ class PythonSTC(stc.StyledTextCtrl):
             self.AddText('"')
             self.SetSelection(selection[0], selection[1])
 
+        # print self.GetStyleAt(self.GetCurrentPos())
+
         # According to PEP8: Block Comments start with # and a single space.
-        if (key == ord('#')) and 
-            (self.GetStyleAt(self.GetCurrentPos()) != stc.STC_P_STRING):
+        if (key == ord('#')):
             self.AddText(' ')
 
         event.Skip()
@@ -347,7 +348,7 @@ class PythonSTC(stc.StyledTextCtrl):
             if '#' in line[0]:
                 self.AddText('# ')
 
-            return
+            event.Skip()
         
 
 
