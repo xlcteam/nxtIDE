@@ -331,13 +331,20 @@ class PythonSTC(stc.StyledTextCtrl):
                 self.AutoCompComplete()
                 return
 
+            line = self.GetCurrentLine()
             c = self.GetCharAt(self.GetCurrentPos() - 1)
             self.indent = self.GetLineIndentation(self.GetCurrentLine()) * ' '
             if c == 58:
                 self.AddText("\n" + self.GetIndent() * ' ' + self.indent)
             else:
                 self.AddText("\n" + self.indent)
+            
+            if '#' in line:
+                self.AddText('# ')
+
             return
+        
+
 
         if key == 32 and event.ControlDown():
             pos = self.GetCurrentPos()
