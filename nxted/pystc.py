@@ -324,7 +324,7 @@ class PythonSTC(stc.StyledTextCtrl):
         # if the caret is located between two quotation marks they will both
         # get deleted
         if key == wx.WXK_BACK:
-            if (self.GetCharAt(self.GetCurrentPos()) == ord('"')):
+            if (self.GetCharAt(pos-1) == self.GetCharAt(pos) == ord('"') ):
                 pos = self.GetCurrentPos()
                 self.SetSelection(pos + 1, pos + 1)
                 self.DeleteBack()
