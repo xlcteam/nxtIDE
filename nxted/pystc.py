@@ -302,12 +302,23 @@ class PythonSTC(stc.StyledTextCtrl):
             self.last_id = None
             self.last_arg_pos = 0
 
+        if key == ord('"'):
+            selection = self.GetSelection()
+            self.AddText('"')
+            self.SetSelection(selection[0], selection[1])
+
         event.Skip()
 
     def OnKeyPressed(self, event):
         key = event.GetKeyCode()
-
         pos = self.GetCurrentPos()
+
+        if key == wx.WXK_BACK:
+            if (self.GetCharAt(self.GetCurrentPos()) == ord('"')):
+                pos = self.GetCurrentPos()
+                self.SetSelection(pos + 1, pos + 1)
+                self.DeleteBack()
+
 
         if key == wx.WXK_RETURN:
 
