@@ -302,6 +302,8 @@ class PythonSTC(stc.StyledTextCtrl):
             self.last_id = None
             self.last_arg_pos = 0
 
+        # typing a quotation mark often means you are starting a string which
+        # needs to be enclosed by them. Thus, we add the ending one.
         if key == ord('"'):
             selection = self.GetSelection()
             self.AddText('"')
@@ -313,6 +315,8 @@ class PythonSTC(stc.StyledTextCtrl):
         key = event.GetKeyCode()
         pos = self.GetCurrentPos()
 
+        # if the caret is located between two quotation marks they will both
+        # get deleted
         if key == wx.WXK_BACK:
             if (self.GetCharAt(self.GetCurrentPos()) == ord('"')):
                 pos = self.GetCurrentPos()
