@@ -331,7 +331,7 @@ class PythonSTC(stc.StyledTextCtrl):
                 self.AutoCompComplete()
                 return
 
-            line = self.GetCurrentLine()
+            line = self.GetCurLine()
             c = self.GetCharAt(self.GetCurrentPos() - 1)
             self.indent = self.GetLineIndentation(self.GetCurrentLine()) * ' '
             if c == 58:
@@ -339,7 +339,7 @@ class PythonSTC(stc.StyledTextCtrl):
             else:
                 self.AddText("\n" + self.indent)
             
-            if '#' in line:
+            if '#' in line[0]:
                 self.AddText('# ')
 
             return
