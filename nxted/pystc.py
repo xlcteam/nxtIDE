@@ -600,6 +600,8 @@ class PythonSidebar(wx.Panel):
         self.label_print.Bind(wx.EVT_HYPERLINK, self.label_print_clicked)
         self.label_clear.Bind(wx.EVT_HYPERLINK, self.label_clear_clicked)
         self.label_reset.Bind(wx.EVT_HYPERLINK, self.label_reset_clicked)
+
+        self.label_off.Bind(wx.EVT_HYPERLINK, self.label_off_clicked)
  
         vbox1 = wx.BoxSizer(wx.VERTICAL) 
         vbox1.Add(self.label_flow, flag=wx.ALIGN_TOP | wx.LEFT, proportion=0,
@@ -831,6 +833,10 @@ class PythonSidebar(wx.Panel):
 
     def label_reset_clicked(self, event):
         self.insert_sidebar_text('lcd_reset()')
+
+    def label_off_clicked(self, event):
+        # so that the caret will be placed between the bractets
+        self.insert_sidebar_text('off()', caret_pos=-1)
 
     def insert_sidebar_text(self, text, caret_pos=0):
         editor = self.get_active_child_editor()
