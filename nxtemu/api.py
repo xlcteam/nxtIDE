@@ -351,6 +351,10 @@ def lcd_print(text):
         line_position = 64 - robot._cur_lcd_line* 8
         TextOut(0, line_position, line)
 
+def lcd_print_at(xpos, ypos, text):
+
+    TextOut(xpos, 64 - ypos*8, text)
+
 def LineOut(x0, y0, x1, y1):
     """
     .. [en]
