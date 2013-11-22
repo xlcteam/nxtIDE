@@ -352,7 +352,19 @@ def lcd_print(text):
         TextOut(0, line_position, line)
 
 def lcd_print_at(xpos, ypos, text):
+    """
+    .. [en]
+    lcd_print_at(xpos, ypos, text)
 
+    :param string text: text to be printed on the LCD screen
+    .. [/en]
+    .. [sk]
+    lcd_print_at(xpos, ypos, text)
+    
+    :param string text: text, ktorý sa má vypísať na LCD obrazovku
+    .. [/sk]
+    """
+ 
     TextOut(xpos, 64 - ypos*8, text)
 
 def LineOut(x0, y0, x1, y1):
