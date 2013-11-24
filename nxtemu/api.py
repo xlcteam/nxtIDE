@@ -356,6 +356,8 @@ def lcd_print_at(xpos, ypos, text):
     .. [en]
     lcd_print_at(xpos, ypos, text)
 
+    Prints text on given y-th line, starting on the position of the x-th
+    character.
 
     :param int xpos: the x coordinate (line)
     :param int ypos: the y coordinate (line)
@@ -363,6 +365,8 @@ def lcd_print_at(xpos, ypos, text):
     .. [/en]
     .. [sk]
     lcd_print_at(xpos, ypos, text)
+
+    Vypíše text na daný y-ty riadok, začínajúc na pozícii x-tého znaku. 
     
     :param int xpos: X-ová súradnica (riadok)
     :param int ypos: Y-ová súradnica (riadok)
