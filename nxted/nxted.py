@@ -21,8 +21,9 @@ import ctypes
 #--------------------------------
 __version__ = "1.0.0"
 
-gdi32 = ctypes.WinDLL("gdi32.dll")
-gdi32.AddFontResourceA(os.path.join("../nxtemu/theme","Inconsolata.ttf"))
+if wx.Platform == '__WXMSW__':
+    gdi32 = ctypes.WinDLL("gdi32.dll")
+    gdi32.AddFontResourceA(os.path.join("../nxtemu/theme","Inconsolata.ttf"))
 
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
