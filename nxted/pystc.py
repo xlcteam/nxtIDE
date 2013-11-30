@@ -348,7 +348,7 @@ class PythonSTC(stc.StyledTextCtrl):
             if '#' in line[0]:
                 self.AddText('# ')
 
-            event.Skip()
+            return
         
 
 
