@@ -361,29 +361,17 @@ class PythonSTC(stc.StyledTextCtrl):
             # Tips
             if event.ShiftDown():
                 #self.CallTipSetBackground("#ffffff")
-                self.CallTipSetForeground("#ffffff")
-                self.CallTipShow(pos, 'lots of of text: blah, blah, blah\n\n'
-                                 'show some suff, maybe parameters..\n\n'
-                                 'fubar(param1, param2)')
+                #self.CallTipSetForeground("#ffffff")
+                #self.CallTipShow(pos, 'lots of of text: blah, blah, blah\n\n'
+                #                 'show some suff, maybe parameters..\n\n'
+                #                 'fubar(param1, param2)')
             # Code completion
+                pass
             else:
-                #lst = []
-                #for x in range(50000):
-                #    lst.append('%05d' % x)
-                #st = " ".join(lst)
-                #print len(st)
-                #self.AutoCompShow(0, st)
 
                 id = self.getIdentifier()
 
                 kw = keyword.kwlist[:] + self.api.keys()
-                #kw.append("zzzzzz?2")
-               #kw.append("aaaaa?2")
-               #kw.append("__init__?3")
-               #kw.append("zzaaaaa?2")
-               #kw.append("zzbaaaa?2")
-               #kw.append("this_is_a_longer_value")
-               #kw.append("this_is_a_much_much_much_much_much_much_much_longer_value")
 
                 kw.sort()  # Python sorts are case sensitive
                 self.AutoCompSetIgnoreCase(False)  # so this needs to match
