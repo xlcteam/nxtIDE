@@ -340,6 +340,9 @@ class PythonSTC(stc.StyledTextCtrl):
             line = self.GetCurLine()
             c = self.GetCharAt(self.GetCurrentPos() - 1)
             self.indent = self.GetLineIndentation(self.GetCurrentLine()) * ' '
+
+            # making sure that after a colon(:) we arrive at an indented
+            # line
             if c == 58:
                 self.AddText("\n" + self.GetIndent() * ' ' + self.indent)
             else:
