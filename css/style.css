@@ -28,6 +28,10 @@ section h2 {
   /*font-family: "Lucida Console", Monaco, monospace;*/
 }
 
+section h3 {
+  margin: 18px 10px;
+}
+
 section div {
   border-radius: 10px;
   background-color: #fff; 
