@@ -15,9 +15,9 @@ body {
   text-align: center;
   color: #000;
   margin: 0.83em auto;
-  /*nasty anchor fix -- problematic due to fixed height header */
-  padding-top: 140px;
-  margin-top: -140px;
+  /* hnusny fix pre anchor -- problem koli fixnej vyske headera*/
+  padding-top: 155px;
+  margin-top: -155px;
 }
 
 #container > * {
@@ -188,4 +188,10 @@ table td, table th {
 
 table th {
   background-color: #ccc;
+}
+
+.swf-object {
+  width: 641px; 
+  height: 500px; 
+  margin: 0 auto;
 }
