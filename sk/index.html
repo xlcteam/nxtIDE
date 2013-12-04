@@ -4,8 +4,9 @@
   <meta charset='utf-8'>
 
   <title>nxtIDE</title>
-  <link type="text/css" href="css/ui-lightness/jquery-ui.css" rel="stylesheet" />	
-  <link type="text/css" href="../css/style.css" rel="stylesheet" />	
+  <link type="text/css" href="css/ui-lightness/jquery-ui.css" rel="stylesheet" />
+  <link type="text/css" href="css/style.css" rel="stylesheet" />
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web&subset=latin,cyrillic-ext,greek,greek-ext,vietnamese,latin-ext' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
   <script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
 
@@ -15,19 +16,19 @@
           $('#tabs_winks').tabs({
               select: function(event, ui) {
                 window.location.hash = ui.tab.hash;
-              }  
+              }
           });
-          $('#tabs_features').tabs({
+          $('#features_tabs').tabs({
               select: function(event, ui) {
                 window.location.hash = ui.tab.hash;
-              }  
+              }
           });
-          $('#container').tabs({
-              select: function(event, ui) {
-                window.location.hash = ui.tab.hash;
-              }  
-          });
- 
+        //$('#container').tabs({
+        //    select: function(event, ui) {
+        //      window.location.hash = ui.tab.hash;
+        //    }
+        //});
+
 			});
 		</script>
 
@@ -35,24 +36,110 @@
 <body>
   <div id="header">
     <div>
-      <img src="../brick.png" />
+      <img src="brick.png" />
       <h1><a class="logo" href="#">nxtIDE</a></h1>
-      <p>Prostredie pre programovanie a simulovanie LEGO Mindstorms NXT
-      robotov v Pythone</p>
+      <p>Všetko, čo potrebujete na hranie sa s NXT robotmi a Pythonom</p>
       <!-- fork us on github -->
-      <a href="https://github.com/xlcteam/nxtIDE"><img id="fork-us" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/xlcteam/nxtIDE"><img id="fork-us" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
     </div>
   </div>
-
+<div id="wrapper">
   <div id="container">
-
+    <!--
     <ul>
-        <li><a href="#home">Domov</a></li>
-        <li><a href="#downloads">Na stiahnutie</a></li>
-        <li><a href="#features">Funkcie</a></li>
-        <li><a href="#quicktut">Rýchly úvod</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#downloads">Downloads</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#quicktut">Quick Tutorial</a></li>
     </ul>
+    -->
 
+    <section >
+      <h2 id="what">What?</h2>
+       <div class="item">
+         <p><strong>nxtIDE</strong> is an <strong>I</strong>ntegrated <strong>D</strong>evelopment <strong>E</strong>nvironment* which lets you use <a href="http://python.org">Python</a> to program <a href="https://en.wikipedia.org/wiki/Lego_Mindstorms_NXT">Lego Mindstorms NXT</a> robots and also simulate them.<br/>
+         This means that you <em>don't</em> need the actual robot. Just <a href="#download">download nxtIDE</a>, install it and you can start having fun while playing with robots!
+         </p>
+         <p class="subtext">*) nxtIDE aims to include everything you need to start with Lego Mindstorms NXT robots. You don't need to install anything else.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="why">Why?</h2>
+      <div class="item">
+        <div class="left content"> <p>
+          Lots of people know Lego Mindstorms NXT. It's a robotic kit which has awesome features: it's not that expensive, it's really easy to play with and you can do many awesome things with it.
+        </p>
+        </div>
+        <div class="photo left">
+          <img src="imgs/lego-nxt-small.png" alt="Lego NXT robot" />
+          <p>Well, you can create <em> way more awesome</em> things then this robot. Image from <a href="https://en.wikipedia.org/wiki/File:Lego_Mindstorms_Nxt-FLL.jpg">Wikipedia</a>.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="left photo">
+          <a href="http://www.brickshelf.com/gallery/brdavis/NXT/NXT-G/remote.png" target="_blank"><img src="imgs/nxt-g-small.png" alt="NXT-G" /></a>
+          <p>An example program in NXT-G (click to enlarge). There is also a more <a href="https://www.flickr.com/photos/73571158@N00/4524618514/lightbox/">complex example</a>. <br />
+          Image from <a href="http://www.teamhassenplug.org/NXT/NXT-GCodeIndex.html">www.teamhassenplug.org</a>.
+          </p>
+        </div>
+        <div class="left content">
+           <p>
+          But when it comes to programming, there are only bad options. You can use <a href="#nxt-g">NXT-G</a> which is a graphical programming language and is indeed really simple to use. But once you want to do something more advanced an complex it gets slow.
+          </p>
+        </div>
+      </div>
+
+      <div class="item">
+       <div class="left content">
+        <p>
+       On the other hand, there is BrixCC and programming language <a href="#nxc">NXC</a> (<strong>N</strong>ot e<strong>X</strong>actly <strong>C</strong>) which is based on the C programming language. NXC is faster and more robust than NXT-G but has quite complex syntax. This might be no problem for experienced programmers but causes lots of trouble for beginners who play with NXT robots.
+        </p>
+
+        </div>
+        <div class="left photo">
+        <a href="http://dasl.mem.drexel.edu/~ducNguyen/wp-content/uploads/2011/06/BricxCC_Panel-500x375.png" target="_blank"><img src="imgs/brixcc-small.png" alt="NXT-G" /></a>
+          <p>An example program in NXC using BrixCC (click to enlarge).
+          Image from <a href="http://dasl.mem.drexel.edu/~ducNguyen/nxc-setting-up/">dasl.mem.drexel.edu</a>.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="item">
+        <div class="left photo">
+          <a href="imgs/nxted.png" target="_blank"><img src="imgs/nxted-smaller.png" alt="nxtIDE" /></a>
+          <p>An example program in nxtIDE, written in Python (click to enlarge).<br />
+          </p>
+
+        </div>
+        <div class="left content">
+        <p>
+      Here is where <strong>nxtIDE</strong> comes in. You can use it to program your NXT robot in <a href="#python">Python</a> programming language. Python has easy syntax and is simple to use for beginners but also provides useful tools for experienced developers. <br />
+        </p>
+
+        </div>
+      </div>
+
+      <div class="item">
+       <div class="left content">
+        <p>
+      And not only that! With nxtIDE you can also simulate the program you write. This way you don't need a robot to try your program. All you need is a computer which can run Python!
+        </p>
+        </div>
+        <div class="left photo">
+         <a href="imgs/nxtemu.png" target="_blank"><img src="imgs/nxtemu-smaller.png" alt="nxtIDE" /></a>
+          <p>Line follower robot in the simulator (click to enlarge).<br />
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+    <!--
     <div id="home" style="word-wrap: break-word;">
         <h2>nxtemu</h2>
         <hr/>
@@ -62,112 +149,170 @@
         <hr/>
         <img src="https://github.com/xlcteam/nxtIDE/raw/master/nxted/screen/edscreen.png" alt="screenshot" style="max-width:100%;"/>
 
-        <p>(c) 2011 - 2012, <a href="https://github.com/xlcteam">XLC Team</a>, <a href="http://xlc-team.info">http://xlc-team.info</a></p>
-    </div>
-     
-    <div id="downloads">
-        <section id="slide">
-            <h2>Stiahnutie a inštalácia</h2>
-            <div>
-              <p> 
-              Najnovšia verzia sa dá vždy získať z
-              <a href="https://github.com/xlcteam/nxtIDE/downloads">vývojového webu projektu </a><br /> <br />
-      
-              Zoznam všetkých funkcií je možné nájsť <a href="http://xlcteam.github.com/nxtIDE/sk/reference_sk.pdf">tu</a> <br /> <br />
-
-              Aktuálnu verziu 1.0.0 je možné stiahnuť priamo <a href="https://github.com/downloads/xlcteam/nxtIDE/nxtIDE_setup_v1.0.0.exe">tu</a>
-              </p>
-            </div>
-        </section>
-    </div>
-
-    <div id="features">
-        <div id="tabs_features">
-          <ul>
-            <li><a href="#console">Console</a></li>
-          </ul>
-
-          <div id="console">
-              Ak chceš pustiť konzolu, klikni na tlačítko v pravom hornom rohu.
-              <img src="../css/console.png" style="width: 100%"/>
-
-              <p>
-                Môžeš programovať priamo z konzoly. Robot bude reagovať okamžize.
-              </p>
-          </div>
-        </div>
-    </div>
-    
-    <div id="quicktut">
+        -->
+    <section style="clear: both">
+    <h2 id="features">What can I do with it?</h2>
+                <div id="quicktut">
         <section id="intro">
-            <h2>Rýchly úvod</h2>
+            <h3>Quick tutorial</h3>
+            <p>Here are three simple tutorials to show you what it is like to program robots with nxtIDE:</p>
+            <div id="tabs">
             <div id="tabs_winks">
               <ul>
-                <li><a href="#tabs-1">Jednoduchý pohyb</a></li>
-                <li><a href="#tabs-2">Svetelný senzor</a></li>
-                <li><a href="#tabs-3">Senzor vzdialenosti</a></li>
+                <li><a href="#tabs-1">Simple movements</a></li>
+                <li><a href="#tabs-2">Light sensor</a></li>
+                <li><a href="#tabs-3">Distance sensor</a></li>
               </ul>
 
-          <div id="tabs-1">
-            <div style="width: 640px; height: 500px; margin: 0 auto;">
-            <!--[if IE]>
-            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-              codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-              width="640" height="500">
-            <param name="movie" value="swfs/Hello_move.swf" />
-            <![endif] -->
-            <!--[if !IE]> -->
-            <object type="application/x-shockwave-flash"
-              data="swfs/Hello_move.swf" width="640" height="500">
-            <!-- <![endif]-->
-            <p><a href="swfs/Hello_move.swf">Screencast</a></p>
-            </object>
-            </div></p>
+              <div id="tabs-1">
+                <div style="width: 640px; height: 500px; margin: 0 auto;">
+                <!--[if IE]>
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+                  width="640" height="500">
+                <param name="movie" value="swfs/Hello_move.swf" />
+                <![endif] -->
+                <!--[if !IE]> -->
+                <object type="application/x-shockwave-flash" wmode="transparent"
+                  data="swfs/Hello_move.swf" width="640" height="500">
+                <!-- <![endif]-->
+                <p><a href="swfs/Hello_move.swf">Screencast</a></p>
+                </object>
+                </div></p>
 
-          </div>
+              </div>
 
-          <div id="tabs-2">
-            <div style="width: 641px; margin: 0 auto;">
-            <!--[if IE]>
-            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-              codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-              width="640" height="500">
-            <param name="movie" value="swfs/Pouzitie_lightov.swf" />
-            <![endif] -->
-            <!--[if !IE]> -->
-            <object type="application/x-shockwave-flash"
-              data="swfs/Pouzitie_lightov.swf" width="641" height="500">
-            <!-- <![endif]-->
-            <p><a href="swfs/Pouzitie_lightov.swf">Screencast</a></p>
-            </object>
+              <div id="tabs-2">
+                <div style="width: 641px; margin: 0 auto;">
+                <!--[if IE]>
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+                  width="640" height="500">
+                <param name="movie" value="swfs/Pouzitie_lightov.swf" />
+                <![endif] -->
+                <!--[if !IE]> -->
+                <object wmode="transparent" type="application/x-shockwave-flash"
+                  data="swfs/Pouzitie_lightov.swf" width="641" height="500">
+                <!-- <![endif]-->
+                <p><a href="swfs/Pouzitie_lightov.swf">Screencast</a></p>
+                </object>
+                </div>
+                </p>
+              </div>
+
+
+              <div id="tabs-3">
+                <div style="width: 641px; margin: 0 auto;">
+                <!--[if IE]>
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+                  width="640" height="500">
+                <param name="movie" value="swfs/Pouzitie_sonica.swf" />
+                <![endif] -->
+                <!--[if !IE]> -->
+                <object type="application/x-shockwave-flash" wmode="transparent"
+                  data="swfs/Pouzitie_sonica.swf" width="640" height="500">
+                <!-- <![endif]-->
+                <p><a href="swfs/Pouzitie_sonica.swf">Screencast</a></p>
+                </object>
+                </div>
+                </p>
+               </div>
             </div>
+
+            <p>
+              To sum up what these videos wanted to say here is a table which explains the most common NXC commands (which are actually Python functions) that can be used to program the robot:
+              <table class='table'>
+                <tr>
+                  <th>Function</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td><code>OnFwd(output, speed)</code></td>
+                  <td>Set <code>output</code> to <code>speed</code> and force a motor connected to it to move forward</td>
+                </tr>
+                <tr>
+                  <td><code>OnRev(output, speed)</code></td>
+                  <td>Set <code>output</code> to <code>speed</code> and force a motor connected to it to move backward</td>
+                </tr>
+                <tr>
+                  <td><code>Off(output)</code></td>
+                  <td>Turns the <code>output</code> off.</td>
+                </tr>
+
+
+              </table>
             </p>
-          </div>
+         </section>
+         <section id="other-features">
+           <h3>Other features</h3>
+           <div id="console">
+                <h4>Console</h4>
+                <p>
+          If you want to open the console, click at the topright image in nxtemu. You should see something like this afterwards.
+                </p>
+                <img src="css/console.png" class="all-width"/>
 
-
-          <div id="tabs-3">
-            <div style="width: 641px; margin: 0 auto;">
-            <!--[if IE]>
-            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-              codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-              width="640" height="500">
-            <param name="movie" value="swfs/Pouzitie_sonica.swf" />
-            <![endif] -->
-            <!--[if !IE]> -->
-            <object type="application/x-shockwave-flash"
-              data="swfs/Pouzitie_sonica.swf" width="640" height="500">
-            <!-- <![endif]-->
-            <p><a href="swfs/Pouzitie_sonica.swf">Screencast</a></p>
-            </object>
+                <p>
+                  You can command the robot directly form the emulator. It will respond immediately.
+                </p>
             </div>
+         </section>
+    </section>
+
+    <section>
+    <h2 id="download">Where can I get it?</h2>
+            <div>
+              <p>
+              The latest version can be always obtained from the <a
+              href="https://github.com/xlcteam/nxtIDE/downloads">GitHub page</a>
+            of this project. <br /> <br />
+
+              You can obtain Windows installer for the latest version <a href="https://github.com/downloads/xlcteam/nxtIDE/nxtIDE_setup_v1.0.0.exe">here</a>.
             </p>
-          </div>
-         </div>
-      </section>
+            </div>
+
+   </section>
+   <section>
+    <h2 id="who">Who?</h2>
+    <div>
+      <p>nxtIDE was created and is maintaned by members of the <a href="https://github.com/xlcteam?tab=members">XLC Team</a>.</p>
     </div>
+   </section>
+
+
+         <section id="who">
+              <footer><p>(c) 2011 - 2013, Brought to you by the <a href="https://github.com/xlcteam">XLC Team</a>, <a href="http://xlc-team.info">xlc-team.info</a></p>
+              </footer>
+         </section>
+
+       </div>
+       <div id="menu">
+          <ol>
+            <li><a href="#what">What?</a></li>
+            <li><a href="#why">Why?</a></li>
+            <li><a href="#features">What can I do with it?</a></li>
+            <li><a href="#download">Where can I get it?</a></li>
+            <li><a href="#who">Who?</a></li>
+          </ol>
+       </div>
   </div>
+</div>
   <a href="http://github.com/xlcteam/nxtIDE"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
 
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38203678-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>
 

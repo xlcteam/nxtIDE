@@ -1,0 +1,190 @@
+body {
+  margin-top: 1.0em;
+  background-color: #DFE2E2;
+  font-family: 'Titillium Web', sans-serif;
+  color: #555;
+}
+#container {
+  background-color: #fff;
+  border-radius: 3px;
+  float: left;
+  width: 750px;
+  margin-left: 75px;
+}
+#container h2 {
+  text-align: center;
+  color: #000;
+  margin: 0.83em auto;
+  /*nasty anchor fix -- problematic due to fixed height header */
+  padding-top: 140px;
+  margin-top: -140px;
+}
+
+#container > * {
+  padding: 15px;
+}
+
+section h2 {
+  /*font-family: "Lucida Console", Monaco, monospace;*/
+}
+
+section h3, section h4 {
+  margin: 18px 10px;
+}
+
+section div {
+  border-radius: 10px;
+  background-color: #fff; 
+}
+
+section div p {
+  padding: 10px;
+  margin-top: 0px;
+}
+
+#fork-us {
+  float: right !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+}
+
+#header {
+  color: #515050;
+  font-weight: 900;
+  font-size: 1.2em;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 999;
+  -moz-box-shadow:    5px 5px 5px 6px #ccc;
+  -webkit-box-shadow: 5px 5px 5px 6px #ccc;
+  box-shadow:         5px 5px 5px 6px #ccc;
+}
+
+#header div {
+  margin: 0 auto;
+  width: 650px;
+}
+
+#header img{
+  float: left;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+#header h1 {
+  margin: 0;
+  margin-right: .1em;
+  text-shadow: rgba(0, 0, 0, .7) 1px 1px 2px;
+  font-family: Verdana, Geneva, sans-serif;
+  letter-spacing: -1px;
+}
+#header .logo {
+  text-transform: none;
+  text-decoration: none;
+  color: #FFA900;
+  margin-right: 7px;
+  font-size: 1.5em;
+}
+#header p {
+  font-style: italic;
+  margin-top: 0px;
+}
+
+.subtext{
+  font-size: 13px;
+}
+
+.item {
+  padding-top: 10px;
+  margin: 0 auto;
+  width: 700px;
+  clear: left;
+}
+
+.item .content {
+  width: 400px;
+}
+
+.left {
+  float: left;
+}
+
+.photo {
+  width: 300px;
+}
+
+.photo img {
+  margin: 0 auto;
+  display: block;
+}
+
+.photo p {
+  font-size: 12px;
+  text-align: center;
+}
+
+footer p {
+  text-align: center;
+}
+
+#menu {
+  float: left;
+  width: 150px;
+  position: fixed;
+  margin-left: 825px;
+  background-color: #fff;
+  border-radius: 0 3px 3px 0;
+  margin-top: 80px;
+}
+
+#menu ol {
+  padding-left: 25px;
+}
+
+#menu li {
+  padding: 2px 0;
+  margin: 0;
+  font-size: 13px;
+}
+
+#menu a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#menu a:hover {
+  text-decoration: underline;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 900px;
+  margin-top: 160px;
+}
+
+object {
+  z-index: 0;
+}
+
+.all-width{
+  width: 100%;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-radius: 3px;
+}
+
+table td, table th {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+}
+
+table th {
+  background-color: #ccc;
+}
