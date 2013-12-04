@@ -173,3 +173,18 @@ object {
 .all-width{
   width: 100%;
 }
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-radius: 3px;
+}
+
+table td, table th {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+}
+
+table th {
+  background-color: #ccc;
+}
