@@ -165,3 +165,7 @@ footer p {
 object {
   z-index: 0;
 }
+
+.all-width{
+  width: 100%;
+}
