@@ -28,7 +28,7 @@ section h2 {
   /*font-family: "Lucida Console", Monaco, monospace;*/
 }
 
-section h3 {
+section h3, section h4 {
   margin: 18px 10px;
 }
 
