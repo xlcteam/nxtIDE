@@ -183,6 +183,7 @@ table {
 table td, table th {
   padding: 4px 8px;
   border: 1px solid #ccc;
+  min-width: 200px;
 }
 
 table th {
