@@ -402,6 +402,10 @@ def lcd_draw(obj, pA, pB, pC=None, pD=None):
     .. [/sk]
     """
 
+    if obj == "line":
+        LineOut(pA, pB, pC, pD)
+    elif obj == "rectange":
+        RectOut(pA, pB, pC, pD)
 
 
 def LineOut(x0, y0, x1, y1):
