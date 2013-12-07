@@ -21,7 +21,6 @@ import ctypes
 #--------------------------------
 __version__ = "1.0.0"
 
-
 class PYSTCChild(wx.aui.AuiMDIChildFrame):
     path = ''
     filename = ''
@@ -478,6 +477,20 @@ class Editor(wx.aui.AuiMDIParentFrame):
 
         self.SetIcon(wx.Icon('icons/nxted.ico', wx.BITMAP_TYPE_ICO))
 
+        # import config from yaml file
+        #self.cfgfile = ConfigParser.ConfigParser()
+        #self.cfgfile.readfp(open('config.ini'))
+
+        self.cfgfile = open("./config.yml", "r")
+        self.cfg = yaml.load(self.cfgfile)
+        self.cfgfile.close()
+
+        #self.cfg = {'nxtemudir': self.cfgfile.get('nxted', 'nxtemu')}
+
+        if wx.Platform == '__WXMSW__':
+            gdi32 = ctypes.WinDLL("gdi32.dll")
+            gdi32.AddFontResourceA(os.path.join(self.cfg["nxtemudir"], "theme", "Inconsolata.ttf"))
+
         self._mgr = wx.aui.AuiManager()
         self._mgr.SetManagedWindow(self)
         self.msgs = wx.TextCtrl(self, -1, "", wx.Point(0, 0), wx.Size(150, 40),
@@ -501,16 +514,6 @@ class Editor(wx.aui.AuiMDIParentFrame):
 
         # self._mgr.Update()
         self.Show(True)
-
-        # import config from yaml file
-        #self.cfgfile = ConfigParser.ConfigParser()
-        #self.cfgfile.readfp(open('config.ini'))
-
-        self.cfgfile = open("./config.yml", "r")
-        self.cfg = yaml.load(self.cfgfile)
-        self.cfgfile.close()
-
-        #self.cfg = {'nxtemudir': self.cfgfile.get('nxted', 'nxtemu')}
 
         self.dir = tempfile.mkdtemp()
 
