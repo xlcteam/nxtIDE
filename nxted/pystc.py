@@ -15,10 +15,10 @@ import sys
 
 
 if wx.Platform == '__WXMSW__':
-    faces = {'times': 'Times New Roman',
-             'mono': 'Courier',
-             'helv': 'Arial',
-             'other': 'Helvetica',
+    faces = {'times': 'Inconsolata',
+             'mono': 'Inconsolata',
+             'helv': 'Inconsolata',
+             'other': 'Inconsolata',
              'size': 12,
              'size2': 10,
              }
