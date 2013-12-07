@@ -376,6 +376,34 @@ def lcd_print_at(xpos, ypos, text):
  
     TextOut(xpos*6, 64 - ypos*8, text)
 
+
+def lcd_draw(obj, pA, pB, pC=None, pD=None):
+    """
+    .. [en]
+    lcd_draw(obj, pA, pB, pC, pD)
+
+    Draw obj given some parameters.
+
+    :param int pA: parameter A.
+    :param int pB: parameter B.
+    :param int pC: parameter C.
+    :param int pD: parameter D.
+
+    .. [/en]
+    .. [sk]
+    lcd_draw(obj, pA, pB, pC, pD)
+
+    Vykresli obj v závislosti od daných parametrov.
+
+    :param int pA: parameter A.
+    :param int pB: parameter B.
+    :param int pC: parameter C.
+    :param int pD: parameter D.
+    .. [/sk]
+    """
+
+
+
 def LineOut(x0, y0, x1, y1):
     """
     .. [en]
