@@ -925,7 +925,7 @@ def MotorTachoCount(motor):
     .. [sk]
     MotorTachoCount(motor)
 
-    Načítavanie otáčok motora.
+    Načíta hodnotu otáčkomeru motora.
 
     :param int motor: motor, z ktorého chceme načítavať.
     .. [/sk]
@@ -941,6 +941,26 @@ def MotorTachoCount(motor):
     if motor & OUT_C:
         return robot.rotC
 
+def MotorRotationCount(motor):
+    """
+    .. [en]
+    MotorRotationCount(motor)
+
+    Get motor tachometer counter value.
+
+    :param int motor: motor we want to get tachometer count from.
+
+    .. [/en]
+    .. [sk]
+    MotorRotationCount(motor)
+
+    Načíta hodnotu otáčkomeru motora.
+
+    :param int motor: motor, z ktorého chceme načítavať.
+    .. [/sk]
+    """
+
+    return MotorTachoCount(motor)
 
 def RotateMotor(motor, speed, angle):
     """
