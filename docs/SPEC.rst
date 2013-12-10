@@ -22,3 +22,12 @@ input is defined by a `slot` and a `type`.
 - **type**: the type of the input. Its value can be one of the following:
   [light, touch, us, compass]
 
+
+others
+------
+
+This field should be used for other various settings of the environment.
+Currently the following are recognized: 
+
+- **background**: path to the background file of the nxtemu environment.
+
