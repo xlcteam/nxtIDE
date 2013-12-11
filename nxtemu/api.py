@@ -1232,6 +1232,49 @@ def StopAllTasks():
     robot.scr_running = False
     robot.die = True
 
+def motor_tacho_count(motor):
+    """
+    .. [en]
+    motor_tacho_count(motor)
+
+    Get motor tachometer counter value.
+
+    :param int motor: motor we want to get tachometer count from.
+
+    .. [/en]
+    .. [sk]
+    motor_tacho_count(motor)
+
+    Načíta hodnotu otáčkomeru motora.
+
+    :param int motor: motor, z ktorého chceme načítavať.
+    .. [/sk]
+    """
+
+    return MotorTachoCount(motor)
+
+
+def motor_rotation_count(motor):
+    """
+    .. [en]
+    motor_rotation_count(motor)
+
+    Get motor tachometer counter value.
+
+    :param int motor: motor we want to get tachometer count from.
+
+    .. [/en]
+    .. [sk]
+    motor_rotation_count(motor)
+
+    Načíta hodnotu otáčkomeru motora.
+
+    :param int motor: motor, z ktorého chceme načítavať.
+    .. [/sk]
+    """
+
+    return motor_tacho_count(motor)
+
 
 def on_fwd(motor, speed):
     """
