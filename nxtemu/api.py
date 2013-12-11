@@ -1128,7 +1128,7 @@ def SensorUS(sensor):
     SensorUS(sensor)
 
     Read value from given lowspeed sensor (e.g. Ultrasonic). The input port
-    has to be configured as lowspeed via :func:`api.Lowspeed` function before 
+    has to be configured as lowspeed via :func:`api.SetSensorLowspeed` function before 
     using this function.
 
     :param int sensor: sensor we want to read from
