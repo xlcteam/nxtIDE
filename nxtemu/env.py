@@ -22,9 +22,15 @@ screen = pygame.display.get_surface()
 background = pygame.Surface(screen.get_size()).convert()
 
 def write_config(filename = './config.yml'):
-    stream = open(filename, "w+")
-    yaml.dump(cfg, stream)
-    stream.close()
+    if not os.path.isfile(filename):
+        filename = os.path.join(filename, "robot.erc")
+
+    try:
+        stream = open(filename, "w+")
+        yaml.dump(cfg, stream)
+        stream.close()
+    except IOError:
+        # TODO: show message box - permission denied
 
 def read_config(filename = './config.yml'):
     stream = open(filename, "r")
