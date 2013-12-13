@@ -31,6 +31,7 @@ def write_config(filename = './config.yml'):
         stream.close()
     except IOError:
         # TODO: show message box - permission denied
+        pass
 
 def read_config(filename = './config.yml'):
     stream = open(filename, "r")
