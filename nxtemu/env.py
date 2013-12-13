@@ -22,12 +22,12 @@ screen = pygame.display.get_surface()
 background = pygame.Surface(screen.get_size()).convert()
 
 def write_config(filename = './config.yml'):
-    stream = open(p(filename), "w")
+    stream = open(filename, "w+")
     yaml.dump(cfg, stream)
     stream.close()
 
 def read_config(filename = './config.yml'):
-    stream = open(p(filename), "r")
+    stream = open(filename, "r")
     cfg = yaml.load(stream)
     stream.close()
     return cfg
