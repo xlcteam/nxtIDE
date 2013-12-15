@@ -22,7 +22,7 @@ screen = pygame.display.get_surface()
 background = pygame.Surface(screen.get_size()).convert()
 
 def write_config(filename = './config.yml'):
-    if filename[-4] != ".":
+    if filename[-4] != "." and len(filename) > 4:
         # check whether the folder for config file exists
         if not os.path.exists(os.path.dirname(filename)) or not os.path.exists(filename):
             filename += ".erc"
