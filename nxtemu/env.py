@@ -24,7 +24,7 @@ background = pygame.Surface(screen.get_size()).convert()
 def write_config(filename = './config.yml'):
     if not os.path.exists(os.path.dirname(filename)):
         filename += ".erc"
-    if not os.path.isfile(filename):
+    elif not os.path.isfile(filename):
         filename = os.path.join(filename, "robot.erc")
 
     try:
