@@ -22,11 +22,16 @@ screen = pygame.display.get_surface()
 background = pygame.Surface(screen.get_size()).convert()
 
 def write_config(filename = './config.yml'):
-    if filename[-4] != ".":
-      if os.path.exists(filename):
-          filename = os.path.join(filename, "robot.erc")
-      else:
-          filename += ".erc"
+    if len(filename) > 4 and filename[-4] != ".":
+        if os.path.exists(filename):
+            filename = os.path.join(filename, "robot.erc")
+        else:
+            filename += ".erc"
+    elif len(filename) <= 4:
+        filename += ".erc"
+    else:
+        # magic happened
+        return
 
     try:
         stream = open(filename, "w+")
