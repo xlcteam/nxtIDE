@@ -29,9 +29,6 @@ def write_config(filename = './config.yml'):
             filename += ".erc"
     elif len(filename) <= 4:
         filename += ".erc"
-    else:
-        # magic happened
-        return
 
     try:
         stream = open(filename, "w+")
