@@ -194,3 +194,54 @@ table th {
   height: 500px; 
   margin: 0 auto;
 }
+
+
+.download_btn {
+	-moz-box-shadow:inset 0px 2px 7px 4px #cae3fc;
+	-webkit-box-shadow:inset 0px 2px 7px 4px #cae3fc;
+	box-shadow:inset 0px 2px 7px 4px #cae3fc;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #457cb3) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #457cb3 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#457cb3');
+	background-color:#79bbff;
+	-webkit-border-top-left-radius:13px;
+	-moz-border-radius-topleft:13px;
+	border-top-left-radius:13px;
+	-webkit-border-top-right-radius:13px;
+	-moz-border-radius-topright:13px;
+	border-top-right-radius:13px;
+	-webkit-border-bottom-right-radius:13px;
+	-moz-border-radius-bottomright:13px;
+	border-bottom-right-radius:13px;
+	-webkit-border-bottom-left-radius:13px;
+	-moz-border-radius-bottomleft:13px;
+	border-bottom-left-radius:13px;
+	text-indent:0px;
+	border:1px solid #469df5;
+	display:inline-block;
+	color:#ffffff;
+
+	font-size:21px;
+	font-weight:normal;
+	font-style:normal;
+	height:55px;
+	line-height:55px;
+	width:132px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #287ace;
+  position: absolute;
+  top: 30%;
+  left: 40px;
+}
+.download_btn:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #457cb3), color-stop(1, #79bbff) );
+	background:-moz-linear-gradient( center top, #457cb3 5%, #79bbff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#457cb3', endColorstr='#79bbff');
+	background-color:#457cb3;
+}
+
+.download_btn:active {
+	position:relative;
+	top:1px;
+}
