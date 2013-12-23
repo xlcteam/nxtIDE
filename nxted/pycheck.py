@@ -22,7 +22,7 @@ class Visitor(ASTVisitor):
                                 'pygame', 'list', 'range', 'RoboException', 
                                 'None', 'int', 'float', 'zip', 'arange', 
                                 'sin', 'array', 'resize', 'pi', 'RoboThread',
-                                '__clock__']
+                                '__clock__', 'len']
         self.ids['__fn__'] = []
         self.ids[''] = []
 
