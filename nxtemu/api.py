@@ -351,62 +351,6 @@ def lcd_print(text):
         line_position = 64 - robot._cur_lcd_line* 8
         TextOut(0, line_position, line)
 
-def lcd_print_at(xpos, ypos, text):
-    """
-    .. [en]
-    lcd_print_at(xpos, ypos, text)
-
-    Prints text on given y-th line, starting on the position of the x-th
-    character.
-
-    :param int xpos: the x coordinate (line)
-    :param int ypos: the y coordinate (line)
-    :param string text: text to be printed on the LCD screen
-    .. [/en]
-    .. [sk]
-    lcd_print_at(xpos, ypos, text)
-
-    Vypíše text na daný y-ty riadok, začínajúc na pozícii x-tého znaku. 
-    
-    :param int xpos: X-ová súradnica (riadok)
-    :param int ypos: Y-ová súradnica (riadok)
-    :param string text: text, ktorý sa má vypísať na LCD obrazovku
-     .. [/sk]
-    """
- 
-    TextOut(xpos*6, 64 - ypos*8, text)
-
-
-def lcd_draw(obj, pA, pB, pC=None, pD=None):
-    """
-    .. [en]
-    lcd_draw(obj, pA, pB, pC, pD)
-
-    Draw obj given some parameters.
-
-    :param int pA: parameter A.
-    :param int pB: parameter B.
-    :param int pC: parameter C.
-    :param int pD: parameter D.
-
-    .. [/en]
-    .. [sk]
-    lcd_draw(obj, pA, pB, pC, pD)
-
-    Vykresli obj v závislosti od daných parametrov.
-
-    :param int pA: parameter A.
-    :param int pB: parameter B.
-    :param int pC: parameter C.
-    :param int pD: parameter D.
-    .. [/sk]
-    """
-
-    if obj == "line":
-        LineOut(pA, pB, pC, pD)
-    elif obj == "rectangle":
-        RectOut(pA, pB, pC, pD)
-
 
 def LineOut(x0, y0, x1, y1):
     """
@@ -1373,6 +1317,62 @@ def random(n=None):
     """
 
     return Random(n)
+
+def lcd_print_at(xpos, ypos, text):
+    """
+    .. [en]
+    lcd_print_at(xpos, ypos, text)
+
+    Prints text on given y-th line, starting on the position of the x-th
+    character.
+
+    :param int xpos: the x coordinate (line)
+    :param int ypos: the y coordinate (line)
+    :param string text: text to be printed on the LCD screen
+    .. [/en]
+    .. [sk]
+    lcd_print_at(xpos, ypos, text)
+
+    Vypíše text na daný y-ty riadok, začínajúc na pozícii x-tého znaku. 
+    
+    :param int xpos: X-ová súradnica (riadok)
+    :param int ypos: Y-ová súradnica (riadok)
+    :param string text: text, ktorý sa má vypísať na LCD obrazovku
+     .. [/sk]
+    """
+ 
+    TextOut(xpos*6, 64 - ypos*8, text)
+
+
+def lcd_draw(obj, pA, pB, pC=None, pD=None):
+    """
+    .. [en]
+    lcd_draw(obj, pA, pB, pC, pD)
+
+    Draw obj given some parameters.
+
+    :param int pA: parameter A.
+    :param int pB: parameter B.
+    :param int pC: parameter C.
+    :param int pD: parameter D.
+
+    .. [/en]
+    .. [sk]
+    lcd_draw(obj, pA, pB, pC, pD)
+
+    Vykresli obj v závislosti od daných parametrov.
+
+    :param int pA: parameter A.
+    :param int pB: parameter B.
+    :param int pC: parameter C.
+    :param int pD: parameter D.
+    .. [/sk]
+    """
+
+    if obj == "line":
+        LineOut(pA, pB, pC, pD)
+    elif obj == "rectangle":
+        RectOut(pA, pB, pC, pD)
 
 
 __clock__ = pygame.time.Clock()
