@@ -562,10 +562,10 @@ def RectOut(x, y, width, height):
     LineOut(x + width, y, x + width, y - height)
 
 
-def PolyOut(vertices):
+def lcd_draw_polygon(vertices):
     """
     .. [en]
-    PolyOut(points)
+    lcd_draw_polygon(vertices)
 
     Draw a polygon with specified vertices.
 
@@ -573,7 +573,7 @@ def PolyOut(vertices):
 
     .. [/en]
     .. [sk]
-    PolyOut(vrcholy)
+    lcd_draw_polygon(vrcholy)
 
     Vykreslí polygón podľa zadaných vrcholov.
 
