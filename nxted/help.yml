@@ -7,12 +7,14 @@ CircleOut: "CircleOut(x, y, radius)\n\n    Draw a circle with center at [x, y] a
 ClearLine: "ClearLine(line)\n\n    Clear one line on the screen.\n\n    int line:\
   \ line we want to clear.\n\n    "
 ClearScreen: "ClearScreen()\n\n    Clear the screen.\n\n    "
-Float: "Float(motor)\n\n    Kill power for the motor.\n\n    int motor: motor we want\
+Float: "Float(motor)\n\n    Make the motor float. \n\n    int motor: motor we want\
   \ to stop.\n\n    "
 LineOut: "LineOut(x0, y0, x1, y1)\n\n    Draw a line from [x0, y0] to [x1, y1].\n\n\
   \    int x0: X coordinate of the start point of the line\n    int y0: Y coordinate\
   \ of the start point of the line\n    int x1: X coordinate of the end point of the\
   \ line\n    int y1: Y coordinate of the start point of the line\n\n    "
+MotorRotationCount: "MotorRotationCount(motor)\n\n    Get motor tachometer counter\
+  \ value.\n\n    int motor: motor we want to get tachometer count from.\n\n    "
 MotorTachoCount: "MotorTachoCount(motor)\n\n    Get motor tachometer counter value.\n\
   \n    int motor: motor we want to get tachometer count from.\n\n    "
 NumOut: "NumOut(x, y, num)\n\n    Print number on the screen.\n\n    int x: X coordinate\
@@ -42,11 +44,11 @@ RectOut: "RectOut(x, y, width, height)\n\n    Draw a rectangle from [x, y] with 
   \ width of the rectangle.\n    int height: The height of the rectangle.\n\n    "
 ResetScreen: "ResetScreen()\n\n    Return the screen to Running... state.\n\n    "
 ResetTachoCount: "ResetTachoCount(motor)\n\n    Reset tachometer counter.\n\n    int\
-  \ motor: desired motor output.\n\n    "
+  \ motor: motor we want to reset.\n\n    "
 RotateMotor: "RotateMotor(motor, speed, angle)\n\n    Rotate motor in specified direction\
   \ at specified speed for the specified\n    number of degrees.\n\n    int motor:\
   \ motor we want to rotate\n    int speed: speed we want to run the motor at, from\
-  \ 0 to 100. Negative \n                      value reverses direction.\n    int\
+  \ 0 to 100. \n                      Negative value reverses direction.\n    int\
   \ angle: number of degrees we want to rotate the motor. Negative \n            \
   \          value reverses direction.\n\n    "
 Sensor: "Sensor(sensor)\n\n    Read value from given sensor.\n\n    int sensor: sensor\
@@ -62,7 +64,7 @@ SensorHTIRSeeker: "\n    SensorHTIRSeeker(sensor, direction, val1, val2, val3, v
   \ in the third part\n    int val4: value in the fourth part\n    int val5: value\
   \ in the fifth part\n    "
 SensorUS: "SensorUS(sensor)\n\n    Read value from given lowspeed sensor (e.g. Ultrasonic).\
-  \ The input port\n    has to be configured as lowspeed via :func:`api.Lowspeed`\
+  \ The input port\n    has to be configured as lowspeed via :func:`api.SetSensorLowspeed`\
   \ function before \n    using this function.\n\n    int sensor: sensor we want to\
   \ read from\n\n    "
 SetSensor: SetSensor(sensor, type)

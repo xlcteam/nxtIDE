@@ -506,6 +506,32 @@ def RectOut(x, y, width, height):
     LineOut(x + width, y, x + width, y - height)
 
 
+def lcd_draw_polygon(vertices):
+    """
+    .. [en]
+    lcd_draw_polygon(vertices)
+
+    Draw a polygon with specified vertices.
+
+    :param 2D array vertices: [[x,y]] coordinates of the vertices.
+
+    .. [/en]
+    .. [sk]
+    lcd_draw_polygon(vrcholy)
+
+    Vykreslí polygón podľa zadaných vrcholov.
+
+    :param 2D array vertices: [[x,y]] súradnice vrcholov.
+    .. [/sk]
+    """
+
+    for i in range(len(vertices)):
+        if i == len(vertices)-1:
+            LineOut(vertices[i][0], vertices[i][1], vertices[0][0], vertices[0][1])
+        else:
+            LineOut(vertices[i][0], vertices[i][1], vertices[i+1][0], vertices[i+1][1])
+
+
 def ResetScreen():
     """
     .. [en]
