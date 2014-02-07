@@ -6,6 +6,7 @@ Welcome to the nxtIDE documentation!
 .. toctree::
    :maxdepth: 2
 
+   installation
    api
 
 
