@@ -14,6 +14,8 @@ installers available to facilitate the installation process.
 Windows
 -------
 
+There is an installer binary available for most Windows systems. It can be found here_.
+
 Linux & OS X
 ------------
 
