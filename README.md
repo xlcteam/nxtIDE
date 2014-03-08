@@ -41,7 +41,6 @@ Then clone this repository by running:
 
 You can then try to run `nxtemu/nxtemu.py` and `nxted/nxted.py`.
 
-
 License
 -------
 
