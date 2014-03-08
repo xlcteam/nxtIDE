@@ -42,4 +42,9 @@ Then clone this repository by running:
 You can then try to run `nxtemu/nxtemu.py` and `nxted/nxted.py`.
 
 
-(c) 2011 - 2013, Brought to you by the [XLC Team](https://github.com/xlcteam), http://xlc-team.info
+License
+-------
+
+nxtIDE is licensed under the terms of the MIT License.
+
+(c) 2011 - 2014, Brought to you by the [XLC Team](https://github.com/xlcteam), http://xlc-team.info
