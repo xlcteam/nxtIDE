@@ -19,5 +19,8 @@ There is an installer binary available for most Windows systems. It can be found
 Linux & OS X
 ------------
 
+On these (unix type) of operating systems one should be able to run nxtIDE
+from the sources. 
+
 Other platforms
 ---------------
