@@ -1099,6 +1099,10 @@ def sensor(sensor):
 
     Read value from given sensor.
 
+    Note that the way this function will try to read the value from the sensor
+    depends on the type that was set to it by the set_sensor or set_sensors
+    function prior to calling it.
+
     :param int sensor: sensor we want to read from
 
     .. [/en]
@@ -1112,7 +1116,6 @@ def sensor(sensor):
     """
 
     return Sensor(sensor)
-
 
 def SensorUS(sensor):
     """
