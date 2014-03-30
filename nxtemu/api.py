@@ -1092,6 +1092,28 @@ def Sensor(sensor):
     return robot.sensors[sensor].getValue()
 
 
+def sensor(sensor):
+    """
+    .. [en]
+    sensor(sensor)
+
+    Read value from given sensor.
+
+    :param int sensor: sensor we want to read from
+
+    .. [/en]
+    .. [sk]
+    sensor(sensor)
+
+    Načíta hodnotu z daného senzoru.
+
+    :param int sensor: senzor, z ktorého chceme čítať.
+    .. [/sk]
+    """
+
+    return Sensor(sensor)
+
+
 def SensorUS(sensor):
     """
     .. [en]
