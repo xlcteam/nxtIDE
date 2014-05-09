@@ -1,6 +1,8 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
+import wxversion
+wxversion.select('2.8')
 import wx
 import wx.aui
 import wx.stc as stc
