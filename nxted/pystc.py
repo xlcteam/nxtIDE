@@ -1,6 +1,9 @@
 
 import  keyword
 
+import wxversion
+wxversion.select('2.8')
+
 import  wx
 import  wx.stc as stc
 import  wx.lib.newevent
@@ -751,9 +754,13 @@ class PythonSidebar(wx.Panel):
             line_num = editor.GetCurrentLine()
             indent = editor.GetLineIndentation(line_num - 1) * ' '
  
-            # if we are on an empty line
-            if cur_line[1] == 0:
-                editor.AddText(indent + 'while True:\n')
+            # if we are on an empty line (as in there is just whitespace)
+            if len(cur_line[0].strip()) == 0:
+                if (cur_line[1] != 0):
+                    editor.AddText('while True:\n')
+                    indent = editor.GetLineIndentation(line_num) * ' '
+                else:
+                    editor.AddText(indent + 'while True:\n')
                 editor.AddText(indent + editor.GetIndent() * ' ' + 'pass')
         else:
             line_num = editor.GetCurrentLine()
