@@ -25,14 +25,16 @@ Dependencies
 
 *aka built upon*
 
-- wxpython
+- wxPython
 - pygame
 - pynxc
 
 Installation
 ------------
 
-First of all, make sure you have all dependencies available on your system.
+First of all, make sure you have all the aforementioned dependencies available on your system. The packages can be aquired trough pip.
+
+    pip install wxPython pygame pynxc
 
 Then clone this repository by running:
 
